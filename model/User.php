@@ -2,31 +2,31 @@
     /**
      *
      */
-    class Utente {
+    class User {
 
-        // Variabile per l'ID dell'utente
+        // Variable for user ID
         private int $id;
-        // Variabili di istanza
+        // Instance variables
         protected $username;
         protected $email;
 
-        // Costruttore
+        // Constructor
         public function __construct($username, $email) {
             $this->username = $username;
             $this->email = $email;
         }
 
-        // Getter per l'ID dell'utente
+        // Getter for user ID
         public function getId(): int {
             return $this->id;
         }
 
-        // Setter per l'ID dell'utente
+        // Setter for user ID
         public function setId(int $id): void {
             $this->id = $id;
         }
 
-        // Getter e Setter per il nome utente
+        // Getter and Setter for username
         public function getUsername() {
             return $this->username;
         }
@@ -35,7 +35,7 @@
             $this->username = $username;
         }
 
-        // Getter e Setter per l'email
+        // Getter and Setter for email
         public function getEmail() {
             return $this->email;
         }
@@ -44,7 +44,7 @@
             $this->email = $email;
         }
 
-        // Funzione per stampare le informazioni dell'utente
+        // Function to print user information
         public function __toString() {
             echo "Id: " . $this->id . "\n";
             echo "Username: " . $this->username . "\n";
