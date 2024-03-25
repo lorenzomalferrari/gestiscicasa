@@ -7,13 +7,15 @@
         // Variable for user ID
         private int $id;
         // Instance variables
+        private string $code;
         protected $username;
-        protected $email;
+        protected $password;
 
         // Constructor
-        public function __construct($username, $email) {
-            $this->username = $username;
-            $this->email = $email;
+        public function __construct($_username, $_password, $_code) {
+            $this->username = $_username;
+            $this->password = $_password;
+            $this->code = $_code;
         }
 
         // Getter for user ID
@@ -36,19 +38,29 @@
         }
 
         // Getter and Setter for email
-        public function getEmail() {
-            return $this->email;
+        public function getPassword() {
+            return $this->password;
         }
 
-        public function setEmail($email) {
-            $this->email = $email;
+        public function setPassword($password) {
+            $this->password = $password;
+        }
+
+        // Getter and Setter for code
+        public function getCode() {
+            return $this->code;
+        }
+
+        public function setCode($code) {
+            $this->code = $code;
         }
 
         // Function to print user information
-        public function __toString() {
-            echo "Id: " . $this->id . "\n";
-            echo "Username: " . $this->username . "\n";
-            echo "Email: " . $this->email . "\n";
+        public function __toString(): string {
+            return  "Id: " . $this->id . "\n" .
+                    "Code: " . $this->code . "\n" .
+                    "Username: " . $this->username . "\n" .
+                    "Password: " . $this->password . "\n";
         }
     }
 ?>
