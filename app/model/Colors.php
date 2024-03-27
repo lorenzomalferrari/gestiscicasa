@@ -1,5 +1,8 @@
 <?php
-
+    /**
+     * Classe per gestire il Colore.
+     * Utile per dare un colore a Proprietà, Prodotti e altro
+     */
     class Colors {
         private int $id;
         private string $name;
