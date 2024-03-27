@@ -1,6 +1,6 @@
 <?php
 
-    class Color {
+    class Colors {
         private int $id;
         private string $name;
         private string $hexCode;
