@@ -6,5 +6,4 @@
     }
 
     require_once('app/controller/login.php');
-
 ?>
