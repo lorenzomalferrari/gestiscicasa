@@ -1,4 +1,5 @@
 <?php
+	echo "login.php";
 	//File che contiene le credenziali d'accesso al database
 	require_once('../model/db/Credenziali.php');
 
