@@ -33,7 +33,7 @@
 		if ($result->num_rows > 0) {
 			echo "Login riuscito!";
 			// Dopo aver verificato le credenziali con successo
-			echo "<script>window.location.href = 'home.html';</script>";
+			echo "<script>window.location.href = '../view/home.html';</script>";
 
 		} else {
 			echo "Credenziali non valide.";
