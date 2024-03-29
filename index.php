@@ -5,5 +5,6 @@
         $_POST = $_GET;
     }
 
-    require_once('app/controller/login.php');
+    //require_once('app/controller/login.php');
+    require_once('app/view/login.html');
 ?>
