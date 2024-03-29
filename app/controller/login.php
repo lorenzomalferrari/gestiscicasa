@@ -1,9 +1,6 @@
 <?php
-	// Connessione al database (sostituire con le tue credenziali)
-	$servername = "localhost";
-	$username = "username";
-	$password = "password";
-	$dbname = "nomedeldatabase";
+	//File che contiene le credenziali d'accesso al database
+	require_once('../model/db/Credenziali.php');
 
 	// Creazione della connessione
 	$conn = new mysqli($servername, $username, $password, $dbname);
