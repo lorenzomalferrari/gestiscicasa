@@ -1,0 +1,38 @@
+<?php
+	class Brand {
+		// Instance variables
+		private $id;
+		private $name;
+		private $country_of_origin;
+		private $industry_sector;
+		private $foundation_year;
+
+		// Constructor
+		public function __construct($id, $name) {
+			$this->id = $id;
+			$this->name = $name;
+		}
+
+		// Getter and setter methods
+		public function getId() {
+			return $this->id;
+		}
+
+		public function setId($id) {
+			$this->id = $id;
+		}
+
+		public function getName() {
+			return $this->name;
+		}
+
+		public function setName($name) {
+			$this->name = $name;
+		}
+
+		// toString method
+		public function __toString() {
+			return "ID: " . $this->id . ", Name: " . $this->name;
+		}
+	}
+?>
