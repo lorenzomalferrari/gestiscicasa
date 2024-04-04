@@ -1,19 +1,27 @@
 <?php
 	/**
-	 *
+	 * Classe che rappresenta la Persona che andrà a sfruttare il gestionale
 	 */
 	class Person {
 		// Variables
+		private int $id;
 		private string $name;
 		private string $surname;
+		private string $email;
 		private int $age;
+		private string $birthdate;
+		private int $city;
+		private int $state;
+		private int $nationality;
+		private int $description;
+		private int $idUser;
 
 		// Constants
 		public const MIN_AGE = 0;
 		public const MAX_AGE = 120;
 
 		// Constructor
-		public function __construct(string $name, string $surname, int $age) {
+		public function __construct(string $name, string $surname, string $email, int $age, string $birthdate, int $city, int $state, int $nationality, string $description = "") {
 			$this->setName($name);
 			$this->setSurname($surname);
 			$this->setAge($age);
