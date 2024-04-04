@@ -1,6 +1,6 @@
 <?php
 	/**
-	 *
+	 * Classe che rappresenta i ruoli ammessi nel progetto
 	 */
 	class Roles {
 		public const PURCHASING_MANAGER = "Purchasing Manager";
@@ -14,6 +14,11 @@
 				self::SALES_PERSON,
 				self::SUPPLIER
 			];
+		}
+
+		// toString function to display all roles types
+		public static function toString(): string {
+			return implode(', ', self::getRoles());
 		}
 	}
 ?>

@@ -1,49 +1,55 @@
 <?php
-	/**
-	 * Classe che rappresenta l'Utente
-	 */
-	class User {
+    /**
+     * Classe che rappresenta l'Utente
+     */
+    class User {
 
-		// Variable for user ID
-		private int $id;
-		// Instance variables
-		protected $username;
-		protected $password;
+        // Variable for user ID
+        private int $id;
+        // Instance variables
+        protected $username;
+        protected $email;
 
-		// Constructor
-		public function __construct($username, $password) {
-			$this->username = $username;
-			$this->password = $password;
-		}
+        // Constructor
+        public function __construct($username, $email) {
+            $this->username = $username;
+            $this->email = $email;
+        }
 
-		// Getter for user ID
-		public function getId(): int {
-			return $this->id;
-		}
+        // Getter for user ID
+        public function getId(): int {
+            return $this->id;
+        }
 
-		// Getter and Setter for username
-		public function getUsername() {
-			return $this->username;
-		}
+        // Setter for user ID
+        public function setId(int $id): void {
+            $this->id = $id;
+        }
 
-		public function setUsername($username) {
-			$this->username = $username;
-		}
+        // Getter and Setter for username
+        public function getUsername() {
+            return $this->username;
+        }
 
-		// Getter and Setter for email
-		public function getPassword() {
-			return $this->password;
-		}
+        public function setUsername($username) {
+            $this->username = $username;
+        }
 
-		public function setPassword($password) {
-			$this->password = $password;
-		}
+        // Getter and Setter for email
+        public function getEmail() {
+            return $this->email;
+        }
 
-		// Function to print user information
-		public function __toString() {
-			echo "Id: " . $this->id . "\n";
-			echo "Username: " . $this->username . "\n";
-			echo "Password: " . $this->password . "\n";
-		}
-	}
+        public function setEmail($email) {
+            $this->email = $email;
+        }
+
+        // Function to print user information
+        public function toString() {
+            return
+                "Id: " . $this->id . "\n" .
+                "Username: " . $this->username .
+                "Email: " . $this->email . "\n";
+        }
+    }
 ?>
