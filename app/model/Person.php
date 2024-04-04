@@ -50,8 +50,11 @@
 		}
 
 		// toString function to display the class
-		public function __toString(): string {
-			return "Name: " . $this->name . ", Surname: " . $this->surname . ", Age: " . $this->age;
+		public function toString(): string {
+			return
+				"Name: " . $this->name .
+				", Surname: " . $this->surname .
+				", Age: " . $this->age;
 		}
 	}
 ?>

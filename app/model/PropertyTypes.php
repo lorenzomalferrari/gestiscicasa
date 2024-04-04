@@ -1,26 +1,14 @@
 <?php
 	/**
-	 *
+	 * Classe che rappresenta i Tipi di Proprietà
 	 */
 	class PropertyTypes {
-		public const BUILDING = "Building";
-		public const APARTMENT = "Apartment";
-		public const OFFICE = "Office";
-		public const VILLA = "Villa";
-		public const WAREHOUSE = "Warehouse";
-		public const LAND = "Land";
-
-		// Function to get all types as an array
-		public static function getTypes(): array {
-			return [
-				self::BUILDING,
-				self::APARTMENT,
-				self::OFFICE,
-				self::VILLA,
-				self::WAREHOUSE,
-				self::LAND,
-			];
-		}
+		public const BUILDING = 0; //Building
+		public const APARTMENT = 1; //Apartment
+		public const OFFICE = 2; //Office
+		public const VILLA = 3; //Villa
+		public const WAREHOUSE = 4; //Warehouse
+		public const LAND = 5; //Land
 
 		// Function to get all property types as an array
 		public static function getPropertyTypes(): array {
@@ -36,7 +24,7 @@
 
 		// toString function to display all property types
 		public static function toString(): string {
-			return implode(', ', self::getTypes());
+			return implode(', ', self::getPropertyTypes());
 		}
 	}
 ?>

@@ -1,6 +1,6 @@
 <?php
     /**
-     *
+     * Classe che rappresenta l'Utente
      */
     class User {
 
@@ -45,10 +45,11 @@
         }
 
         // Function to print user information
-        public function __toString() {
-            echo "Id: " . $this->id . "\n";
-            echo "Username: " . $this->username . "\n";
-            echo "Email: " . $this->email . "\n";
+        public function toString() {
+            return
+                "Id: " . $this->id . "\n" .
+                "Username: " . $this->username .
+                "Email: " . $this->email . "\n";
         }
     }
 ?>
