@@ -2,7 +2,7 @@
 	/**
 	 * Classe che rappresenta i Tipi di Proprietà
 	 */
-	class PropertyTypes {
+	class PropertyType {
 
 		// Instance variables
 		private int $id;
