@@ -14,13 +14,13 @@
         // Constructor
         public function __construct(
             int $id,
-            int $number,
+            int $number=null,
             string $name,
-            int $idUsageDestination,
+            int $idUsageDestination=null,
             string $creationDate,
             string $updateDate,
-            string $note,
-            int $idColor,
+            string $note=null,
+            int $idColor=null,
             int $idProperty
         ) {
             $this->id = $id;
@@ -62,11 +62,11 @@
         }
 
         // Getter and setter methods for idUsageDestination
-        public function getidUsageDestination(): int {
+        public function getIdUsageDestination(): int {
             return $this->idUsageDestination;
         }
 
-        public function setidUsageDestination(int $idUsageDestination): void {
+        public function setIdUsageDestination(int $idUsageDestination): void {
             $this->idUsageDestination = $idUsageDestination;
         }
 
@@ -89,35 +89,44 @@
         }
 
         // Getter and setter methods for note
-        public function getnote(): string {
+        public function getNote(): string {
             return $this->note;
         }
 
-        public function setnote(string $note): void {
+        public function setNote(string $note): void {
             $this->note = $note;
         }
 
         // Getter and setter methods for idColor
-        public function getidColor(): int {
+        public function getIdColor(): int {
             return $this->idColor;
         }
 
-        public function setidColor(int $idColor): void {
+        public function setIdColor(int $idColor): void {
             $this->idColor = $idColor;
         }
 
         // Getter and setter methods for idProperty
-        public function getidProperty(): int {
+        public function getIdProperty(): int {
             return $this->idProperty;
         }
 
-        public function setidProperty(int $idProperty): void {
+        public function setIdProperty(int $idProperty): void {
             $this->idProperty = $idProperty;
         }
 
         // Method for textual representation of the object
         public function toString(): string {
-            return "Room id: {$this->id}, Number: {$this->number}, Name: {$this->name}, Usage Destination Id: {$this->idUsageDestination}, Creation Date: {$this->creationDate}, Update Date: {$this->updateDate}, note: {$this->note}, Color Id: {$this->idColor}, Property Id: {$this->idProperty}";
+            return
+                "Room id: ". $this->id .
+                ", Number: ". $this->number .
+                ", Name: " .$this->name .
+                ", Usage Destination Id: " .$this->idUsageDestination .
+                ", Creation Date: " .$this->creationDate .
+                ", Update Date: " .$this->updateDate .
+                ", note: " .$this->note .
+                ", Color Id: " .$this->idColor .
+                ", Property Id: " .$this->idProperty ;
         }
     }
 ?>
