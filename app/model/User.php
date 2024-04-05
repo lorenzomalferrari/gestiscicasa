@@ -3,53 +3,63 @@
      * Classe che rappresenta l'Utente
      */
     class User {
-
-        // Variable for user ID
-        private int $id;
         // Instance variables
-        protected $username;
-        protected $email;
+        private int $id;
+        private string $username;
+        private string $password;
+        private string $email;
 
         // Constructor
-        public function __construct($username, $email) {
+        public function __construct(int $id, string $username, string $password, string $email) {
+            $this->id = $id;
             $this->username = $username;
+            $this->password = $password;
             $this->email = $email;
         }
 
-        // Getter for user ID
+        // Getter and setter methods for 'id'
         public function getId(): int {
             return $this->id;
         }
 
-        // Setter for user ID
         public function setId(int $id): void {
             $this->id = $id;
         }
 
-        // Getter and Setter for username
-        public function getUsername() {
+        // Getter and setter methods for 'username'
+        public function getUsername(): string {
             return $this->username;
         }
 
-        public function setUsername($username) {
+        public function setUsername(string $username): void {
             $this->username = $username;
         }
 
-        // Getter and Setter for email
-        public function getEmail() {
+        // Getter and setter methods for 'password'
+        public function getPassword(): string {
+            return $this->password;
+        }
+
+        public function setPassword(string $password): void {
+            $this->password = $password;
+        }
+
+        // Getter and setter methods for 'email'
+        public function getEmail(): string {
             return $this->email;
         }
 
-        public function setEmail($email) {
+        public function setEmail(string $email): void {
             $this->email = $email;
         }
 
-        // Function to print user information
-        public function toString() {
+        // toString method
+        public function toString(): string {
             return
-                "Id: " . $this->id . "\n" .
-                "Username: " . $this->username .
-                "Email: " . $this->email . "\n";
+                "User ID: " . $this->id .
+                ", Username: " . $this->username .
+                ", Password: " . $this->password .
+                ", Email: " . $this->email;
         }
     }
 ?>
