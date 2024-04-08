@@ -1,145 +1,145 @@
 <?php
-    class Room {
-        // Instance variables
-        private int $id;
-        private int $number;
-        private string $name;
-        private int $idUsageDestination;
-        private string $creationDate;
-        private string $updateDate;
-        private string $note;
-        private int $idColor;
-        private int $idProperty;
-        private int $idRoomType;
+	class Room {
+		// Instance variables
+		private int $id;
+		private int $number;
+		private string $name;
+		private int $idUsageDestination;
+		private string $creationDate;
+		private string $updateDate;
+		private string $note;
+		private int $idColor;
+		private int $idProperty;
+		private int $idRoomType;
 
-        // Constructor
-        public function __construct(
-            int $id,
-            int $number=null,
-            string $name,
-            int $idUsageDestination=null,
-            string $creationDate,
-            string $updateDate,
-            string $note=null,
-            int $idColor=null,
-            int $idProperty,
-            int $idRoomType=null
-        ) {
-            $this->id = $id;
-            $this->number = $number;
-            $this->name = $name;
-            $this->idUsageDestination = $idUsageDestination;
-            $this->creationDate = $creationDate;
-            $this->updateDate = $updateDate;
-            $this->note = $note;
-            $this->idColor = $idColor;
-            $this->idProperty = $idProperty;
-            $this->idRoomType = $idRoomType;
-        }
+		// Constructor
+		public function __construct(
+			int $id,
+			int $number=null,
+			string $name,
+			int $idUsageDestination=null,
+			string $creationDate,
+			string $updateDate,
+			string $note=null,
+			int $idColor=null,
+			int $idProperty,
+			int $idRoomType=null
+		) {
+			$this->id = $id;
+			$this->number = $number;
+			$this->name = $name;
+			$this->idUsageDestination = $idUsageDestination;
+			$this->creationDate = $creationDate;
+			$this->updateDate = $updateDate;
+			$this->note = $note;
+			$this->idColor = $idColor;
+			$this->idProperty = $idProperty;
+			$this->idRoomType = $idRoomType;
+		}
 
-        // Getter and setter methods for id
-        public function getId(): int {
-            return $this->id;
-        }
+		// Getter and setter methods for id
+		public function getId(): int {
+			return $this->id;
+		}
 
-        public function setId(int $id): void {
-            $this->id = $id;
-        }
+		public function setId(int $id): void {
+			$this->id = $id;
+		}
 
-        // Getter and setter methods for number
-        public function getNumber(): int {
-            return $this->number;
-        }
+		// Getter and setter methods for number
+		public function getNumber(): int {
+			return $this->number;
+		}
 
-        public function setNumber(int $number): void {
-            $this->number = $number;
-        }
+		public function setNumber(int $number): void {
+			$this->number = $number;
+		}
 
-        // Getter and setter methods for name
-        public function getName(): string {
-            return $this->name;
-        }
+		// Getter and setter methods for name
+		public function getName(): string {
+			return $this->name;
+		}
 
-        public function setName(string $name): void {
-            $this->name = $name;
-        }
+		public function setName(string $name): void {
+			$this->name = $name;
+		}
 
-        // Getter and setter methods for idUsageDestination
-        public function getIdUsageDestination(): int {
-            return $this->idUsageDestination;
-        }
+		// Getter and setter methods for idUsageDestination
+		public function getIdUsageDestination(): int {
+			return $this->idUsageDestination;
+		}
 
-        public function setIdUsageDestination(int $idUsageDestination): void {
-            $this->idUsageDestination = $idUsageDestination;
-        }
+		public function setIdUsageDestination(int $idUsageDestination): void {
+			$this->idUsageDestination = $idUsageDestination;
+		}
 
-        // Getter and setter methods for creationDate
-        public function getCreationDate(): string {
-            return $this->creationDate;
-        }
+		// Getter and setter methods for creationDate
+		public function getCreationDate(): string {
+			return $this->creationDate;
+		}
 
-        public function setCreationDate(string $creationDate): void {
-            $this->creationDate = $creationDate;
-        }
+		public function setCreationDate(string $creationDate): void {
+			$this->creationDate = $creationDate;
+		}
 
-        // Getter and setter methods for updateDate
-        public function getUpdateDate(): string {
-            return $this->updateDate;
-        }
+		// Getter and setter methods for updateDate
+		public function getUpdateDate(): string {
+			return $this->updateDate;
+		}
 
-        public function setUpdateDate(string $updateDate): void {
-            $this->updateDate = $updateDate;
-        }
+		public function setUpdateDate(string $updateDate): void {
+			$this->updateDate = $updateDate;
+		}
 
-        // Getter and setter methods for note
-        public function getNote(): string {
-            return $this->note;
-        }
+		// Getter and setter methods for note
+		public function getNote(): string {
+			return $this->note;
+		}
 
-        public function setNote(string $note): void {
-            $this->note = $note;
-        }
+		public function setNote(string $note): void {
+			$this->note = $note;
+		}
 
-        // Getter and setter methods for idColor
-        public function getIdColor(): int {
-            return $this->idColor;
-        }
+		// Getter and setter methods for idColor
+		public function getIdColor(): int {
+			return $this->idColor;
+		}
 
-        public function setIdColor(int $idColor): void {
-            $this->idColor = $idColor;
-        }
+		public function setIdColor(int $idColor): void {
+			$this->idColor = $idColor;
+		}
 
-        // Getter and setter methods for idProperty
-        public function getIdProperty(): int {
-            return $this->idProperty;
-        }
+		// Getter and setter methods for idProperty
+		public function getIdProperty(): int {
+			return $this->idProperty;
+		}
 
-        public function setIdProperty(int $idProperty): void {
-            $this->idProperty = $idProperty;
-        }
+		public function setIdProperty(int $idProperty): void {
+			$this->idProperty = $idProperty;
+		}
 
-        // Getter and setter methods for idRoomType
-        public function getIdRoomType(): int {
-            return $this->idRoomType;
-        }
+		// Getter and setter methods for idRoomType
+		public function getIdRoomType(): int {
+			return $this->idRoomType;
+		}
 
-        public function setIdRoomType(int $idRoomType): void {
-            $this->idRoomType = $idRoomType;
-        }
+		public function setIdRoomType(int $idRoomType): void {
+			$this->idRoomType = $idRoomType;
+		}
 
-        // Method for textual representation of the object
-        public function toString(): string {
-            return
-                "Room id: ". $this->id .
-                ", Number: ". $this->number .
-                ", Name: " .$this->name .
-                ", Usage Destination Id: " .$this->idUsageDestination .
-                ", Creation Date: " .$this->creationDate .
-                ", Update Date: " .$this->updateDate .
-                ", note: " .$this->note .
-                ", Color Id: " .$this->idColor .
-                ", Property Id: " .$this->idProperty .
-                ", RoomType Id: " .$this->idRoomType ;
-        }
-    }
+		// Method for textual representation of the object
+		public function toString(): string {
+			return
+				"Room id: ". $this->id .
+				", Number: ". $this->number .
+				", Name: " .$this->name .
+				", Usage Destination Id: " .$this->idUsageDestination .
+				", Creation Date: " .$this->creationDate .
+				", Update Date: " .$this->updateDate .
+				", note: " .$this->note .
+				", Color Id: " .$this->idColor .
+				", Property Id: " .$this->idProperty .
+				", RoomType Id: " .$this->idRoomType ;
+		}
+	}
 ?>
