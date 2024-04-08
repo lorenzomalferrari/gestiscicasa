@@ -5,6 +5,7 @@ class Product {
     private string $name;
     private string $description;
     private float $price;
+    private string $barcode;
     private int $IdBrand;
     private int $IdCategory;
     private string $note;
@@ -12,11 +13,12 @@ class Product {
     private string $updateData;
 
     // Constructor
-    public function __construct(int $id, string $name, string $description, float $price, int $IdBrand, int $IdCategory, string $note=null, string $creationDate, string $updateData) {
+    public function __construct(int $id, string $name, string $description, float $price, string $barcode, int $IdBrand, int $IdCategory, string $note=null, string $creationDate, string $updateData) {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
         $this->price = $price;
+        $this->barcode = $barcode;
         $this->IdBrand = $IdBrand;
         $this->IdCategory = $IdCategory;
         $this->note = $note;
@@ -55,6 +57,14 @@ class Product {
 
     public function setPrice($price) {
         $this->price = $price;
+    }
+
+    public function getBarcode() {
+        return $this->barcode;
+    }
+
+    public function setBarcode($barcode) {
+        $this->barcode = $barcode;
     }
 
     public function getIdBrand() {
@@ -104,6 +114,7 @@ class Product {
         , Name: " . $this->name .
         ", Description: " . $this->description .
         ", Price: " . $this->price .
+        ", Barcode: " . $this->barcode .
         ", IdBrand: " . $this->IdBrand .
         ", IdCategory: " . $this->IdCategory .
         ", Note: " . $this->note .
