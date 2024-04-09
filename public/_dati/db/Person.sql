@@ -10,13 +10,15 @@ CREATE TABLE IF NOT EXISTS lmgc_Person (
     description INT NOT NULL,
     idUser INT NOT NULL,
     creationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updateData TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    CONSTRAINT fk_city FOREIGN KEY (city) REFERENCES City(id),
-    CONSTRAINT fk_state FOREIGN KEY (state) REFERENCES State(id),
-    CONSTRAINT fk_nationality FOREIGN KEY (nationality) REFERENCES Nationality(id),
-    CONSTRAINT fk_user FOREIGN KEY (idUser) REFERENCES User(id),
-    CONSTRAINT chk_age CHECK (age >= 0),
-    CONSTRAINT chk_birthdate CHECK (birthdate <= CURDATE()),
-    CONSTRAINT chk_description CHECK (description >= 0),
-    CONSTRAINT chk_user_age CHECK (age >= 18 OR description = 'Minor')
+    updateData TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+/*
+ALTER TABLE lmgc_Person
+CONSTRAINT fk_city FOREIGN KEY (city) REFERENCES City(id),
+CONSTRAINT fk_state FOREIGN KEY (state) REFERENCES State(id),
+CONSTRAINT fk_nationality FOREIGN KEY (nationality) REFERENCES Nationality(id),
+CONSTRAINT fk_user FOREIGN KEY (idUser) REFERENCES User(id),
+/*CONSTRAINT chk_birthdate CHECK (birthdate <= CURDATE()),*/
+CONSTRAINT chk_age CHECK (age >= 18 OR description = 'Minor')
+*/
