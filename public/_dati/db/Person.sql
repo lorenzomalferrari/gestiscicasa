@@ -20,5 +20,5 @@ CONSTRAINT fk_state FOREIGN KEY (state) REFERENCES State(id),
 CONSTRAINT fk_nationality FOREIGN KEY (nationality) REFERENCES Nationality(id),
 CONSTRAINT fk_user FOREIGN KEY (idUser) REFERENCES User(id),
 /*CONSTRAINT chk_birthdate CHECK (birthdate <= CURDATE()),*/
-CONSTRAINT chk_age CHECK (age >= 18 OR description = 'Minor')
+/*CONSTRAINT chk_age CHECK (age >= 18 OR description = 'Minor')
 */
