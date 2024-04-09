@@ -9,6 +9,8 @@ CREATE TABLE Person (
     nationality INT NOT NULL,
     description INT NOT NULL,
     idUser INT NOT NULL,
+    creationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updateData TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CONSTRAINT fk_city FOREIGN KEY (city) REFERENCES City(id),
     CONSTRAINT fk_state FOREIGN KEY (state) REFERENCES State(id),
     CONSTRAINT fk_nationality FOREIGN KEY (nationality) REFERENCES Nationality(id),

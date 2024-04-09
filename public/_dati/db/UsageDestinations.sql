@@ -3,8 +3,8 @@ CREATE TABLE UsageDestinations (
     name VARCHAR(255) NOT NULL,
     description TEXT,
     notes TEXT,
-    creationDate DATETIME NOT NULL,
-    updateDate DATETIME NOT NULL,
+    creationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updateData TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     code VARCHAR(50),
     colorId INT,
     FOREIGN KEY (colorId) REFERENCES Colors(id)
