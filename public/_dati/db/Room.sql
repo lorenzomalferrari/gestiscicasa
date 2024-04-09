@@ -1,4 +1,4 @@
-CREATE TABLE Rooms (
+CREATE TABLE IF NOT EXISTS lmgc_Rooms (
     id INT AUTO_INCREMENT PRIMARY KEY,
     number INT,
     name VARCHAR(255) NOT NULL,
@@ -15,13 +15,13 @@ CREATE TABLE Rooms (
     FOREIGN KEY (idRoomType) REFERENCES RoomTypes(id)
 );
 
-ALTER TABLE Rooms
+ALTER TABLE lmgc_Rooms
 ADD CONSTRAINT FK_Rooms_UsageDestinations FOREIGN KEY (idUsageDestination) REFERENCES UsageDestinations(id),
 ADD CONSTRAINT FK_Rooms_Colors FOREIGN KEY (idColor) REFERENCES Colors(id),
 ADD CONSTRAINT FK_Rooms_Properties FOREIGN KEY (idProperty) REFERENCES Properties(id),
 ADD CONSTRAINT FK_Rooms_RoomTypes FOREIGN KEY (idRoomType) REFERENCES RoomTypes(id);
 
-ALTER TABLE Rooms
+ALTER TABLE lmgc_Rooms
 ADD CONSTRAINT FK_Rooms_UsageDestinations FOREIGN KEY (idUsageDestination) REFERENCES UsageDestinations(id),
 ADD CONSTRAINT FK_Rooms_Colors FOREIGN KEY (idColor) REFERENCES Colors(id),
 ADD CONSTRAINT FK_Rooms_Properties FOREIGN KEY (idProperty) REFERENCES Properties(id),
