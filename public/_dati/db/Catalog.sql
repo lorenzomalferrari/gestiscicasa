@@ -1,4 +1,4 @@
-CREATE TABLE Catalog (
+CREATE TABLE IF NOT EXISTS lmgc_Catalog (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,

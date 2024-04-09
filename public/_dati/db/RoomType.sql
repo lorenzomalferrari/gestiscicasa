@@ -1,4 +1,4 @@
-CREATE TABLE RoomTypes (
+CREATE TABLE IF NOT EXISTS lmgc_RoomTypes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
@@ -7,9 +7,9 @@ CREATE TABLE RoomTypes (
     updateData TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 );
 
-ALTER TABLE RoomTypes
+ALTER TABLE lmgc_RoomTypes
 ADD CONSTRAINT UC_Name UNIQUE (name); -- Assicura che il nome sia univoco
 
 -- Assicura che la chiave esterna sia univoca
-ALTER TABLE RoomTypes
+ALTER TABLE lmgc_RoomTypes
 ADD CONSTRAINT UC_Name UNIQUE (name);

@@ -1,4 +1,4 @@
-CREATE TABLE UsageDestinations (
+CREATE TABLE IF NOT EXISTS lmgc_UsageDestinations (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
@@ -10,9 +10,9 @@ CREATE TABLE UsageDestinations (
     FOREIGN KEY (colorId) REFERENCES Colors(id)
 );
 
-ALTER TABLE UsageDestinations
+ALTER TABLE lmgc_UsageDestinations
 ADD CONSTRAINT UC_Name UNIQUE (name); -- Assicura che il nome sia univoco
 
 -- Assicura che la chiave esterna sia univoca
-ALTER TABLE UsageDestinations
+ALTER TABLE lmgc_UsageDestinations
 ADD CONSTRAINT UC_ColorId UNIQUE (colorId);
