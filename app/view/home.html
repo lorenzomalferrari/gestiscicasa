@@ -3,39 +3,110 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Home</title>
-		<link rel="stylesheet" href="home.css">
+		<title>Homepage</title>
+		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+		<style>
+			.submenu {
+				display: none;
+			}
+
+			.submenu.active {
+				display: block;
+			}
+		</style>
 	</head>
-	<body>
-		<header>
-			<div class="container">
-				<div class="header-left">
-					<button onclick="openMenu()">Menu</button>
-				</div>
-				<div class="header-center">
-					<h1>Home</h1>
-				</div>
-				<div class="header-right">
-					<span class="user-icon">NomeUtente</span>
-				</div>
+	<body class="bg-gray-100">
+		<!-- Header -->
+		<header class="bg-white shadow-md p-4 flex justify-between items-center">
+			<div>
+				<img src="logo.png" alt="Logo" class="h-8">
+			</div>
+			<div>
+				<button class="bg-gray-200 p-2 rounded-full">
+					<i class="fas fa-user text-gray-600"></i>
+				</button>
 			</div>
 		</header>
 
-		<div class="container">
-			<div class="dynamic-content">
-				<!-- Contenuto dinamico qui -->
-			</div>
-		</div>
+		<!-- Sidebar -->
+		<aside class="bg-gray-200 w-1/4 h-screen p-4">
+			<!-- Menu -->
+			<ul>
+				<li class="mb-4">
+					<a href="#" class="text-gray-800 font-semibold menu-item">Menu 1</a>
+					<ul class="ml-2 submenu">
+						<li><a href="#" class="text-gray-600">Sottomenu 1</a></li>
+						<li><a href="#" class="text-gray-600">Sottomenu 2</a></li>
+					</ul>
+				</li>
+				<li class="mb-4">
+					<a href="#" class="text-gray-800 font-semibold menu-item">Menu 2</a>
+					<ul class="ml-2 submenu">
+						<li><a href="#" class="text-gray-600">Sottomenu 1</a></li>
+						<li><a href="#" class="text-gray-600">Sottomenu 2</a></li>
+					</ul>
+				</li>
+				<!-- Altre voci di menu... -->
+			</ul>
+		</aside>
 
-		<footer>
-			<div class="container">
-				<p>Contact: email@example.com</p>
-				<p>Project Name</p>
-				<p>Version: 1.0</p>
-				<p>&copy; <?php echo date("Y"); ?> All rights reserved.</p>
+		<!-- Contenuto Principale -->
+		<main class="flex-grow p-4">
+			<!-- Contenuto dinamico -->
+			<h1 class="text-2xl font-semibold mb-4">Contenuto Dinamico</h1>
+			<!-- Aggiungi il tuo contenuto dinamico qui -->
+		</main>
+
+		<!-- Footer -->
+		<footer class="bg-gray-800 text-white p-4">
+			<div class="flex justify-between items-center">
+				<img src="logo.png" alt="Logo" class="h-8">
+				<span class="text-sm">Versione 1.0</span>
+			</div>
+			<p class="text-sm">Motto del Progetto</p>
+			<div class="flex justify-between items-center mt-4">
+				<!-- Icone social -->
+				<div>
+					<!-- Inserisci qui le tue icone social -->
+				</div>
+				<!-- Icone Google Play e App Store -->
+				<div>
+					<!-- Inserisci qui le icone di Google Play e App Store -->
+				</div>
+			</div>
+			<div class="mt-4">
+				<!-- Email e numero di telefono -->
+				<p><i class="mr-2 fas fa-envelope"></i>email@example.com</p>
+				<p><i class="mr-2 fas fa-phone"></i>+1234567890</p>
+			</div>
+			<div class="mt-4">
+				<!-- Link -->
+				<a href="#" class="text-sm">Link 1</a>
+				<a href="#" class="text-sm ml-4">Link 2</a>
 			</div>
 		</footer>
 
-		<script src="script.js"></script>
+		<script>
+			const menuItems = document.querySelectorAll('.menu-item');
+
+			menuItems.forEach(item => {
+				item.addEventListener('click', () => {
+					const submenu = item.nextElementSibling;
+					const isActive = submenu.classList.contains('active');
+					closeSubmenus();
+					if (!isActive) {
+						submenu.classList.add('active');
+					}
+				});
+			});
+
+			function closeSubmenus() {
+				const submenus = document.querySelectorAll('.submenu');
+				submenus.forEach(submenu => {
+					submenu.classList.remove('active');
+				});
+			}
+		</script>
 	</body>
 </html>
