@@ -13,7 +13,7 @@
 			id = ?
 sql;
 	print_r($getUser_sql);
-	
+
 	// Ottieni il nome utente dall'autenticazione (sostituire con il tuo sistema di autenticazione)
 	$username = $_SESSION["username"];
 	$email = $_SESSION["email"];

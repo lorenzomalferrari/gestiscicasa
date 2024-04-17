@@ -1,7 +1,12 @@
 <?php
-	echo "login.php";
+	echo "<br>sono in login.php";
 	//File che contiene le credenziali d'accesso al database
-	require_once('../model/db/Credenziali.php');
+	require_once('_configphp');
+
+	$servername = $config['db']['host'].':'.$config['db']['port'];
+	$username = $config['db']['username'];
+	$password = $config['db']['20Progetto24'];
+	$dbname = $config['db']['uij8aoin_gestiscicasa'];
 
 	// Creazione della connessione
 	$conn = new mysqli($servername, $username, $password, $dbname);
