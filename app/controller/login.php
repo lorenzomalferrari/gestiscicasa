@@ -18,8 +18,8 @@
 
 	// Verifica le credenziali
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		$username = $_POST["username"];
-		$password = $_POST["password"];
+		$username_se = $_POST["username"];
+		$password_se = $_POST["password"];
 
 		// Query SQL con segnaposti ?
 		$sql = "SELECT * FROM users WHERE username = ? AND password = ?";
@@ -28,7 +28,7 @@
 		$stmt = $conn->prepare($sql);
 
 		// Binding dei parametri ai segnaposti
-		$stmt->bind_param("ss", $username, $password);
+		$stmt->bind_param("ss", $username_se, $password_se);
 
 		// Esecuzione della query
 		$stmt->execute();
