@@ -1,8 +1,8 @@
 <?php
 	$config = [
 		'site' => [
-			'name' => 'CRM',
-			'version' => '0.0.1',
+			'name' => 'CRM Gestisci Casa',
+			'version' => '1.0.1',
 		],
 		'db' => [
 			'tablePrefix' => 'lmgc_',
@@ -26,5 +26,4 @@
 
 		],
 	];
-
 ?>
