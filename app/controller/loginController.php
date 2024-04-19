@@ -1,15 +1,16 @@
 <?php
-	echo "<br>sono in login.php";
+	echo "<br>sono in loginController.php";
 	//File che contiene le credenziali d'accesso al database
-	require_once('_configphp');
+	require_once('_config.php');
 
-	$servername = $config['db']['host'].':'.$config['db']['port'];
-	$username = $config['db']['username'];
-	$password = $config['db']['20Progetto24'];
-	$dbname = $config['db']['uij8aoin_gestiscicasa'];
+	$SERVERNAME = $config['db']['host'].':'.$config['db']['port'];
+	$USERNAME = $config['db']['username'];
+	$PASSWORD = $config['db']['20Progetto24'];
+	$DBNAME = $config['db']['uij8aoin_gestiscicasa'];
+	$TABLEPREFIX = $config['db']['tablePrefix'];
 
 	// Creazione della connessione
-	$conn = new mysqli($servername, $username, $password, $dbname);
+	$conn = new mysqli($SERVERNAME, $USERNAME, $PASSWORD, $DBNAME);
 
 	// Verifica la connessione
 	if ($conn->connect_error) {
@@ -21,8 +22,9 @@
 		$username_se = $_POST["username"];
 		$password_se = $_POST["password"];
 
+		$table =  $TABLEPREFIX . 'Users';
 		// Query SQL con segnaposti ?
-		$sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+		$sql = "SELECT * FROM $table WHERE username = ? AND password = ?";
 
 		// Preparazione della query
 		$stmt = $conn->prepare($sql);
@@ -39,8 +41,7 @@
 		if ($result->num_rows > 0) {
 			echo "Login riuscito!";
 			// Dopo aver verificato le credenziali con successo
-			echo "<script>window.location.href = '../view/home.html';</script>";
-
+			require_once("../view/home.php");
 		} else {
 			echo "Credenziali non valide.";
 		}
