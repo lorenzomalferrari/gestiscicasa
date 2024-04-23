@@ -1,4 +1,5 @@
 <?php
+	echo "<br>sono in _config.php";
 	$config = [
 		'site' => [
 			'name' => 'CRM Gestisci Casa',

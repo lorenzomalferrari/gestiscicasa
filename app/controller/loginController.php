@@ -5,8 +5,8 @@
 
 	$SERVERNAME = $config['db']['host'].':'.$config['db']['port'];
 	$USERNAME = $config['db']['username'];
-	$PASSWORD = $config['db']['20Progetto24'];
-	$DBNAME = $config['db']['uij8aoin_gestiscicasa'];
+	$PASSWORD = $config['db']['password'];
+	$DBNAME = $config['db']['database'];
 	$TABLEPREFIX = $config['db']['tablePrefix'];
 
 	// Creazione della connessione
@@ -16,6 +16,7 @@
 	if ($conn->connect_error) {
 		die("Connessione fallita: " . $conn->connect_error);
 	}
+ 	echo "<br>Connessione riuscita";
 
 	// Verifica le credenziali
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {

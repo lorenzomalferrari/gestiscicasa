@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Login</h2>
-    <form action="../controller/loginController.php" method="POST">
+    <form action="<?php echo "app/controller/loginController.php"; ?>" method="POST">
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username"><br>
         <label for="password">Password:</label><br>
