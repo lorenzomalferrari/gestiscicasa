@@ -5,11 +5,11 @@
 		$_POST = $_GET;
 	}
 
-	print_r("<br>SESSION: " . $_SESSION);
-	print_r("<br>SERVER: " . $_SERVER);
-	print_r("<br>GET: " . $_GET);
-	print_r("<br>POST: " . $_POST);
-	print_r("<br>Sono in index.php, adesso vedremo come andrò");
+	//print_r("<br>SESSION: " . $_SESSION);
+	//print_r("<br>SERVER: " . $_SERVER);
+	//print_r("<br>GET: " . $_GET);
+	//print_r("<br>POST: " . $_POST);
+	//print_r("<br>Sono in index.php, adesso vedremo come andrò");
 
 	// Avvia una sessione se non è già stata avviata
 	if (!isset($_SESSION)) {

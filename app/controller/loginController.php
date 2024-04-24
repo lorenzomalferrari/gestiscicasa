@@ -1,5 +1,5 @@
 <?php
-	echo "<br>sono in loginController.php";
+	//echo "<br>sono in loginController.php";
 	//File che contiene le credenziali d'accesso al database
 	require_once('_config.php');
 
@@ -16,7 +16,7 @@
 	if ($conn->connect_error) {
 		die("Connessione fallita: " . $conn->connect_error);
 	}
- 	echo "<br>Connessione riuscita";
+ 	//echo "<br>Connessione riuscita";
 
 	// Verifica le credenziali
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -47,7 +47,6 @@
 			echo "Credenziali non valide.";
 		}
 	}
-
 	// Chiusura della connessione
 	$conn->close();
 ?>
