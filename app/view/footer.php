@@ -1,24 +1,40 @@
-<footer class="bg-gray-800 text-white p-4">
-	<div class="flex justify-between items-center">
-		<img src="logo.png" alt="Logo" class="h-8">
-		<span class="text-sm">Versione 1.0</span>
-	</div>
-	<p class="text-sm">La casa gestita a modo tuo</p>
-	<div class="flex justify-between items-center mt-4">
-		<div>
-			<!-- Inserisci qui le tue icone social -->
+<footer class="footer-16371">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-9 text-center">
+				<div class="footer-site-logo mb-4">
+					<a href="#">Colorlib</a>
+				</div>
+				<ul class="list-unstyled nav-links mb-5">
+					<li><a href="#">About</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">Press</a></li>
+					<li><a href="#">Careers</a></li>
+					<li><a href="#">FAQ</a></li>
+					<li><a href="#">Legal</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+
+				<div class="social mb-4">
+					<h3>Stay in touch</h3>
+					<ul class="list-unstyled">
+						<li class="in"><a href="#"><span class="icon-instagram"></span></a></li>
+						<li class="fb"><a href="#"><span class="icon-facebook"></span></a></li>
+						<li class="tw"><a href="#"><span class="icon-twitter"></span></a></li>
+						<li class="pin"><a href="#"><span class="icon-pinterest"></span></a></li>
+						<li class="dr"><a href="#"><span class="icon-dribbble"></span></a></li>
+					</ul>
+				</div>
+
+				<div class="copyright">
+					<p class="mb-0">
+						<small>
+							&copy; Copyright © 2024. All rights reserved. Lorenzo Malferrari
+						</small>
+					</p>
+				</div>
+
+			</div>
 		</div>
-		<div>
-			<!-- Inserisci qui le icone di Google Play e App Store -->
-		</div>
-	</div>
-	<div class="mt-4">
-		<!-- Email e numero di telefono -->
-		<p><i class="mr-2 fas fa-envelope"></i>info@lorenzomalferrari.com</p>
-		<p><i class="mr-2 fas fa-phone"></i>++39 3519325656</p>
-	</div>
-	<div class="mt-4">
-		<a href="#" class="text-sm">Termini d'uso</a>
-		<a href="#" class="text-sm ml-4">Privacy Policy</a>
 	</div>
 </footer>
