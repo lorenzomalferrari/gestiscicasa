@@ -5,6 +5,8 @@
 		$_POST = $_GET;
 	}
 
+    require_once("app/controller/_libs.php");
+
 	//print_r("<br>SESSION: " . $_SESSION);
 	//print_r("<br>SERVER: " . $_SERVER);
 	//print_r("<br>GET: " . $_GET);

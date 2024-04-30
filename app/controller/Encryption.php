@@ -1,7 +1,7 @@
 <?php
-	require_once "_config.php";
+	require_once "_libs.php";
 	// Chiave per la crittografia
-	define('CRYPTO_KEY', ($config['db']['tablePrefix'] . 'vqP7WjUJCe58^tS!9YPd2TzL#HfG6@bM'));
+	define('CRYPTO_KEY', ($config['db']['tablePrefix'] . $config['securityConfig']['key']));
 	/**
 	 * Classe che mi consentirà di gestire la criptazione e decriptazione di stringhe
 	 * Funzione pensata inizialmente per la gestione delle password
