@@ -1,5 +1,5 @@
 <?php
-	//echo "<br>sono in _config.php";
+	echo "<br>sono in _config.php";
 	$config = [
 		'site' => [
 			'name' => 'CRM Gestisci Casa',
@@ -19,7 +19,7 @@
 		],
 		'applicationConfig' => [
 			'baseUrl' => 'https://example.com',
-			'language' => 'en'
+			'language' => 'it-IT'
 		],
 		'securityConfig' => [
 			'key' => 'vqP7WjUJCe58^tS!9YPd2TzL#HfG6@bM',

@@ -1,7 +1,7 @@
 <?php
-	require_once "_libs.php";
-	// Chiave per la crittografia
-	define('CRYPTO_KEY', ($config['db']['tablePrefix'] . $config['securityConfig']['key']));
+	echo "Sono _encryption.php";
+	require_once("_config.php");
+	require_once("_def.php");
 	/**
 	 * Classe che mi consentirà di gestire la criptazione e decriptazione di stringhe
 	 * Funzione pensata inizialmente per la gestione delle password
@@ -30,7 +30,5 @@
 			$plaintext = openssl_decrypt($ciphertext, 'aes-256-cbc', CRYPTO_KEY, 0, $iv);
 			return $plaintext;
 		}
-
 	}
-
 ?>
