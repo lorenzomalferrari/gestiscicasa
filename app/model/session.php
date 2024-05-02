@@ -6,5 +6,5 @@
         $IDUSER_SE = $_SESSION["IDUSER_SE"];
     }
 
-    echo "<br><br>USER_SE: $USER_SE - IDUSER_SE: $IDUSER_SE<br><br>";
+    //echo "<br><br>USER_SE: $USER_SE - IDUSER_SE: $IDUSER_SE<br><br>";
 ?>

@@ -1,52 +1,35 @@
 <?php
-	//echo "<br>sono in loginController.php";
-	//File che contiene le credenziali d'accesso al database
-	require_once('_config.php');
+	require_once('lib/_libs.php');
+	require_once('../model/database.php');
 
-	$SERVERNAME = $config['db']['host'].':'.$config['db']['port'];
-	$USERNAME = $config['db']['username'];
-	$PASSWORD = $config['db']['password'];
-	$DBNAME = $config['db']['database'];
-	$TABLEPREFIX = $config['db']['tablePrefix'];
-
-	// Creazione della connessione
-	$conn = new mysqli($SERVERNAME, $USERNAME, $PASSWORD, $DBNAME);
-
-	// Verifica la connessione
-	if ($conn->connect_error) {
-		die("Connessione fallita: " . $conn->connect_error);
-	}
- 	//echo "<br>Connessione riuscita";
-
-	// Verifica le credenziali
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		$username_se = $_POST["username"];
-		$password_se = $_POST["password"];
+		$username_form = $_POST["name"];
+		$password_form = $_POST["pass"];
 
 		$table =  $TABLEPREFIX . 'Users';
-		// Query SQL con segnaposti ?
-		$sql = "SELECT * FROM $table WHERE username = ? AND password = ?";
 
+		$database = new Database($SERVERNAME_DB, $USERNAME_DB, $PASSWORD_DB, $DBNAME);
+		$query = "SELECT * FROM $table WHERE username = :username AND password = :password ";
 		// Preparazione della query
-		$stmt = $conn->prepare($sql);
+		$params = array(
+			':username' => $username_form,
+			':password' => $password_form
+		);
 
-		// Binding dei parametri ai segnaposti
-		$stmt->bind_param("ss", $username_se, $password_se);
+		$row = $database->select($query, $params);
+		if ($row) {
+			echo "Record trovato: " . json_encode($row);
 
-		// Esecuzione della query
-		$stmt->execute();
+			$_SESSION["IDUSER_SE"] = $row["id"];
+			$_SESSION["USER_SE"] = $row["username"];
+			$_SESSION["PASSWORD_SE"] = $row["password"];
+			$_SESSION["EMAIL_SE"] = $row["email"];
 
-		// Ottenimento dei risultati
-		$result = $stmt->get_result();
-
-		if ($result->num_rows > 0) {
-			echo "Login riuscito!";
-			// Dopo aver verificato le credenziali con successo
-			require_once("../view/home.php");
+			echo "Login riuscito!<br>";
+			print_r($_SESSION);
+			header("Location: " . "../view/home.php");
 		} else {
 			echo "Credenziali non valide.";
 		}
 	}
-	// Chiusura della connessione
-	$conn->close();
 ?>

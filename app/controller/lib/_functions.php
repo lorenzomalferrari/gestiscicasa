@@ -1,5 +1,5 @@
 <?php
-	echo "Sono _functions.php";
+	//echo "Sono _functions.php";
 	/**
 	 * Funzione che restituisce la lista dei nomi dei file presenti all'interno della cartella fornita
 	 */
@@ -24,5 +24,23 @@
 		} else {
 			return false; // Almeno uno dei parametri è vuoto
 		}
+	}
+
+	/**
+	 * Funzione che unisce array senza sovrascrivere
+	 * @param Il primo parametro è l'array di destinazione, il secondo è l'array che si vuole inglobare
+	 */
+	function unisciArray($array_destinazione, $array_origine)
+	{
+		// Itera attraverso ogni elemento dell'array origine
+		foreach ($array_origine as $chiave => $valore) {
+			// Verifica se la chiave esiste già nell'array destinazione
+			if (!array_key_exists($chiave, $array_destinazione)) {
+				// Se la chiave non esiste nell'array destinazione, copia l'elemento dall'array origine
+				$array_destinazione[$chiave] = $valore;
+			}
+		}
+		// Restituisci l'array destinazione aggiornato
+		return $array_destinazione;
 	}
 ?>

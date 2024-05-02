@@ -1,7 +1,7 @@
 <?php
-	echo "Sono _encryption.php";
-	require_once("_config.php");
-	require_once("_def.php");
+	//echo "Sono _encryption.php";
+	//require_once("_config.php");
+	//require_once("_def.php");
 	/**
 	 * Classe che mi consentirà di gestire la criptazione e decriptazione di stringhe
 	 * Funzione pensata inizialmente per la gestione delle password
