@@ -9,44 +9,46 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         print_r($_POST);
 
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $pass = $_POST['pass'];
-        $re_pass = $_POST['re_pass'];
-/*
-        $userNamePost = $connection->filterEmail($_POST["email"]);
-        $passwordPost = $connection->filterString($_POST["password"]);
-        $checkPasswordPost = $connection->filterString($_POST["checkPassword"]);
+        $name_form = $_POST['name'];
+        $email_form = $_POST['email'];
+        $pass_form = $_POST['pass'];
+        $re_pass_form = $_POST['re_pass'];
 
-        $users = $connection->querySelect("SELECT userName FROM users WHERE userName = '$userNamePost'");
+        $table =  $TABLEPREFIX . 'Users';
 
-        if (count($users) <= 0) {
-            if ($userNamePost != "" && $passwordPost != "") {
+        $database = new Database($SERVERNAME_DB, $USERNAME_DB, $PASSWORD_DB, $DBNAME);
 
-                if (strlen($passwordPost) < 8) {
-                    $stringError = "La password deve essere almeno 8 caratteri";
-                } else {
-                    if ($passwordPost == $checkPasswordPost) {
-                        $passwordPostHash = $connection->hackPassword($passwordPost);
-                        $keyRegisterGen = $connection->getKeygen(50);
-                        $stringError = "";
-                        $data = [$userNamePost, $passwordPostHash, $keyRegisterGen];
-                        $query = "INSERT INTO users (userName,password,keygen) VALUES (?,?,?)";
-                        $connection->querywriteDb($query, $data);
-                        $connection->senderEmail($userNamePost, "Register to Bank Satatistic", $keyRegisterGen);
-                        //$stringError = "http://localhost/view/auth/authKeyGen.php?keygen=$keyRegisterGen";
-                        //Qui controllare che manda email
-                        header("Location: " . PATH . "/view/welcome.php");
-                    } else {
-                        $stringError = "Le password non corrispondono";
-                    }
-                }
+        // Preparazione della query
+        $params = array(
+            ':name' => $name_form,
+            ':email' => $email_form,
+            ':pass' => $pass_form
+        );
+
+        //Controllo prima che Utente non esista già
+        $query = "SELECT * FROM $table WHERE username = :name AND email = :email AND password = :pass";
+        $row = $database->select($query, $params);
+        if ($row) {
+            echo "Utente già presente: " . json_encode($row);
+        }else {
+            //Gestisco l'inserimento in DB
+            $insert = "INSERT INTO $table (username, email, password) VALUES (:name, :email, :pass)";
+            $new_user_id = $database->insert($insert, $params);
+
+            if ($new_user_id) {
+                echo "Utente creato id: " . $new_user_id;
+
+                $_SESSION["IDUSER_SE"] = $new_user;
+                $_SESSION["USER_SE"] = $name_form;
+                $_SESSION["PASSWORD_SE"] = $pass_form;
+                $_SESSION["EMAIL_SE"] = $email_form;
+
+                echo "Login riuscito!<br>";
+                print_r($_SESSION);
+                header("Location: " . "../view/home.php");
             } else {
-                $stringError = "Username o password non corretti. Perfavore riprova. :-(";
+                echo "Utente non creato";
             }
-        } else {
-            $stringError = "Account esistente. Perfavore riprova. :-(";
         }
-*/
     }
 ?>

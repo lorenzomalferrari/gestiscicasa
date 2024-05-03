@@ -49,10 +49,8 @@
                 </div>
             </section>
         </div>
-        <!-- JS -->
-        <script src="../../public/assets/js/script.js?v=<?php echo $vers; ?>"></script>
-        <script src="../../public/assets/js/login.js?v=<?php echo $vers; ?>"></script>
-        <script src="../../public/assets/js/jquery.min.js?v=<?php echo $vers; ?>"></script>
-        <script src="../../public/assets/js/main.js?v=<?php echo $vers; ?>"></script>
-    </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+        <?php require_once("script.php"); ?>
+        <!-- Libreria specifica per il file -->
+        <script src="../../public/assets/js/myjs/login.js?v=<?php echo $vers; ?>"></script>
+    </body>
 </html>

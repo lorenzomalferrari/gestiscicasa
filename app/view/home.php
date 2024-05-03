@@ -1,102 +1,70 @@
-<!DOCTYPE html>
+<?php
+require_once("../controller/lib/_libs.php");
+?>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Homepage</title>
-		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-		<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-		<style>
-			.submenu {
-				display: none;
-			}
 
-			.submenu.active {
-				display: block;
-			}
-		</style>
-	</head>
-	<body class="bg-gray-100">
-		<!-- Header -->
-		<header class="bg-white shadow-md p-4 flex justify-between items-center">
-			<div>
-				<img src="logo.png" alt="Logo" class="h-8">
-			</div>
-			<div>
-				<button class="bg-gray-200 p-2 rounded-full">
-					<i class="fas fa-user text-gray-600"></i>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Home</title>
+	<!-- Font Icon -->
+	<link rel="stylesheet" href="../../public/assets/fonts/material-icon/css/material-design-iconic-font.min.css?v=<?php echo $vers; ?>">
+	<!-- Main css -->
+	<link rel="stylesheet" href="../../public/assets/css/style.css?v=<?php echo $vers; ?>">
+</head>
+
+<body>
+	<div class="wrapper d-flex align-items-stretch">
+		<nav id="sidebar">
+			<div class="custom-menu">
+				<button type="button" id="sidebarCollapse" class="btn btn-primary">
 				</button>
 			</div>
-		</header>
-
-		<!-- Sidebar -->
-		<aside class="bg-gray-200 w-1/4 h-screen p-4">
-			<!-- Menu -->
-			<ul>
-				<li class="mb-4">
-					<a href="#" class="text-gray-800 font-semibold menu-item">Menu 1</a>
-					<ul class="ml-2 submenu">
-						<li><a href="#" class="text-gray-600">Sottomenu 1</a></li>
-						<li><a href="#" class="text-gray-600">Sottomenu 2</a></li>
-					</ul>
+			<div class="img bg-wrap text-center py-4" style="background-image: url(../../public/assets/img/bg_1.jpg);">
+				<div class="user-logo">
+					<div class="img" style="background-image: url(../../public/assets/img/logo.jpg);"></div>
+					<h3>Utente da php</h3>
+				</div>
+			</div>
+			<ul class="list-unstyled components mb-5">
+				<li class="active">
+					<a href="#"><span class="fa fa-home mr-3"></span> Home</a>
 				</li>
-				<li class="mb-4">
-					<a href="#" class="text-gray-800 font-semibold menu-item">Menu 2</a>
-					<ul class="ml-2 submenu">
-						<li><a href="#" class="text-gray-600">Sottomenu 1</a></li>
-						<li><a href="#" class="text-gray-600">Sottomenu 2</a></li>
-					</ul>
+				<li>
+					<a href="#"><span class="fa fa-download mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Download</a>
 				</li>
-				<!-- Altre voci di menu... -->
+				<li>
+					<a href="#"><span class="fa fa-gift mr-3"></span> Gift Code</a>
+				</li>
+				<li>
+					<a href="#"><span class="fa fa-trophy mr-3"></span> Top Review</a>
+				</li>
+				<li>
+					<a href="#"><span class="fa fa-cog mr-3"></span> Settings</a>
+				</li>
+				<li>
+					<a href="#"><span class="fa fa-support mr-3"></span> Support</a>
+				</li>
+				<li>
+					<a href="#"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
+				</li>
 			</ul>
-		</aside>
 
-		<!-- Contenuto Principale -->
-		<main class="flex-grow p-4">
-			<!-- Contenuto dinamico -->
-			<h1 class="text-2xl font-semibold mb-4">Contenuto Dinamico</h1>
-			<!-- Aggiungi il tuo contenuto dinamico qui -->
-		</main>
+		</nav>
 
-		<!-- Footer -->
-		<div id="footerContainer"></div>
+		<!-- Page Content  -->
+		<div id="content" class="p-4 p-md-5 pt-5">
+			<h2 class="mb-4">Sidebar #09</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<?php require_once("footer.php"); ?>
+	</div>
+	<?php require_once("script.php"); ?>
+	<!-- Libreria specifica per il file -->
+	<script src="../../public/assets/js/myjs/home.js?v=<?php echo $vers; ?>"></script>
+</body>
 
-		<script>
-			const menuItems = document.querySelectorAll('.menu-item');
-			const footerContainer = document.getElementById('footerContainer');
-
-			// Funzione per caricare il footer da un file esterno
-			function loadFooter() {
-				const xhr = new XMLHttpRequest();
-				xhr.open('GET', 'footer.html', true);
-				xhr.onreadystatechange = function() {
-					if (xhr.readyState === 4 && xhr.status === 200) {
-						footerContainer.innerHTML = xhr.responseText;
-					}
-				};
-				xhr.send();
-			}
-
-        	// Carica il footer quando la pagina è completamente caricata
-        	window.addEventListener('load', loadFooter);
-
-			menuItems.forEach(item => {
-				item.addEventListener('click', () => {
-					const submenu = item.nextElementSibling;
-					const isActive = submenu.classList.contains('active');
-					closeSubmenus();
-					if (!isActive) {
-						submenu.classList.add('active');
-					}
-				});
-			});
-
-			function closeSubmenus() {
-				const submenus = document.querySelectorAll('.submenu');
-				submenus.forEach(submenu => {
-					submenu.classList.remove('active');
-				});
-			}
-		</script>
-	</body>
 </html>
