@@ -19,5 +19,5 @@ sql;
 	$email = $_SESSION["email"];
 
 	//richiamo la grafica della home
-	require_once("../view/home.html");
+	require_once("../view/home.php");
 ?>

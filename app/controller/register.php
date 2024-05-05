@@ -34,7 +34,7 @@
 		if ($stmt->execute()) {
 			echo "Registrazione avvenuta con successo!";
 			// Dopo aver completato la registrazione con successo
-			echo "<script>window.location.href = 'home.html';</script>";
+			echo "<script>window.location.href = 'home.php';</script>";
 
 		} else {
 			echo "Errore durante la registrazione: " . $conn->error;

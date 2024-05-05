@@ -23,7 +23,7 @@
     --------------------------------------*/
     if ($.fn.meanmenu) {
         $('nav#dropdown').meanmenu({
-            siteLogo: "<div class='mobile-menu-nav-back'><a class='logo-mobile' href='index.html'><img src='media/mobile-logo.png' alt='logo' class='img-fluid'/></a></div>",
+            siteLogo: "<div class='mobile-menu-nav-back'><a class='logo-mobile' href='index.php'><img src='media/mobile-logo.png' alt='logo' class='img-fluid'/></a></div>",
             meanMenuOpen:"<span></span><span></span><span></span>",
             meanScreenWidth: "767"
         });
