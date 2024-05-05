@@ -1,0 +1,58 @@
+/*------------------- 4.3 Content -------------------*/
+.dsy-page-content.vertical-menu{
+	margin-left: rem(270px);
+	padding-top: rem(90px);
+	flex: 1;
+	transition: margin 0.5s ease-out;
+	@media only screen and (max-width: 1199px) {	
+		margin-left: rem(230px);	
+	}
+	@media only screen and (max-width: 991px) {	
+		margin-left: 0;	
+	}
+	@media only screen and (max-width: 767px) {
+		padding-top: rem(80px);	
+	}
+}
+
+.dsy-page-content.horizontal-menu {
+	padding-top: rem(160px);
+	@media only screen and (max-width: 767px) {
+		padding-top: rem(130px);
+	}
+}
+
+.section-title {
+	font-size: rem(16px);
+	font-weight: 700;
+	color: #001737;
+	margin-bottom: rem(20px);
+}
+
+.section-dropdown {
+	text-align: right;
+	.dropdown-toggle {
+		font-size: rem(13px);
+		font-weight: 500;
+		color: #9295a0;
+		i {
+			&:before {
+				margin-left: rem(8px);
+				font-size: rem(8px);
+			}
+		}
+		&:after {
+			display: none;
+		}
+	}
+	.dropdown-menu {
+		min-width: rem(130px);
+		.dropdown-item {
+			font-size: rem(12px);
+			&:hover {
+				background-color: #2e5bff;
+				color: $color_light;
+			}
+		}
+	}
+}

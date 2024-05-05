@@ -1,0 +1,111 @@
+/*------------------- 5.17 Summery Box -------------------*/
+.summery-box {
+	background-color: #ffffff;
+	.card-body {
+		padding: rem(12px 0 28px);
+		transition: all 0.3s ease-out;
+	}
+	.growth-rate {
+		text-align: right;
+		padding-right: rem(20px);
+		font-size: rem(11px);
+		font-weight: 600;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		i {
+			&:before {
+				font-size: rem(10px);
+				font-weight: 400;
+				margin-left: rem(5px);
+			}
+		}
+	}
+	.media {
+		padding: rem(0 0 0 40px);
+		align-items: center;
+		@media only screen and (max-width: 1399px) {
+			padding: rem(0 0 0 20px);	
+		}
+		.item-icon {
+			margin-right: rem(12px);
+			text-align: center;
+			height: rem(35px);
+			width: rem(35px);
+			line-height: 1;
+			transform: rotate(45deg);
+			border-radius: rem(8px);
+			position: relative;
+			z-index: 1;
+			&:after {
+				overflow: hidden;
+				position: absolute;
+				top: 0;
+				left: -90%;
+				z-index: 2;
+				display: block;
+				content: '';
+				width: 50%;
+				height: 100%;
+				background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+				background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+				transform: skewX(45deg);
+			}
+			i {
+				display: block;
+				position: absolute;
+				z-index: 1;
+				left: rem(8px);
+				top: rem(7px);
+				text-align: center;
+				transform: rotate(-45deg);
+				&:before {
+					color: $color_light;
+					font-size: rem(19px);
+				}
+			}
+			img {
+				transform: rotate(-45deg);
+				padding-right: rem(6px);
+    			padding-top: rem(5px);
+			}			
+		}
+		.media-body {
+			.item-title {
+				color: #718096;
+				font-size: rem(15px);
+				font-weight: 600;
+				margin-bottom: rem(3px);
+			}
+			.item-currency {
+				font-size: rem(20px);
+				font-weight: 500;
+				color: #001737;
+			}
+		}
+	}
+	.summery-line {
+		margin-bottom: rem(28px);
+	}
+	&.card {
+		&:hover {	
+			.card-body {
+				box-shadow: rgba(0, 0, 0, 0.1) rem(0px 5px 30px 0px);
+			}
+		}
+	}	
+	&:hover {
+		.media {
+			.item-icon {
+				&:after {
+					animation: shine .75s;
+				}
+			}
+		}
+	}
+	@keyframes shine {
+		100% {
+			left: 125%;
+		}
+	}
+}

@@ -1,0 +1,90 @@
+/*------------------- 4.8 Page Preloader -------------------*/
+body {
+    .preloader-wrap {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99999;
+        background: #ffffff;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;        
+        .preloader-content {
+            text-align: center;
+            padding: 5px;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            &:before {
+                content: "";
+                background-color: #ffffff;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                z-index: 1;
+                left: 50%;
+                top: 0;
+                animation: preloader_animation_left 5s infinite;
+                animation-delay: 1s;
+            }
+            &:after {
+                content: "";
+                background-color: #ffffff;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                z-index: 1;
+                right: 50%;
+                top: 0;
+                animation: preloader_animation_right 5s infinite;
+                animation-delay: 1s;
+            }
+        }
+        .loader-logo {
+            margin-bottom: 5px;
+        }
+        .preloader-text {
+            font-family: $font_secondry;
+            color: #000000;
+            font-size: 36px;
+            letter-spacing: 2px;
+            font-weight: 900;
+        }
+    }
+}
+
+body.loaded {
+    .preloader-wrap {
+        display: none;
+    }
+}
+
+@keyframes preloader_animation_left {
+    0% {
+        transform: translateX(0);
+    }
+    10% {
+        transform: translateX(0);
+    }
+
+    60% {
+        transform: translateX(50%);
+    }
+}
+
+@keyframes preloader_animation_right {
+    0% {
+        transform: translateX(0);
+    }
+    10% {
+        transform: translateX(0);
+    }
+
+    60% {
+        transform: translateX(-50%);
+    }
+}

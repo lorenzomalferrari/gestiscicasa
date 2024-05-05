@@ -1,0 +1,73 @@
+/*------------------- 3.1 Select 2 -------------------*/
+
+.select2-container--classic .select2-selection--single {
+    background: transparent;
+    border: rem(1px) solid #e1e1e1;
+    height: rem(40px);
+}
+
+.select2-container--classic .select2-selection--single .select2-selection__rendered {
+    line-height: rem(40px);
+    color: #111111;
+    padding-left: rem(20px);
+    font-size: rem(15px);
+}
+
+.select2-container--classic .select2-selection--single:focus {
+    border: rem(1px) solid #e1e1e1;
+}
+
+.select2-container--classic .select2-selection--single .select2-selection__arrow {
+    background: none;
+    border-left: none;
+    height: rem(40px);
+    top: 0;
+    width: rem(40px);
+}
+
+.select2-container--classic .select2-selection--single .select2-selection__arrow b {
+    border-color: #111111 transparent transparent transparent;
+
+}
+
+.select2-container--classic.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: transparent transparent #111111 transparent;
+}
+
+// open dropdown
+.select2-container--classic.select2-container--open.select2-container--below .select2-selection--single {
+    background: #ffffff;
+    border-color: #cccccc;
+}
+
+.select2-container--classic.select2-container--open.select2-container--above .select2-selection--single {
+    border-color: #cccccc;
+    background: #ffffff;
+    border-top: rem(1px) solid #cccccc;
+}
+
+.select2-container--classic.select2-container--open .select2-dropdown {
+    border-color: #cccccc;
+    position: inherit !important;
+    border-top: rem(1px) solid #cccccc;
+    border-bottom: rem(1px) solid #cccccc;
+}
+
+.select2-container--classic .select2-results__option--highlighted[aria-selected] {
+    background-color: #0529a4;
+}
+
+.select2-results__option {
+    padding: rem(10px 20px);
+}
+
+.select2-container--classic .select2-search--inline .select2-search__field {
+    height: rem(28px);
+    margin-top: rem(5px);
+    width: 100% !important;
+    padding-left: rem(15px);
+}
+
+.select2-container .select2-selection--multiple {
+    min-height: rem(35px);
+}

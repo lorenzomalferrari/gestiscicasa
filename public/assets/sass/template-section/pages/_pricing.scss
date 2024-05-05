@@ -1,0 +1,71 @@
+/*------------------- 5.12 Pricing Plan -------------------*/
+.pricing-plan {
+	.pricing-box {
+		margin-bottom: rem(30px);
+		border: rem(1px) solid #e8e8e8;
+		border-radius: rem(4px);
+		padding: rem(20px 30px 35px);
+		text-align: center;
+		transition: all 0.3s ease-in-out;
+		.item-icon {
+			margin-bottom: rem(6px);
+			i {
+				&:before {
+					font-size: rem(70px);
+					color: #001737;
+					transition: all 0.3s ease-in-out;
+					@media only screen and (max-width: 767px) {
+						font-size: rem(50px);
+					}
+				}
+			}
+		}
+		.item-title {
+			font-size: rem(24px);
+			font-weight: 600;
+			color: #001737;
+			@media only screen and (max-width: 767px) {
+				font-size: rem(22px);
+			}
+		}
+		p {
+			color: #8392a5;
+			font-size: rem(15px);
+			line-height: rem(30px);
+			margin-bottom: rem(25px);
+		}
+		.item-price {
+			margin-bottom: rem(30px);
+			font-family: $font_primary;
+			font-size: rem(30px);
+			color: #001737;
+			font-weight: 800;
+			@media only screen and (max-width: 767px) {
+				font-size: rem(26px);
+			}
+		}
+		.item-btn {
+			width: 80%;
+			font-size: rem(16px);
+			font-weight: 500;
+			color: $color_light;
+			background-color: #2e5bff;
+			border-radius: rem(4px);
+			padding: rem(8px 10px);
+			&:hover {
+				background-color: $color_body;
+			}
+		}
+		&:hover {
+			box-shadow: rem(0 0 15px 0) rgba(0, 0, 0, 0.1);
+			border-color: $color_light;
+			.item-icon {
+				i {
+					&:before {
+						color: $color_primary;
+					}
+				}
+			}
+		}
+	}
+}

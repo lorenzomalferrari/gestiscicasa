@@ -1,0 +1,18 @@
+/*------------------- 2.1 Badge -------------------*/
+.email-table {
+    .badge {
+        padding: rem(5px 10px);
+        border-radius: rem(5px);
+        vertical-align: middle;
+        font-size: rem(10px);
+    }
+}
+
+.ui-badge {
+    .card-body {
+        padding: rem(25px 30px);
+        .badge {
+            padding: rem(5px 10px);
+        }
+    }
+}

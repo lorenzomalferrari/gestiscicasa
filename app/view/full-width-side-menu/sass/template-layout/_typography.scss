@@ -1,0 +1,55 @@
+body {
+    font-family: $font_secondry;
+    font-size: rem(14px);
+    line-height: 1.5;
+    color: $color_body;
+    font-weight: 400;
+    height: 100%;
+    vertical-align: baseline;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    background-color: #ffffff;
+}
+
+p {
+    margin: rem(0 0 10px 0);
+    color: $color_body;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font_primary;
+    margin: rem(0 0 10px 0);
+    font-weight: 500;
+    line-height: 1.2;
+    color: $color_dark;
+}
+
+h1 {
+    font-size: rem(32px);
+}
+
+h2 {
+    font-size: rem(26px);
+}
+
+h3 {
+    font-size: rem(20px);
+}
+
+h4 {
+    font-size: rem(18px);
+}
+
+h5 {
+    font-size: rem(16px);
+}
+
+h6 {
+    font-size: rem(14px);
+}
