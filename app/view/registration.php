@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="../../public/assets/media/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="media/favicon.png">
 
     <!-- Dependencies CSS -->
     <link rel="stylesheet" href="../../public/assets/vendor/dependencies/bootstrap/css/bootstrap.min.css" type="text/css">
@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="../../public/assets/vendor/dependencies/flatpicker/css/flatpickr.min.css" type="text/css">
     <link rel="stylesheet" href="../../public/assets/vendor/dependencies/quill/quill.core.css" type="text/css">
     <link rel="stylesheet" href="../../public/assets/vendor/dependencies/quill/quill.snow.css" type="text/css">
+
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../../public/assets/css/app.css" type="text/css">
@@ -50,36 +51,47 @@
     </a>
     <div id="main-wrapper" class="dsy-main-wrapper">
         <div class="dsy-page">
-            <div class="card login-form">
+            <div class="card login-form register-form">
                 <div class="card-body">
                     <div class="item-logo">
                         <a href="index.php"><img src="../../public/assets/media/logo-large.png" alt="Dashy"></a>
                     </div>
-                    <h3 class="text-body text-bold mb-1">Sign-In</h3>
-                    <div class="text-manatee">Access the Dashy panel using your email and passcode.</div>
+                    <h3 class="text-body text-bold mb-1 text-22">Register</h3>
+                    <div class="text-manatee">Create New Dashy Account</div>
                     <form>
                         <div class="form-group">
                             <div class="input-label">
-                                <label>Email or Username</label>
-                                <a href="#">Need Help?</a>
+                                <label>Name</label>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter your email address or username" name="email">
+                            <input type="text" class="form-control" placeholder="Enter your name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <div class="input-label">
+                                <label>Email or Username</label>
+                            </div>
+                            <input type="email" class="form-control" placeholder="Enter your email address or username" name="email">
                         </div>
                         <div class="form-group">
                             <div class="input-label">
                                 <label>Passcode</label>
-                                <a href="passcode-reset.php">Forgot Code?</a>
                             </div>
                             <input type="password" class="form-control" placeholder="Enter your passcode" name="password">
+                            <a href="#" class="passcode-eye"><i class="far fa-eye"></i></a>
                         </div>
                         <div class="form-group">
-                            <button type="button" class="submit-btn">SIGN IN</button>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="check1">
+                                <label class="form-check-label" for="check1">I agree to Dashy <a href="#">Privacy Policy</a> & <a href="#">Terms</a></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="submit-btn">REGISTER</button>
                         </div>
                     </form>
+
                     <ul class="account-create">
-                        <li>New on our platform? <a href="registration.php">Create an account</a></li>
-                        <!--
-                        <li class="social-icon">
+                        <li>Already have an account ? <a href="login.php">Sign in instead</a></li>
+                        <!--<li class="social-icon">
                             <a href="#" class="bg-fb"><i class="fab fa-facebook-f"></i></a>
                             <a href="#" class="bg-twitter"><i class="fab fa-twitter"></i></a>
                             <a href="#" class="bg-google"><i class="fab fa-google-plus-g"></i></a>

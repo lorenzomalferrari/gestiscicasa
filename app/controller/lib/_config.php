@@ -3,6 +3,7 @@
 	$config = [
 		'site' => [
 			'name' => 'CRM Gestisci Casa',
+			'autore' => 'Lorenzo Malferrari',
 			'version' => '1.0.1',
 		],
 		'db' => [
