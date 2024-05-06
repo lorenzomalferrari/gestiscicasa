@@ -1,3 +1,7 @@
+<?php
+    require_once("../controller/lib/_libs.php");
+    $titlePage = "Reset password";
+?>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -7,7 +11,7 @@
 
 <body>
     <!-- Page Loader Start -->
-    <?php require_once("/_preloader.php"); ?>
+    <?php require_once("_preloader.php"); ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">
         <i class="fas fa-angle-double-up"></i>
@@ -439,7 +443,7 @@
                     </div>
                 </div>
 
-                
+
             </div>
         </div>
     </div>

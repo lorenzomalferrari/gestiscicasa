@@ -21,10 +21,12 @@
             <div class="card login-form register-form">
                 <div class="card-body">
                     <div class="item-logo">
-                        <a href="index.php"><img src="../../public/assets/media/logo-large.png" alt="<?php echo $config['site']['autore']; ?>"></a>
+                        <a href="index.php"><img src="../../public/assets/media/logo-large.png" alt="<?php echo $config['site']['name']; ?>"></a>
                     </div>
                     <h3 class="text-body text-bold mb-1 text-22"><?php echo $titlePage; ?></h3>
-                    <div class="text-manatee">Crea un nuovo accout su <?php echo $config['site']['autore']; ?></div>
+                    <div class="text-manatee">
+                        Crea un nuovo accout su <?php echo $config['site']['name']; ?>
+                    </div>
                     <form>
                         <div class="form-group">
                             <div class="input-label">
@@ -48,14 +50,13 @@
                         <div class="form-group">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="check1">
-                                <label class="form-check-label" for="check1">Sono d'accordo con <?php echo $NOME_PROGETTO; ?> sulla <a href="#">Privacy Policy</a> e sui <a href="#">Termini</a></label>
+                                <label class="form-check-label" for="check1">Sono d'accordo con <?php echo $config['site']['name']; ?> sulla <a href="#">Privacy Policy</a> e sui <a href="#">Termini</a></label>
                             </div>
                         </div>
                         <div class="form-group">
                             <button type="button" class="submit-btn">REGISTRA</button>
                         </div>
                     </form>
-
                     <ul class="account-create">
                         <li>Hai già un account? <a href="login.php">Accedi</a></li>
                         <!--<li class="social-icon">

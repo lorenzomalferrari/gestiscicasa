@@ -1,3 +1,8 @@
+<?php
+    require_once("../controller/lib/_libs.php");
+    $titlePage = "Home";
+    echo $titlePage;
+?>
 <!doctype html>
 <html class="no-js" lang="">
 
