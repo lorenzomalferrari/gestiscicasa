@@ -1,40 +1,15 @@
+<?php
+    require_once("../controller/lib/_libs.php");
+    $titlePage = "Login";
+?>
 <!doctype html>
 <html class="no-js" lang="">
 
 <head>
-    <!-- Meta Data -->
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="../../public/assets/media/favicon.png">
-
-    <!-- Dependencies CSS -->
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/bootstrap/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/fontawesome/css/all.min.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/flaticon/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/jvectormap/css/jquery-jvectormap-2.0.3.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/fullcalendar/main.min.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/select2/css/select2.min.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/bootstrap-colorpicker/bootstrap-colorpicker.min.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/flatpicker/css/flatpickr.min.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/quill/quill.core.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/quill/quill.snow.css" type="text/css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../public/assets/css/app.css" type="text/css">
-
-    <!-- Google Web Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+    <?php require_once("head/_head.php"); ?>
 </head>
 
 <body>
-    <!--[if IE]>
-	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-	<![endif]-->
     <!-- Page Loader Start -->
     <div id="preloader" class="preloader-wrap">
         <div class="preloader-content">
@@ -53,31 +28,31 @@
             <div class="card login-form">
                 <div class="card-body">
                     <div class="item-logo">
-                        <a href="index.php"><img src="../../public/assets/media/logo-large.png" alt="Dashy"></a>
+                        <a href="index.php"><img src="../../public/assets/media/logo-large.png" alt="<?php echo $NOME_PROGETTO; ?>"></a>
                     </div>
-                    <h3 class="text-body text-bold mb-1">Sign-In</h3>
-                    <div class="text-manatee">Access the Dashy panel using your email and passcode.</div>
+                    <h3 class="text-body text-bold mb-1">Login</h3>
+                    <div class="text-manatee">Accedi a <?php echo $NOME_PROGETTO; ?> usando usarname o email e la password</div>
                     <form>
                         <div class="form-group">
                             <div class="input-label">
                                 <label>Email or Username</label>
-                                <a href="#">Need Help?</a>
+                                <a href="#">Bisogno di aiuto?</a>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter your email address or username" name="email">
+                            <input type="text" class="form-control" placeholder="Inserire username o email" name="email">
                         </div>
                         <div class="form-group">
                             <div class="input-label">
-                                <label>Passcode</label>
-                                <a href="passcode-reset.php">Forgot Code?</a>
+                                <label>Password</label>
+                                <a href="passcode-reset.php">Dimenticata password?</a>
                             </div>
-                            <input type="password" class="form-control" placeholder="Enter your passcode" name="password">
+                            <input type="password" class="form-control" placeholder="Inserire la password" name="password">
                         </div>
                         <div class="form-group">
-                            <button type="button" class="submit-btn">SIGN IN</button>
+                            <button type="button" class="submit-btn">Login</button>
                         </div>
                     </form>
                     <ul class="account-create">
-                        <li>New on our platform? <a href="registration.php">Create an account</a></li>
+                        <li>Nuovo sulla piattaforma? <a href="registration.php">Registrati</a></li>
                         <!--
                         <li class="social-icon">
                             <a href="#" class="bg-fb"><i class="fab fa-facebook-f"></i></a>
@@ -92,7 +67,7 @@
             </div>
         </div>
     </div>
-    <?php require_once("script.php"); ?>
+    <?php require_once("_script.php"); ?>
 </body>
 
 </html>
