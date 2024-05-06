@@ -11,14 +11,7 @@
 
 <body>
     <!-- Page Loader Start -->
-    <div id="preloader" class="preloader-wrap">
-        <div class="preloader-content">
-            <figure class="preloader-logo">
-                <img src="../../public/assets/media/logo.png" alt="Logo">
-            </figure>
-            <div class="preloader-text">Dashy</div>
-        </div>
-    </div>
+    <?php require_once("/_preloader.php"); ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">
         <i class="fas fa-angle-double-up"></i>
