@@ -2,40 +2,10 @@
 <html class="no-js" lang="">
 
 <head>
-    <!-- Meta Data -->
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="media/favicon.png">
-
-    <!-- Dependencies CSS -->
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/bootstrap/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/fontawesome/css/all.min.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/flaticon/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/jvectormap/css/jquery-jvectormap-2.0.3.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/fullcalendar/main.min.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/select2/css/select2.min.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/bootstrap-colorpicker/bootstrap-colorpicker.min.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/flatpicker/css/flatpickr.min.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/quill/quill.core.css" type="text/css">
-    <link rel="stylesheet" href="../../public/assets/vendor/dependencies/quill/quill.snow.css" type="text/css">
-
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../public/assets/css/app.css" type="text/css">
-
-    <!-- Google Web Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+    <?php require_once("head/_head.php"); ?>
 </head>
 
 <body>
-    <!--[if IE]>
-	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-	<![endif]-->
     <!-- Page Loader Start -->
     <div id="preloader" class="preloader-wrap">
         <div class="preloader-content">
@@ -104,7 +74,7 @@
             </div>
         </div>
     </div>
-    <?php require_once("script.php"); ?>
+    <?php require_once("_script.php"); ?>
 </body>
 
 </html>
