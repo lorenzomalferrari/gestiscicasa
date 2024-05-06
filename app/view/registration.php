@@ -1,3 +1,7 @@
+<?php
+    require_once("../controller/lib/_libs.php");
+    $titlePage = "Registrazione";
+?>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -7,7 +11,7 @@
 
 <body>
     <!-- Page Loader Start -->
-    <?php require_once("/_preloader.php"); ?>
+    <?php require_once("_preloader.php"); ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">
         <i class="fas fa-angle-double-up"></i>
@@ -17,10 +21,10 @@
             <div class="card login-form register-form">
                 <div class="card-body">
                     <div class="item-logo">
-                        <a href="index.php"><img src="../../public/assets/media/logo-large.png" alt="<?php echo $NOME_PROGETTO; ?>"></a>
+                        <a href="index.php"><img src="../../public/assets/media/logo-large.png" alt="<?php echo $config['site']['autore']; ?>"></a>
                     </div>
-                    <h3 class="text-body text-bold mb-1 text-22">Registrazione</h3>
-                    <div class="text-manatee">Crea un nuovo accout su <?php echo $NOME_PROGETTO; ?></div>
+                    <h3 class="text-body text-bold mb-1 text-22"><?php echo $titlePage; ?></h3>
+                    <div class="text-manatee">Crea un nuovo accout su <?php echo $config['site']['autore']; ?></div>
                     <form>
                         <div class="form-group">
                             <div class="input-label">
