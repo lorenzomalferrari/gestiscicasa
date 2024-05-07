@@ -1,50 +1,17 @@
+<?php
+    require_once("../controller/lib/_libs.php");
+    $titlePage = "Reset password";
+?>
 <!doctype html>
 <html class="no-js" lang="">
 
 <head>
-    <!-- Meta Data -->
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashy | Password Reset</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="media/favicon.png">
-
-    <!-- Dependencies CSS -->
-    <link rel="stylesheet" href="dependencies/bootstrap/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/fontawesome/css/all.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/flaticon/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/jvectormap/css/jquery-jvectormap-2.0.3.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/fullcalendar/main.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/select2/css/select2.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/bootstrap-colorpicker/bootstrap-colorpicker.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/flatpicker/css/flatpickr.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/quill/quill.core.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/quill/quill.snow.css" type="text/css">
-
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/app.css" type="text/css">
-
-    <!-- Google Web Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+    <?php require_once("head/_head.php"); ?>
 </head>
 
 <body>
-    <!--[if IE]>
-	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-	<![endif]-->
     <!-- Page Loader Start -->
-    <div id="preloader" class="preloader-wrap">
-        <div class="preloader-content">
-            <figure class="preloader-logo">
-                <img src="media/logo.png" alt="Logo">
-            </figure>
-            <div class="preloader-text">Dashy</div>
-        </div>
-    </div>
+    <?php require_once("_preloader.php"); ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">
         <i class="fas fa-angle-double-up"></i>
@@ -480,32 +447,7 @@
             </div>
         </div>
     </div>
-    <!-- Dependencies Js -->
-    <script src="dependencies/jquery/js/jquery.min.js"></script>
-    <script src="dependencies/popper.js/js/popper.min.js"></script>
-    <script src="dependencies/bootstrap/js/bootstrap.min.js"></script>
-    <script src="dependencies/chart.js/js/Chart.min.js"></script>
-    <script src="dependencies/apexchart/apexcharts.min.js"></script>
-    <script src="dependencies/apexchart/irregular-data-series.js"></script>
-    <script src="dependencies/apexchart/ohlc.js"></script>
-    <script src="dependencies/jvectormap/js/jquery-jvectormap-2.0.3.min.js"></script>
-    <script src="dependencies/jvectormap/js/jquery-jvectormap-world-mill.js"></script>
-    <script src="dependencies/jvectormap/js/jquery-jvectormap-us-aea.js"></script>
-    <script src="dependencies/jvectormap/js/gdp-data.js"></script>
-    <script src="dependencies/fullcalendar/main.min.js"></script>
-    <script src="dependencies/select2/js/select2.min.js"></script>
-    <script src="dependencies/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
-    <script src="dependencies/flatpicker/js/flatpickr.min.js"></script>
-    <script src="dependencies/quill/quill.min.js"></script>
-    <script src="assets/js/chart.js"></script>
-    <script src="assets/js/apex-chart.js"></script>
-
-
-    <!-- Preloader Js -->
-    <script src="dependencies/imagesloaded/imagesloaded.pkgd.min.js"></script>
-
-    <!-- Custom Js -->
-    <script src="assets/js/app.js"></script>
+    <?php require_once("_script.php"); ?>
 </body>
 
 </html>

@@ -1,50 +1,20 @@
+<?php
+    require_once("../controller/lib/_libs.php");
+    $titlePage = "Home";
+    //echo $titlePage;
+?>
 <!doctype html>
 <html class="no-js" lang="">
 
 <head>
-    <!-- Meta Data -->
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashy | Sales Monitoring</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="media/favicon.png">
-
-    <!-- Dependencies CSS -->
-    <link rel="stylesheet" href="dependencies/bootstrap/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/fontawesome/css/all.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/flaticon/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/jvectormap/css/jquery-jvectormap-2.0.3.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/fullcalendar/main.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/select2/css/select2.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/bootstrap-colorpicker/bootstrap-colorpicker.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/flatpicker/css/flatpickr.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/quill/quill.core.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/quill/quill.snow.css" type="text/css">
-
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/app.css" type="text/css">
-
-    <!-- Google Web Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+    <?php require_once("head/_head.php"); ?>
 </head>
 
 <body>
-    <!--[if IE]>
-	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-	<![endif]-->
     <!-- Page Loader Start -->
-    <div id="preloader" class="preloader-wrap">
-        <div class="preloader-content">
-            <figure class="preloader-logo">
-                <img src="media/logo.png" alt="Logo">
-            </figure>
-            <div class="preloader-text">Dashy</div>
-        </div>
-    </div>
+    <?php
+        //require_once("_preloader.php");
+    ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">
         <i class="fas fa-angle-double-up"></i>
@@ -54,14 +24,15 @@
 
             <div class="dsy-page-content vertical-menu">
                 <header class="header">
+                    <!-- Inizio menù laterale -->
                     <div class="dsy-aside dsy-aside-fixed">
                         <div class="dsy-aside-brand">
                             <div class="dsy-brand-logo">
                                 <a href="index.php" class="main-logo">
-                                    <img src="media/main-logo.png" alt="logo">
+                                    <img src="../../public/assets/media/main-logo.png" alt="logo">
                                 </a>
                                 <a href="index.php" class="logo-icon">
-                                    <img src="media/favicon.png" alt="logo">
+                                    <img src="../../public/assets/media/favicon.png" alt="logo">
                                 </a>
                             </div>
                             <div class="nav-toggle-btn d-lg-none">
@@ -297,6 +268,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Fine menù laterale -->
                     <div class="navbar navbar-expand nav-top-bar1 nav-bar-fixed">
                         <div class="top-bar-menu collapse navbar-collapse" id="mobile-navbar">
                             <ul class="navbar-nav">
@@ -327,10 +299,10 @@
                                 <li class="navbar-item dropdown nav-language">
                                     <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"><img src="media/figure/flag.jpg" alt="">En-UK<i class="flaticon-null-16"></i></a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item text-13" href="#"><img src="media/figure/flag_6.jpg" alt="Sp">Sp-Sp</a>
-                                        <a class="dropdown-item text-13" href="#"><img src="media/figure/flag_7.jpg" alt="Du">Du-Gm</a>
-                                        <a class="dropdown-item text-13" href="#"><img src="media/figure/flag_8.jpg" alt="Du">Du-It</a>
-                                        <a class="dropdown-item text-13" href="#"><img src="media/figure/flag_9.jpg" alt="Rus">Rus-Rs</a>
+                                        <a class="dropdown-item text-13" href="#"><img src="../../public/assets/media/figure/flag_6.jpg" alt="Sp">Sp-Sp</a>
+                                        <a class="dropdown-item text-13" href="#"><img src="../../public/assets/media/figure/flag_7.jpg" alt="Du">Du-Gm</a>
+                                        <a class="dropdown-item text-13" href="#"><img src="../../public/assets/media/figure/flag_8.jpg" alt="Du">Du-It</a>
+                                        <a class="dropdown-item text-13" href="#"><img src="../../public/assets/media/figure/flag_9.jpg" alt="Rus">Rus-Rs</a>
                                     </div>
                                 </li>
                                 <li class="navbar-item dropdown nav-message">
@@ -343,7 +315,7 @@
                                         <div class="nofify-list">
                                             <a href="#" class="media">
                                                 <div class="item-img">
-                                                    <img src="media/figure/img_1.jpg" alt="thumb">
+                                                    <img src="../../public/assets/media/figure/img_1.jpg" alt="thumb">
                                                 </div>
                                                 <div class="media-body">
                                                     <h6 class="item-title text-14 text-bold mb-1">Thomas Henry</h6>
@@ -353,7 +325,7 @@
                                             </a>
                                             <a href="#" class="media">
                                                 <div class="item-img">
-                                                    <img src="media/figure/img_4.jpg" alt="thumb">
+                                                    <img src="../../public/assets/media/figure/img_4.jpg" alt="thumb">
                                                 </div>
                                                 <div class="media-body">
                                                     <h6 class="item-title text-14 text-bold mb-1">Tom Black</h6>
@@ -363,7 +335,7 @@
                                             </a>
                                             <a href="#" class="media">
                                                 <div class="item-img">
-                                                    <img src="media/figure/admin.jpg" alt="thumb">
+                                                    <img src="../../public/assets/media/figure/admin.jpg" alt="thumb">
                                                 </div>
                                                 <div class="media-body">
                                                     <h6 class="item-title text-14 text-bold mb-1">Jasmine Roberts</h6>
@@ -389,7 +361,7 @@
                                         <div class="nofify-list">
                                             <a href="#" class="media">
                                                 <div class="item-img">
-                                                    <img src="media/figure/img_13.jpg" alt="thumb">
+                                                    <img src="../../public/assets/media/figure/img_13.jpg" alt="thumb">
                                                 </div>
                                                 <div class="media-body">
                                                     <h6 class="item-title text-13 text-bold mb-1">Requested to Widthdrawl</h6>
@@ -398,7 +370,7 @@
                                             </a>
                                             <a href="#" class="media">
                                                 <div class="item-img">
-                                                    <img src="media/figure/img_14.jpg" alt="thumb">
+                                                    <img src="../../public/assets/media/figure/img_14.jpg" alt="thumb">
                                                 </div>
                                                 <div class="media-body">
                                                     <h6 class="item-title text-13 text-bold mb-1">New user registered.</h6>
@@ -407,7 +379,7 @@
                                             </a>
                                             <a href="#" class="media">
                                                 <div class="item-img">
-                                                    <img src="media/figure/admin.jpg" alt="thumb">
+                                                    <img src="../../public/assets/media/figure/admin.jpg" alt="thumb">
                                                 </div>
                                                 <div class="media-body">
                                                     <h6 class="item-title text-13 text-bold mb-1">Thomas Henry Added!</h6>
@@ -421,7 +393,7 @@
                                     </div>
                                 </li>
                                 <li class="navbar-item dropdown nav-admin">
-                                    <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"><img src="media/figure/admin.jpg" alt="">Maria Ree<i class="flaticon-null-16"></i></a>
+                                    <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"><img src="../../public/assets/media/figure/admin.jpg" alt="">Maria Ree<i class="flaticon-null-16"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <h5 class="text-bold text-body mb-0">Maria Ree</h5>
                                         <div class="text-14 text-manatee">Graphic Design</div>
@@ -614,7 +586,7 @@
                                         <div class="activity-list">
                                             <div class="media">
                                                 <div class="item-img">
-                                                    <img src="media/figure/img_1.jpg" alt="Girl">
+                                                    <img src="../../public/assets/media/figure/img_1.jpg" alt="Girl">
                                                 </div>
                                                 <div class="media-body">
                                                     <div class="item-date">22 Jun. 2020</div>
@@ -623,7 +595,7 @@
                                             </div>
                                             <div class="media">
                                                 <div class="item-img">
-                                                    <img src="media/figure/img_2.jpg" alt="Girl">
+                                                    <img src="../../public/assets/media/figure/img_2.jpg" alt="Girl">
                                                 </div>
                                                 <div class="media-body">
                                                     <div class="item-date">24 Jun. 2020</div>
@@ -632,7 +604,7 @@
                                             </div>
                                             <div class="media">
                                                 <div class="item-img">
-                                                    <img src="media/figure/img_3.jpg" alt="Girl">
+                                                    <img src="../../public/assets/media/figure/img_3.jpg" alt="Girl">
                                                 </div>
                                                 <div class="media-body">
                                                     <div class="item-date">24 Jun. 2020</div>
@@ -641,7 +613,7 @@
                                             </div>
                                             <div class="media">
                                                 <div class="item-img">
-                                                    <img src="media/figure/img_4.jpg" alt="Girl">
+                                                    <img src="../../public/assets/media/figure/img_4.jpg" alt="Girl">
                                                 </div>
                                                 <div class="media-body">
                                                     <div class="item-date">24 Jun. 2020</div>
@@ -650,7 +622,7 @@
                                             </div>
                                             <div class="media">
                                                 <div class="item-img">
-                                                    <img src="media/figure/img_5.jpg" alt="Girl">
+                                                    <img src="../../public/assets/media/figure/img_5.jpg" alt="Girl">
                                                 </div>
                                                 <div class="media-body">
                                                     <div class="item-date">03 Aug 2020</div>
@@ -659,7 +631,7 @@
                                             </div>
                                             <div class="media d-none d-xxl-flex">
                                                 <div class="item-img">
-                                                    <img src="media/figure/img_6.jpg" alt="Girl">
+                                                    <img src="../../public/assets/media/figure/img_6.jpg" alt="Girl">
                                                 </div>
                                                 <div class="media-body">
                                                     <div class="item-date">15 Aug. 2020</div>
@@ -668,7 +640,7 @@
                                             </div>
                                             <div class="media d-none d-xxl-flex">
                                                 <div class="item-img">
-                                                    <img src="media/figure/img_5.jpg" alt="Girl">
+                                                    <img src="../../public/assets/media/figure/img_5.jpg" alt="Girl">
                                                 </div>
                                                 <div class="media-body">
                                                     <div class="item-date">03 Aug 2020</div>
@@ -742,35 +714,35 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td class="d-flex align-items-center"><img src="media/figure/flag_1.jpg" alt="img">
+                                                        <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/flag_1.jpg" alt="img">
                                                             <div>United States</div>
                                                         </td>
                                                         <td>13,495</td>
                                                         <td class="text-semibold">$170,400.50</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="d-flex align-items-center"><img src="media/figure/flag_2.jpg" alt="img">
+                                                        <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/flag_2.jpg" alt="img">
                                                             <div>Netherlands</div>
                                                         </td>
                                                         <td>11,495</td>
                                                         <td class="text-semibold">$125,400.80</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="d-flex align-items-center"><img src="media/figure/flag_3.jpg" alt="img">
+                                                        <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/flag_3.jpg" alt="img">
                                                             <div>United Kingdom</div>
                                                         </td>
                                                         <td>09,348</td>
                                                         <td class="text-semibold">$90,735.30</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="d-flex align-items-center"><img src="media/figure/flag_4.jpg" alt="img">
+                                                        <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/flag_4.jpg" alt="img">
                                                             <div>Canada</div>
                                                         </td>
                                                         <td>07,845</td>
                                                         <td class="text-semibold">$84,954.70</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="d-flex align-items-center"><img src="media/figure/flag_5.jpg" alt="img">
+                                                        <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/flag_5.jpg" alt="img">
                                                             <div>Australia</div>
                                                         </td>
                                                         <td>05,945</td>
@@ -930,7 +902,7 @@
                                         <div class="notify-list">
                                             <div class="media">
                                                 <div class="item-img">
-                                                    <img src="media/figure/notify_1.jpg" alt="Notification">
+                                                    <img src="../../public/assets/media/figure/notify_1.jpg" alt="Notification">
                                                 </div>
                                                 <div class="media-body">
                                                     <h5 class="item-title"><a href="#">Triangle Concrete House</a></h5>
@@ -943,7 +915,7 @@
                                             </div>
                                             <div class="media">
                                                 <div class="item-img">
-                                                    <img src="media/figure/notify_2.jpg" alt="Notification">
+                                                    <img src="../../public/assets/media/figure/notify_2.jpg" alt="Notification">
                                                 </div>
                                                 <div class="media-body">
                                                     <h5 class="item-title"><a href="#">Modern concepts and designs</a></h5>
@@ -956,7 +928,7 @@
                                             </div>
                                             <div class="media">
                                                 <div class="item-img">
-                                                    <img src="media/figure/notify_3.jpg" alt="Notification">
+                                                    <img src="../../public/assets/media/figure/notify_3.jpg" alt="Notification">
                                                 </div>
                                                 <div class="media-body">
                                                     <h5 class="item-title"><a href="#">Architecture Awards</a></h5>
@@ -1000,7 +972,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td class="transaction-id">#AB3054</td>
-                                                        <td class="d-flex align-items-center"><img src="media/figure/img_7.jpg" alt="img">
+                                                        <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/img_7.jpg" alt="img">
                                                             <h6 class="mb-0 text-semibold">Keith Jensen</h6>
                                                         </td>
                                                         <td class="transaction-date">07 Oct, 2019</td>
@@ -1011,7 +983,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="transaction-id">#AB3055</td>
-                                                        <td class="d-flex align-items-center"><img src="media/figure/img_8.jpg" alt="img">
+                                                        <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/img_8.jpg" alt="img">
                                                             <h6 class="mb-0 text-semibold">Jacob Hunter</h6>
                                                         </td>
                                                         <td class="transaction-date">07 Oct, 2019</td>
@@ -1022,7 +994,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="transaction-id">#AB3056</td>
-                                                        <td class="d-flex align-items-center"><img src="media/figure/img_9.jpg" alt="img">
+                                                        <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/img_9.jpg" alt="img">
                                                             <h6 class="mb-0 text-semibold">Juan Mitchell</h6>
                                                         </td>
                                                         <td class="transaction-date">07 Oct, 2019</td>
@@ -1033,7 +1005,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="transaction-id">#AB3057</td>
-                                                        <td class="d-flex align-items-center"><img src="media/figure/img_10.jpg" alt="img">
+                                                        <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/img_10.jpg" alt="img">
                                                             <h6 class="mb-0 text-semibold">Keith Jensen</h6>
                                                         </td>
                                                         <td class="transaction-date">07 Oct, 2019</td>
@@ -1044,7 +1016,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="transaction-id">#AB3058</td>
-                                                        <td class="d-flex align-items-center"><img src="media/figure/img_11.jpg" alt="img">
+                                                        <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/img_11.jpg" alt="img">
                                                             <h6 class="mb-0 text-semibold">Juan Mitchell</h6>
                                                         </td>
                                                         <td class="transaction-date">07 Oct, 2019</td>
@@ -1055,7 +1027,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="transaction-id">#AB3059</td>
-                                                        <td class="d-flex align-items-center"><img src="media/figure/img_12.jpg" alt="img">
+                                                        <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/img_12.jpg" alt="img">
                                                             <h6 class="mb-0 text-semibold">Ronald Taylor</h6>
                                                         </td>
                                                         <td class="transaction-date">04 Oct, 2019</td>
@@ -1076,55 +1048,11 @@
                 <!--=====================================-->
                 <!--=       	Footer Start     		=-->
                 <!--=====================================-->
-                <footer class="footer-wrap">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="copyright-text">© 2020 <span>Dashy</span>. Template by affixtheme</div>
-                            </div>
-                            <div class="col-sm-6">
-                                <ul class="footer-link">
-                                    <li><a href="#">Terms</a></li>
-                                    <li><a href="#">Privacy</a></li>
-                                    <li><a href="#">Help</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-
-
-
+                <?php require_once("footer.php"); ?>
             </div>
         </div>
     </div>
-    <!-- Dependencies Js -->
-    <script src="dependencies/jquery/js/jquery.min.js"></script>
-    <script src="dependencies/popper.js/js/popper.min.js"></script>
-    <script src="dependencies/bootstrap/js/bootstrap.min.js"></script>
-    <script src="dependencies/chart.js/js/Chart.min.js"></script>
-    <script src="dependencies/apexchart/apexcharts.min.js"></script>
-    <script src="dependencies/apexchart/irregular-data-series.js"></script>
-    <script src="dependencies/apexchart/ohlc.js"></script>
-    <script src="dependencies/jvectormap/js/jquery-jvectormap-2.0.3.min.js"></script>
-    <script src="dependencies/jvectormap/js/jquery-jvectormap-world-mill.js"></script>
-    <script src="dependencies/jvectormap/js/jquery-jvectormap-us-aea.js"></script>
-    <script src="dependencies/jvectormap/js/gdp-data.js"></script>
-    <script src="dependencies/fullcalendar/main.min.js"></script>
-    <script src="dependencies/select2/js/select2.min.js"></script>
-    <script src="dependencies/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
-    <script src="dependencies/flatpicker/js/flatpickr.min.js"></script>
-    <script src="dependencies/quill/quill.min.js"></script>
-    <script src="assets/js/vector-map.js"></script>
-    <script src="assets/js/chart.js"></script>
-    <script src="assets/js/apex-chart.js"></script>
-
-
-    <!-- Preloader Js -->
-    <script src="dependencies/imagesloaded/imagesloaded.pkgd.min.js"></script>
-
-    <!-- Custom Js -->
-    <script src="assets/js/app.js"></script>
+    <?php require_once("_script.php"); ?>
 </body>
 
 </html>
