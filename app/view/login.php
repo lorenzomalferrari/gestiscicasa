@@ -1,6 +1,6 @@
 <?php
-    require_once("../controller/lib/_libs.php");
-    $titlePage = "Login";
+require_once("../controller/lib/_libs.php");
+$titlePage = "Login";
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -27,10 +27,10 @@
                     <div class="text-manatee">Accedi a <?php echo $config['site']['name']; ?>
                         usando usarname o email e la password
                     </div>
-                    <form action="index.php" method="post">
+                    <form id="login_form" action="index.php" method="post">
                         <div class=" form-group">
                             <div class="input-label">
-                                <label>Email or Username</label>
+                                <label>Username o email</label>
                                 <a href="#">Bisogno di aiuto?</a>
                             </div>
                             <input type="text" class="form-control" placeholder="Inserire username o email" name="email">
@@ -43,7 +43,8 @@
                             <input type="password" class="form-control" placeholder="Inserire la password" name="password">
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="submit-btn">Login</button>
+                            <!-- <button type="submit" class="submit-btn">Login</button> -->
+                            <button type="button" class="submit-btn" onclick="checkLogin()">Login</button>
                         </div>
                     </form>
                     <ul class="account-create">
