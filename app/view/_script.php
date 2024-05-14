@@ -22,4 +22,4 @@
 
 <!-- Custom Js -->
 <script src="../../public/assets/js/app.js"></script>
-<script src="../../public/assets/js/myscript.js"></script>
+<script src="../../public/assets/js/myscript.js?v=<?php echo $vers; ?>"></script>
