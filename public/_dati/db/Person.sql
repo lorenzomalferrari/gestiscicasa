@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS lmgc_Person (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     surname VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
     age INT NOT NULL,
     birthdate DATE NOT NULL,
     city INT NOT NULL,
@@ -12,6 +13,13 @@ CREATE TABLE IF NOT EXISTS lmgc_Person (
     creationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updateData TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+INSERT INTO lmgc_Person (name, surname, age, birthdate, city, state, nationality, description, idUser)
+VALUES ('Mario', 'Rossi', 30, '1994-05-09', 1, 1, 1, 1, 123);
+
+
+ALTER TABLE lmgc_Person
+ADD CONSTRAINT UC_Email UNIQUE (email); -- Assicura che l'email sia univoca
 
 /*
 ALTER TABLE lmgc_Person
