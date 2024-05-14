@@ -27,20 +27,20 @@ $titlePage = "Login";
                     <div class="text-manatee">Accedi a <?php echo $config['site']['name']; ?>
                         usando usarname o email e la password
                     </div>
-                    <form id="login_form" action="index.php" method="post">
+                    <form id="login_form" action="../controller/loginController.php" method="post">
                         <div class=" form-group">
                             <div class="input-label">
                                 <label>Username o email</label>
                                 <a href="#">Bisogno di aiuto?</a>
                             </div>
-                            <input type="text" class="form-control" placeholder="Inserire username o email" name="email">
+                            <input type="text" class="form-control" placeholder="Inserire username o email" id="email" name="email">
                         </div>
                         <div class="form-group">
                             <div class="input-label">
                                 <label>Password</label>
                                 <a href="passcode-reset.php">Dimenticata password?</a>
                             </div>
-                            <input type="password" class="form-control" placeholder="Inserire la password" name="password">
+                            <input type="password" class="form-control" placeholder="Inserire la password" id="password" name="password">
                         </div>
                         <div class="form-group">
                             <!-- <button type="submit" class="submit-btn">Login</button> -->

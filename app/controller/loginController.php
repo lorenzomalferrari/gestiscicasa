@@ -3,31 +3,38 @@
 	require_once('../model/database.php');
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		$username_form = $_POST["name"];
-		$password_form = $_POST["pass"];
+		$username_form = $_POST["email"];
+		$password_form = $_POST["password"];
 
 		$table =  $TABLEPREFIX . 'Users';
 
 		$database = new Database($SERVERNAME_DB, $USERNAME_DB, $PASSWORD_DB, $DBNAME);
-		$query = "SELECT * FROM $table WHERE username = :username AND password = :password ";
+		$query = "SELECT * FROM $table WHERE ( username = :username OR email = :username) AND password = :password ";
+		echo $query;
 		// Preparazione della query
 		$params = array(
 			':username' => $username_form,
 			':password' => $password_form
 		);
 
-		$row = $database->select($query, $params);
-		if ($row) {
-			echo "Record trovato: " . json_encode($row);
+		$record = $database->select($query, $params);
+		if ($record) {
+			echo "Record trovato: " . json_encode($record);
 
-			$_SESSION["IDUSER_SE"] = $row["id"];
-			$_SESSION["USER_SE"] = $row["username"];
-			$_SESSION["PASSWORD_SE"] = $row["password"];
-			$_SESSION["EMAIL_SE"] = $row["email"];
+			//compilo SESSION
+			$row = array(
+				"id" => $record['id'],
+				"username" => $record['username'],
+				"password" => $record['password'],
+				"email" => $record['email']
+			);
+
+			require_once("lib/_setSession.php");
 
 			echo "Login riuscito!<br>";
-			print_r($_SESSION);
-			header("Location: " . "../view/home.php");
+			//print_r($_SESSION);
+
+			header("Location: " . "../view/index.php");
 		} else {
 			echo "Credenziali non valide.";
 		}
