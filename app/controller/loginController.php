@@ -1,6 +1,6 @@
 <?php
 	require_once('lib/_libs.php');
-	require_once('../model/database.php');
+	require_once(ROOT . 'app/model/database.php');
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$username_form = $_POST["email"];
@@ -19,7 +19,7 @@
 
 		$record = $database->select($query, $params);
 		if ($record) {
-			echo "Record trovato: " . json_encode($record);
+			//echo "Record trovato: " . json_encode($record);
 
 			//compilo SESSION
 			$row = array(
@@ -31,7 +31,7 @@
 
 			require_once("lib/_setSession.php");
 
-			echo "Login riuscito!<br>";
+			//echo "Login riuscito!<br>";
 			//print_r($_SESSION);
 
 			header("Location: " . "../view/index.php");
