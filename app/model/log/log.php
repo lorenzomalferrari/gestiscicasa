@@ -124,7 +124,8 @@
                 " (timestamp, message, action, before_state, after_state, user_id) " .
                 " VALUES (:timestamp, :message, :action, :before_state, :after_state, :user_id)";
 
-            print_r($insertQuery);
+            //print_r($insertQuery);
+            //print_r($params);
             // Eseguo la query
             $this->database->insertLogs($insertQuery, $params);
         }
