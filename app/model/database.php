@@ -87,7 +87,7 @@
                     'action' => 1,
                     'beforeState' => '',
                     'afterState' => '',
-                    'user' => $_SESSION["IDUSER_SE"],
+                    'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
                 ];
 
                 $this->executeLog($params_log);
@@ -99,6 +99,9 @@
             }
         }
 
+        /**
+         * Funzione che crea la riga del log all'interno del database
+         */
         public function insertLogs($query, $params = array())
         {
             try {
