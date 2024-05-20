@@ -1,7 +1,7 @@
 <?php
-    require_once("../controller/lib/_libs.php");
-    $titlePage = "Benvenuti";
-    print_r($_SESSION);
+require_once("../controller/lib/_libs.php");
+$titlePage = "Benvenuti";
+print_r($_SESSION);
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -12,7 +12,8 @@
 
 <body>
     <!-- Page Loader Start -->
-    <?php //require_once("_preloader.php"); ?>
+    <?php //require_once("_preloader.php"); 
+    ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">
         <i class="fas fa-angle-double-up"></i>
@@ -39,15 +40,15 @@
                     <form id="welcome_form" action="../controller/welcomeController.php" method="post">
                         <div class="form-group">
                             <div class="input-label">
-                                <label>Username</label>
+                                <label>Nome</label>
                             </div>
-                            <input type="text" class="form-control" placeholder="Username" name="username" id="username">
+                            <input type="text" class="form-control" placeholder="Nome" name="nome" id="nome">
                         </div>
                         <div class="form-group">
                             <div class="input-label">
-                                <label>Email</label>
+                                <label>Cognome</label>
                             </div>
-                            <input type="email" class="form-control" placeholder="Email" name="email" id="email">
+                            <input type="text" class="form-control" placeholder="Cognome" name="cognome" id="cognome">
                         </div>
                         <div class="form-group">
                             <div class="input-label">

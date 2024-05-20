@@ -1,7 +1,7 @@
 <?php
     // Verifica se la sessione è già stata avviata
     if (!isset($_SESSION)) {
-        print_r("   sono dentro, devo pulire e riniziare   ---");
+        //print_r("   sono dentro, devo pulire e riniziare   ---");
         // Pulisci tutte le variabili di sessione
         session_unset();
         // Avvia la sessione
