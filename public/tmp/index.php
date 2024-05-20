@@ -1,1 +1,1 @@
-a
+Questa cartela conterra le immagini o documenti temporanei. Interrogando questo file si otterrà questo avviso e un script json 
