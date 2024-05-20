@@ -1,6 +1,16 @@
 <?php
     require_once("../controller/lib/_libs.php");
     $titlePage = "Registrazione";
+
+    /**
+     * Campi da salvare alla registrazione
+     * - User:
+     *      - username
+     *      - email ( da spostare in Person? )
+     *      - password
+     * - Person:
+     *      - email
+     */
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -27,34 +37,34 @@
                     <div class="text-manatee">
                         Crea un nuovo accout su <?php echo $config['site']['name']; ?>
                     </div>
-                    <form>
+                    <form id="registration_form" action="../controller/registerController.php" method="post">
                         <div class="form-group">
                             <div class="input-label">
-                                <label>Nome</label>
+                                <label>Username</label>
                             </div>
-                            <input type="text" class="form-control" placeholder="Nome" name="name">
+                            <input type="text" class="form-control" placeholder="Username" name="username" id="username">
                         </div>
                         <div class="form-group">
                             <div class="input-label">
                                 <label>Email</label>
                             </div>
-                            <input type="email" class="form-control" placeholder="Email" name="email">
+                            <input type="email" class="form-control" placeholder="Email" name="email" id="email">
                         </div>
                         <div class="form-group">
                             <div class="input-label">
                                 <label>Password</label>
                             </div>
-                            <input type="password" class="form-control" placeholder="Password" name="password">
+                            <input type="password" class="form-control" placeholder="Password" name="password" id="password">
                             <a href="#" class="passcode-eye"><i class="far fa-eye"></i></a>
                         </div>
                         <div class="form-group">
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="check1">
+                                <input type="checkbox" class="form-check-input" id="privacy_terms" checked>
                                 <label class="form-check-label" for="check1">Sono d'accordo con <?php echo $config['site']['name']; ?> sulla <a href="#">Privacy Policy</a> e sui <a href="#">Termini</a></label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <button type="button" class="submit-btn">REGISTRA</button>
+                            <button type="button" class="submit-btn" onclick="checkRegistration()">REGISTRA</button>
                         </div>
                     </form>
                     <ul class="account-create">

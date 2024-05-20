@@ -13,6 +13,15 @@ CREATE TABLE IF NOT EXISTS lmgc_Person (
     updateData TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+INSERT INTO lmgc_Person (name, surname, age, birthdate, city, state, nationality, description, idUser)
+VALUES ('admin', 'admin', 100, '1994-05-09', 1, 1, 1, 1, 123);
+
+ALTER TABLE lmgc_Person
+ADD CONSTRAINT UC_Email UNIQUE (email); -- Assicura che l'email sia univoca
+
+ALTER TABLE lmgc_Person
+ADD COLUMN email VARCHAR(255);
+
 /*
 ALTER TABLE lmgc_Person
 CONSTRAINT fk_city FOREIGN KEY (city) REFERENCES City(id),

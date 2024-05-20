@@ -5,7 +5,7 @@
 
 	//ZONA REQUIRE PHP
 	require_once("app/controller/lib/_libs.php");
-	require_once("app/model/session.php");
+	//require_once("app/model/session.php");
 
 	if (!checkUsernameAndId($username, $idUsername)) {
 		header('Location: ' . 'app/view/login.php');
