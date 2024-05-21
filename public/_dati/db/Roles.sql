@@ -3,4 +3,7 @@ CREATE TABLE IF NOT EXISTS lmgc_Roles (
     roleName VARCHAR(255) NOT NULL
 );
 
-INSERT INTO Roles (roleName) VALUES ('Purchasing Manager'), ('Sales Person'), ('Supplier');
+INSERT INTO lmgc_Roles (roleName) VALUES ('Owner');
+INSERT INTO lmgc_Roles (roleName) VALUES ('Tenant');
+INSERT INTO lmgc_Roles (roleName) VALUES ('Manager');
+INSERT INTO lmgc_Roles (roleName) VALUES ('Cleaner');

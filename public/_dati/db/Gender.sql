@@ -1,28 +1,14 @@
-CREATE TABLE Gender (
+CREATE TABLE IF NOT EXISTS lmgc_Gender (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    gender ENUM('Male', 'Female', 'Other') NOT NULL,
-    notes TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    disabled BOOLEAN DEFAULT FALSE,
-    CONSTRAINT chk_gender CHECK (gender IN ('Male', 'Female', 'Other')),
-    CONSTRAINT chk_disabled CHECK (disabled IN (0, 1))
+    gender VARCHAR(50) NOT NULL UNIQUE,
+    gender_en VARCHAR(50) NOT NULL,
+    gender_fr VARCHAR(50) NOT NULL,
+    gender_es VARCHAR(50) NOT NULL,
+    gender_de VARCHAR(50) NOT NULL,
+    gender_pt VARCHAR(50) NOT NULL
 );
 
-INSERT INTO Gender (gender, notes)
-SELECT 'Male', 'Identifies as Male' FROM DUAL
-WHERE NOT EXISTS (
-    SELECT 1 FROM Gender WHERE gender = 'Male' AND notes = 'Identifies as Male'
-);
-
-INSERT INTO Gender (gender, notes)
-SELECT 'Female', 'Identifies as Female' FROM DUAL
-WHERE NOT EXISTS (
-    SELECT 1 FROM Gender WHERE gender = 'Female' AND notes = 'Identifies as Female'
-);
-
-INSERT INTO Gender (gender, notes)
-SELECT 'Other', 'Identifies as Non-binary' FROM DUAL
-WHERE NOT EXISTS (
-    SELECT 1 FROM Gender WHERE gender = 'Other' AND notes = 'Identifies as Non-binary'
-);
+INSERT INTO lmgc_Gender (gender, gender_en, gender_fr, gender_es, gender_de, gender_pt) VALUES
+('Maschio', 'Male', 'Homme', 'Hombre', 'Männlich', 'Masculino'),
+('Femmina', 'Female', 'Femme', 'Mujer', 'Weiblich', 'Feminino'),
+('Altro', 'Other', 'Autre', 'Otro', 'Andere', 'Outro');
