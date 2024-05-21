@@ -43,4 +43,15 @@
 		// Restituisci l'array destinazione aggiornato
 		return $array_destinazione;
 	}
+
+	function checkStringLength($string)
+	{
+		if (strlen($string) > 0) {
+			echo "Errore: la stringa ha una lunghezza maggiore di 0.";
+			return false;
+		} else {
+			echo "La stringa è vuota.";
+			return true;
+		}
+	}
 ?>
