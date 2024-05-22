@@ -133,7 +133,7 @@
                         <li><a href="#"><i class="fas fa-lock"></i>Lock screen</a></li>
                     </ul>
                     <div class="sign-btn">
-                        <a href="login.php">SIGN OUT</a>
+                        <a href="<?php echo "../controller/logout.php" ?>">SIGN OUT</a>
                     </div>
                 </div>
             </li>
