@@ -1,13 +1,12 @@
 <?php
+    print_r("Sono in loginController<br><br>");
+    print_r($_SESSION);
+    print_r("<br><br>");
+    print_r($_SERVER);
     require_once('lib/_libs.php');
-    //print_r("<br> fine _libs");
-    require_once('../model/database.php');
-
-    //print_r($_POST);
-    //print_r("<br>" . $_SERVER["REQUEST_METHOD"] . "<br>");
+    require_once(ROOT . 'app/model/database.php');
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        //print_r($_POST);
 
         $username = $_POST['username'];
         $email = $_POST['email'];
@@ -21,8 +20,6 @@
         $params_select = array(
             ':username' => $username
         );
-
-        print_r($params_select);
 
         //Controllo prima che Utente non esista già
         $query = "SELECT * FROM $table WHERE username = :username";
@@ -38,13 +35,12 @@
                 ':token' => $UNIQ_TOKEN,
             );
 
-            print_r($params_insert);
             //Gestisco l'inserimento in DB
             $insert = "INSERT INTO $table (username, password, token) VALUES (:username, :password, :token)";
             $new_user_id = $database->insert($insert, $params_insert);
 
             if ($new_user_id) {
-                echo "Utente creato id: " . $new_user_id;
+                //echo "Utente creato id: " . $new_user_id;
 
                 //compilo SESSION
                 $row = array(

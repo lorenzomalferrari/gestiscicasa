@@ -21,7 +21,7 @@
 
 <body>
     <!-- Page Loader Start -->
-    <?php require_once("_preloader.php"); ?>
+    <?php //require_once("_preloader.php"); ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">
         <i class="fas fa-angle-double-up"></i>

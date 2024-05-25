@@ -1,5 +1,5 @@
 <?php
-	require_once(ROOT . 'app/controller/lib/_libs.php');
+	require_once('lib/_libs.php');
 	require_once(ROOT . 'app/model/database.php');
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
