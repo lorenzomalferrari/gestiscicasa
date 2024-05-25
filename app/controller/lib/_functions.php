@@ -54,4 +54,42 @@
 			return true;
 		}
 	}
+
+	/**
+	 * Verifica se un array contiene almeno una delle chiavi specificate.
+	 *
+	 * @param array $array L'array da verificare.
+	 * @param array $keys Le chiavi da cercare nell'array.
+	 * @return bool True se almeno una chiave esiste nell'array, false altrimenti.
+	 */
+	function array_has_any_key(array $array, array $keys): bool {
+		$flag = true;
+		foreach ($keys as $key) {
+			if ( array_key_exists($key, $array) == false) {
+				$flag = false;
+			}
+		}
+		return $flag;
+	}
+
+	/**
+	 * Controlla se un array contiene solo valori non nulli e non vuoti.
+	 *
+	 * Questa funzione scorre tutte le coppie chiave-valore di un array
+	 * e verifica se ci sono valori nulli o vuoti. Se almeno una chiave
+	 * ha un valore nullo o vuoto, la funzione restituisce false.
+	 * Altrimenti, restituisce true.
+	 *
+	 * @param array $arr L'array da controllare.
+	 * @return bool Restituisce true se tutti i valori non sono nulli e non sono vuoti, false altrimenti.
+	 */
+	function checkArrayValues(array $arr): bool
+	{
+		foreach ($arr as $key => $value) {
+			if (is_null($value) || $value === '') {
+				return false;
+			}
+		}
+		return true;
+	}
 ?>
