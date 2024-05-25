@@ -9,11 +9,21 @@
 		],
 		'db' => [
 			'tablePrefix' => 'lmgc_',
+			'version' => '1.0.0',
 			'host' => '81.31.158.38',
 			'port' => '3306',
 			'username' => 'uij8aoin_gestiscicasa',
 			'password' => '20Progetto24',
 			'database' => 'uij8aoin_gestiscicasa',
+		],
+		'session' => [
+			'keys'  => [
+				'IDUSER',
+				'USERNAME',
+				'PASSWORD',
+				'EMAIL',
+				'TOKEN',
+			],
 		],
 		'serverConfig' => [
 			'ip' => '127.0.0.1',
