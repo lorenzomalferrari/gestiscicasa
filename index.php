@@ -7,8 +7,8 @@
 	require_once("app/controller/lib/_libs.php");
 	//require_once("app/model/session.php");
 
-	$username = $_SESSION["USER_SE"];
-	$idUsername = $_SESSION["IDUSER_SE"];
+	$idUsername = $_SESSION[$config['session']['keys'][0]];
+	$username = $_SESSION[$config['session']['keys'][1]];
 
 	if (!checkUsernameAndId($username, $idUsername)) {
 		print_r('Location: ' . 'app/view/login.php');
