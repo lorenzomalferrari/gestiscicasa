@@ -10,7 +10,7 @@
 		$table2 =  $TABLEPREFIX . 'Person';
 
 		$database = new Database($SERVERNAME_DB, $USERNAME_DB, $PASSWORD_DB, $DBNAME);
-		$query = "SELECT * FROM $table u LEFT JOIN $table2 p on p.idUser = u.id WHERE ( u.username = :username OR p.email = :username) AND u.password = :password AND u.token IS NULL";
+		$query = "SELECT * FROM $table u LEFT JOIN $table2 p on p.idUser = u.id WHERE ( u.username = :username OR p.email = :username) AND u.password = :password AND u.token IS NULL and u.isActive = 1";
 		echo $query;
 		echo "<br><br>";
 		// Preparazione della query
