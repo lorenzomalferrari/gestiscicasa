@@ -4,7 +4,7 @@
     require_once(ROOT . 'app/model/CrudType.php');
 
     // Array che conterrà gli oggetti CrudType
-    global $CRUDTYPEOBJ;
+    global $CRUDTYPEOBJ;// vedere se portarlo in _def.php
 
     $table =  $TABLEPREFIX . 'CrudType';
 

@@ -1,4 +1,9 @@
 <?php
-    // Ottieni l'anno attuale
+
+/**
+ *
+ * Ottieni l'anno attuale
+ *
+ */
     $YEARNOW = date("Y");
 ?>

@@ -1,9 +1,9 @@
 <?php
-	//echo "Sono _functions.php";
 	/**
 	 * Funzione che restituisce la lista dei nomi dei file presenti all'interno della cartella fornita
 	 */
-	function readDirectoryFiles(string $folder): array|string {
+	function readDirectoryFiles(string $folder): array|string
+	{
 		// Check if the folder exists
 		if (!is_dir($folder)) {
 			return "The specified folder does not exist.";
@@ -16,6 +16,9 @@
 		return $files;
 	}
 
+	/**
+	 *
+	 */
 	function checkUsernameAndId($username, $idUsername)
 	{
 		// Controlla se entrambi i parametri sono stati compilati
@@ -44,6 +47,9 @@
 		return $array_destinazione;
 	}
 
+	/**
+	 *
+	 */
 	function checkStringLength($string)
 	{
 		if (strlen($string) > 0) {
@@ -62,7 +68,8 @@
 	 * @param array $keys Le chiavi da cercare nell'array.
 	 * @return bool True se almeno una chiave esiste nell'array, false altrimenti.
 	 */
-	function array_has_any_key(array $array, array $keys): bool {
+	function array_has_any_key(array $array, array $keys): bool
+	{
 		$flag = true;
 		foreach ($keys as $key) {
 			if ( array_key_exists($key, $array) == false) {
