@@ -1,10 +1,10 @@
 <?php
-	//echo "<br>sono in _config.php";
 	$config = [
 		'site' => [
 			'name' => 'Gestisci Casa',
 			'name_esteso' => 'CRM Gestisci Casa',
 			'autore' => 'Lorenzo Malferrari',
+			'azienda' => 'LM Servizi e Consulenze IT',
 			'version' => '1.0.1',
 		],
 		'db' => [
