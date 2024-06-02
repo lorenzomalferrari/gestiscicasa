@@ -81,6 +81,8 @@
             try {
                 $stmt = $this->conn->prepare($query);
                 $stmt->execute($params);
+                $new_id = $this->conn->lastInsertId();
+
                 //TODO: Creare log che segnali inserimento
                 $params_log = [
                     'message' => 'Creato inserimento: ' . $query,
@@ -91,7 +93,7 @@
                 ];
 
                 $this->executeLog($params_log);
-                return $this->conn->lastInsertId();
+                return $new_id;
             } catch (PDOException $e) {
                 echo "Errore durante l'esecuzione della query: " . $e->getMessage();
                 //TODO: Creare log che segnali errore in inserimento
@@ -128,7 +130,7 @@
         }
 
         private function executeLog($params_log = array()){
-            print_r("Sto per eseguire il Log");
+            //print_r("Sto per eseguire il Log<br>");
             //database con credenziali messe
             $database = $this;
             //parametri insert -> prendo da params_log
