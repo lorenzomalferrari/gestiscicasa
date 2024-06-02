@@ -12,6 +12,6 @@ ADD CONSTRAINT UC_Username UNIQUE (username); -- Assicura che lo username sia un
 
 ALTER TABLE lmgc_Users
 ADD COLUMN token VARCHAR(255),
-ADD COLUMN isActive bit DEFAULT b'1';
+ADD COLUMN isActive bit DEFAULT b'0';
 
 ALTER TABLE lmgc_Users DROP COLUMN email;
