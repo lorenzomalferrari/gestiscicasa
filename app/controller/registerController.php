@@ -1,9 +1,9 @@
 <?php
     print_r("Sono in loginController<br><br>");
-    print_r($_SESSION);
-    print_r("<br><br>");
-    print_r($_SERVER);
     require_once('lib/_libs.php');
+    //print_r($_SESSION);
+    //print_r("<br><br>");
+    //print_r($_SERVER);
     require_once(ROOT . 'app/model/database.php');
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -38,6 +38,7 @@
             //Gestisco l'inserimento in DB
             $insert = "INSERT INTO $table (username, password, token) VALUES (:username, :password, :token)";
             $new_user_id = $database->insert($insert, $params_insert);
+            print_r("Nuovo utente id: " . $new_user_id);
 
             if ($new_user_id) {
                 //echo "Utente creato id: " . $new_user_id;
@@ -51,13 +52,18 @@
                 );
                 print_r($row);
                 print_r("<br><br><br>");
-                require_once("lib/_setSession.php");
+                //require_once(ROOT . 'app/controller/lib/session/_setSession.php');
+
+                $_SESSION[$config['session']['keys'][0]] = $row['id'];
+                $_SESSION[$config['session']['keys'][1]] = $row['username'];
+                $_SESSION[$config['session']['keys'][2]] = $row['password'];
+                $_SESSION[$config['session']['keys'][3]] = $row['email'];
+                $_SESSION[$config['session']['keys'][4]] = "";// da implementare token
 
                 echo "Login riuscito!<br>";
                 print_r($_SESSION);
 
                 require_once("sendEmail.php");
-
                 //header("Location: " . "../view/welcome.php");
             } else {
                 echo "Utente non creato";
