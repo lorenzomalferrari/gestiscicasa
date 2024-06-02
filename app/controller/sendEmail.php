@@ -1,8 +1,8 @@
 <?php
     require_once( ROOT . "app/model/emailSender.php");
 
-    $headers = "From: mittente@example.com\r\n";
-    $headers .= "Reply-To: mittente@example.com\r\n";
+    $headers = "From: welcome@lorenzomalferrari.com\r\n";
+    $headers .= "Reply-To: welcome@lorenzomalferrari.com\r\n";
     $headers .= "X-Mailer: PHP/" . phpversion();
 
     $to = $email; /*$_SESSION['EMAIL_SE'];*/
