@@ -1,6 +1,6 @@
 <?php
     require_once("../controller/lib/_libs.php");
-    //print_r($_SESSION);
+    print_r($_SESSION);
     $titlePage = "Login";
 ?>
 <!doctype html>

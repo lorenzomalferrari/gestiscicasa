@@ -40,10 +40,10 @@
 				);
 
 				//print_r($row);
-				require_once("lib/_setSession.php");
+				require_once(ROOT . "app/controller/lib/session/_setSession.php");
 				//echo "Login riuscito!<br>";
 				//print_r($_SESSION);
-				header("Location: " . "../view/index.php");
+				header("Location: " . PATH . "app/view/index.php");
 			}
 		} else {
 			echo "Credenziali non valide.";

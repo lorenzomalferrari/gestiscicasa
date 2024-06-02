@@ -27,6 +27,6 @@
     require_once("_encryption.php");
     require_once("_get_set.php");
     require_once("_getToken.php");
-    require_once("_setSession.php");
+    require_once("session/_setSession.php");
     //require_once("_setStatiCRUD.php");
 ?>

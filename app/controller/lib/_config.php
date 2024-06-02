@@ -23,6 +23,19 @@
 				'PASSWORD',
 				'EMAIL',
 				'TOKEN',
+				'LAST_ACTIVITY',
+			],
+			'settings' => [
+				'gc_maxlifetime' => 900, //15 minuti
+				'cookie_lifetime' => 0,
+				'inactivityLimit' => 900, // solitamente uguale a gc_maxlifetime
+			],
+		],
+		'token' => [
+			'settings' => [
+				'gc_maxlifetime' => 900, //15 minuti
+				'cookie_lifetime' => 0,
+				'inactivityLimit' => 900, // solitamente uguale a gc_maxlifetime
 			],
 		],
 		'serverConfig' => [

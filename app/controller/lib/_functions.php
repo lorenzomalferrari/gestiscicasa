@@ -99,4 +99,15 @@
 		}
 		return true;
 	}
+
+	/**
+	 * Verifica se il valore non è nullo o una stringa vuota.
+	 *
+	 * @param mixed $value Il valore da verificare.
+	 * @return bool True se il valore non è nullo o una stringa vuota, false altrimenti.
+	 */
+	function isNotNullOrEmpty($value): bool
+	{
+		return $value !== null && $value !== '';
+	}
 ?>

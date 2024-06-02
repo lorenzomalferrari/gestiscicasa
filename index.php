@@ -11,8 +11,8 @@
 	$username = $_SESSION[$config['session']['keys'][1]];
 
 	if (!checkUsernameAndId($username, $idUsername)) {
-		print_r('Location: ' . 'app/view/login.php');
-		//header('Location: ' . 'app/view/login.php');
+		//print_r('Location: ' . 'app/view/login.php');
+		header('Location: ' . 'app/view/login.php');
 	}
 	else {
 		print_r('Location: ' . 'app/view/home.php');

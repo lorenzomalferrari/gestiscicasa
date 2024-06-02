@@ -2,7 +2,11 @@
     //DA CORREGGERE E FAR FUNZIONARE ASSOLUTAMENTE
     // Avvia la sessione se non settata
     if(!isset($_SESSION))
-        session_start();
+        /**
+         * Setto la sessione con alcuni parametri per
+         * la scadnza della sessione dopo inattività
+         */
+        require_once("session_start.php");
 
     //print_r("Sessione settata: -" . isset($_SESSION) . "-<br>");
     //print_r($_SESSION);
@@ -15,17 +19,18 @@
         print_r("dentro a if,quindi ho già le key settate");
         //se il token è ancora valido, mantengo sessione
         //si prosegue in pagina interessata
-        if(1 == 3){
+        if(
+            isNotNullOrEmpty($_SESSION['IDUSER']) &&
+            isNotNullOrEmpty($_SESSION['USERNAME']) &&
+            isNotNullOrEmpty($_SESSION['PASSWORD']) &&
+            isNotNullOrEmpty($_SESSION['EMAIL']) &&
+            isNotNullOrEmpty($_SESSION['TOKEN'])
+        ){
             //niente da fare
+            print_r('Non faccio niente, sessione ok, andrò in Home');
         }
-        else{ // sennò pulire sessione e forzare ritorno al login 
-            //pulire sessione e forzare utente al ritorno su login.php
-            //print_r("   sono dentro, devo pulire e riniziare   ---");
-            // Pulisci tutte le variabili di sessione
-            $_SESSION = array(); //al momento funziona solo facendo così
-            session_unset();
-            //header("Location: " . "../view/login.php");
-            print_r("Location: " . "../view/login.php");
+        else{ // sennò pulire sessione e forzare ritorno al login
+            //require_once("session_destroy.php");
         }
     }else{
         print_r('preparo key utili nel CRM');
