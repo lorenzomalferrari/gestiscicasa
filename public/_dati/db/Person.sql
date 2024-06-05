@@ -4,10 +4,10 @@ CREATE TABLE IF NOT EXISTS lmgc_Person (
     surname VARCHAR(255) NOT NULL,
     age INT NOT NULL,
     birthdate DATE NOT NULL,
-    city INT NOT NULL,
-    state INT NOT NULL,
-    nationality INT NOT NULL,
-    description INT NOT NULL,
+    city INT NULL,
+    state INT NULL,
+    nationality INT NULL,
+    description VARCHAR(255) NULL,
     idUser INT NOT NULL,
     creationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updateData TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -17,10 +17,10 @@ INSERT INTO lmgc_Person (name, surname, age, birthdate, city, state, nationality
 VALUES ('admin', 'admin', 100, '1994-05-09', 1, 1, 1, 1, 123);
 
 ALTER TABLE lmgc_Person
-ADD CONSTRAINT UC_Email UNIQUE (email); -- Assicura che l'email sia univoca
+ADD COLUMN email VARCHAR(255);
 
 ALTER TABLE lmgc_Person
-ADD COLUMN email VARCHAR(255);
+ADD CONSTRAINT UC_Email UNIQUE (email); -- Assicura che l'email sia univoca
 
 /*
 ALTER TABLE lmgc_Person
