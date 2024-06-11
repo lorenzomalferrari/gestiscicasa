@@ -8,9 +8,6 @@
 
     $token = $_POST['token'];
 
-    $table =  $TABLEPREFIX . 'Users';
-    $table2 =  $TABLEPREFIX . 'Person';
-
     $database = new Database($SERVERNAME_DB, $USERNAME_DB, $PASSWORD_DB, $DBNAME);
 
     // Preparazione della query per la select
@@ -18,17 +15,17 @@
         ':token' => $token
     );
     print_r($params_where);
-print_r("<br><br>");
+    print_r("<br><br>");
 
-$params_select = "u.id as idUtente, u.username, u.password, p.email, u.token";
+    $params_select = "u.id as idUtente, u.username, u.password, p.email, u.token";
 
     //Controllo prima che token non esista
-    $query = "SELECT $params_select FROM $table u LEFT JOIN $table2 p on p.idUser = u.id WHERE u.token = :token AND (u.isActive = 0 OR u.isActive IS NULL)";
-print_r($query);
+    $query = "SELECT $params_select FROM " . getNomeTabella(NomiTabella::USERS) . " u LEFT JOIN " . getNomeTabella(NomiTabella::PERSON) . " p on p.idUser = u.id WHERE u.token = :token AND (u.isActive = 0 OR u.isActive IS NULL)";
+    print_r($query);
     $row = $database->select($query, $params_where);
     print_r($row);
     if ($row) {
-        $update = "UPDATE $table SET token = NULL, isActive = 1 WHERE token = :token";
+        $update = "UPDATE " . getNomeTabella(NomiTabella::USERS) . " SET token = NULL, isActive = 1 WHERE token = :token";
         $update_id = $database->update($update, $params_where);
         print_r("Numero di righe aggiornate: " . $update_id);
 
@@ -45,8 +42,6 @@ print_r($query);
         //eseguo Location a Home.php
         echo "Account confermato!<br>";
         //header("Location: " . "../view/home.php");
-
-
     }else{
         print_r("Stampare errore");
     }

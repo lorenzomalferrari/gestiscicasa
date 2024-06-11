@@ -93,12 +93,12 @@
 
     class CrudLog extends DatabaseLog
     {
-        protected $table; // Dichiarazione della variabile $table
+        protected $table;
 
         public function __construct($timestamp, $message, $action, $beforeState, $afterState, $user, $database)
         {
             parent::__construct($timestamp, $message, $action, $beforeState, $afterState, $user, $database);
-            $this->table = /*$TABLEPREFIX .*/ 'lmgc_CrudLogs'; // Assegnazione del nome della tabella
+            $this->table = getNomeTabella(NomiTabella::CRUDLOGS);
         }
 
         public function execute()

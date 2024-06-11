@@ -10,8 +10,6 @@
         $email = $_SESSION['EMAIL'];
         $idUser = $_SESSION['IDUSER'];
 
-        $table =  $TABLEPREFIX . 'Person';
-
         $database = new Database($SERVERNAME_DB, $USERNAME_DB, $PASSWORD_DB, $DBNAME);
 
         // Preparazione della query per la select
@@ -25,7 +23,7 @@
         print_r($params_insert);
 
         //Gestisco l'inserimento in DB
-        $insert = "INSERT INTO $table (nome, cognome, email, idUser) VALUES (:nome, :cognome, :email, :idUser)";
+        $insert = "INSERT INTO " . getNomeTabella(NomiTabella::PERSON) . " (nome, cognome, email, idUser) VALUES (:nome, :cognome, :email, :idUser)";
         $new_person_id = $database->insert($insert, $params_insert);
         print_r("Nuova Persona creata - id: " . $new_person_id);
 
@@ -38,7 +36,7 @@
             ':isActive' => 1,
         );
         
-        $select_user = "SELECT COUNT(*) FROM $table2 WHERE id = :id AND token = :token AND isActive = : isActive";
+        $select_user = "SELECT COUNT(*) FROM " . getNomeTabella(NomiTabella::USERS) . " WHERE id = :id AND token = :token AND isActive = : isActive";
         $count_user = $database->selectAll($select_user,$params_user);
 
         if($new_person_id > 0 && $count_user > 0){
@@ -46,7 +44,7 @@
         }
         else{
             //capire che messaggio restituire
-            
+
         }
     }
 ?>

@@ -12,9 +12,6 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $table =  $TABLEPREFIX . 'Users';
-        $table2 =  $TABLEPREFIX . 'Person';
-
         $database = new Database($SERVERNAME_DB, $USERNAME_DB, $PASSWORD_DB, $DBNAME);
 
         // Preparazione della query per la select
@@ -23,7 +20,7 @@
         );
 
         //Controllo prima che Utente non esista già
-        $query = "SELECT * FROM $table WHERE username = :username";
+        $query = "SELECT * FROM " . getNomeTabella(NomiTabella::USERS) . " WHERE username = :username";
         $row = $database->select($query, $params_where);
         if ($row) {
             echo "Utente già presente con questo username: " . json_encode($row);
@@ -33,7 +30,7 @@
                 ':email' => $email,
             );
 
-            $selectPerson = "SELECT COUNT(*) FROM $table2 WHERE email : email";
+            $selectPerson = "SELECT COUNT(*) FROM " . getNomeTabella(NomiTabella::PERSON) . " WHERE email : email";
             $countP = $database->selectAll($selectPerson, $params_selectP);
 
             if($countP > 0){
@@ -50,7 +47,7 @@
                 );
 
                 //Gestisco l'inserimento in DB
-                $insert = "INSERT INTO $table (username, password, token) VALUES (:username, :password, :token)";
+                $insert = "INSERT INTO " . getNomeTabella(NomiTabella::USERS) . " (username, password, token) VALUES (:username, :password, :token)";
                 $new_user_id = $database->insert($insert, $params_insert);
                 print_r("Nuovo utente id: " . $new_user_id);
 
