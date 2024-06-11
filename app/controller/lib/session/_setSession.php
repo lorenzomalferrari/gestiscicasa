@@ -52,5 +52,5 @@
     //print_r('<br><br><br>');
     print_r($_SESSION);
     print_r('<br><br><br>');
-    //print_r('esco da _setSessione.php');
+    print_r('esco da _setSessione.php');
 ?>
