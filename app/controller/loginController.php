@@ -6,11 +6,8 @@
 		$username_form = $_POST["email"];
 		$password_form = $_POST["password"];
 
-		$table =  $TABLEPREFIX . 'Users';
-		$table2 =  $TABLEPREFIX . 'Person';
-
 		$database = new Database($SERVERNAME_DB, $USERNAME_DB, $PASSWORD_DB, $DBNAME);
-		$query = "SELECT * FROM $table u LEFT JOIN $table2 p on p.idUser = u.id WHERE ( u.username = :username OR p.email = :username) AND u.password = :password AND u.token IS NULL and u.isActive = 1";
+		$query = "SELECT * FROM " . getNomeTabella(NomiTabella::USERS) . " u LEFT JOIN " . getNomeTabella(NomiTabella::PERSON) . " p on p.idUser = u.id WHERE ( u.username = :username OR p.email = :username) AND u.password = :password AND u.token IS NULL and u.isActive = 1";
 		echo $query;
 		echo "<br><br>";
 		// Preparazione della query
