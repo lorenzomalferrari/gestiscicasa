@@ -32,11 +32,12 @@
         //ora effettuo auto-login
         //in $row ho tutte le info avendo fatto SELECT ALL
         //compilo $_SESSION
-        $_SESSION[$config['session']['keys'][0]] = $row['idUtente'];
-        $_SESSION[$config['session']['keys'][1]] = $row['username'];
-        $_SESSION[$config['session']['keys'][2]] = $row['password'];
-        $_SESSION[$config['session']['keys'][3]] = $row['email'];
-        $_SESSION[$config['session']['keys'][4]] = "DA COSTRUIRE"; // da implementare token
+        $_SESSION[$config['session']['keys']['IDUSER']] = $row['idUtente'];
+        $_SESSION[$config['session']['keys']['USERNAME']] = $row['username'];
+        $_SESSION[$config['session']['keys']['PASSWORD']] = $row['password'];
+        $_SESSION[$config['session']['keys']['EMAIL']] = $row['email'];
+        $_SESSION[$config['session']['keys']['TOKEN']] = "DA COSTRUIRE"; // da implementare token
+        $_SESSION[$config['session']['keys']['LAST_ACTIVITY']] = "DA PENSARE"; // da pensare se al momento del confirm bisogna fare qualcosa
 
         print_r($_SESSION);
         //eseguo Location a Home.php
