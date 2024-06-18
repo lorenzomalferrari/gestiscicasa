@@ -63,8 +63,7 @@
                     );
                     print_r($row);
                     print_r("<br><br><br>");
-                    //require_once(ROOT . 'app/controller/lib/session/_setSession.php');
-
+                    
                     $_SESSION[$config['session']['keys'][0]] = $row['id'];
                     $_SESSION[$config['session']['keys'][1]] = $row['username'];
                     $_SESSION[$config['session']['keys'][2]] = $row['password'];

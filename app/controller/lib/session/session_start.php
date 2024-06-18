@@ -6,9 +6,18 @@
 
     $inactivityLimit = $config['session']['settings']['inactivityLimit'];// deafult come gc_maxlifetime
 
-    print_r("------" . (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > $inactivityLimit) . "<br>");
+    $_time = time();
 
-    if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > $inactivityLimit) {
+    $_SESSION['LAST_ACTIVITY'] = isset($_SESSION['LAST_ACTIVITY']) && !empty($_SESSION['LAST_ACTIVITY']) ? $_SESSION['LAST_ACTIVITY'] : time();
+
+    print_r("<br>Isset: " .  isset($_SESSION['LAST_ACTIVITY']));
+    print_r("<br>time: " .  ($_time));
+    print_r("<br>LAST_ACTIVITY: " .  (($_SESSION['LAST_ACTIVITY'])));
+    print_r("<br>risultato: " .  (($_time - $_SESSION['LAST_ACTIVITY'])) );
+    print_r("<br>Controllo se devo distruggere la sessione ------" . (isset($_SESSION['LAST_ACTIVITY']) && ($_time - $_SESSION['LAST_ACTIVITY']) > $inactivityLimit) . "-----<br>");
+
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > $inactivityLimit) {
+        print_r("Distruggo la sessione<br>");
         require_once("session_destroy.php");
     }
 
