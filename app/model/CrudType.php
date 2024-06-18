@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
     class CrudType {
         private int $id;
         private string $nome;

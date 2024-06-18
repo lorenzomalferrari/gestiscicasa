@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
     // Pulisci tutte le variabili di sessione
     session_unset();
     // Distruggi la sessione

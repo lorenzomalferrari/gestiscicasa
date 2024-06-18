@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 	// Connessione al database (sostituire con le tue credenziali)
 	$servername = "localhost";
 	$username = "username";

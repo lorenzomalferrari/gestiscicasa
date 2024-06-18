@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
     //DA CORREGGERE E FAR FUNZIONARE ASSOLUTAMENTE
     // Avvia la sessione se non settata
     if(!isset($_SESSION))

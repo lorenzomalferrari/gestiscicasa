@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
     /**
      * File da richiamare ovunque, il quale conterrà
      * tutti i richiami dei file importati per la gestione del progetto:

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
     //print_r("Sono in loginController<br><br>");
     require_once('lib/_libs.php');
     //print_r($_SESSION);

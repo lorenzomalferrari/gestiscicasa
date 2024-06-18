@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 	/**
 	 * Classe che mi consentirà di gestire la criptazione e decriptazione di stringhe
 	 * Funzione pensata inizialmente per la gestione delle password

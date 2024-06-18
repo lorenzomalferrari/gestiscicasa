@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 	class RoomType {
 		// Instance variables
 		private int $id;

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 	/**
 	 * Classe per gestire il Colore.
 	 * Utile per dare un colore a Proprietà, Prodotti e altro

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 	require("_config.php");
 	//recuperare id dell' utente, iterrogare il database e recuperare le informazioni da mostrare a video negli appositi spazi
 	$idUtente_se = $_SESSION["idUtente"];

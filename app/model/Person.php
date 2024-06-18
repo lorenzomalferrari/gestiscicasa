@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 	/**
 	 * Classe che rappresenta la Persona che andrà a sfruttare il gestionale
 	 */
