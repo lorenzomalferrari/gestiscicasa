@@ -8,8 +8,8 @@
          */
         require_once("session_start.php");
 
-    //print_r("Sessione settata: -" . isset($_SESSION) . "-<br>");
-    //print_r($_SESSION);
+    print_r("Sessione settata: -" . isset($_SESSION) . "-<br>");
+    print_r($_SESSION);
 
     $keys = $config['session']['keys'];
     print_r(var_export(array_has_any_key($_SESSION, $keys)));

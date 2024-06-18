@@ -10,7 +10,11 @@
 	$idUsername = $_SESSION[$config['session']['keys'][0]];
 	$username = $_SESSION[$config['session']['keys'][1]];
 
-	if (!checkUsernameAndId($username, $idUsername)) {
+	print_r(15 . "<br>");
+print_r(time() . "<br>");
+print_r($_SESSION['LAST_ACTIVITY'] . "<br>");
+
+	if (!checkUsernameAndId($username, $idUsername) && confrontaTimestamp(15, time(), $_SESSION['LAST_ACTIVITY'])) {
 		//print_r('Location: ' . 'app/view/login.php');
 		header('Location: ' . 'app/view/login.php');
 	}

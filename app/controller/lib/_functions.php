@@ -110,4 +110,30 @@
 	{
 		return $value !== null && $value !== '';
 	}
+
+	/**
+	 * Confronta due timestamp e determina se la differenza è inferiore o uguale a tot minuti.
+	 *
+	 * @param int $range Range espresso in minuti.
+	 * @param int $timestamp1 Il primo timestamp.
+	 * @param int $timestamp2 Il secondo timestamp.
+	 * @return bool True se la differenza è inferiore o uguale a tot minuti, altrimenti false.
+	 */
+	function confrontaTimestamp($range, $timestamp1, $timestamp2)
+	{
+		// Calcola la differenza in secondi tra i due timestamp
+		$differenza = abs($timestamp1 - $timestamp2);
+
+		// Converti minuti in secondi
+		$range_in_secondi = $range * 60; // X minuti * 60 secondi
+
+		// Confronta la differenza con X minuti in secondi
+		if ($differenza <= $range_in_secondi) {
+			// La differenza è inferiore o uguale a X minuti
+			return true;
+		} else {
+			// La differenza è superiore a X minuti
+			return false;
+		}
+	}
 ?>

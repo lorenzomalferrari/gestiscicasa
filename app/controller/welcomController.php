@@ -35,7 +35,7 @@
             ':token' => 'IS NULL',
             ':isActive' => 1,
         );
-        
+
         $select_user = "SELECT COUNT(*) FROM " . getNomeTabella(NomiTabella::USERS) . " WHERE id = :id AND token = :token AND isActive = : isActive";
         $count_user = $database->selectAll($select_user,$params_user);
 
