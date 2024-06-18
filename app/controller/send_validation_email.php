@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 // Genera un token univoco
 $token = bin2hex(random_bytes(16));
 

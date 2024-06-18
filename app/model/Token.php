@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
     /**
      * Classe Token per generare e validare i token.
      */

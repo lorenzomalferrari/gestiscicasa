@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 	require_once('lib/_libs.php');
 	require_once(ROOT . 'app/model/database.php');
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
     print_r("Sono in confirm.php<br><br>");
     require_once('app/controller/lib/_libs.php');
     $flagConfirm = TRUE; //per evitare nel destroy il redirect a LOGIN

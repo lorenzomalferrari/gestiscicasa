@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 	/**
 	 * Funzione che restituisce la lista dei nomi dei file presenti all'interno della cartella fornita
 	 */
