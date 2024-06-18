@@ -5,5 +5,5 @@
     $USERNAME_DB = $config['db']['test']['username'];
     $PASSWORD_DB = $config['db']['test']['password'];
     $DBNAME = $config['db']['test']['database'];
-    $TABLEPREFIX = $config['db']['test']['tablePrefix'];
+    $TABLEPREFIX = $config['db']['tablePrefix'];
 ?>

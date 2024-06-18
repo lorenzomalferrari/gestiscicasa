@@ -7,8 +7,6 @@
 
         $nome = $_POST['nome'];
         $cognome = $_POST['cognome'];
-        $email = $_SESSION['EMAIL'];
-        $idUser = $_SESSION['IDUSER'];
 
         $database = new Database($SERVERNAME_DB, $USERNAME_DB, $PASSWORD_DB, $DBNAME);
 
@@ -16,8 +14,8 @@
         $params_insert = array(
             ':nome' => $nome,
             ':cognome' => $cognome,
-            ':email' => $email,
-            ':idUser' => $idUser,
+            ':email' => $_SESSION[$_config['session']['keys']['EMAIL']],
+            ':idUser' => $_SESSION[$_config['session']['keys']['IDUSER']],
         );
 
         print_r($params_insert);
@@ -27,8 +25,8 @@
         $new_person_id = $database->insert($insert, $params_insert);
         print_r("Nuova Persona creata - id: " . $new_person_id);
 
-    //per portare la persona alla dashboard,
-    //devo avere id dalla tabella Persona e idUtente attivo e senza token
+        //per portare la persona alla dashboard,
+        //devo avere id dalla tabella Persona e idUtente attivo e senza token
 
         $params_user = array(
             ':id' => $idUser,

@@ -49,25 +49,9 @@
                                 <input type="text" class="form-control" placeholder="Cognome" name="cognome" id="cognome">
                             </div>
                             <div class="form-group">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="privacy_terms" checked>
-                                    <label class="form-check-label" for="check1">Sono d'accordo con <?php echo $config['site']['name']; ?> sulla <a href="#">Privacy Policy</a> e sui <a href="#">Termini</a></label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button type="button" class="submit-btn" onclick="checkRegistration()">REGISTRA</button>
+                                <button type="button" class="submit-btn" onclick="checkWelcome()">REGISTRA</button>
                             </div>
                         </form>
-                        <ul class="account-create">
-                            <li>Hai già un account? <a href="login.php">Accedi</a></li>
-                            <!--<li class="social-icon">
-                                <a href="#" class="bg-fb"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" class="bg-twitter"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="bg-google"><i class="fab fa-google-plus-g"></i></a>
-                                <a href="#" class="bg-linkedin"><i class="fab fa-linkedin-in"></i></a>
-                            </li>
-                            -->
-                        </ul>
                         <?php require_once("copyright.php"); ?>
                     </div>
                 </div>

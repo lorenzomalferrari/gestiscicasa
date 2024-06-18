@@ -187,3 +187,28 @@ function validateCheckbox(checkbox) {
         return { isValid: false, message: "Devi accettare la privacy policy e i termi d'uso per procedere" }; // Checkbox non selezionata
     }
 }
+
+function checkWelcome() {
+    //recupero i campi del form
+    var nome = document.getElementById("nome").value;
+    var cognome = document.getElementById("cognome").value;
+
+    if (!(soloLettere(nome) && soloLettere(cognome) )){
+        //stampare messaggio di errore
+        //segnalando che nome e cognome devono contenere solo lettere
+    }else{
+        document.getElementById("welcome_form").submit();
+    }
+}
+
+/**
+ * Verifica se una stringa contiene solo lettere dalla A alla Z (maiuscole e minuscole).
+ *
+ * @param {string} str - La stringa da verificare.
+ * @return {boolean} True se la stringa contiene solo lettere dalla A alla Z, altrimenti false.
+ */
+function soloLettere(str) {
+    // Usa una espressione regolare per verificare se la stringa contiene solo lettere
+    const regex = /^[A-Za-z]+$/;
+    return regex.test(str);
+}
