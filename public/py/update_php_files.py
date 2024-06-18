@@ -6,7 +6,7 @@ def process_php_files(directory):
     if not os.path.exists(directory):
         print(f"Directory '{directory}' does not exist.")
         return
-    
+
     # Cicla tutti i file e le cartelle nella directory specificata
     for root, dirs, files in os.walk(directory):
         for file in files:
@@ -41,7 +41,7 @@ def process_php_files(directory):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python script.py <directory_path>")
+        print("Usage: python3 update_php_files.py <directory_path>")
     else:
         directory_path = sys.argv[1]
         process_php_files(directory_path)
