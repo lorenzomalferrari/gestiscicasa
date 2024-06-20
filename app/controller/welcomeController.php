@@ -1,27 +1,33 @@
 <?php declare(strict_types=1);
-    require_once('lib/_libs.php');
-    require_once('../model/database.php');
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    require_once('lib/_libs.php');
+    require_once(ROOT . 'app/model/database.php');
+    require_once(ROOT . 'app/model/NomiTabelle.php');
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        $database = new Database($SERVERNAME_DB, $USERNAME_DB, $PASSWORD_DB, $DBNAME);
+
+        print_r("POST:<br>");
         print_r($_POST);
+        print_r("<br>SESSION");
+        print_r($_SESSION);
 
         $nome = $_POST['nome'];
         $cognome = $_POST['cognome'];
-
-        $database = new Database($SERVERNAME_DB, $USERNAME_DB, $PASSWORD_DB, $DBNAME);
 
         // Preparazione della query per la select
         $params_insert = array(
             ':nome' => $nome,
             ':cognome' => $cognome,
-            ':email' => $_SESSION[$_config['session']['keys']['EMAIL']],
-            ':idUser' => $_SESSION[$_config['session']['keys']['IDUSER']],
+            ':email' => $_SESSION[$config['session']['keys']['EMAIL']],
+            ':idUser' => $_SESSION[$config['session']['keys']['IDUSER']],
         );
 
+        print_r("params_insert:<br>");
         print_r($params_insert);
 
         //Gestisco l'inserimento in DB
-        $insert = "INSERT INTO " . getNomeTabella(NomiTabella::PERSON) . " (nome, cognome, email, idUser) VALUES (:nome, :cognome, :email, :idUser)";
+        $insert = "INSERT INTO " . getNomeTabella($TABLEPREFIX, NomiTabella::PERSON) . " (name, surname, email, idUser) VALUES (:nome, :cognome, :email, :idUser)";
         $new_person_id = $database->insert($insert, $params_insert);
         print_r("Nuova Persona creata - id: " . $new_person_id);
 
@@ -29,20 +35,18 @@
         //devo avere id dalla tabella Persona e idUtente attivo e senza token
 
         $params_user = array(
-            ':id' => $idUser,
+            ':id' => $_SESSION[$config['session']['keys']['IDUSER']],
             ':token' => 'IS NULL',
             ':isActive' => 1,
         );
 
-        $select_user = "SELECT COUNT(*) FROM " . getNomeTabella(NomiTabella::USERS) . " WHERE id = :id AND token = :token AND isActive = : isActive";
-        $count_user = $database->selectAll($select_user,$params_user);
+        $select_user = "SELECT COUNT(*) FROM " . getNomeTabella($TABLEPREFIX, NomiTabella::USERS) . " WHERE id = :id AND token = :token AND isActive = :isActive";
+        $count_user = $database->selectAll($select_user, $params_user);
 
-        if($new_person_id > 0 && $count_user > 0){
+        if ($new_person_id > 0 && $count_user > 0) {
             //tutto ok
-        }
-        else{
+        } else {
             //capire che messaggio restituire
-
         }
     }
 ?>

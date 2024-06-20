@@ -1,31 +1,42 @@
 <?php declare(strict_types=1);
+
     require_once(ROOT . 'app/controller/lib/_config.php');
     require_once(ROOT . 'app/controller/lib/_db.php');
 
-    enum NomiTabella: string {
-        case BRAND = $TABLEPREFIX . "Brand";
-        case CATALOG = $TABLEPREFIX . "Catalog";
-        case CATEGORY = $TABLEPREFIX . "Category";
-        case COLORS = $TABLEPREFIX . "Colors";
-        case CONTINENTS = $TABLEPREFIX . "Continents";
-        case COUNTRIES = $TABLEPREFIX . "Countries";
-        case CRUDLOGS = $TABLEPREFIX . "CrudLogs";
-        case CRUDTYPE = $TABLEPREFIX . "CrudType";
-        case EVENT = $TABLEPREFIX . "Event";
-        case GENDER = $TABLEPREFIX . "Gender";
-        case PERSON = $TABLEPREFIX . "Person";
-        case PERSONPROPERTYROLES = $TABLEPREFIX . "PersonPropertyRoles";
-        case PRODUCT = $TABLEPREFIX . "Product";
-        case PROPERTY = $TABLEPREFIX . "Property";
-        case PROPERTYTYPE = $TABLEPREFIX . "PropertyType";
-        case ROLES = $TABLEPREFIX . "Roles";
-        case ROOM = $TABLEPREFIX . "Room";
-        case ROOMTYPE = $TABLEPREFIX . "RoomType";
-        case USAGEDESTINATIONS = $TABLEPREFIX . "UsageDestinations";
-        case USERS = $TABLEPREFIX . "Users";
+    class TableNames {
+        public static function getPrefixedName(string $prefisso, string $tableName): string
+        {
+            return $prefisso . $tableName;
+        }
     }
 
-    function getNomeTabella(NomiTabella $nomeT): string {
-        return $nomeT->value;
+    enum NomiTabella: string
+    {
+        case BRAND = "Brand";
+        case CATALOG = "Catalog";
+        case CATEGORY = "Category";
+        case COLORS = "Colors";
+        case CONTINENTS = "Continents";
+        case COUNTRIES = "Countries";
+        case CRUDLOGS = "CrudLogs";
+        case CRUDTYPE = "CrudType";
+        case EVENT = "Event";
+        case GENDER = "Gender";
+        case PERSON = "Person";
+        case PERSONPROPERTYROLES = "PersonPropertyRoles";
+        case PRODUCT = "Product";
+        case PROPERTY = "Property";
+        case PROPERTYTYPE = "PropertyType";
+        case ROLES = "Roles";
+        case ROOM = "Room";
+        case ROOMTYPE = "RoomType";
+        case USAGEDESTINATIONS = "UsageDestinations";
+        case USERS = "Users";
     }
+
+    function getNomeTabella(string $prefisso, NomiTabella $nomeT): string
+    {
+        return TableNames::getPrefixedName($prefisso, $nomeT->value);
+    }
+
 ?>

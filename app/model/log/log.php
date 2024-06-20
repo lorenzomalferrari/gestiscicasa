@@ -1,4 +1,8 @@
 <?php declare(strict_types=1);
+
+    require_once(ROOT . 'app/controller/lib/_db.php');
+    require_once(ROOT . 'app/model/NomiTabelle.php');
+
     /**
      *
      */
@@ -98,7 +102,7 @@
         public function __construct($timestamp, $message, $action, $beforeState, $afterState, $user, $database)
         {
             parent::__construct($timestamp, $message, $action, $beforeState, $afterState, $user, $database);
-            $this->table = getNomeTabella(NomiTabella::CRUDLOGS);
+            $this->table = getNomeTabella('lmgc_', NomiTabella::CRUDLOGS);
         }
 
         public function execute()

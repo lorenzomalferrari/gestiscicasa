@@ -5,6 +5,7 @@
     require_once('app/controller/lib/session/session_destroy.php');
 
     require_once(ROOT . 'app/model/database.php');
+    require_once(ROOT . 'app/model/NomiTabelle.php');
 
     $token = $_POST['token'];
 
@@ -20,12 +21,12 @@
     $params_select = "u.id as idUtente, u.username, u.password, p.email, u.token";
 
     //Controllo prima che token non esista
-    $query = "SELECT $params_select FROM " . getNomeTabella(NomiTabella::USERS) . " u LEFT JOIN " . getNomeTabella(NomiTabella::PERSON) . " p on p.idUser = u.id WHERE u.token = :token AND (u.isActive = 0 OR u.isActive IS NULL)";
+    $query = "SELECT $params_select FROM " . getNomeTabella($TABLEPREFIX, NomiTabella::USERS) . " u LEFT JOIN " . getNomeTabella($TABLEPREFIX, NomiTabella::PERSON) . " p on p.idUser = u.id WHERE u.token = :token AND (u.isActive = 0 OR u.isActive IS NULL)";
     print_r($query);
     $row = $database->select($query, $params_where);
     print_r($row);
     if ($row) {
-        $update = "UPDATE " . getNomeTabella(NomiTabella::USERS) . " SET token = NULL, isActive = 1 WHERE token = :token";
+        $update = "UPDATE " . getNomeTabella($TABLEPREFIX, NomiTabella::USERS) . " SET token = NULL, isActive = 1 WHERE token = :token";
         $update_id = $database->update($update, $params_where);
         print_r("Numero di righe aggiornate: " . $update_id);
 
@@ -42,7 +43,7 @@
         print_r($_SESSION);
         //eseguo Location a Home.php
         echo "Account confermato!<br>";
-        //header("Location: " . "../view/home.php");
+        echo "Ora puoi chiudere questa pagina.<br>";
     }else{
         print_r("Stampare errore");
     }

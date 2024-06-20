@@ -1,10 +1,8 @@
 <?php declare(strict_types=1);
-    //print_r("Sono in loginController<br><br>");
+
     require_once('lib/_libs.php');
-    //print_r($_SESSION);
-    //print_r("<br><br>");
-    //print_r($_SERVER);
     require_once(ROOT . 'app/model/database.php');
+    require_once(ROOT . 'app/model/NomiTabelle.php');
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -20,7 +18,7 @@
         );
 
         //Controllo prima che Utente non esista già
-        $query = "SELECT * FROM " . getNomeTabella(NomiTabella::USERS) . " WHERE username = :username";
+        $query = "SELECT * FROM " . getNomeTabella($TABLEPREFIX, NomiTabella::USERS) . " WHERE username = :username";
         $row = $database->select($query, $params_where);
         if ($row) {
             echo "Utente già presente con questo username: " . json_encode($row);
@@ -30,7 +28,7 @@
                 ':email' => $email,
             );
 
-            $selectPerson = "SELECT COUNT(*) FROM " . getNomeTabella(NomiTabella::PERSON) . " WHERE email : email";
+            $selectPerson = "SELECT COUNT(*) FROM " . getNomeTabella($TABLEPREFIX, NomiTabella::PERSON) . " WHERE email : email";
             $countP = $database->selectAll($selectPerson, $params_selectP);
 
             if($countP > 0){
@@ -47,7 +45,7 @@
                 );
 
                 //Gestisco l'inserimento in DB
-                $insert = "INSERT INTO " . getNomeTabella(NomiTabella::USERS) . " (username, password, token) VALUES (:username, :password, :token)";
+                $insert = "INSERT INTO " . getNomeTabella($TABLEPREFIX, NomiTabella::USERS) . " (username, password, token) VALUES (:username, :password, :token)";
                 $new_user_id = $database->insert($insert, $params_insert);
                 print_r("Nuovo utente id: " . $new_user_id);
 
@@ -64,11 +62,11 @@
                     print_r($row);
                     print_r("<br><br><br>");
 
-                    $_SESSION[$config['session']['keys'][0]] = $row['id'];
-                    $_SESSION[$config['session']['keys'][1]] = $row['username'];
-                    $_SESSION[$config['session']['keys'][2]] = $row['password'];
-                    $_SESSION[$config['session']['keys'][3]] = $row['email'];
-                    $_SESSION[$config['session']['keys'][4]] = "";// da implementare token
+                    $_SESSION[$config['session']['keys']['IDUSER']] = $row['id'];
+                    $_SESSION[$config['session']['keys']['USERNAME']] = $row['username'];
+                    $_SESSION[$config['session']['keys']['PASSWORD']] = $row['password'];
+                    $_SESSION[$config['session']['keys']['EMAIL']] = $row['email'];
+                    $_SESSION[$config['session']['keys']['TOKEN']] = "";// da implementare token
 
                     echo "Login riuscito!<br>";
                     print_r($_SESSION);
