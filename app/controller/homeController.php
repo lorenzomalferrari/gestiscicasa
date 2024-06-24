@@ -12,5 +12,5 @@
 	$email = $_SESSION["email"];
 
 	//richiamo la grafica della home
-	require_once("../view/home.php");
+	require_once(ROOT . "app/view/home.php");
 ?>

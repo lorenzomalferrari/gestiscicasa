@@ -1,7 +1,5 @@
 <?php declare(strict_types=1);
-    require_once("../controller/lib/_libs.php");
-    //print_r($_SESSION);
-    //print_r($_SERVER);
+    require_once(ROOT . "app/controller/lib/_libs.php");
     $titlePage = "Home";
 ?>
 <!doctype html>

@@ -71,7 +71,7 @@
                     echo "Login riuscito!<br>";
                     print_r($_SESSION);
 
-                    require_once("sendEmail.php");
+                    require_once(ROOT . "app/controller/sendEmail.php");
                     header("Location: " . "../view/welcome.php");
                 } else {
                     echo "Utente non creato";

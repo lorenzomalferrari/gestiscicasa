@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
     print_r("Sono in confirm.php<br><br>");
-    require_once('app/controller/lib/_libs.php');
+    require_once(ROOT . 'app/controller/lib/_libs.php');
     $flagConfirm = TRUE; //per evitare nel destroy il redirect a LOGIN
-    require_once('app/controller/lib/session/session_destroy.php');
+    require_once(ROOT . 'app/controller/lib/session/session_destroy.php');
 
     require_once(ROOT . 'app/model/database.php');
     require_once(ROOT . 'app/model/NomiTabelle.php');
