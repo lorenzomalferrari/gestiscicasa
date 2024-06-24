@@ -1,7 +1,6 @@
 <?php declare(strict_types=1);
 
-    require_once(ROOT . 'app/controller/lib/_config.php');
-    require_once(ROOT . 'app/controller/lib/_db.php');
+    require_once(ROOT . 'app/controller/lib/_libs.php');
 
     class TableNames {
         public static function getPrefixedName(string $prefisso, string $tableName): string
@@ -12,26 +11,26 @@
 
     enum NomiTabella: string
     {
-        case BRAND = "Brand";
-        case CATALOG = "Catalog";
-        case CATEGORY = "Category";
-        case COLORS = "Colors";
-        case CONTINENTS = "Continents";
-        case COUNTRIES = "Countries";
-        case CRUDLOGS = "CrudLogs";
-        case CRUDTYPE = "CrudType";
-        case EVENT = "Event";
-        case GENDER = "Gender";
-        case PERSON = "Person";
-        case PERSONPROPERTYROLES = "PersonPropertyRoles";
-        case PRODUCT = "Product";
-        case PROPERTY = "Property";
-        case PROPERTYTYPE = "PropertyType";
-        case ROLES = "Roles";
-        case ROOM = "Room";
-        case ROOMTYPE = "RoomType";
-        case USAGEDESTINATIONS = "UsageDestinations";
-        case USERS = "Users";
+        case BRAND = BrandTable::TABLE_NAME;
+        case CATALOG = CatalogTable::TABLE_NAME;
+        case CATEGORY = CategoryTable::TABLE_NAME;
+        case COLORS = ColorsTable::TABLE_NAME;
+        case CONTINENTS = ContinentsTable::TABLE_NAME;
+        case COUNTRIES = CountriesTable::TABLE_NAME;
+        case CRUDLOGS = CrudLogsTable::TABLE_NAME;
+        case CRUDTYPE = CrudTypeTable::TABLE_NAME;
+        case EVENT = EventTable::TABLE_NAME;
+        case GENDER = GenderTable::TABLE_NAME;
+        case PERSON = PersonTable::TABLE_NAME;
+        case PERSONPROPERTYROLES = PersonPropertyRolesTable::TABLE_NAME;
+        case PRODUCT = ProductTable::TABLE_NAME;
+        case PROPERTY = PropertyTable::TABLE_NAME;
+        case PROPERTYTYPE = PropertyTypeTable::TABLE_NAME;
+        case ROLES = RolesTable::TABLE_NAME;
+        case ROOM = RoomsTable::TABLE_NAME;
+        case ROOMTYPE = RoomTypesTable::TABLE_NAME;
+        case USAGEDESTINATIONS = UsageDestinationsTable::TABLE_NAME;
+        case USERS = UsersTable::TABLE_NAME;
     }
 
     function getNomeTabella(string $prefisso, NomiTabella $nomeT): string

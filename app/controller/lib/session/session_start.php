@@ -10,11 +10,13 @@
 
     $_SESSION['LAST_ACTIVITY'] = isset($_SESSION['LAST_ACTIVITY']) && !empty($_SESSION['LAST_ACTIVITY']) ? $_SESSION['LAST_ACTIVITY'] : time();
 
+    /*
     print_r("<br>Isset: " .  isset($_SESSION['LAST_ACTIVITY']));
     print_r("<br>time: " .  ($_time));
     print_r("<br>LAST_ACTIVITY: " .  (($_SESSION['LAST_ACTIVITY'])));
     print_r("<br>risultato: " .  (($_time - $_SESSION['LAST_ACTIVITY'])) );
     print_r("<br>Controllo se devo distruggere la sessione ------" . (isset($_SESSION['LAST_ACTIVITY']) && ($_time - $_SESSION['LAST_ACTIVITY']) > $inactivityLimit) . "-----<br>");
+    */
 
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > $inactivityLimit) {
         print_r("Distruggo la sessione<br>");
