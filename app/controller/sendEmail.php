@@ -1,13 +1,24 @@
 <?php declare(strict_types=1);
-    require_once( ROOT . "app/model/emailSender.php");
+    require_once( ROOT . "app/model/SmtpMailer.php");
+
+    // Utilizzo della classe SmtpMailer
+    $smtpServer = 'smtp.example.com';
+    $smtpPort = 587;
+    $smtpUser = 'user@example.com';
+    $smtpPass = 'password';
+
+    $mailer = new SmtpMailer($smtpServer, $smtpPort, $smtpUser, $smtpPass);
+
+    $to = $_SESSION[$config['session']['keys']['EMAIL']];
+    $subject = 'Test Email';
+    $message = 'This is a test email sent from PHP without external libraries.';
 
     $headers = "From: welcome@lorenzomalferrari.com\r\n";
     $headers .= "Reply-To: welcome@lorenzomalferrari.com\r\n";
     $headers .= "X-Mailer: PHP/" . phpversion();
 
-    $to = $email; /*$_SESSION['EMAIL_SE'];*/
     $confirmation_link = PATH . '/confirm.php?token='.$UNIQ_TOKEN; // Replace with actual confirmation link
-    print_r($confirmation_link);
+
     $company_name = $config['site']['name'];
 
     $email_subject = "Benvenuto su {{company_name}}! Conferma il tuo account";
@@ -28,15 +39,16 @@
                 <p>Il team di {{company_name}}</p>
             </body>
         </html>
-        ";
+    ";
 
-    $email_subject = str_replace(['{{first_name}}', '{{confirmation_link}}', '{{company_name}}'], [$to, $confirmation_link, $company_name], $email_subject);
-    $email_body = str_replace(['{{first_name}}', '{{confirmation_link}}', '{{company_name}}'], [$to, $confirmation_link, $company_name], $email_body);
+    $subject = str_replace(['{{first_name}}', '{{confirmation_link}}', '{{company_name}}'], [$to, $confirmation_link, $company_name], $email_subject);
+    $body = str_replace(['{{first_name}}', '{{confirmation_link}}', '{{company_name}}'], [$to, $confirmation_link, $company_name], $email_body);
+    print_r($body);
+    print_r("<br><br><br>");
+    print_r($body);
 
-    $emailSender = new EmailSender($to, $email_subject, $email_body, $headers);
-
-    if ($emailSender->send()) {
-        echo "Email inviata con successo!";
+    if ($mailer->sendMail($to, $subject, $body, $headers)) {
+        echo "Email sent successfully.";
     } else {
-        echo "Errore durante l'invio dell'email.";
+        echo "Failed to send email.";
     }
