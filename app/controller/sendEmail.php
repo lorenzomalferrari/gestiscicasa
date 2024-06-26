@@ -2,12 +2,13 @@
     require_once( ROOT . "app/model/SmtpMailer.php");
 
     // Utilizzo della classe SmtpMailer
-    $smtpServer = 'smtp.example.com';
-    $smtpPort = 587;
-    $smtpUser = 'user@example.com';
-    $smtpPass = 'password';
+    $smtpServer = $config['email']['smtp']['server'];
+    $smtpPort = $config['email']['smtp']['port'];
+    $smtpUser = $config['email']['smtp']['user'];
+    $smtpPass = $config['email']['smtp']['pass'];
+    $encryption = $config['email']['smtp']['encryption']; // 'ssl' per SSL, 'tls' per TLS
 
-    $mailer = new SmtpMailer($smtpServer, $smtpPort, $smtpUser, $smtpPass);
+    $mailer = new SmtpMailer($smtpServer, $smtpPort, $smtpUser, $smtpPass, $encryption);
 
     $to = $_SESSION[$config['session']['keys']['EMAIL']];
     $subject = 'Test Email';

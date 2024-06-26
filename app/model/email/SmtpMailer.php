@@ -1,12 +1,14 @@
-<?php
+<?php declare(strict_types=1);
     /**
      * SMTP Mailer class for sending emails via SMTP without external libraries.
      */
-    class SmtpMailer {
+    class SmtpMailer
+    {
         private string $smtpServer;
         private int $smtpPort;
         private string $smtpUser;
         private string $smtpPass;
+        private string $encryption; // 'tls' or 'ssl'
 
         /**
          * SmtpMailer constructor.
@@ -15,13 +17,15 @@
          * @param int $smtpPort The SMTP server port.
          * @param string $smtpUser The SMTP username.
          * @param string $smtpPass The SMTP password.
+         * @param string $encryption The encryption method ('tls' or 'ssl').
          */
-        public function __construct(string $smtpServer, int $smtpPort, string $smtpUser, string $smtpPass)
+        public function __construct(string $smtpServer, int $smtpPort, string $smtpUser, string $smtpPass, string $encryption = 'tls')
         {
             $this->smtpServer = $smtpServer;
             $this->smtpPort = $smtpPort;
             $this->smtpUser = $smtpUser;
             $this->smtpPass = $smtpPass;
+            $this->encryption = $encryption;
         }
 
         /**
@@ -35,7 +39,25 @@
          */
         public function sendMail(string $to, string $subject, string $message, string $headers): bool
         {
-            $socket = fsockopen($this->smtpServer, $this->smtpPort, $errno, $errstr, 30);
+            $contextOptions = [];
+            if ($this->encryption === 'ssl') {
+                $contextOptions['ssl'] = [
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                ];
+                $socket = stream_socket_client(
+                    "ssl://{$this->smtpServer}:{$this->smtpPort}",
+                    $errno,
+                    $errstr,
+                    30,
+                    STREAM_CLIENT_CONNECT,
+                    stream_context_create($contextOptions)
+                );
+            } else {
+                $socket = fsockopen($this->smtpServer, $this->smtpPort, $errno, $errstr, 30);
+            }
+
             if (!$socket) {
                 echo "Unable to connect to SMTP server: $errstr ($errno)\n";
                 return false;
@@ -54,20 +76,22 @@
                 return false;
             }
 
-            fwrite($socket, "STARTTLS\r\n");
-            $response = fgets($socket, 515);
-            if (substr($response, 0, 3) != '220') {
-                echo "STARTTLS command error: $response\n";
-                return false;
-            }
+            if ($this->encryption === 'tls') {
+                fwrite($socket, "STARTTLS\r\n");
+                $response = fgets($socket, 515);
+                if (substr($response, 0, 3) != '220') {
+                    echo "STARTTLS command error: $response\n";
+                    return false;
+                }
 
-            stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
+                stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
 
-            fwrite($socket, "EHLO " . gethostname() . "\r\n");
-            $response = fgets($socket, 515);
-            if (substr($response, 0, 3) != '250') {
-                echo "EHLO command error after STARTTLS: $response\n";
-                return false;
+                fwrite($socket, "EHLO " . gethostname() . "\r\n");
+                $response = fgets($socket, 515);
+                if (substr($response, 0, 3) != '250') {
+                    echo "EHLO command error after STARTTLS: $response\n";
+                    return false;
+                }
             }
 
             fwrite($socket, "AUTH LOGIN\r\n");
@@ -125,4 +149,3 @@
             return true;
         }
     }
-?>
