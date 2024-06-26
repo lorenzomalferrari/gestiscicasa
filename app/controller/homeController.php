@@ -10,7 +10,6 @@
 	// Ottieni il nome utente dall'autenticazione (sostituire con il tuo sistema di autenticazione)
 	$username = $_SESSION["username"];
 	$email = $_SESSION["email"];
-
 	//richiamo la grafica della home
 	require_once(ROOT . "app/view/home.php");
 ?>

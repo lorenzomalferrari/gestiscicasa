@@ -9,21 +9,21 @@
 
 		$database = new Database($SERVERNAME_DB, $USERNAME_DB, $PASSWORD_DB, $DBNAME);
 		$query = "SELECT * FROM " . getNomeTabella($TABLEPREFIX, NomiTabella::USERS) . " u LEFT JOIN " . getNomeTabella($TABLEPREFIX, NomiTabella::PERSON) . " p on p.idUser = u.id WHERE ( u.username = :username OR p.email = :username) AND u.password = :password AND u.token IS NULL and u.isActive = 1";
-		echo $query;
-		echo "<br><br>";
+		//echo $query;
+		//echo "<br><br>";
 		// Preparazione della query
 		$params = array(
 			':username' => $username_form,
 			':password' => $password_form
 		);
-		print_r($params);
-		echo "<br><br>";
+		//print_r($params);
+		//echo "<br><br>";
 
 		$record = $database->select($query, $params);
-		print_r("Record trovato:");
-		print_r($record);
+		//print_r("Record trovato:");
+		//print_r($record);
 		if ($record) {
-			echo "Record trovato: " . json_encode($record);
+			//echo "Record trovato: " . json_encode($record);
 
 			$token = $record['token'];
 			if (!checkStringLength($token)) {

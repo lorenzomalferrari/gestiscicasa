@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 	$config = [
 		'site' => [
 			'name' => 'Gestisci Casa',
@@ -25,7 +26,6 @@
 				'password' => '20Progetto24',
 				'database' => 'uij8aoin_gestiscicasa',
 			],
-
 		],
 		'email' => [
 			'smtp' => [
@@ -74,4 +74,5 @@
     		'en' => 'Inglese'
 		],
 	];
+
 ?>

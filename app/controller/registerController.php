@@ -1,5 +1,4 @@
 <?php declare(strict_types=1);
-
     require_once('lib/_libs.php');
     require_once(ROOT . 'app/model/database.php');
     require_once(ROOT . 'app/model/NomiTabelle.php');
@@ -59,8 +58,8 @@
                         "password" => $password,
                         "email" => $email
                     );
-                    print_r($row);
-                    print_r("<br><br><br>");
+                    //print_r($row);
+                    //print_r("<br><br><br>");
 
                     $_SESSION[$config['session']['keys']['IDUSER']] = $row['id'];
                     $_SESSION[$config['session']['keys']['USERNAME']] = $row['username'];
@@ -68,8 +67,8 @@
                     $_SESSION[$config['session']['keys']['EMAIL']] = $row['email'];
                     $_SESSION[$config['session']['keys']['TOKEN']] = "";// da implementare token
 
-                    echo "Login riuscito!<br>";
-                    print_r($_SESSION);
+                    //echo "Login riuscito!<br>";
+                    //print_r($_SESSION);
 
                     require_once(ROOT . "app/controller/sendEmail.php");
                     header("Location: " . "../view/welcome.php");

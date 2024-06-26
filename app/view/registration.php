@@ -1,16 +1,6 @@
 <?php declare(strict_types=1);
     require_once(ROOT . "app/controller/lib/_libs.php");
     $titlePage = "Registrazione";
-
-    /**
-     * Campi da salvare alla registrazione
-     * - User:
-     *      - username
-     *      - email ( da spostare in Person? )
-     *      - password
-     * - Person:
-     *      - email
-     */
 ?>
 <!doctype html>
 <html class="no-js" lang="">

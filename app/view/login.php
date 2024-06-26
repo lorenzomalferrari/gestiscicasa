@@ -8,7 +8,6 @@
     <head>
         <?php require_once("head/_head.php"); ?>
     </head>
-
     <body>
         <!-- Page Loader Start -->
         <?php //require_once("_preloader.php");

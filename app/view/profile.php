@@ -74,8 +74,8 @@
                                                     <img src="media/figure/user_1.jpg" alt="User">
                                                 </div>
                                                 <div class="media-body">
-                                                    <h4 class="user-title">Keith Jensen</h4>
-                                                    <div class="user-email">Simenson@dashy.com</div>
+                                                    <h4 class="user-title">Lorenzo Malferrari</h4>
+                                                    <div class="user-email">info@lorenzomalferrari.com</div>
                                                 </div>
                                             </div>
                                             <div class="dropdown">

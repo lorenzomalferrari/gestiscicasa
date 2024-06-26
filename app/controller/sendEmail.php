@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-    require_once( ROOT . "app/model/SmtpMailer.php");
+    require_once(ROOT . "app/model/SmtpMailer.php");
 
     // Utilizzo della classe SmtpMailer
     $smtpServer = $config['email']['smtp']['server'];
@@ -11,8 +11,8 @@
     $mailer = new SmtpMailer($smtpServer, $smtpPort, $smtpUser, $smtpPass, $encryption);
 
     $to = $_SESSION[$config['session']['keys']['EMAIL']];
-    $subject = 'Test Email';
-    $message = 'This is a test email sent from PHP without external libraries.';
+    //$subject = 'Test Email';
+    //$message = 'This is a test email sent from PHP without external libraries.';
 
     $headers = "From: welcome@lorenzomalferrari.com\r\n";
     $headers .= "Reply-To: welcome@lorenzomalferrari.com\r\n";

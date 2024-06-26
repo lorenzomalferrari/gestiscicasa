@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
     /**
      * SMTP Mailer class for sending emails via SMTP without external libraries.
      */

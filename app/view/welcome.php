@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
     require_once(ROOT . "app/controller/lib/_libs.php");
     $titlePage = "Benvenuti";
-    print_r($_SESSION);
+    //print_r($_SESSION);
 ?>
 <!doctype html>
 <html class="no-js" lang="">
