@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
     /**
      * File dove definisco alcune VARIABILI GLOBALI CUSTOM
+     * Livello 1: Tutte le definizioni utili per i require, per la sessione e non solo
      */
 
     define("HTTP_HOST", $_SERVER["HTTP_HOST"]);
@@ -15,14 +16,4 @@
     //echo "<br>ROOT:" . ROOT;
     define("PATH", PROTOCOL ."://" . DOMINIO . "/");
     //echo "<br>PATH:" . PATH;
-    // Chiave per la crittografia composta da voci interne
-    //VEDERE SE AGGIUNGERE ULTERIORI CAMPI
-    define(
-        'CRYPTO_KEY',
-        (
-            $config['db']['tablePrefix'] .
-            $config['securityConfig']['key']
-        )
-    );//es. lmgc_1e2wfvdfyku65yt4efbntmyj
-    //echo "<br>CRYPTO_KEY:" . CRYPTO_KEY;
 ?>
