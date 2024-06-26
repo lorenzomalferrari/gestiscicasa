@@ -27,6 +27,15 @@
 			],
 
 		],
+		'email' => [
+			'smtp' => [
+				'server' => 'mail.lorenzomalferrari.com',
+				'port' => 587,
+				'user' => 'malfe.lore@gmail.com',
+				'pass' => '20MalfeMyHost23@',
+				'encryption' => 'ssl',// 'ssl' per SSL, 'tls' per TLS
+			],
+		],
 		'session' => [
 			'keys'  => [
 				'IDUSER' => 'IDUSER',
