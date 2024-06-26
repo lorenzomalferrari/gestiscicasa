@@ -4,7 +4,7 @@
 	error_reporting(E_ALL);
 
 	//ZONA REQUIRE PHP
-	require_once(ROOT . "app/controller/lib/_libs.php");
+	require_once("app/controller/lib/_libs.php");
 
 	$idUsername = $_SESSION[$config['session']['keys'][0]];
 	$username = $_SESSION[$config['session']['keys'][1]];
