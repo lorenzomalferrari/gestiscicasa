@@ -30,7 +30,7 @@
 		'email' => [
 			'smtp' => [
 				'server' => 'mail.lorenzomalferrari.com',
-				'port' => 587,
+				'port' => 465,// 465 o 587
 				'user' => 'malfe.lore@gmail.com',
 				'pass' => '20MalfeMyHost23@',
 				'encryption' => 'ssl',// 'ssl' per SSL, 'tls' per TLS
@@ -46,16 +46,16 @@
 				'LAST_ACTIVITY' => 'LAST_ACTIVITY',
 			],
 			'settings' => [
-				'gc_maxlifetime' => 900, //15 minuti
-				'cookie_lifetime' => 0,
-				'inactivityLimit' => 900, // solitamente uguale a gc_maxlifetime
+				'gc_maxlifetime' => '900', //15 minuti
+				'cookie_lifetime' => '0',
+				'inactivityLimit' => '900', // solitamente uguale a gc_maxlifetime
 			],
 		],
 		'token' => [
 			'settings' => [
-				'gc_maxlifetime' => 900, //15 minuti
-				'cookie_lifetime' => 0,
-				'inactivityLimit' => 900, // solitamente uguale a gc_maxlifetime
+				'gc_maxlifetime' => '900', //15 minuti
+				'cookie_lifetime' => '0',
+				'inactivityLimit' => '900', // solitamente uguale a gc_maxlifetime
 			],
 		],
 		'serverConfig' => [
