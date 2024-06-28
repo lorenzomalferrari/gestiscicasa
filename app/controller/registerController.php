@@ -24,11 +24,11 @@
         }else {
             //prima di effettuare insert, devo verificare che email non sia già stata usata nel portale
             $params_selectP = array(
-                ':email' => $email,
+                ':email' => $email
             );
 
-            $selectPerson = "SELECT COUNT(*) FROM " . getNomeTabella($TABLEPREFIX, NomiTabella::PERSON) . " WHERE email : email";
-            $countP = $database->selectAll($selectPerson, $params_selectP);
+            $selectPerson = "SELECT COUNT(*) as count FROM " . getNomeTabella($TABLEPREFIX, NomiTabella::PERSON) . " WHERE email = :email";
+            $countP = $database->select($selectPerson, $params_selectP)['count'];
 
             if($countP > 0){
                 //bloccare tutto e restituire alert che email già presente
@@ -40,7 +40,7 @@
                     ':username' => $username,
                     /*':email' => $email,*/
                     ':password' => $password,
-                    ':token' => $UNIQ_TOKEN,
+                    ':token' => $UNIQ_TOKEN
                 );
 
                 //Gestisco l'inserimento in DB
@@ -72,6 +72,7 @@
 
                     require_once(ROOT . "app/controller/sendEmail.php");
                     header("Location: " . "../view/welcome.php");
+                    //print_r("Location: " . "../view/welcome.php");
                 } else {
                     echo "Utente non creato";
                 }
