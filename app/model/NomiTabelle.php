@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-    require_once(ROOT . 'app/controller/lib/_libs.php');
+    require_once('../controller/lib/_libs.php');
 
     class TableNames {
         public static function getPrefixedName(string $prefisso, string $tableName): string

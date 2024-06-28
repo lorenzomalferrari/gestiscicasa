@@ -1,6 +1,4 @@
 <?php declare(strict_types=1);
-
-    require_once(ROOT . 'app/controller/lib/_libs.php');
     require_once(ROOT . 'app/model/database.php');
     require_once(ROOT . 'app/model/CrudType.php');
     require_once(ROOT . 'app/model/NomiTabelle.php');
