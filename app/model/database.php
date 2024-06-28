@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-    require_once(ROOT . 'app/model/log/log.php');
+    require_once('log/log.php');
     /**
      *
      */
@@ -47,7 +47,7 @@
                 $this->executeLog($params_log);
                 return $stmt->fetch(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
-                echo "Errore durante l'esecuzione della query: " . $e->getMessage();
+                echo "Errore durante l'esecuzione della query select: " . $e->getMessage();
                 return false;
             }
         }
@@ -59,7 +59,7 @@
                 $stmt->execute($params);
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
-                echo "Errore durante l'esecuzione della query: " . $e->getMessage();
+                echo "Errore durante l'esecuzione della query selectAll: " . $e->getMessage();
                 return false;
             }
         }
@@ -71,7 +71,7 @@
                 $stmt->execute($params);
                 return $stmt->rowCount();
             } catch (PDOException $e) {
-                echo "Errore durante l'esecuzione della query: " . $e->getMessage();
+                echo "Errore durante l'esecuzione della query update: " . $e->getMessage();
                 return false;
             }
         }
@@ -95,7 +95,7 @@
                 $this->executeLog($params_log);
                 return $new_id;
             } catch (PDOException $e) {
-                echo "Errore durante l'esecuzione della query: " . $e->getMessage();
+                echo "Errore durante l'esecuzione della query insert: " . $e->getMessage();
                 //TODO: Creare log che segnali errore in inserimento
                 return false;
             }
@@ -111,7 +111,7 @@
                 $stmt->execute($params);
                 return $this->conn->lastInsertId();
             } catch (PDOException $e) {
-                echo "Errore durante l'esecuzione della query: " . $e->getMessage();
+                echo "Errore durante l'esecuzione della query insertLogs: " . $e->getMessage();
                 //TODO: Creare log che segnali errore in inserimento
                 return false;
             }
@@ -124,7 +124,7 @@
                 $stmt->execute($params);
                 return $stmt->rowCount();
             } catch (PDOException $e) {
-                echo "Errore durante l'esecuzione della query: " . $e->getMessage();
+                echo "Errore durante l'esecuzione della query delete: " . $e->getMessage();
                 return false;
             }
         }
