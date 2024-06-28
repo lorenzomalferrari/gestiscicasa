@@ -6,8 +6,8 @@
 	//ZONA REQUIRE PHP
 	require_once("app/controller/lib/_libs.php");
 
-	$idUsername = $_SESSION[$config['session']['keys'][0]];
-	$username = $_SESSION[$config['session']['keys'][1]];
+	$idUsername = $_SESSION[$config['session']['keys']['IDUSER']];
+	$username = $_SESSION[$config['session']['keys']['USERNAME']];
 
 	//print_r(15 . "<br>");
 	//print_r(time() . "<br>");
