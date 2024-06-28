@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
-    require_once(ROOT . "app/model/SmtpMailer.php");
+    require_once('lib/_libs.php');
+    require_once(ROOT . "app/model/email/SmtpMailer.php");
 
     // Utilizzo della classe SmtpMailer
     $smtpServer = $config['email']['smtp']['server'];
@@ -46,7 +47,6 @@
     $body = str_replace(['{{first_name}}', '{{confirmation_link}}', '{{company_name}}'], [$to, $confirmation_link, $company_name], $email_body);
     print_r($body);
     print_r("<br><br><br>");
-    print_r($body);
 
     if ($mailer->sendMail($to, $subject, $body, $headers)) {
         echo "Email sent successfully.";
