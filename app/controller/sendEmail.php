@@ -12,8 +12,6 @@
     $mailer = new SmtpMailer($smtpServer, $smtpPort, $smtpUser, $smtpPass, $encryption);
 
     $to = $_SESSION[$config['session']['keys']['EMAIL']];
-    //$subject = 'Test Email';
-    //$message = 'This is a test email sent from PHP without external libraries.';
 
     $headers = "From: welcome@lorenzomalferrari.com\r\n";
     $headers .= "Reply-To: welcome@lorenzomalferrari.com\r\n";
