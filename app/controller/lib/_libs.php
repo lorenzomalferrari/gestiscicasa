@@ -27,12 +27,12 @@
     require_once("_config.php");
     require_once("define/define_lv2.php");
     require_once("_time.php");
-    require_once("_db.php");
     require_once("_getYear.php");
     require_once("_functions.php");
     require_once("_encryption.php");
     require_once("_get_set.php");
     require_once("_getToken.php");
+    require_once("_db.php");
     require_once("session/_setSession.php");
     //require_once("_setStatiCRUD.php");
     require_once(ROOT . "app/model/table/Tables.php");
