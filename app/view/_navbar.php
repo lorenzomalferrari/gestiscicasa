@@ -122,9 +122,9 @@
                 </div>
             </li>
             <li class="navbar-item dropdown nav-admin">
-                <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"><img src="../../public/assets/media/figure/admin.jpg" alt="">Maria Ree<i class="flaticon-null-16"></i></a>
+                <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"><img src="../../public/assets/media/figure/admin.jpg" alt=""><? echo $nome_cognome; ?><i class="flaticon-null-16"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <h5 class="text-bold text-body mb-0">Maria Ree</h5>
+                    <h5 class="text-bold text-body mb-0"><? echo $nome_cognome; ?></h5>
                     <div class="text-14 text-manatee">Graphic Design</div>
                     <ul class="settings-list">
                         <li><a href="profile.php"><i class="far fa-user"></i>View Profile</a></li>
