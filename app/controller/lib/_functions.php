@@ -150,7 +150,6 @@
 	{
 		// Lista di host considerati come locali
 		$localHosts = ['localhost', '127.0.0.1', '::1'];
-
 		// Controlla l'host corrente
 		return in_array($_SERVER['HTTP_HOST'], $localHosts) || in_array($_SERVER['SERVER_NAME'], $localHosts);
 	}
