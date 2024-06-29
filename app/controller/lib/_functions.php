@@ -119,7 +119,7 @@
 	 * @param int $timestamp2 Il secondo timestamp.
 	 * @return bool True se la differenza è inferiore o uguale a tot minuti, altrimenti false.
 	 */
-	function confrontaTimestamp($range, $timestamp1, $timestamp2)
+	function confrontaTimestamp($range, $timestamp1, $timestamp2): bool
 	{
 		// Calcola la differenza in secondi tra i due timestamp
 		$differenza = abs($timestamp1 - $timestamp2);
@@ -135,5 +135,23 @@
 			// La differenza è superiore a X minuti
 			return false;
 		}
+	}
+
+
+	/**
+	 * Verifica se l'applicazione sta girando su un ambiente locale.
+	 *
+	 * Questa funzione controlla l'host corrente confrontandolo con una lista
+	 * di host considerati come locali (localhost, 127.0.0.1, ::1).
+	 *
+	 * @return bool Restituisce true se l'applicazione sta girando in locale, false altrimenti.
+	 */
+	function isLocalhost(): bool
+	{
+		// Lista di host considerati come locali
+		$localHosts = ['localhost', '127.0.0.1', '::1'];
+
+		// Controlla l'host corrente
+		return in_array($_SERVER['HTTP_HOST'], $localHosts) || in_array($_SERVER['SERVER_NAME'], $localHosts);
 	}
 ?>
