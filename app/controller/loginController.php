@@ -26,7 +26,7 @@
 			//echo "Record trovato: " . json_encode($record);
 
 			$token = $record['token'];
-			if (!checkStringLength($token)) {
+			if ( $token !== null &&  !checkStringLength($token) ) {
 				echo "Devi confermare l'email che ti è stata mandata, per attivare l'account";
 			} else {
 				//compilo SESSION
