@@ -1,6 +1,9 @@
 <?php declare(strict_types=1);
     //require_once(ROOT . "app/controller/lib/_libs.php");
     $titlePage = "Home";
+    //Gestione di tutte le variabili php da usare a video. Es. nominativo del profilo loggato
+    require_once(ROOT . "app/model/dashboard/getInfoForDashboard.php");
+    $nome_cognome = ucwords("Lorenzo Malferrari");
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -47,7 +50,7 @@
                                             </li>
                                             <li>Sales Monitoring</li>
                                         </ul>
-                                        <h1>Welcome to Dashboard :)</h1>
+                                        <h1>Welcome to <? echo $config['site']['name']; ?> :)</h1>
                                     </div>
                                 </div>
                                 <div class="col-md-7">
