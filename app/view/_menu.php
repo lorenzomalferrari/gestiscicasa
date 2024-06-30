@@ -27,9 +27,12 @@
                         <span class="dsy-menu-link-icon">
                             <i class="flaticon-null-1"></i>
                         </span>
-                        <span class="dsy-menu-link-text">Dashboards</span>
-                        <span class="dsy-menu-count">03</span>
+                        <span class="dsy-menu-link-text">
+                            <a href="index.php" class="dsy-menu-link">Dashboards</a>
+                        </span>
+                        <!--<span class="dsy-menu-count">03</span>-->
                     </a>
+                    <!--
                     <ul class="dsy-sub-group sub-group-menu">
                         <li class="dsy-nav-item active">
                             <a href="index.php" class="dsy-menu-link">Sales Monitoring</a>
@@ -41,6 +44,7 @@
                             <a href="index3.php" class="dsy-menu-link">Cryptocurrency</a>
                         </li>
                     </ul>
+                    -->
                 </li>
                 <li class="dsy-menu-label">
                     <div class="dsy-menu-label-text">APPLICATIONS</div>

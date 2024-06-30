@@ -38,7 +38,9 @@
 				);
 
 				//print_r($row);
-				require_once(ROOT . "app/controller/lib/session/_setSession.php");
+				require_once(ROOT . "app/model/session/SessionManager.php");
+				$sessionManager = new SessionManager($config);
+				$sessionManager->manageSession($row);
 				//echo "Login riuscito!<br>";
 				//print_r($_SESSION);
 				header("Location: " . PATH . "app/view/index.php");

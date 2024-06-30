@@ -14,7 +14,6 @@
      *   _encryption.php: Contiene le funzioni per criptare e descriptare testi
      *   _get_set.php: Sposta tutti i parametri da GET a SET, sarà utile per mod e personalizzazioni
      *   _getToken.php: Genero un token univoco (in lavorazione vers 2 potenziata)
-     *   _setSession.php: Configura la Sessione (problemi da risolvere)
      *   _setStatiCRUD.php: Interroga il DB e predisposne le costanti per la gestione delle operazioni CRUD
      *   -> potrebbe essere utile creare sotto cartella che oltre a StatiCRUD setta altre informazioni utili e necessarie 
      *   (da pensare per bene, infatti al momento il file è commentato)
@@ -33,7 +32,6 @@
     require_once("_get_set.php");
     require_once("_getToken.php");
     require_once("_db.php");
-    require_once("session/_setSession.php");
     //require_once("_setStatiCRUD.php");
     require_once(ROOT . "app/model/table/Tables.php");
 ?>
