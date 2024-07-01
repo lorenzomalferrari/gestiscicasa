@@ -3,6 +3,7 @@
 	$config = [
 		'site' => [
 			'name' => 'Gestisci Casa',
+			'name_sigla' => 'GC',
 			'name_esteso' => 'CRM Gestisci Casa',
 			'autore' => 'Lorenzo Malferrari',
 			'azienda' => 'LM Servizi e Consulenze IT',
