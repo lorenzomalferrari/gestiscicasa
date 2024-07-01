@@ -9,7 +9,7 @@
     print_r($_SESSION);
     // Preparazione della query per la select
     $params_where = array(
-        ':id' => "",
+        ':id' => ""
     );
 
     //Controllo prima che Utente non esista già
