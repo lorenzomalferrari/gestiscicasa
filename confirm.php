@@ -35,7 +35,7 @@
         $_SESSION[$config['session']['keys']['TOKEN']] = "DA COSTRUIRE"; // da implementare token
         $_SESSION[$config['session']['keys']['LAST_ACTIVITY']] = "DA PENSARE"; // da pensare se al momento del confirm bisogna fare qualcosa
 
-        //eseguo Location a Home.php
+        //eseguo Location a Index
         echo "Account confermato!<br>";
         echo "Ora puoi chiudere questa pagina.<br>";
     }else{
