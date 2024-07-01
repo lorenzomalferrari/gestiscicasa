@@ -1,65 +1,113 @@
 <?php declare(strict_types=1);
+
     /**
      * Classe che rappresenta l'Utente
      */
-    class User {
-        // Instance variables
-        private int $id;
+    trait User
+    {
+        // Variabili d'istanza
+        private int $userId;
         private string $username;
         private string $password;
-        private string $email;
+        private ?string $token; // Aggiunta del token, può essere nullo
+        private bool $isActive; // Aggiunta di isActive
+        private string $creationDate;
+        private string $updateDate;
 
-        // Constructor
-        public function __construct(int $id, string $username, string $password, string $email) {
-            $this->id = $id;
+        /**
+         * Costruttore della classe User.
+         *
+         * @param int $userId
+         * @param string $username
+         * @param string $password
+         * @param ?string $token
+         * @param bool $isActive
+         * @param string $creationDate
+         * @param string $updateDate
+         */
+        public function __construct(
+            int $userId,
+            string $username,
+            string $password,
+            ?string $token,
+            bool $isActive,
+            string $creationDate,
+            string $updateDate
+        ) {
+            $this->userId = $userId;
             $this->username = $username;
             $this->password = $password;
-            $this->email = $email;
+            $this->token = $token;
+            $this->isActive = $isActive;
+            $this->creationDate = $creationDate;
+            $this->updateDate = $updateDate;
         }
 
-        // Getter and setter methods for 'id'
-        public function getId(): int {
-            return $this->id;
+        // Getter e setter per 'userId'
+        public function getUserId(): int
+        {
+            return $this->userId;
         }
 
-        public function setId(int $id): void {
-            $this->id = $id;
+        public function setUserId(int $userId): void
+        {
+            $this->userId = $userId;
         }
 
-        // Getter and setter methods for 'username'
-        public function getUsername(): string {
+        // Getter e setter per 'username'
+        public function getUsername(): string
+        {
             return $this->username;
         }
 
-        public function setUsername(string $username): void {
+        public function setUsername(string $username): void
+        {
             $this->username = $username;
         }
 
-        // Getter and setter methods for 'password'
-        public function getPassword(): string {
+        // Getter e setter per 'password'
+        public function getPassword(): string
+        {
             return $this->password;
         }
 
-        public function setPassword(string $password): void {
+        public function setPassword(string $password): void
+        {
             $this->password = $password;
         }
 
-        // Getter and setter methods for 'email'
-        public function getEmail(): string {
-            return $this->email;
+        // Getter e setter per 'token'
+        public function getToken(): ?string
+        {
+            return $this->token;
         }
 
-        public function setEmail(string $email): void {
-            $this->email = $email;
+        public function setToken(?string $token): void
+        {
+            $this->token = $token;
         }
 
-        // toString method
-        public function toString(): string {
-            return
-                "User ID: " . $this->id .
-                ", Username: " . $this->username .
-                ", Password: " . $this->password .
-                ", Email: " . $this->email;
+        // Getter e setter per 'isActive'
+        public function getIsActive(): bool
+        {
+            return $this->isActive;
         }
+
+        public function setIsActive(bool $isActive): void
+        {
+            $this->isActive = $isActive;
+        }
+
+        // Getter per 'creationDate'
+        public function getCreationDate(): string
+        {
+            return $this->creationDate;
+        }
+
+        // Getter per 'updateDate'
+        public function getUpdateDate(): string
+        {
+            return $this->updateDate;
+        }
+
     }
-?>
