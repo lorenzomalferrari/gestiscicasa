@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-    //require_once(ROOT . "app/controller/lib/_libs.php");
+    //require_once(ROOT . "app/controller/lib/libs.php");
 ?>
 <!-- Meta Data -->
 <meta charset="utf-8">

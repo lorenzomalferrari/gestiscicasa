@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-require_once('../controller/lib/_libs.php');
+require_once('../controller/lib/libs.php');
 require_once(ROOT . "app/controller/profileController.php");
 $titlePage = "Profilo";
 ?>
