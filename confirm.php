@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
-    require_once('app/controller/lib/_libs.php');
+    require_once('app/controller/lib/libs.php');
     $flagConfirm = TRUE; //per evitare nel destroy il redirect a LOGIN
-    require_once(ROOT . 'app/controller/lib/session/session_destroy.php');
+    require_once(ROOT . 'app/controller/lib/session/_session_destroy.php');
     require_once(ROOT . 'app/model/database.php');
     require_once(ROOT . 'app/model/NomiTabelle.php');
 

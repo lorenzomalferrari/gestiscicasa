@@ -11,7 +11,7 @@ class SessionManager
 
     public function setSessionData(array $data): void
     {
-        require_once(ROOT . "app/controller/lib/session/session_start.php");
+        require_once(ROOT . "app/controller/lib/session/_session_start.php");
         foreach ($data as $key => $value) {
             $_SESSION[$key] = $value;
         }
@@ -20,7 +20,7 @@ class SessionManager
     public function startSessionIfNotStarted(): void
     {
         if (!isset($_SESSION) || $this->confrontaTimestamp(15, time(), $_SESSION['LAST_ACTIVITY'])) {
-            require_once(ROOT . "app/controller/lib/session/session_start.php");
+            require_once(ROOT . "app/controller/lib/session/_session_start.php");
         }
     }
 

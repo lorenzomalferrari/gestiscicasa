@@ -12,7 +12,7 @@
 
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > $inactivityLimit) {
         print_r("Distruggo la sessione<br>");
-        require_once("session_destroy.php");
+        require_once("_session_destroy.php");
     }
 
     $_SESSION['LAST_ACTIVITY'] = time();
