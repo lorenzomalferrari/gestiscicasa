@@ -11,5 +11,5 @@
 	$username = $_SESSION["username"];
 	$email = $_SESSION["email"];
 	//richiamo la grafica della home
-	require_once(ROOT . "app/view/home.php");
+	require_once(ROOT . "app/view/inex.php");
 ?>

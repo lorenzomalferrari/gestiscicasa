@@ -11,7 +11,7 @@ class SessionManager
 
     public function setSessionData(array $data): void
     {
-        session_start();
+        require_once(ROOT . "app/controller/lib/session/session_start.php");
         foreach ($data as $key => $value) {
             $_SESSION[$key] = $value;
         }

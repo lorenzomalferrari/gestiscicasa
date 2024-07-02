@@ -27,16 +27,23 @@
             }
         }
 
-        public function select($query, $params = array())
+        /**
+         * Esegue una query di selezione sul database e restituisce la prima riga come array associativo.
+         *
+         * @param string $query La query SQL da eseguire.
+         * @param array $params (Opzionale) Parametri da associare alla query.
+         * @return array|false Restituisce un array associativo rappresentante la riga selezionata, o false in caso di errore.
+         */
+        public function select($query, $params = array()): array
         {
             try {
                 $stmt = $this->conn->prepare($query);
                 $stmt->execute($params);
-                //print_r("Ho eseguito la select");
-                //TODO: Creare log che segnali select
+
+                // Log dell'interrogazione al database
                 $params_log = [
                     'message' =>
-                        'Interrogazione al database: QUERY -> ' . $query .
+                    'Interrogazione al database: QUERY -> ' . $query .
                         ' - PARAMETRI -> ' . implode(", ", $params),
                     'action' => 1,
                     'beforeState' => '',
@@ -45,19 +52,28 @@
                 ];
 
                 $this->executeLog($params_log);
-                return $stmt->fetch(PDO::FETCH_ASSOC);
+            print_r($params);
+            print_r($stmt);
+                return $stmt->fetch(PDO::FETCH_ASSOC) ?: [];
             } catch (PDOException $e) {
                 echo "Errore durante l'esecuzione della query select: " . $e->getMessage();
                 return false;
             }
         }
 
-        public function selectAll($query, $params = array())
+        /**
+         * Esegue una query di selezione sul database e restituisce tutte le righe trovate come un array di array associativi.
+         *
+         * @param string $query La query SQL da eseguire.
+         * @param array $params (Opzionale) Parametri da associare alla query.
+         * @return array|false Restituisce un array contenente tutte le righe selezionate, o false in caso di errore.
+         */
+        public function selectAll($query, $params = array()): array
         {
             try {
                 $stmt = $this->conn->prepare($query);
                 $stmt->execute($params);
-                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return $stmt->fetch(PDO::FETCH_ASSOC) ?: [];
             } catch (PDOException $e) {
                 echo "Errore durante l'esecuzione della query selectAll: " . $e->getMessage();
                 return false;

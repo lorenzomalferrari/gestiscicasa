@@ -27,6 +27,7 @@
     require_once("define/define_lv2.php");
     require_once("_time.php");
     require_once("_getYear.php");
+    require_once("session/session_start.php");
     require_once("_functions.php");
     require_once("_encryption.php");
     require_once("_get_set.php");

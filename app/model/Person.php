@@ -1,40 +1,63 @@
 <?php declare(strict_types=1);
 	/**
-	 * Classe che rappresenta la Persona che andrà a sfruttare il gestionale
+	 * Classe che rappresenta un record della tabella lmgc_Person e la Persona che utilizza il gestionale.
 	 */
-	class Person {
-		// Instance variables
-		private int $id;
+	trait Person
+	{
+		private int $personId;
 		private string $name;
 		private string $surname;
+		private string $email;
 		private int $age;
 		private string $birthdate;
-		private int $city;
-		private int $state;
-		private int $nationality;
-		private int $description;
+		private ?int $city;
+		private ?int $state;
+		private ?int $nationality;
+		private ?string $description;
 		private int $idUser;
+		private string $creationDate;
+		private string $updateDate;
 
 		// Constants
 		private const EMAIL_REGEX = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
 		private const TAX_CODE_REGEX = '/^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$/';
 
-		// Constructor
+	/**
+	 * Costruttore della classe Person.
+	 *
+	 * @param int $personId
+	 * @param string $name
+	 * @param string $surname
+	 * @param string $email
+	 * @param int $age
+	 * @param string $birthdate
+	 * @param int|null $city
+	 * @param int|null $state
+	 * @param int|null $nationality
+	 * @param string|null $description
+	 * @param int $idUser
+	 * @param string $creationDate
+	 * @param string $updateDate
+	 */
 		public function __construct(
-			int $id,
+			int $personId,
 			string $name,
 			string $surname,
+			string $email,
 			int $age,
 			string $birthdate,
-			int $city,
-			int $state,
-			int $nationality,
-			int $description,
-			int $idUser
+			?int $city,
+			?int $state,
+			?int $nationality,
+			?string $description,
+			int $idUser,
+			string $creationDate,
+			string $updateDate
 		) {
-			$this->id = $id;
+			$this->personId = $personId;
 			$this->name = $name;
 			$this->surname = $surname;
+			$this->email = $email;
 			$this->age = $age;
 			$this->birthdate = $birthdate;
 			$this->city = $city;
@@ -42,100 +65,156 @@
 			$this->nationality = $nationality;
 			$this->description = $description;
 			$this->idUser = $idUser;
+			$this->creationDate = $creationDate;
+			$this->updateDate = $updateDate;
 		}
 
-		// Getter and setter methods for 'id'
-		public function getId(): int {
-			return $this->id;
+		// Getter e setter per 'personId'
+		public function getPersonId(): int
+		{
+			return $this->PersonId;
 		}
 
-		public function setId(int $id): void {
-			$this->id = $id;
+		public function setPersonId(int $personId): void
+		{
+			$this->personId = $personId;
 		}
 
-		// Getter and setter methods for 'name'
-		public function getName(): string {
+		// Getter e setter per 'name'
+		public function getName(): string
+		{
 			return $this->name;
 		}
 
-		public function setName(string $name): void {
+		public function setName(string $name): void
+		{
 			$this->name = $name;
 		}
 
-		// Getter and setter methods for 'surname'
-		public function getSurname(): string {
+		// Getter e setter per 'surname'
+		public function getSurname(): string
+		{
 			return $this->surname;
 		}
 
-		public function setSurname(string $surname): void {
+		public function setSurname(string $surname): void
+		{
 			$this->surname = $surname;
 		}
 
-		// Getter and setter methods for 'age'
-		public function getAge(): int {
+		// Getter e setter per 'email'
+		public function getEmail(): string
+		{
+			return $this->email;
+		}
+
+		public function setEmail(string $email): void
+		{
+			$this->email = $email;
+		}
+
+		// Getter e setter per 'age'
+		public function getAge(): int
+		{
 			return $this->age;
 		}
 
-		public function setAge(int $age): void {
+		public function setAge(int $age): void
+		{
 			$this->age = $age;
 		}
 
-		// Getter and setter methods for 'birthdate'
-		public function getBirthdate(): string {
+		// Getter e setter per 'birthdate'
+		public function getBirthdate(): string
+		{
 			return $this->birthdate;
 		}
 
-		public function setBirthdate(string $birthdate): void {
+		public function setBirthdate(string $birthdate): void
+		{
 			$this->birthdate = $birthdate;
 		}
 
-		// Getter and setter methods for 'city'
-		public function getCity(): int {
+		// Getter e setter per 'city'
+		public function getCity(): ?int
+		{
 			return $this->city;
 		}
 
-		public function setCity(int $city): void {
+		public function setCity(?int $city): void
+		{
 			$this->city = $city;
 		}
 
-		// Getter and setter methods for 'state'
-		public function getState(): int {
+		// Getter e setter per 'state'
+		public function getState(): ?int
+		{
 			return $this->state;
 		}
 
-		public function setState(int $state): void {
+		public function setState(?int $state): void
+		{
 			$this->state = $state;
 		}
 
-		// Getter and setter methods for 'nationality'
-		public function getNationality(): int {
+		// Getter e setter per 'nationality'
+		public function getNationality(): ?int
+		{
 			return $this->nationality;
 		}
 
-		public function setNationality(int $nationality): void {
+		public function setNationality(?int $nationality): void
+		{
 			$this->nationality = $nationality;
 		}
 
-		// Getter and setter methods for 'description'
-		public function getDescription(): int {
+		// Getter e setter per 'description'
+		public function getDescription(): ?string
+		{
 			return $this->description;
 		}
 
-		public function setDescription(int $description): void {
+		public function setDescription(?string $description): void
+		{
 			$this->description = $description;
 		}
 
-		// Getter and setter methods for 'idUser'
-		public function getIdUser(): int {
+		// Getter e setter per 'idUser'
+		public function getIdUser(): int
+		{
 			return $this->idUser;
 		}
 
-		public function setIdUser(int $idUser): void {
+		public function setIdUser(int $idUser): void
+		{
 			$this->idUser = $idUser;
 		}
 
+		// Getter e setter per 'creationDate'
+		public function getCreationDate(): string
+		{
+			return $this->creationDate;
+		}
+
+		public function setCreationDate(string $creationDate): void
+		{
+			$this->creationDate = $creationDate;
+		}
+
+		// Getter e setter per 'updateDate'
+		public function getUpdateDate(): string
+		{
+			return $this->updateDate;
+		}
+
+		public function setUpdateDate(string $updateDate): void
+		{
+			$this->updateDate = $updateDate;
+		}
+
 		// Email validation function
-		public function validateEmail(string $email): bool {
+		public function validateEmail(string $email): bool
+		{
 			if (!preg_match(self::EMAIL_REGEX, $email)) {
 				throw new Exception('Invalid email format');
 			}
@@ -143,7 +222,8 @@
 		}
 
 		// Tax code validation function (for Italian tax code)
-		public function validateTaxCode(string $taxCode): bool {
+		public function validateTaxCode(string $taxCode): bool
+		{
 			if (!preg_match(self::TAX_CODE_REGEX, $taxCode)) {
 				throw new Exception('Invalid tax code');
 			}
@@ -151,7 +231,8 @@
 		}
 
 		// Birth date validation function (in the format year-month-day time)
-		public function validateBirthDate(string $birthdate): bool {
+		public function validateBirthDate(string $birthdate): bool
+		{
 			$format = 'Y-m-d H:i:s';
 			$dateTime = DateTime::createFromFormat($format, $birthdate);
 			if (!$dateTime || $dateTime->format($format) !== $birthdate) {
@@ -161,9 +242,10 @@
 		}
 
 		// toString method
-		public function toString(): string {
+		public function toString(): string
+		{
 			return
-				"ID: " . $this->id .
+				"Person ID: " . $this->personId .
 				", Name: " . $this->name .
 				", Surname: " . $this->surname .
 				", Age: " . $this->age .
@@ -172,7 +254,8 @@
 				", State: " . $this->state .
 				", Nationality: " . $this->nationality .
 				", Description: " . $this->description .
-				", ID User: " . $this->idUser;
+				", ID User: " . $this->idUser .
+				", Creation Date: " . $this->creationDate .
+				", Update Date: " . $this->updateDate;
 		}
 	}
-?>
