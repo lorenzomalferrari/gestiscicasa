@@ -6929,12 +6929,12 @@ body.loaded .preloader-wrap {
     color: #2e5bff;
 }
 
-.passcode-reset .login-back {
+.reset_psw .login-back {
     margin-top: 30px;
     color: #1b2e4b;
 }
 
-.passcode-reset .login-back:hover {
+.reset_psw .login-back:hover {
     color: #2e5bff;
 }
 

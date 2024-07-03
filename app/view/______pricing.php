@@ -132,7 +132,7 @@
                                                 <a href="login.php" class="dsy-menu-link">Login</a>
                                             </li>
                                             <li class="dsy-nav-item">
-                                                <a href="passcode-reset.php" class="dsy-menu-link">Password Reset</a>
+                                                <a href="reset_psw.php" class="dsy-menu-link">Password Reset</a>
                                             </li>
                                             <li class="dsy-nav-item">
                                                 <a href="profile.php" class="dsy-menu-link">Profile</a>

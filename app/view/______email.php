@@ -2,34 +2,7 @@
 <html class="no-js" lang="">
 
 <head>
-    <!-- Meta Data -->
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashy | Email</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="media/favicon.png">
-
-    <!-- Dependencies CSS -->
-    <link rel="stylesheet" href="dependencies/bootstrap/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/fontawesome/css/all.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/flaticon/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/jvectormap/css/jquery-jvectormap-2.0.3.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/fullcalendar/main.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/select2/css/select2.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/bootstrap-colorpicker/bootstrap-colorpicker.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/flatpicker/css/flatpickr.min.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/quill/quill.core.css" type="text/css">
-    <link rel="stylesheet" href="dependencies/quill/quill.snow.css" type="text/css">
-
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/app.css" type="text/css">
-
-    <!-- Google Web Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+    <?php require_once("head/_head.php"); ?>
 </head>
 
 <body>
@@ -169,7 +142,7 @@
                                                 <a href="login.php" class="dsy-menu-link">Login</a>
                                             </li>
                                             <li class="dsy-nav-item">
-                                                <a href="passcode-reset.php" class="dsy-menu-link">Password Reset</a>
+                                                <a href="reset_psw.php" class="dsy-menu-link">Password Reset</a>
                                             </li>
                                             <li class="dsy-nav-item">
                                                 <a href="profile.php" class="dsy-menu-link">Profile</a>
