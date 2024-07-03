@@ -18,7 +18,7 @@
 		header('Location: ' . 'app/view/login.php');
 	}
 	else {
-		//print_r('Location: ' . 'app/view/index.php');
-		header('Location: ' . 'app/view/index.php');
+		//print_r('Location: ' . 'app/view/home.php');
+		header('Location: ' . 'app/view/home.php');
 	}
 ?>
