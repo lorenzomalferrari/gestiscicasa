@@ -22,4 +22,5 @@
     require_once("session/_session_start.php");
 
     require_once(ROOT . "app/model/table/Tables.php");
+    require_once(ROOT . 'app/model/log/log.php');
 ?>
