@@ -3,7 +3,7 @@
     require_once(ROOT . 'app/model/database.php');
     require_once(ROOT . 'app/model/NomiTabelle.php');
 
-    $database = new Database($SERVERNAME_DB, $USERNAME_DB, $PASSWORD_DB, $DBNAME);
+    $database = new Database($configIstance->get('SERVERNAME_DB'), $configIstance->get('USERNAME_DB'), $configIstance->get('PASSWORD_DB'), $configIstance->get('DBNAME'),;
 
     print_r("Sto per stampare var SESSIONE");
     print_r($_SESSION);

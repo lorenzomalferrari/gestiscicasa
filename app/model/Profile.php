@@ -20,7 +20,7 @@
          */
         public static function init(): void
         {
-            self::$db = new Database($SERVERNAME_DB, $USERNAME_DB, $PASSWORD_DB, $DBNAME);
+            self::$db = new Database($configIstance->get('SERVERNAME_DB'), $configIstance->get('USERNAME_DB'), $configIstance->get('PASSWORD_DB'), $configIstance->get('DBNAME'),;
         }
 
         /**

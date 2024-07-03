@@ -7,7 +7,7 @@
 
     $token = $_POST['token'];
 
-    $database = new Database($SERVERNAME_DB, $USERNAME_DB, $PASSWORD_DB, $DBNAME);
+    $database = new Database($configIstance->get('SERVERNAME_DB'), $configIstance->get('USERNAME_DB'), $configIstance->get('PASSWORD_DB'), $configIstance->get('DBNAME'),;
 
     // Preparazione della query per la select
     $params_where = array(

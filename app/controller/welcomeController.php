@@ -5,7 +5,7 @@
     require_once(ROOT . 'app/model/NomiTabelle.php');
 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
-        $database = new Database($SERVERNAME_DB, $USERNAME_DB, $PASSWORD_DB, $DBNAME);
+        $database = new Database($configIstance->get('SERVERNAME_DB'), $configIstance->get('USERNAME_DB'), $configIstance->get('PASSWORD_DB'), $configIstance->get('DBNAME'),;
 
         print_r("POST:<br>");
         print_r($_POST);
