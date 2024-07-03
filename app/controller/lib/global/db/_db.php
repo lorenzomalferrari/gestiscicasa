@@ -5,16 +5,17 @@
         $key = "test";
     }
 
-    $SERVERNAME_DB = $config['db'][$key]['host'] . ':' . $config['db'][$key]['port'];
-    $USERNAME_DB = $config['db'][$key]['username'];
-    $PASSWORD_DB = $config['db'][$key]['password'];
-    $DBNAME = $config['db'][$key]['database'];
-    $TABLEPREFIX = $config['db']['tablePrefix'];
+    $configArray = [
+        'SERVERNAME_DB' => $config['db'][$key]['host'] . ':' . $config['db'][$key]['port'],
+        'USERNAME_DB' => $config['db'][$key]['username'],
+        'PASSWORD_DB' => $config['db'][$key]['password'],
+        'DBNAME' => $config['db'][$key]['database'],
+        'TABLEPREFIX' => $config['db']['tablePrefix'],
+        'VERSTIME' => $VERSTIME,
+        'YEARNOW' => $YEARNOW,
+        'UNIQ_TOKEN' => $UNIQ_TOKEN,
+    ];
 
-    print_r("SERVERNAME: " . $SERVERNAME);
-    print_r("USERNAME: " . $USERNAME);
-    print_r("PASSWORD: " . $PASSWORD);
-    print_r("DBNAME: " . $DBNAME);
-    print_r("TABLEPREFIX: " . $TABLEPREFIX);
-
+    // Inizializza la configurazione una volta
+    $configIstance = Config::getInstance($configArray);
 ?>
