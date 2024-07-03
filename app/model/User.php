@@ -14,34 +14,7 @@
         private string $creationDate;
         private string $updateDate;
 
-        /**
-         * Costruttore della classe User.
-         *
-         * @param int $userId
-         * @param string $username
-         * @param string $password
-         * @param ?string $token
-         * @param bool $isActive
-         * @param string $creationDate
-         * @param string $updateDate
-         */
-        public function __construct(
-            int $userId,
-            string $username,
-            string $password,
-            ?string $token,
-            bool $isActive,
-            string $creationDate,
-            string $updateDate
-        ) {
-            $this->userId = $userId;
-            $this->username = $username;
-            $this->password = $password;
-            $this->token = $token;
-            $this->isActive = $isActive;
-            $this->creationDate = $creationDate;
-            $this->updateDate = $updateDate;
-        }
+        public function __construct() {}
 
         // Getter e setter per 'userId'
         public function getUserId(): int

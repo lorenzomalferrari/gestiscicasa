@@ -11,27 +11,52 @@
     class Profile
     {
         // Importa le funzionalità di User e Person come trait
-        use Person, User;
+        use Person, User {
+            User::__construct as userConstruct;
+            Person::__construct as personConstruct;
+            User::getCreationDate as userGetCreationDate;
+            Person::getCreationDate as personGetCreationDate;
+        }
 
-        private static Database $db;
+        private static $db;
 
         /**
          * Metodo per inizializzare la classe, utilizzato per inizializzare il database
          */
         public static function init(): void
         {
-            self::$db = new Database($configIstance->get('SERVERNAME_DB'), $configIstance->get('USERNAME_DB'), $configIstance->get('PASSWORD_DB'), $configIstance->get('DBNAME'));
+            if (self::$db === null) {
+                $configInstance = Config::getInstance();
+                self::$db = new Database(
+                    $configInstance->get('SERVERNAME_DB'),
+                    $configInstance->get('USERNAME_DB'),
+                    $configInstance->get('PASSWORD_DB'),
+                    $configInstance->get('DBNAME')
+                );
+            }
+        }
+
+        /**
+         * Costruttore per la classe Profile
+         */
+        public function __construct()
+        {
+            $this->userConstruct();
+            $this->personConstruct();
         }
 
         /**
          * Metodo per ottenere il profilo completo di un utente persona combinato
          *
          * @param int $userId
-         * @return array
+         * @return Profile
          * @throws Exception
          */
         public static function getProfile(int $userId): Profile
         {
+            // Assicurati che il database sia inizializzato
+            self::init();
+
             // Query per ottenere i dati combinati da User e Person
             $query = "SELECT
                     p.id as personId,
@@ -50,7 +75,7 @@
                     u.token,
                     u.isActive
                 FROM
-                    " . NomiTabella::USERS. " u
+                    " . NomiTabella::USERS . " u
                 INNER JOIN
                     " . NomiTabella::PERSON . " p ON u.id = p.idUser
                 WHERE
@@ -59,12 +84,12 @@
             // Eseguire la query utilizzando il metodo select del database
             $profileData = self::$db->select($query, ['userId' => $userId]);
 
-            if (!$profileData) {
+            if (empty($profileData)) {
                 throw new Exception("Profile not found");
             }
 
             // Creare un oggetto Profile utilizzando il metodo statico
-            return self::createFromDatabaseResult($profileData[0]);
+            return self::createFromDatabaseResult($profileData);
         }
 
         /**
@@ -76,7 +101,7 @@
         public static function createFromDatabaseResult(array $profileData): Profile
         {
             $profile = new Profile();
-            //info per Person
+            // Info per Person
             $profile->setPersonId($profileData['personId']);
             $profile->setName($profileData['name']);
             $profile->setSurname($profileData['surname']);
@@ -87,7 +112,7 @@
             $profile->setNationality($profileData['nationality']);
             $profile->setDescription($profileData['description']);
             $profile->setEmail($profileData['email']);
-            //info per User
+            // Info per User
             $profile->setUserId($profileData['userId']);
             $profile->setUsername($profileData['username']);
             $profile->setPassword($profileData['password']);
@@ -106,5 +131,4 @@
         {
             return $this->getName() . ' ' . $this->getSurname();
         }
-
     }

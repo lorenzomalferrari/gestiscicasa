@@ -22,52 +22,7 @@
 		private const EMAIL_REGEX = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
 		private const TAX_CODE_REGEX = '/^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$/';
 
-	/**
-	 * Costruttore della classe Person.
-	 *
-	 * @param int $personId
-	 * @param string $name
-	 * @param string $surname
-	 * @param string $email
-	 * @param int $age
-	 * @param string $birthdate
-	 * @param int|null $city
-	 * @param int|null $state
-	 * @param int|null $nationality
-	 * @param string|null $description
-	 * @param int $idUser
-	 * @param string $creationDate
-	 * @param string $updateDate
-	 */
-		public function __construct(
-			int $personId,
-			string $name,
-			string $surname,
-			string $email,
-			int $age,
-			string $birthdate,
-			?int $city,
-			?int $state,
-			?int $nationality,
-			?string $description,
-			int $idUser,
-			string $creationDate,
-			string $updateDate
-		) {
-			$this->personId = $personId;
-			$this->name = $name;
-			$this->surname = $surname;
-			$this->email = $email;
-			$this->age = $age;
-			$this->birthdate = $birthdate;
-			$this->city = $city;
-			$this->state = $state;
-			$this->nationality = $nationality;
-			$this->description = $description;
-			$this->idUser = $idUser;
-			$this->creationDate = $creationDate;
-			$this->updateDate = $updateDate;
-		}
+		public function __construct() {}
 
 		// Getter e setter per 'personId'
 		public function getPersonId(): int
