@@ -32,8 +32,8 @@
 			'smtp' => [
 				'server' => 'mail.lorenzomalferrari.com',
 				'port' => 465,// 465 o 587
-				'user' => 'malfe.lore@gmail.com',
-				'pass' => '20MalfeMyHost23@',
+				'user' => 'welcome@lorenzomalferrari.com',
+				'pass' => 'M0Eqc_n%,c!0Lw!_5Uhj2}Trv',
 				'encryption' => 'ssl',// 'ssl' per SSL, 'tls' per TLS
 			],
 		],
