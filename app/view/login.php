@@ -38,7 +38,7 @@
                             <div class="form-group">
                                 <div class="input-label">
                                     <label>Password</label>
-                                    <a href="passcode-reset.php">Dimenticata password?</a>
+                                    <a href="reset_psw.php">Dimenticata password?</a>
                                 </div>
                                 <input type="password" class="form-control" placeholder="Inserire la password" id="password" name="password">
                             </div>
