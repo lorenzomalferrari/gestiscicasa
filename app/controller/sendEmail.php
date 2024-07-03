@@ -2,52 +2,58 @@
     require_once('lib/libs.php');
     require_once(ROOT . "app/model/email/SmtpMailer.php");
 
-    // Utilizzo della classe SmtpMailer
+    // Configurazione SMTP
     $smtpServer = $config['email']['smtp']['server'];
     $smtpPort = $config['email']['smtp']['port'];
     $smtpUser = $config['email']['smtp']['user'];
     $smtpPass = $config['email']['smtp']['pass'];
     $encryption = $config['email']['smtp']['encryption']; // 'ssl' per SSL, 'tls' per TLS
 
+    // Creazione dell'istanza del mailer
     $mailer = new SmtpMailer($smtpServer, $smtpPort, $smtpUser, $smtpPass, $encryption);
 
+    // Indirizzo email del destinatario dalla sessione
     $to = $_SESSION[$config['session']['keys']['EMAIL']];
 
+    // Headers dell'email
     $headers = "From: welcome@lorenzomalferrari.com\r\n";
     $headers .= "Reply-To: welcome@lorenzomalferrari.com\r\n";
     $headers .= "X-Mailer: PHP/" . phpversion();
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
-    $confirmation_link = PATH . '/confirm.php?token='.$UNIQ_TOKEN; // Replace with actual confirmation link
+    // Link di conferma (da generare effettivamente)
+    $confirmation_link = PATH . '/confirm.php?token=' . $UNIQ_TOKEN;
 
+    // Nome dell'azienda
     $company_name = $config['site']['name'];
 
-    $email_subject = "Benvenuto su {{company_name}}! Conferma il tuo account";
+    // Soggetto dell'email
+    $email_subject = "Benvenuto su {$company_name}! Conferma il tuo account";
+
+    // Corpo dell'email
     $email_body = "
         <html>
             <head>
-                <title>Benvenuto su {{company_name}}!</title>
+                <title>Benvenuto su {$company_name}!</title>
             </head>
             <body>
-                <p>Buongiorno {{first_name}},</p>
-                <p>Grazie per esserti registrato su {{company_name}}. Siamo entusiasti di averti con noi!</p>
+                <p>Buongiorno,</p>
+                <p>Grazie per esserti registrato su {$company_name}. Siamo entusiasti di averti con noi!</p>
                 <p>Per completare la registrazione e confermare il tuo account, clicca sul link sottostante:</p>
-                <p><a href=\"{{confirmation_link}}\">Conferma il tuo account</a></p>
+                <p><a href=\"{$confirmation_link}\">Conferma il tuo account</a></p>
                 <p>Se non riesci a cliccare sul link, copia e incolla l'URL seguente nel tuo browser:</p>
-                <p>{{confirmation_link}}</p>
-                <p>Grazie e benvenuto ancora una volta su {{company_name}}!</p>
+                <p>{$confirmation_link}</p>
+                <p>Grazie e benvenuto ancora una volta su {$company_name}!</p>
                 <p>Cordiali saluti,</p>
-                <p>Il team di {{company_name}}</p>
+                <p>Il team di {$company_name}</p>
             </body>
         </html>
     ";
 
-    $subject = str_replace(['{{first_name}}', '{{confirmation_link}}', '{{company_name}}'], [$to, $confirmation_link, $company_name], $email_subject);
-    $body = str_replace(['{{first_name}}', '{{confirmation_link}}', '{{company_name}}'], [$to, $confirmation_link, $company_name], $email_body);
-    print_r($body);
-    print_r("<br><br><br>");
-
-    if ($mailer->sendMail($to, $subject, $body, $headers)) {
-        echo "Email sent successfully.";
+    // Invio dell'email
+    if ($mailer->sendMail($to, $email_subject, $email_body, $headers)) {
+        echo "Email inviata con successo.";
     } else {
-        echo "Failed to send email.";
+        echo "Errore durante l'invio dell'email.";
     }

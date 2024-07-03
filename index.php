@@ -21,4 +21,3 @@
 		//print_r('Location: ' . 'app/view/home.php');
 		header('Location: ' . 'app/view/home.php');
 	}
-?>
