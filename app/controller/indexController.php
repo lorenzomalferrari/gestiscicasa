@@ -4,7 +4,7 @@
 	//recuperare id dell' utente, iterrogare il database e recuperare le informazioni da mostrare a video negli appositi spazi
 	$idUtente_se = $_SESSION["idUtente"];
 
-	$getUser_sql = "SELECT * FROM " . getNomeTabella($TABLEPREFIX, NomiTabella::USERS) . " WHERE id = ?";
+	$getUser_sql = "SELECT * FROM " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::USERS) . " WHERE id = ?";
 	//print_r($getUser_sql);
 
 	// Ottieni il nome utente dall'autenticazione (sostituire con il tuo sistema di autenticazione)

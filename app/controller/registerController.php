@@ -17,7 +17,7 @@
         );
 
         //Controllo prima che Utente non esista già
-        $query = "SELECT * FROM " . getNomeTabella($TABLEPREFIX, NomiTabella::USERS) . " WHERE username = :username";
+        $query = "SELECT * FROM " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::USERS) . " WHERE username = :username";
         $row = $database->select($query, $params_where);
         if ($row) {
             echo "Utente già presente con questo username: " . json_encode($row);
@@ -27,7 +27,7 @@
                 ':email' => $email
             );
 
-            $selectPerson = "SELECT COUNT(*) as count FROM " . getNomeTabella($TABLEPREFIX, NomiTabella::PERSON) . " WHERE email = :email";
+            $selectPerson = "SELECT COUNT(*) as count FROM " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::PERSON) . " WHERE email = :email";
             $countP = $database->select($selectPerson, $params_selectP)['count'];
 
             if($countP > 0){
@@ -44,7 +44,7 @@
                 );
 
                 //Gestisco l'inserimento in DB
-                $insert = "INSERT INTO " . getNomeTabella($TABLEPREFIX, NomiTabella::USERS) . " (username, password, token) VALUES (:username, :password, :token)";
+                $insert = "INSERT INTO " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::USERS) . " (username, password, token) VALUES (:username, :password, :token)";
                 $new_user_id = $database->insert($insert, $params_insert);
                 print_r("Nuovo utente id: " . $new_user_id);
 
