@@ -11,9 +11,9 @@
         'PASSWORD_DB' => CONFIG['db'][$key]['password'],
         'DBNAME' => CONFIG['db'][$key]['database'],
         'TABLEPREFIX' => CONFIG['db']['tablePrefix'],
-        'VERSTIME' => $VERSTIME,
-        'YEARNOW' => $YEARNOW,
-        'UNIQ_TOKEN' => $UNIQ_TOKEN,
+        'VERSTIME' => VERSTIME,
+        'YEARNOW' => YEARNOW,
+        'UNIQ_TOKEN' => UNIQ_TOKEN,
     ];
 
     // Inizializza la configurazione una volta

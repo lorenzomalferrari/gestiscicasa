@@ -5,25 +5,6 @@
         $_POST = unisciArray($_POST, $_GET);
     }
 
-    /**
-     * Recupero il time nel momento in cui carico la pagina:
-     *      - utile per js e css;
-     *      - controllo durata sessione (in implementazione)
-     */
-    $VERSTIME = time();
-
-    /**
-     *
-     * Ottieni l'anno attuale
-     *
-     */
-    $YEARNOW = date("Y");
-
-    /**
-     * Da migliorare, usando la classe Token che è in sviluppo
-     */
-    $UNIQ_TOKEN = uniqid();
-
     require_once("db/_db.php");
 
     /*

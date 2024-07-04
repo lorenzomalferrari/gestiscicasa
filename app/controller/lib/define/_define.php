@@ -108,7 +108,25 @@
             CONFIG['db']['tablePrefix'] .
             CONFIG['securityConfig']['key']
         )
-    );//es. lmgc_1e2wfvdfyku65yt4efbntmyj
-    //echo "<br>CRYPTO_KEY:" . CRYPTO_KEY;
+    ); //es. lmgc_1e2wfvdfyku65yt4efbntmyj
+	//echo "<br>CRYPTO_KEY:" . CRYPTO_KEY;
 
+	/**
+	 * Recupero il time nel momento in cui carico la pagina:
+	 *      - utile per js e css;
+	 *      - controllo durata sessione (in implementazione)
+	 */
+	define('VERSTIME', time());
+
+	/**
+	 *
+	 * Ottieni l'anno attuale
+	 *
+	 */
+	define('YEARNOW', date("Y"));
+
+	/**
+	 * Da migliorare, usando la classe Token che è in sviluppo
+	 */
+	define('UNIQ_TOKEN', uniqid());
 ?>
