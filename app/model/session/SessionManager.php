@@ -2,11 +2,11 @@
 
 class SessionManager
 {
-    private CONFIG;
+    private $config;
 
-    public function __construct(array CONFIG)
+    public function __construct(array $config)
     {
-        $this->config = CONFIG;
+        $this->config = $config;
     }
 
     public function setSessionData(array $data): void
