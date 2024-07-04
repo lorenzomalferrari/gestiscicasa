@@ -61,8 +61,8 @@
                 ];
 
                 $this->executeLog($params_log);
-                print_r($params);
-                print_r($stmt);
+                //print_r($params);
+                //print_r($stmt);
                 return $stmt->fetch(PDO::FETCH_ASSOC) ?: [];
             } catch (PDOException $e) {
                 echo "Errore durante l'esecuzione della query select: " . $e->getMessage();
@@ -82,6 +82,22 @@
             try {
                 $stmt = $this->conn->prepare($query);
                 $stmt->execute($params);
+
+            // Log dell'interrogazione al database
+            $params_log = [
+                'message' =>
+                'Interrogazione al database: QUERY -> ' . $query .
+                ' - PARAMETRI -> ' . implode(", ", $params),
+                'action' => CONFIG['crudType']['SELECT'],
+                'beforeState' => null,
+                'afterState' => null,
+                'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
+            ];
+
+            $this->executeLog($params_log);
+            //print_r($params);
+            //print_r($stmt);
+
                 return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
             } catch (PDOException $e) {
                 echo "Errore durante l'esecuzione della query selectAll: " . $e->getMessage();
@@ -101,7 +117,23 @@
             try {
                 $stmt = $this->conn->prepare($query);
                 $stmt->execute($params);
-                return $stmt->rowCount();
+
+            // Log dell'interrogazione al database
+            $params_log = [
+                'message' =>
+                'Interrogazione al database: QUERY -> ' . $query .
+                ' - PARAMETRI -> ' . implode(", ", $params),
+                'action' => CONFIG['crudType']['UPDATE'],
+                'beforeState' => null,
+                'afterState' => null,
+                'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
+            ];
+
+            $this->executeLog($params_log);
+            //print_r($params);
+            //print_r($stmt);
+
+            return $stmt->rowCount();
             } catch (PDOException $e) {
                 echo "Errore durante l'esecuzione della query update: " . $e->getMessage();
                 return false;
@@ -125,7 +157,7 @@
                 //TODO: Creare log che segnali inserimento
                 $params_log = [
                     'message' => 'Creato inserimento: ' . $query,
-                    'action' => 1,
+                    'action' => CONFIG['crudType']['INSERT'],
                     'beforeState' => '',
                     'afterState' => '',
                     'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
@@ -172,6 +204,22 @@
             try {
                 $stmt = $this->conn->prepare($query);
                 $stmt->execute($params);
+
+                // Log dell'interrogazione al database
+                $params_log = [
+                    'message' =>
+                    'Interrogazione al database: QUERY -> ' . $query .
+                    ' - PARAMETRI -> ' . implode(", ", $params),
+                    'action' => CONFIG['crudType']['DELETE'],
+                    'beforeState' => null,
+                    'afterState' => null,
+                    'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
+                ];
+
+                $this->executeLog($params_log);
+                //print_r($params);
+                //print_r($stmt);
+
                 return $stmt->rowCount();
             } catch (PDOException $e) {
                 echo "Errore durante l'esecuzione della query delete: " . $e->getMessage();
@@ -187,7 +235,6 @@
          */
         private function executeLog($params_log = array()): void
         {
-            //print_r("Sto per eseguire il Log<br>");
             //database con credenziali messe
             $database = $this;
             //parametri insert -> prendo da params_log
