@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-	$config = [
+	define('CONFIG', [
 		'site' => [
 			'name' => 'Gestisci Casa',
 			'name_sigla' => 'GC',
@@ -27,19 +27,25 @@
 				'password' => '20Progetto24',
 				'database' => 'uij8aoin_gestiscicasa',
 			],
+			'crudType' => [
+				'INSERT' => 1,
+				'SELECT' => 2,
+				'UPDATE' => 3,
+				'DELETE' => 4,
+			]
 		],
 		'email' => [
 			'smtp' => [
 				'server' => 'mail.lorenzomalferrari.com',
-				'port' => 465,// 465 o 587
+				'port' => 465, // 465 o 587
 				'user' => 'welcome@lorenzomalferrari.com',
 				'pass' => 'M0Eqc_n%,c!0Lw!_5Uhj2}Trv',
-				'encryption' => 'ssl',// 'ssl' per SSL, 'tls' per TLS
+				'encryption' => 'ssl', // 'ssl' per SSL, 'tls' per TLS
 				'confirm' => '/confirm.php',
 			],
 		],
 		'session' => [
-			'keys'  => [
+			'keys' => [
 				'IDUSER' => 'IDUSER',
 				'USERNAME' => 'USERNAME',
 				'PASSWORD' => 'PASSWORD',
@@ -48,14 +54,14 @@
 				'LAST_ACTIVITY' => 'LAST_ACTIVITY',
 			],
 			'settings' => [
-				'gc_maxlifetime' => '900', //15 minuti
+				'gc_maxlifetime' => '900', // 15 minuti
 				'cookie_lifetime' => '0',
 				'inactivityLimit' => '900', // solitamente uguale a gc_maxlifetime
 			],
 		],
 		'token' => [
 			'settings' => [
-				'gc_maxlifetime' => '900', //15 minuti
+				'gc_maxlifetime' => '900', // 15 minuti
 				'cookie_lifetime' => '0',
 				'inactivityLimit' => '900', // solitamente uguale a gc_maxlifetime
 			],
@@ -71,10 +77,8 @@
 		'securityConfig' => [
 			'key' => 'vqP7WjUJCe58^tS!9YPd2TzL#HfG6@bM',
 		],
-		'lenguage' => [
+		'language' => [
 			'it' => 'Italiano',
-    		'en' => 'Inglese'
+			'en' => 'Inglese'
 		],
-	];
-
-?>
+	]);
