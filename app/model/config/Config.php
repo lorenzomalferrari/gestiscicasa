@@ -1,66 +1,74 @@
 <?php declare(strict_types=1);
 
+/**
+ * Config Class
+ *
+ * Questa classe fornisce un'interfaccia per gestire configurazioni globali dell'applicazione.
+ */
 abstract class Config
 {
+    /** @var self|null $instance Istanza singola della classe Config */
     private static ?self $instance = null;
+
+    /** @var array $config Array associativo contenente le configurazioni */
     private array $config;
 
-    // Costruttore privato per evitare l'instanziazione diretta
+    /**
+     * Costruttore privato per evitare l'instanziazione diretta.
+     *
+     * @param array $config Array contenente le configurazioni iniziali.
+     */
     private function __construct(array $config)
     {
         $this->config = $config;
     }
 
-    // Metodo statico per ottenere l'istanza della classe Config
+    /**
+     * Ottiene l'unica istanza della classe Config.
+     *
+     * @param array $config Array opzionale di configurazioni iniziali.
+     * @return self Istanza della classe Config.
+     */
     public static function getInstance(array $config = []): self
     {
         if (self::$instance === null) {
-            self::$instance = new class($config) extends Config{};
+            self::$instance = new class($config) extends Config
+            {
+            };
         }
         return self::$instance;
     }
 
-    // Getter per ottenere il valore di una variabile di configurazione
-    public function get(string $key)
+    /**
+     * Ottiene il valore di una variabile di configurazione specificata.
+     *
+     * @param string $key Chiave della variabile di configurazione.
+     * @return string|int|array|bool|null Valore della variabile di configurazione, o null se non esiste.
+     */
+    public function get(string $key): string|int|array|bool|null
     {
         return $this->config[$key] ?? null;
     }
 
-    // Setter per impostare il valore di una variabile di configurazione
+    /**
+     * Imposta il valore di una variabile di configurazione.
+     *
+     * @param string $key Chiave della variabile di configurazione da impostare.
+     * @param mixed $value Valore da assegnare alla variabile di configurazione.
+     * @return void
+     */
     public function set(string $key, $value): void
     {
         $this->config[$key] = $value;
     }
 
-    // Metodo per ottenere tutte le configurazioni
+    /**
+     * Ottiene tutte le configurazioni correntemente memorizzate.
+     *
+     * @return array Array associativo contenente tutte le configurazioni.
+     */
     public function getAll(): array
     {
         return $this->config;
     }
 }
-/*
-// Esempio di utilizzo
-$configArray = [
-    'SERVERNAME_DB' => 'localhost',
-    'USERNAME_DB' => 'root',
-    'PASSWORD_DB' => 'password',
-    'DBNAME' => 'database',
-    'TABLEPREFIX' => 'prefix_',
-    'VERSTIME' => '1.0',
-    'YEARNOW' => date('Y'),
-    'UNIQ_TOKEN' => uniqid(),
-];
-
-// Inizializza la configurazione una volta
-$config = Config::getInstance($configArray);
-
-// Accedi ai valori di configurazione
-echo $config->get('SERVERNAME_DB');
-echo $config->get('USERNAME_DB');
-
-// Imposta nuovi valori di configurazione
-$config->set('NEW_SETTING', 'value');
-
-// Ottieni tutte le configurazioni
-print_r($config->getAll());
-*/
