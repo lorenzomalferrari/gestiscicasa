@@ -30,9 +30,9 @@
             try {
                 $this->conn = new PDO("mysql:host={$this->host};dbname={$this->database}", $this->username, $this->password);
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                //echo "Connessione al database riuscita.";
             } catch (PDOException $e) {
                 echo "Connessione al database fallita: " . $e->getMessage();
+                //TODO: Salvare nei log l'errore
             }
         }
 
@@ -54,9 +54,9 @@
                     'message' =>
                     'Interrogazione al database: QUERY -> ' . $query .
                         ' - PARAMETRI -> ' . implode(", ", $params),
-                    'action' => 1,
-                    'beforeState' => '',
-                    'afterState' => '',
+                    'action' => $congig['crudType']['SELECT'],
+                    'beforeState' => null,
+                    'afterState' => null,
                     'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
                 ];
 
