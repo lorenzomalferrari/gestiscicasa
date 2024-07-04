@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-    ini_set('session.gc_maxlifetime', $config['session']['settings']['gc_maxlifetime']);  // default 900 - 15 minuti
-    ini_set('session.cookie_lifetime', $config['session']['settings']['cookie_lifetime']);  // La sessione scade quando il browser viene chiuso
+    ini_set('session.gc_maxlifetime', CONFIG['session']['settings']['gc_maxlifetime']);  // default 900 - 15 minuti
+    ini_set('session.cookie_lifetime', CONFIG['session']['settings']['cookie_lifetime']);  // La sessione scade quando il browser viene chiuso
     session_start();
 
-    $inactivityLimit = $config['session']['settings']['inactivityLimit'];// deafult come gc_maxlifetime
+    $inactivityLimit = CONFIG['session']['settings']['inactivityLimit'];// deafult come gc_maxlifetime
 
     $_time = time();
 

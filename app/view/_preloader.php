@@ -3,6 +3,6 @@
         <figure class="preloader-logo">
             <img src="../../public/assets/media/logo.png" alt="Logo">
         </figure>
-        <div class="preloader-text"><?php echo $config['site']['name']; ?></div>
+        <div class="preloader-text"><?php echo CONFIG['site']['name']; ?></div>
     </div>
 </div>

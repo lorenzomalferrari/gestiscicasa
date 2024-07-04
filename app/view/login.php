@@ -21,10 +21,10 @@
                 <div class="card login-form">
                     <div class="card-body">
                         <div class="item-logo">
-                            <a href="index.php"><img src="../../public/assets/media/logo-large.png" alt="<?php echo $config['site']['name']; ?>"></a>
+                            <a href="index.php"><img src="../../public/assets/media/logo-large.png" alt="<?php echo CONFIG['site']['name']; ?>"></a>
                         </div>
                         <h3 class="text-body text-bold mb-1"><?php echo $titlePage; ?></h3>
-                        <div class="text-manatee">Accedi a <strong><?php echo $config['site']['name']; ?></strong>
+                        <div class="text-manatee">Accedi a <strong><?php echo CONFIG['site']['name']; ?></strong>
                             usando usarname o email e la password
                         </div>
                         <form id="login_form" action="../controller/loginController.php" method="post">

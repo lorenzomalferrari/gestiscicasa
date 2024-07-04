@@ -39,7 +39,7 @@
 
 				//print_r($row);
 				require_once(ROOT . "app/model/session/SessionManager.php");
-				$sessionManager = new SessionManager($config);
+				$sessionManager = new SessionManager(CONFIG);
 				$sessionManager->manageSession($row);
 				//echo "Login riuscito!<br>";
 				//print_r($_SESSION);

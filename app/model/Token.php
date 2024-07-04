@@ -70,12 +70,12 @@
 
             // Creare il token con posizioni fisse per anno, mese, giorno, ora, minuti e secondi
             $token = $this->prefix . $this->key .
-                str_pad($dateComponents['year'], 4, '0', STR_PAD_LEFT) .// deve diventare dinamica, valori presi da $config
-                str_pad($dateComponents['mon'], 2, '0', STR_PAD_LEFT) .// deve diventare dinamica, valori presi da $config
-                str_pad($dateComponents['mday'], 2, '0', STR_PAD_LEFT) .// deve diventare dinamica, valori presi da $config
-                str_pad($dateComponents['hours'], 2, '0', STR_PAD_LEFT) .// deve diventare dinamica, valori presi da $config
-                str_pad($dateComponents['minutes'], 2, '0', STR_PAD_LEFT) .// deve diventare dinamica, valori presi da $config
-                str_pad($dateComponents['seconds'], 2, '0', STR_PAD_LEFT);// deve diventare dinamica, valori presi da $config
+                str_pad($dateComponents['year'], 4, '0', STR_PAD_LEFT) .// deve diventare dinamica, valori presi da CONFIG
+                str_pad($dateComponents['mon'], 2, '0', STR_PAD_LEFT) .// deve diventare dinamica, valori presi da CONFIG
+                str_pad($dateComponents['mday'], 2, '0', STR_PAD_LEFT) .// deve diventare dinamica, valori presi da CONFIG
+                str_pad($dateComponents['hours'], 2, '0', STR_PAD_LEFT) .// deve diventare dinamica, valori presi da CONFIG
+                str_pad($dateComponents['minutes'], 2, '0', STR_PAD_LEFT) .// deve diventare dinamica, valori presi da CONFIG
+                str_pad($dateComponents['seconds'], 2, '0', STR_PAD_LEFT);// deve diventare dinamica, valori presi da CONFIG
             return $token;
         }
 

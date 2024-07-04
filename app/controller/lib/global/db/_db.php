@@ -6,11 +6,11 @@
     }
 
     $configArray = [
-        'SERVERNAME_DB' => $config['db'][$key]['host'] . ':' . $config['db'][$key]['port'],
-        'USERNAME_DB' => $config['db'][$key]['username'],
-        'PASSWORD_DB' => $config['db'][$key]['password'],
-        'DBNAME' => $config['db'][$key]['database'],
-        'TABLEPREFIX' => $config['db']['tablePrefix'],
+        'SERVERNAME_DB' => CONFIG['db'][$key]['host'] . ':' . CONFIG['db'][$key]['port'],
+        'USERNAME_DB' => CONFIG['db'][$key]['username'],
+        'PASSWORD_DB' => CONFIG['db'][$key]['password'],
+        'DBNAME' => CONFIG['db'][$key]['database'],
+        'TABLEPREFIX' => CONFIG['db']['tablePrefix'],
         'VERSTIME' => $VERSTIME,
         'YEARNOW' => $YEARNOW,
         'UNIQ_TOKEN' => $UNIQ_TOKEN,

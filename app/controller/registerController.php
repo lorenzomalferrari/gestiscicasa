@@ -61,11 +61,11 @@
                     //print_r($row);
                     //print_r("<br><br><br>");
 
-                    $_SESSION[$config['session']['keys']['IDUSER']] = $row['id'];
-                    $_SESSION[$config['session']['keys']['USERNAME']] = $row['username'];
-                    $_SESSION[$config['session']['keys']['PASSWORD']] = $row['password'];
-                    $_SESSION[$config['session']['keys']['EMAIL']] = $row['email'];
-                    $_SESSION[$config['session']['keys']['TOKEN']] = "";// da implementare token
+                    $_SESSION[CONFIG['session']['keys']['IDUSER']] = $row['id'];
+                    $_SESSION[CONFIG['session']['keys']['USERNAME']] = $row['username'];
+                    $_SESSION[CONFIG['session']['keys']['PASSWORD']] = $row['password'];
+                    $_SESSION[CONFIG['session']['keys']['EMAIL']] = $row['email'];
+                    $_SESSION[CONFIG['session']['keys']['TOKEN']] = "";// da implementare token
 
                     //echo "Login riuscito!<br>";
                     //print_r($_SESSION);

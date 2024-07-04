@@ -21,11 +21,11 @@
             <div class="card login-form register-form">
                 <div class="card-body">
                     <div class="item-logo">
-                        <a href="index.php"><img src="../../public/assets/media/logo-large.png" alt="<?php echo $config['site']['name']; ?>"></a>
+                        <a href="index.php"><img src="../../public/assets/media/logo-large.png" alt="<?php echo CONFIG['site']['name']; ?>"></a>
                     </div>
                     <h3 class="text-body text-bold mb-1 text-22"><?php echo $titlePage; ?></h3>
                     <div class="text-manatee">
-                        Crea un nuovo accout su <?php echo $config['site']['name']; ?>
+                        Crea un nuovo accout su <?php echo CONFIG['site']['name']; ?>
                     </div>
                     <form id="registration_form" action="../controller/registerController.php" method="post">
                         <div class="form-group">
@@ -50,7 +50,7 @@
                         <div class="form-group">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="privacy_terms" checked>
-                                <label class="form-check-label" for="check1">Sono d'accordo con <?php echo $config['site']['name']; ?> sulla <a href="#">Privacy Policy</a> e sui <a href="#">Termini</a></label>
+                                <label class="form-check-label" for="check1">Sono d'accordo con <?php echo CONFIG['site']['name']; ?> sulla <a href="#">Privacy Policy</a> e sui <a href="#">Termini</a></label>
                             </div>
                         </div>
                         <div class="form-group">

@@ -50,7 +50,7 @@
                                             </li>
                                             <li>Sales Monitoring</li>
                                         </ul>
-                                        <h1>Welcome to <? echo $config['site']['name']; ?> :)</h1>
+                                        <h1>Welcome to <? echo CONFIG['site']['name']; ?> :)</h1>
                                     </div>
                                 </div>
                                 <div class="col-md-7">

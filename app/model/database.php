@@ -54,7 +54,7 @@
                     'message' =>
                     'Interrogazione al database: QUERY -> ' . $query .
                         ' - PARAMETRI -> ' . implode(", ", $params),
-                    'action' => $congig['crudType']['SELECT'],
+                    'action' => CONFIG['crudType']['SELECT'],
                     'beforeState' => null,
                     'afterState' => null,
                     'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,

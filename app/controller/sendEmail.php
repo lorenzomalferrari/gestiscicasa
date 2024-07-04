@@ -3,30 +3,30 @@
     require_once(ROOT . "app/model/email/SmtpMailer.php");
 
     // Configurazione SMTP
-    $smtpServer = $config['email']['smtp']['server'];
-    $smtpPort = $config['email']['smtp']['port'];
-    $smtpUser = $config['email']['smtp']['user'];
-    $smtpPass = $config['email']['smtp']['pass'];
-    $encryption = $config['email']['smtp']['encryption']; // 'ssl' per SSL, 'tls' per TLS
+    $smtpServer = CONFIG['email']['smtp']['server'];
+    $smtpPort = CONFIG['email']['smtp']['port'];
+    $smtpUser = CONFIG['email']['smtp']['user'];
+    $smtpPass = CONFIG['email']['smtp']['pass'];
+    $encryption = CONFIG['email']['smtp']['encryption']; // 'ssl' per SSL, 'tls' per TLS
 
     // Creazione dell'istanza del mailer
     $mailer = new SmtpMailer($smtpServer, $smtpPort, $smtpUser, $smtpPass, $encryption);
 
     // Indirizzo email del destinatario dalla sessione
-    $to = $_SESSION[$config['session']['keys']['EMAIL']];
+    $to = $_SESSION[CONFIG['session']['keys']['EMAIL']];
 
     // Headers dell'email
-    $headers = "From: " . $config['email']['smtp']['user'] . "\r\n";
-    $headers .= "Reply-To: " . $config['email']['smtp']['user'] . "\r\n";
+    $headers = "From: " . CONFIG['email']['smtp']['user'] . "\r\n";
+    $headers .= "Reply-To: " . CONFIG['email']['smtp']['user'] . "\r\n";
     $headers .= "X-Mailer: PHP/" . phpversion();
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
     // Link di conferma (da generare effettivamente)
-    $confirmation_link = PATH . $config['email']['smtp']['confirm'] . '?token=' . $UNIQ_TOKEN;
+    $confirmation_link = PATH . CONFIG['email']['smtp']['confirm'] . '?token=' . $UNIQ_TOKEN;
 
     // Nome dell'azienda
-    $company_name = $config['site']['name'];
+    $company_name = CONFIG['site']['name'];
 
     // Soggetto dell'email
     $email_subject = "Benvenuto su {$company_name}! Conferma il tuo account";

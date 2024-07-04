@@ -7,7 +7,6 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $database = new Database($configIstance->get('SERVERNAME_DB'), $configIstance->get('USERNAME_DB'), $configIstance->get('PASSWORD_DB'), $configIstance->get('DBNAME'));
 
-
         $nome = $_POST['nome'];
         $cognome = $_POST['cognome'];
 
@@ -15,8 +14,8 @@
         $params_insert = array(
             ':nome' => $nome,
             ':cognome' => $cognome,
-            ':email' => $_SESSION[$config['session']['keys']['EMAIL']],
-            ':idUser' => $_SESSION[$config['session']['keys']['IDUSER']],
+            ':email' => $_SESSION[CONFIG['session']['keys']['EMAIL']],
+            ':idUser' => $_SESSION[CONFIG['session']['keys']['IDUSER']],
         );
 
         print_r("params_insert:<br>");
@@ -31,7 +30,7 @@
         //devo avere id dalla tabella Persona e idUtente attivo e senza token
 
         $params_user = array(
-            ':id' => $_SESSION[$config['session']['keys']['IDUSER']],
+            ':id' => $_SESSION[CONFIG['session']['keys']['IDUSER']],
             ':token' => 'IS NULL',
             ':isActive' => 1,
         );
