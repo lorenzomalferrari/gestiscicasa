@@ -12,15 +12,15 @@
     {
         // Importa le funzionalità di User e Person come trait
         use Person, User {
-            User::__construct as userConstruct;
             Person::__construct as personConstruct;
-            User::getId as userGetId;
-            User::setId as userSetId;
-            User::getCreationDate as userGetCreationDate;
-
             Person::getId as personGetId;
             Person::setId as personSetId;
             Person::getCreationDate as personGetCreationDate;
+
+            User::__construct as userConstruct;
+            User::getId as userGetId;
+            User::setId as userSetId;
+            User::getCreationDate as userGetCreationDate;
         }
 
         private static $db;
