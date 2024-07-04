@@ -8,12 +8,12 @@
 
     $_time = time();
 
-    $_SESSION['LAST_ACTIVITY'] = isset($_SESSION['LAST_ACTIVITY']) && !empty($_SESSION['LAST_ACTIVITY']) ? $_SESSION['LAST_ACTIVITY'] : time();
+    $_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']] = isset($_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']]) && !empty($_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']]) ? $_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']] : time();
 
-    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > $inactivityLimit) {
+    if (isset($_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']]) && (time() - $_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']]) > $inactivityLimit) {
         print_r("Distruggo la sessione<br>");
         require_once("_session_destroy.php");
     }
 
-    $_SESSION['LAST_ACTIVITY'] = time();
+    $_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']] = time();
 ?>
