@@ -14,7 +14,12 @@
         use Person, User {
             User::__construct as userConstruct;
             Person::__construct as personConstruct;
+            User::getId as userGetId;
+            User::setId as userSetId;
             User::getCreationDate as userGetCreationDate;
+
+            Person::getId as personGetId;
+            Person::setId as personSetId;
             Person::getCreationDate as personGetCreationDate;
         }
 
@@ -102,7 +107,7 @@
         {
             $profile = new Profile();
             // Info per Person
-            $profile->setPersonId($profileData['personId']);
+            $profile->personSetId($profileData['personId']);
             $profile->setName($profileData['name']);
             $profile->setSurname($profileData['surname']);
             $profile->setAge($profileData['age']);
@@ -113,7 +118,7 @@
             $profile->setDescription($profileData['description']);
             $profile->setEmail($profileData['email']);
             // Info per User
-            $profile->setUserId($profileData['userId']);
+            $profile->userSetId($profileData['userId']);
             $profile->setUsername($profileData['username']);
             $profile->setPassword($profileData['password']);
             $profile->setToken($profileData['token']);

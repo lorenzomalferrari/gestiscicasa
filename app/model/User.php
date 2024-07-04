@@ -6,7 +6,7 @@
     trait User
     {
         // Variabili d'istanza
-        private int $userId;
+        private int $id;
         private string $username;
         private string $password;
         private ?string $token; // Aggiunta del token, può essere nullo
@@ -16,15 +16,15 @@
 
         public function __construct() {}
 
-        // Getter e setter per 'userId'
-        public function getUserId(): int
+        // Getter e setter per 'id'
+        public function getId(): int
         {
-            return $this->userId;
+            return $this->id;
         }
 
-        public function setUserId(int $userId): void
+        public function setId(int $id): void
         {
-            $this->userId = $userId;
+            $this->id = $id;
         }
 
         // Getter e setter per 'username'

@@ -4,7 +4,7 @@
 	 */
 	trait Person
 	{
-		private int $personId;
+		private int $id;
 		private string $name;
 		private string $surname;
 		private string $email;
@@ -24,15 +24,15 @@
 
 		public function __construct() {}
 
-		// Getter e setter per 'personId'
-		public function getPersonId(): int
+		// Getter e setter per 'id'
+		public function getId(): int
 		{
-			return $this->PersonId;
+			return $this->id;
 		}
 
-		public function setPersonId(int $personId): void
+		public function setId(int $id): void
 		{
-			$this->personId = $personId;
+			$this->id = $id;
 		}
 
 		// Getter e setter per 'name'
@@ -196,21 +196,4 @@
 			return true;
 		}
 
-		// toString method
-		public function toString(): string
-		{
-			return
-				"Person ID: " . $this->personId .
-				", Name: " . $this->name .
-				", Surname: " . $this->surname .
-				", Age: " . $this->age .
-				", Birthdate: " . $this->birthdate .
-				", City: " . $this->city .
-				", State: " . $this->state .
-				", Nationality: " . $this->nationality .
-				", Description: " . $this->description .
-				", ID User: " . $this->idUser .
-				", Creation Date: " . $this->creationDate .
-				", Update Date: " . $this->updateDate;
-		}
 	}
