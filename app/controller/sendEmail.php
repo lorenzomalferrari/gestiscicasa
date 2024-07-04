@@ -16,14 +16,14 @@
     $to = $_SESSION[$config['session']['keys']['EMAIL']];
 
     // Headers dell'email
-    $headers = "From: welcome@lorenzomalferrari.com\r\n";
-    $headers .= "Reply-To: welcome@lorenzomalferrari.com\r\n";
+    $headers = "From: " . $config['email']['smtp']['user'] . "\r\n";
+    $headers .= "Reply-To: " . $config['email']['smtp']['user'] . "\r\n";
     $headers .= "X-Mailer: PHP/" . phpversion();
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
     // Link di conferma (da generare effettivamente)
-    $confirmation_link = PATH . '/confirm.php?token=' . $UNIQ_TOKEN;
+    $confirmation_link = PATH . $config['email']['smtp']['confirm'] . '?token=' . $UNIQ_TOKEN;
 
     // Nome dell'azienda
     $company_name = $config['site']['name'];
@@ -54,6 +54,8 @@
     // Invio dell'email
     if ($mailer->sendMail($to, $email_subject, $email_body, $headers)) {
         echo "Email inviata con successo.";
+        //TO DO: Va creato log POSITIVO
     } else {
         echo "Errore durante l'invio dell'email.";
+        //TO DO: Va creato log NEGATIVO
     }

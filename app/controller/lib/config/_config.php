@@ -35,6 +35,7 @@
 				'user' => 'welcome@lorenzomalferrari.com',
 				'pass' => 'M0Eqc_n%,c!0Lw!_5Uhj2}Trv',
 				'encryption' => 'ssl',// 'ssl' per SSL, 'tls' per TLS
+				'confirm' => '/confirm.php',
 			],
 		],
 		'session' => [
