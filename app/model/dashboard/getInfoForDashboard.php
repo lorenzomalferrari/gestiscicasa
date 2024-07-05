@@ -9,6 +9,6 @@
     );
 
     //Controllo prima che Utente non esista già
-    $query = "SELECT * FROM " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::USERS) . " WHERE id = :id";
+    $query = "SELECT * FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS) . " WHERE id = :id";
     $row = DB->select($query, $params_where);
 ?>

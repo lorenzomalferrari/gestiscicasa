@@ -17,11 +17,11 @@
     $params_select = "u.id as idUtente, u.username, u.password, p.email, u.token";
 
     //Controllo prima che token non esista
-    $query = "SELECT $params_select FROM " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::USERS) . " u LEFT JOIN " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::PERSON) . " p on p.idUser = u.id WHERE u.token = :token AND (u.isActive = 0 OR u.isActive IS NULL)";
+    $query = "SELECT $params_select FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS) . " u LEFT JOIN " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::PERSON) . " p on p.idUser = u.id WHERE u.token = :token AND (u.isActive = 0 OR u.isActive IS NULL)";
     $row = DB->select($query, $params_where);
 
     if ($row) {
-        $update = "UPDATE " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::USERS) . " SET token = NULL, isActive = 1 WHERE token = :token";
+        $update = "UPDATE " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS) . " SET token = NULL, isActive = 1 WHERE token = :token";
         $update_id = DB->update($update, $params_where);
         print_r("Numero di righe aggiornate: " . $update_id);
 

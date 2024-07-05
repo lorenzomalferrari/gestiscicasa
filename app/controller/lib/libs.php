@@ -22,11 +22,14 @@
     //creo connessione unica al DB
     require_once(ROOT . 'app/model/database.php');
     define('DB', new Database(
-        $configIstance->get('SERVERNAME_DB'),
-        $configIstance->get('USERNAME_DB'),
-        $configIstance->get('PASSWORD_DB'),
-        $configIstance->get('DBNAME')
+         CONFIG_ISTANCE->get('SERVERNAME_DB'),
+         CONFIG_ISTANCE->get('USERNAME_DB'),
+         CONFIG_ISTANCE->get('PASSWORD_DB'),
+         CONFIG_ISTANCE->get('DBNAME')
     ));
 
     require_once(ROOT . 'app/model/log/log.php');
+
+    DB->checkDatabaseVersion();//se non vengono generati errori, si prosegue
+
 ?>

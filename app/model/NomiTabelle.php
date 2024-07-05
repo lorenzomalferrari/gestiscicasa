@@ -29,6 +29,7 @@
         case ROOMTYPE = RoomTypesTable::TABLE_NAME;
         case USAGEDESTINATIONS = UsageDestinationsTable::TABLE_NAME;
         case USERS = UsersTable::TABLE_NAME;
+        case VERSIONDB = VersioniDBTable::TABLE_NAME;
     }
 
     function getNomeTabella(string $prefisso, NomiTabella $nomeT): string

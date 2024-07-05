@@ -261,7 +261,7 @@
                 // Query per recuperare la versione del database
                 $query = "SELECT " .
                     VersioniDBTable::VERSIONE .
-                    " FROM " . VersioniDBTable::TABLE_NAME .
+                    " FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::VERSIONDB) .
                     " ORDER BY " .
                     VersioniDBTable::DATA_CREAZIONE. " DESC LIMIT 1";//sarebbe da creare gli schemi anche e si chiamerebbe Configurazioni
                 $result = $this->select($query);

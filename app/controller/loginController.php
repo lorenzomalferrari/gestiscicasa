@@ -8,7 +8,7 @@
 		$password_form = $_POST["password"];
 
 		 
-		$query = "SELECT * FROM " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::USERS) . " u LEFT JOIN " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::PERSON) . " p on p.idUser = u.id WHERE ( u.username = :username OR p.email = :username) AND u.password = :password AND u.token IS NULL and u.isActive = 1";
+		$query = "SELECT * FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS) . " u LEFT JOIN " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::PERSON) . " p on p.idUser = u.id WHERE ( u.username = :username OR p.email = :username) AND u.password = :password AND u.token IS NULL and u.isActive = 1";
 		//echo $query;
 		//echo "<br><br>";
 		// Preparazione della query

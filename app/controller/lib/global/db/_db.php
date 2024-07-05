@@ -17,5 +17,5 @@
     ];
 
     // Inizializza la configurazione una volta
-    $configIstance = Config::getInstance($configArray);
+    define('CONFIG_ISTANCE',Config::getInstance($configArray));
 ?>
