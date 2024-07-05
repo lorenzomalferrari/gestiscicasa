@@ -295,7 +295,8 @@
          */
         private function redirectToMaintenancePage(): void
         {
-            header("Location: server_in_manutenzione.php");
+            //header("Location: server_in_manutenzione.php");
+            print_r("Location: server_in_manutenzione.php");
             exit;
         }
     }

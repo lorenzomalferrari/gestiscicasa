@@ -43,7 +43,7 @@
 				$sessionManager->manageSession($row);
 				//echo "Login riuscito!<br>";
 				//print_r($_SESSION);
-				header("Location: " . PATH . "app/view/home.php");
+				header("Location: " . ROOT . "app/view/home.php");
 			}
 		} else {
 			echo "Credenziali non valide.";

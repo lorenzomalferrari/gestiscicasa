@@ -18,6 +18,6 @@
 		header('Location: ' . 'app/view/login.php');
 	}
 	else {
-		//print_r('Location: ' . 'app/view/home.php');
-		header('Location: ' . 'app/view/home.php');
+		//print_r('Location: ' . ROOT . 'app/view/home.php');
+		header('Location: ' . ROOT . 'app/view/home.php');
 	}

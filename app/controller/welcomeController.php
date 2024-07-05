@@ -35,8 +35,8 @@
         $count_user = DB->selectAll($select_user, $params_user);
 
         if ($new_person_id > 0 && $count_user > 0) {
-            //tutto ok
-            header("Location: " . "../view/home.php");
+        //tutto ok
+        header("Location: " . ROOT . "app/view/home.php");
         } else {
             //capire che messaggio restituire
             print_r("DA IMPLEMENTARE: ERRORE DA RESTITUIRE");
