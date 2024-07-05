@@ -98,16 +98,15 @@
 			'en' => 'Inglese'
 		],
 	]);
-    echo "<br>CONFIG:" . CONFIG;
+
+	//echo "<br>CONFIG:" . var_dump(CONFIG);
 
     // Chiave per la crittografia composta da voci interne
     //VEDERE SE AGGIUNGERE ULTERIORI CAMPI
     define(
         'CRYPTO_KEY',
-        (
             CONFIG['db']['tablePrefix'] .
             CONFIG['securityConfig']['key']
-        )
     ); //es. lmgc_1e2wfvdfyku65yt4efbntmyj
 	//echo "<br>CRYPTO_KEY:" . CRYPTO_KEY;
 

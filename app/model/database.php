@@ -18,7 +18,7 @@
          * @param string $host Host del database.
          * @param string $username Username del database.
          * @param string $password Password del database.
-         * @param string $database Nome del database.
+         * @param string database Nome del database.
          */
         public function __construct($host, $username, $password, $database)
         {
@@ -54,7 +54,7 @@
                     'message' =>
                     'Interrogazione al database: QUERY -> ' . $query .
                         ' - PARAMETRI -> ' . implode(", ", $params),
-                    'action' => CONFIG['crudType']['SELECT'],
+                    'action' => CONFIG['db']['crudType']['SELECT'],
                     'beforeState' => null,
                     'afterState' => null,
                     'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
@@ -88,7 +88,7 @@
                 'message' =>
                 'Interrogazione al database: QUERY -> ' . $query .
                 ' - PARAMETRI -> ' . implode(", ", $params),
-                'action' => CONFIG['crudType']['SELECT'],
+                'action' => CONFIG['db']['crudType']['SELECT'],
                 'beforeState' => null,
                 'afterState' => null,
                 'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
@@ -123,7 +123,7 @@
                 'message' =>
                 'Interrogazione al database: QUERY -> ' . $query .
                 ' - PARAMETRI -> ' . implode(", ", $params),
-                'action' => CONFIG['crudType']['UPDATE'],
+                'action' => CONFIG['db']['crudType']['UPDATE'],
                 'beforeState' => null,
                 'afterState' => null,
                 'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
@@ -157,7 +157,7 @@
                 //TODO: Creare log che segnali inserimento
                 $params_log = [
                     'message' => 'Creato inserimento: ' . $query,
-                    'action' => CONFIG['crudType']['INSERT'],
+                    'action' => CONFIG['db']['crudType']['INSERT'],
                     'beforeState' => '',
                     'afterState' => '',
                     'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
@@ -210,7 +210,7 @@
                     'message' =>
                     'Interrogazione al database: QUERY -> ' . $query .
                     ' - PARAMETRI -> ' . implode(", ", $params),
-                    'action' => CONFIG['crudType']['DELETE'],
+                    'action' => CONFIG['db']['crudType']['DELETE'],
                     'beforeState' => null,
                     'afterState' => null,
                     'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
@@ -247,5 +247,55 @@
 
             $log = new CrudLog($timestamp, $message, $action, $beforeState, $afterState, $user, $database);
             $log->execute();
+        }
+
+        /**
+         * Controlla la versione del database confrontandola con la versione specificata in configurazione.
+         *
+         * @throws Exception Se la versione del database non corrisponde a CONFIG['db']['version'].
+         * @return void
+         */
+        public function checkDatabaseVersion(): void
+        {
+            try {
+                // Query per recuperare la versione del database
+                $query = "SELECT " .
+                    VersioniDBTable::VERSIONE .
+                    " FROM " . VersioniDBTable::TABLE_NAME .
+                    " ORDER BY " .
+                    VersioniDBTable::DATA_CREAZIONE. " DESC LIMIT 1";//sarebbe da creare gli schemi anche e si chiamerebbe Configurazioni
+                $result = $this->select($query);
+
+                if (!empty($result)) {
+                    $dbVersion = $result[VersioniDBTable::VERSIONE];
+                    $expectedVersion = CONFIG['db']['test']['version'];
+
+                    if ($dbVersion !== $expectedVersion) {
+                        throw new Exception("Versione del database non corrispondente. Versione attuale: $dbVersion, Versione attesa: $expectedVersion");
+                        $this->redirectToMaintenancePage();
+                    }
+                } else {
+                    throw new Exception("Impossibile recuperare la versione del database.");
+                    $this->redirectToMaintenancePage();
+                }
+            } catch (PDOException | Exception $e) {
+                // Log dell'errore
+                echo "Errore durante il controllo della versione del database: " . $e->getMessage();
+                $this->redirectToMaintenancePage();
+            }
+        }
+
+        /**
+         * Funzione privata per reindirizzare alla pagina di manutenzione.
+         *
+         * Questa funzione reindirizza l'utente alla pagina `server_in_manutenzione.php`
+         * e termina immediatamente lo script PHP.
+         *
+         * @return void
+         */
+        private function redirectToMaintenancePage(): void
+        {
+            header("Location: server_in_manutenzione.php");
+            exit;
         }
     }

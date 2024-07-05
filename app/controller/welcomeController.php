@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
     require_once('lib/libs.php');
-    require_once(ROOT . 'app/model/database.php');
+    
     require_once(ROOT . 'app/model/NomiTabelle.php');
 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
-        $database = new Database($configIstance->get('SERVERNAME_DB'), $configIstance->get('USERNAME_DB'), $configIstance->get('PASSWORD_DB'), $configIstance->get('DBNAME'));
+         
 
         $nome = $_POST['nome'];
         $cognome = $_POST['cognome'];
@@ -23,7 +23,7 @@
 
         //Gestisco l'inserimento in DB
         $insert = "INSERT INTO " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::PERSON) . " (name, surname, email, idUser) VALUES (:nome, :cognome, :email, :idUser)";
-        $new_person_id = $database->insert($insert, $params_insert);
+        $new_person_id = DB->insert($insert, $params_insert);
         print_r("Nuova Persona creata - id: " . $new_person_id);
 
         //per portare la persona alla dashboard,
@@ -36,7 +36,7 @@
         );
 
         $select_user = "SELECT COUNT(*) FROM " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::USERS) . " WHERE id = :id AND token = :token AND isActive = :isActive";
-        $count_user = $database->selectAll($select_user, $params_user);
+        $count_user = DB->selectAll($select_user, $params_user);
 
         if ($new_person_id > 0 && $count_user > 0) {
             //tutto ok

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
     require_once('lib/libs.php');
-    require_once(ROOT . 'app/model/database.php');
+    
     require_once(ROOT . 'app/model/NomiTabelle.php');
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -9,7 +9,7 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $database = new Database($configIstance->get('SERVERNAME_DB'), $configIstance->get('USERNAME_DB'), $configIstance->get('PASSWORD_DB'), $configIstance->get('DBNAME'));
+         
 
         // Preparazione della query per la select
         $params_where = array(
@@ -18,7 +18,7 @@
 
         //Controllo prima che Utente non esista già
         $query = "SELECT * FROM " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::USERS) . " WHERE username = :username";
-        $row = $database->select($query, $params_where);
+        $row = DB->select($query, $params_where);
         if ($row) {
             echo "Utente già presente con questo username: " . json_encode($row);
         }else {
@@ -28,7 +28,7 @@
             );
 
             $selectPerson = "SELECT COUNT(*) as count FROM " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::PERSON) . " WHERE email = :email";
-            $countP = $database->select($selectPerson, $params_selectP)['count'];
+            $countP = DB->select($selectPerson, $params_selectP)['count'];
 
             if($countP > 0){
                 //bloccare tutto e restituire alert che email già presente
@@ -40,12 +40,12 @@
                     ':username' => $username,
                     /*':email' => $email,*/
                     ':password' => $password,
-                    ':token' => $UNIQ_TOKEN
+                    ':token' => UNIQ_TOKEN
                 );
 
                 //Gestisco l'inserimento in DB
                 $insert = "INSERT INTO " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::USERS) . " (username, password, token) VALUES (:username, :password, :token)";
-                $new_user_id = $database->insert($insert, $params_insert);
+                $new_user_id = DB->insert($insert, $params_insert);
                 print_r("Nuovo utente id: " . $new_user_id);
 
                 if ($new_user_id) {
@@ -58,8 +58,6 @@
                         "password" => $password,
                         "email" => $email
                     );
-                    //print_r($row);
-                    //print_r("<br><br><br>");
 
                     $_SESSION[CONFIG['session']['keys']['IDUSER']] = $row['id'];
                     $_SESSION[CONFIG['session']['keys']['USERNAME']] = $row['username'];
@@ -67,12 +65,9 @@
                     $_SESSION[CONFIG['session']['keys']['EMAIL']] = $row['email'];
                     $_SESSION[CONFIG['session']['keys']['TOKEN']] = "";// da implementare token
 
-                    //echo "Login riuscito!<br>";
-                    //print_r($_SESSION);
-
                     require_once(ROOT . "app/controller/sendEmail.php");
-                    //header("Location: " . "../view/welcome.php");
-                    print_r("Location: " . "../view/welcome.php");
+                    header("Location: " . "../view/welcome.php");
+                    //print_r("Location: " . "../view/welcome.php");
                 } else {
                     echo "Utente non creato";
                 }

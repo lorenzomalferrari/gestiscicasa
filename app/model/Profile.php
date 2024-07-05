@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
     require_once('../controller/lib/libs.php');
-    require_once(ROOT . 'app/model/database.php');
+    
     require_once(ROOT . 'app/model/NomiTabelle.php');
     require_once(ROOT . 'app/model/User.php');
     require_once(ROOT . 'app/model/Person.php');

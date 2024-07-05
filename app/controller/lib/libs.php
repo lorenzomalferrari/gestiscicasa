@@ -18,5 +18,15 @@
     require_once("session/_session_start.php");
 
     require_once(ROOT . "app/model/table/Tables.php");
+
+    //creo connessione unica al DB
+    require_once(ROOT . 'app/model/database.php');
+    define('DB', new Database(
+        $configIstance->get('SERVERNAME_DB'),
+        $configIstance->get('USERNAME_DB'),
+        $configIstance->get('PASSWORD_DB'),
+        $configIstance->get('DBNAME')
+    ));
+
     require_once(ROOT . 'app/model/log/log.php');
 ?>

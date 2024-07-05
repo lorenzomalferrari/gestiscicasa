@@ -2,12 +2,12 @@
     require_once('app/controller/lib/libs.php');
     $flagConfirm = TRUE; //per evitare nel destroy il redirect a LOGIN
     require_once(ROOT . 'app/controller/lib/session/_session_destroy.php');
-    require_once(ROOT . 'app/model/database.php');
+    
     require_once(ROOT . 'app/model/NomiTabelle.php');
 
     $token = $_POST['token'];
 
-    $database = new Database($configIstance->get('SERVERNAME_DB'), $configIstance->get('USERNAME_DB'), $configIstance->get('PASSWORD_DB'), $configIstance->get('DBNAME'));
+     
 
     // Preparazione della query per la select
     $params_where = array(
@@ -18,11 +18,11 @@
 
     //Controllo prima che token non esista
     $query = "SELECT $params_select FROM " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::USERS) . " u LEFT JOIN " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::PERSON) . " p on p.idUser = u.id WHERE u.token = :token AND (u.isActive = 0 OR u.isActive IS NULL)";
-    $row = $database->select($query, $params_where);
+    $row = DB->select($query, $params_where);
 
     if ($row) {
         $update = "UPDATE " . getNomeTabella($configIstance->get('TABLEPREFIX'), NomiTabella::USERS) . " SET token = NULL, isActive = 1 WHERE token = :token";
-        $update_id = $database->update($update, $params_where);
+        $update_id = DB->update($update, $params_where);
         print_r("Numero di righe aggiornate: " . $update_id);
 
         //ora effettuo auto-login

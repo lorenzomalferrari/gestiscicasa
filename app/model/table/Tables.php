@@ -442,4 +442,28 @@
 			];
 		}
 	}
+
+	class VersioniDBTable
+	{
+		const TABLE_NAME = 'VersioniDB';
+
+		const ID = 'id';
+		const VERSIONE = 'versione';
+		const NOME_VERS_ESTESA = 'nome_vers_estesa';
+		const NOTE = 'note';
+		const DATA_CREAZIONE = 'data_creazione';
+		const DATA_AGGIORNAMENTO = 'data_aggiornamento';
+
+		public static function getColumns()
+		{
+			return [
+				self::ID,
+				self::VERSIONE,
+				self::NOME_VERS_ESTESA,
+				self::NOTE,
+				self::DATA_CREAZIONE,
+				self::DATA_AGGIORNAMENTO,
+			];
+		}
+	}
 ?>
