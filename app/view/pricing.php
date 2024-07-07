@@ -1,19 +1,15 @@
-<?php
-
-declare(strict_types=1);
-require_once("../controller/lib/libs.php");
-$titlePage = "Prezzi";
-//Gestione di tutte le variabili php da usare a video
-require_once(ROOT . "app/model/dashboard/getInfoForPricing.php");
-$nome_cognome = ucwords("Lorenzo Malferrari");
+<?php declare(strict_types=1);
+    require_once("../controller/lib/libs.php");
+    $titlePage = "Prezzi";
+    //Gestione di tutte le variabili php da usare a video
+    require_once(ROOT . "app/model/dashboard/getInfoForPricing.php");
+    $nome_cognome = ucwords("Lorenzo Malferrari");
 ?>
 <!doctype html>
 <html class="no-js" lang="">
-
 <head>
     <?php require_once("head/_head.php"); ?>
 </head>
-
 <body>
     <!-- Page Loader Start -->
     <?php require_once("/_preloader.php"); ?>
@@ -45,7 +41,7 @@ $nome_cognome = ucwords("Lorenzo Malferrari");
                         <div class="row align-items-center">
                             <div class="col-sm-4 col-12">
                                 <div class="breadcrumbs-area">
-                                    <h1>Pricing Plan</h1>
+                                    <h1>Prezzi</h1>
                                 </div>
                             </div>
                             <div class="col-sm-8 col-12">
