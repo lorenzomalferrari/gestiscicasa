@@ -15,10 +15,17 @@ function createDirectories(array $config)
         "{$basePath}/{$config['nome']['user']['subpath']}/{$config['nome']['user']['nome']}",
     ];
 
+    $filesToCreate = [
+        "{$basePath}/{$config['nome']['error']}/error_log.{$extensions}",
+        "{$basePath}/{$config['nome']['error']}/database_log.{$extensions}",
+        "{$basePath}/{$config['nome']['error']}/ip_log.{$extensions}",
+        "{$basePath}/{$config['nome']['error']}/api_log.{$extensions}",
+        "{$basePath}/{$config['nome']['error']}/server_log.{$extensions}",
+        "{$basePath}/{$config['nome']['user']['subpath']}/{$config['nome']['user']['nome']}.{$extensions}",
+    ];
+
     foreach ($directories as $dir) {
-        // Verifica se la cartella esiste già
         if (!file_exists($dir) || !is_dir($dir)) {
-            // Crea la cartella se non esiste
             if (!mkdir($dir, 0755, true)) {
                 echo "Impossibile creare la cartella $dir\n";
                 return false;
@@ -29,7 +36,19 @@ function createDirectories(array $config)
         }
     }
 
-    echo "Tutte le cartelle sono state controllate o create correttamente.\n";
+    foreach ($filesToCreate as $file) {
+        if (!file_exists($file)) {
+            if (!touch($file)) {
+                echo "Impossibile creare il file $file\n";
+                return false;
+            }
+            echo "Creato il file $file\n";
+        } else {
+            echo "Il file $file esiste già\n";
+        }
+    }
+
+    echo "Tutte le cartelle e i file sono stati controllati o creati correttamente.\n";
     return true;
 }
 
