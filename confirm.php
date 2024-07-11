@@ -4,6 +4,7 @@
     require_once(ROOT . 'app/controller/lib/session/_session_destroy.php');
     require_once(ROOT . 'app/model/NomiTabelle.php');
     $token = $_POST['token'];
+
     // Preparazione della query per la select
     $params_where = array(
         ':token' => $token
