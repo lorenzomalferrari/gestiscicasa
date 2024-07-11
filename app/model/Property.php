@@ -141,17 +141,9 @@
 			return $this->creationDate;
 		}
 
-		public function setCreationDate(string $creationDate): void {
-			$this->creationDate = $creationDate;
-		}
-
 		// Getter and setter methods for 'updateDate'
 		public function getupdateDate(): string {
 			return $this->updateDate;
-		}
-
-		public function setupdateDate(string $updateDate): void {
-			$this->updateDate = $updateDate;
 		}
 
 		// toString method

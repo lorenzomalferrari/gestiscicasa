@@ -151,20 +151,10 @@
 			return $this->creationDate;
 		}
 
-		public function setCreationDate(string $creationDate): void
-		{
-			$this->creationDate = $creationDate;
-		}
-
 		// Getter e setter per 'updateDate'
 		public function getUpdateDate(): string
 		{
 			return $this->updateDate;
-		}
-
-		public function setUpdateDate(string $updateDate): void
-		{
-			$this->updateDate = $updateDate;
 		}
 
 		// Email validation function

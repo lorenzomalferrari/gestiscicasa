@@ -67,17 +67,9 @@
 			return $this->creationDate;
 		}
 
-		public function setCreationDate(string $creationDate): void {
-			$this->creationDate = $creationDate;
-		}
-
 		// Getter and setter methods for 'updateDate'
 		public function getUpdateDate(): string {
 			return $this->updateDate;
-		}
-
-		public function setUpdateDate(string $updateDate): void {
-			$this->updateDate = $updateDate;
 		}
 
 		// Getter and setter methods for 'IdColor'

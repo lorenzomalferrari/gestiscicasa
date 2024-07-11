@@ -95,16 +95,8 @@ class Product {
 		return $this->creationDate;
 	}
 
-	public function setCreationDate($creationDate) {
-		$this->creationDate = $creationDate;
-	}
-
 	public function getUpdateData() {
 		return $this->updateData;
-	}
-
-	public function setUpdateData($updateData) {
-		$this->updateData = $updateData;
 	}
 
 	// toString method

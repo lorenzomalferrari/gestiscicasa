@@ -56,17 +56,9 @@
 			return $this->creationDate;
 		}
 
-		public function setCreationDate(string $creationDate): void {
-			$this->creationDate = $creationDate;
-		}
-
 		// Getter and setter methods for 'lastModifiedDate'
 		public function getLastModifiedDate(): string {
 			return $this->lastModifiedDate;
-		}
-
-		public function setLastModifiedDate(string $lastModifiedDate): void {
-			$this->lastModifiedDate = $lastModifiedDate;
 		}
 
 		// Getter and setter methods for 'notes'
