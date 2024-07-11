@@ -97,6 +97,23 @@
 			'it' => 'Italiano',
 			'en' => 'Inglese'
 		],
+		'log' => [
+			'path' => 'gc_logs/',
+			'nome' => [
+				'file' => 'logs',
+				'error' => 'error/error_log',
+				'database' => 'error/database_log',
+				'id' => 'error/ip_log',
+				'api' => 'error/api_log',
+				'performance' => 'error/server_log',
+				'user' => [
+					'subpath' => 'error',
+					/*'id_user' => $idUser //sarebbe bello fare sotto cartelle per utente*/
+					'nome' => 'user_log',
+				],
+			],
+			'extension' => 'gm',
+		],
 	]);
 
 	//echo "<br>CONFIG:" . var_dump(CONFIG);
