@@ -2,16 +2,46 @@
     require_once(ROOT . 'app/model/NomiTabelle.php');
 
     /**
+     * Class Log
      *
+     * Questa classe rappresenta un log di azioni compiute all'interno del sistema CRM.
      */
     class Log
     {
+        /**
+         * @var string Timestamp del log.
+         */
         protected $timestamp;
+
+        /**
+         * @var string Messaggio descrittivo del log.
+         */
         protected $message;
+
+        /**
+         * @var string Azione che ha generato il log.
+         */
         protected $action;
+
+        /**
+         * @var mixed Stato precedente all'azione.
+         */
         protected $beforeState;
+
+        /**
+         * @var mixed Stato successivo all'azione.
+         */
         protected $afterState;
 
+        /**
+         * Log constructor.
+         *
+         * @param string $timestamp Timestamp del log.
+         * @param string $message Messaggio descrittivo del log.
+         * @param string $action Azione che ha generato il log.
+         * @param mixed $beforeState Stato precedente all'azione.
+         * @param mixed $afterState Stato successivo all'azione.
+         */
         public function __construct($timestamp, $message, $action, $beforeState, $afterState)
         {
             $this->timestamp = $timestamp;
@@ -21,137 +51,54 @@
             $this->afterState = $afterState;
         }
 
+        /**
+         * Restituisce il timestamp del log.
+         *
+         * @return string
+         */
         public function getTimestamp()
         {
             return $this->timestamp;
         }
 
+        /**
+         * Restituisce il messaggio del log.
+         *
+         * @return string
+         */
         public function getMessage()
         {
             return $this->message;
         }
 
+        /**
+         * Restituisce l'azione che ha generato il log.
+         *
+         * @return string
+         */
         public function getAction()
         {
             return $this->action;
         }
 
+        /**
+         * Restituisce lo stato precedente all'azione.
+         *
+         * @return mixed
+         */
         public function getBeforeState()
         {
             return $this->beforeState;
         }
 
+        /**
+         * Restituisce lo stato successivo all'azione.
+         *
+         * @return mixed
+         */
         public function getAfterState()
         {
             return $this->afterState;
         }
     }
-
-
-    /**
-     * Classe che gestisce i Log per Utente
-     */
-    class UserLog extends Log
-    {
-        protected $userId;
-
-        public function __construct($timestamp, $message, $action, $beforeState, $afterState, $user)
-        {
-            parent::__construct($timestamp, $message, $action, $beforeState, $afterState);
-            $this->userId = $user;
-        }
-
-        public function getUserId()
-        {
-            return $this->userId;
-        }
-    }
-
-    /**
-     * Classe che gestisce la registrazione dei log su Database
-     */
-    abstract class DatabaseLog extends UserLog
-    {
-        protected Database $database; // Oggetto per la gestione del database
-
-        public function __construct($timestamp, $message, $action, $beforeState, $afterState, $user, $database)
-        {
-            parent::__construct($timestamp, $message, $action, $beforeState, $afterState, $user);
-            $this->database = $database;
-        }
-
-        // Metodo astratto per il logging nel database
-        abstract public function execute();
-    }
-
-
-    /**
-    * Classe che gestisce la registrazione dei log su File
-    */
-    abstract class FileLog extends Log
-    {
-        // Implementazione specifica per il logging su file
-    }
-
-    class CrudLog extends DatabaseLog
-    {
-        protected $table;
-
-        public function __construct($timestamp, $message, $action, $beforeState, $afterState, $user, $database)
-        {
-            parent::__construct($timestamp, $message, $action, $beforeState, $afterState, $user, $database);
-            $this->table = getNomeTabella('lmgc_', NomiTabella::CRUDLOGS);
-        }
-
-        public function execute()
-        {
-            // Implementazione specifica per il logging delle azioni CRUD nel database
-            // Esegui qui la query di inserimento nel database
-            // Utilizza $this->database per accedere all'oggetto di gestione del database
-            // Utilizza $this->getTimestamp(), $this->getMessage(), $this->getAction(), $this->getBeforeState(), $this->getAfterState() e $this->getUser() per ottenere i valori da registrare
-
-            // Preparazione della query
-            $params = array(
-                ':timestamp' => $this->getTimestamp(),
-                ':message' => $this->getMessage(),
-                ':action' => $this->getAction(),
-                ':before_state' => $this->getBeforeState(),
-                ':after_state' => $this->getAfterState(),
-                ':user_id' => $this->getUserId(),
-            );
-
-            // Query di inserimento
-            $insertQuery =
-                "INSERT INTO " . $this->table .
-                " (timestamp, message, action, before_state, after_state, user_id) " .
-                " VALUES (:timestamp, :message, :action, :before_state, :after_state, :user_id)";
-
-            //print_r($insertQuery);
-            //print_r($params);
-            // Eseguo la query
-            $this->database->insertLogs($insertQuery, $params);
-        }
-    }
-
-    //class NotificationLog extends DatabaseLog
-    //{
-        // Implementazione specifica per il logging delle notifiche utente
-    //}
-
-    class ErrorLog extends FileLog
-    {
-        // Implementazione specifica per il logging degli errori
-    }
-
-    class APILog extends FileLog
-    {
-        // Implementazione specifica per il logging delle chiamate API
-    }
-
-    class PerformanceLog extends FileLog
-    {
-        // Implementazione specifica per il logging delle prestazioni del server
-    }
-
-
 ?>
