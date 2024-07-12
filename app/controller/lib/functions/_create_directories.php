@@ -9,9 +9,9 @@
 	 *
 	 * @param array $config Configurazione che include il percorso di base, i nomi delle cartelle e le estensioni dei file.
 	 *
-	 * @return bool Ritorna true se tutte le cartelle e i file sono stati creati o già esistenti, altrimenti false.
+	 * @return string Ritorna una stringa se tutte le cartelle e i file sono stati creati o già esistenti la stringa sarà vuota, altrimenti restituisce il messaggio.
 	 */
-	function createDirectories(array $config): bool
+	function createDirectories(array $config): string
 	{
 		$basePath = $config['log']['path'];
 		$extensions = $config['log']['extension'];
@@ -62,27 +62,25 @@
 		foreach ($directories as $dir) {
 			if (!file_exists($dir) || !is_dir($dir)) {
 				if (!mkdir($dir, 0755, true)) {
-					echo "Impossibile creare la cartella $dir\n";
-					return false;
+					return "Impossibile creare la cartella $dir\n";
 				}
-				echo "Creata la cartella $dir\n";
+				//echo "Creata la cartella $dir\n";
 			} else {
-				echo "La cartella $dir esiste già\n";
+				//$msg_error = "La cartella $dir esiste già\n";
 			}
 		}
 
 		foreach ($filesToCreate as $file) {
 			if (!file_exists($file)) {
 				if (!touch($file)) {
-					echo "Impossibile creare il file $file\n";
-					return false;
+					return "Impossibile creare il file $file\n";
 				}
-				echo "Creato il file $file\n";
+				//echo "Creato il file $file\n";
 			} else {
-				echo "Il file $file esiste già\n";
+				//$msg_error = "Il file $file esiste già\n";
 			}
 		}
 
-		echo "Tutte le cartelle e i file sono stati controllati o creati correttamente.\n";
-		return true;
+		//echo "Tutte le cartelle e i file sono stati controllati o creati correttamente.\n";
+		return "";
 	}

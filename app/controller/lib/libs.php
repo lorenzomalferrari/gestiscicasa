@@ -33,7 +33,10 @@
     require_once(ROOT . 'app/model/log/Log.php');
 
     //verifico o creo le cartelle dei logs
-    createDirectories(CONFIG);
+    $msg = (string) createDirectories(CONFIG);
+    if( strlen($msg) > 1 ){
+
+    }
 
     DB->checkDatabaseVersion();//se non vengono generati errori, si prosegue
 
