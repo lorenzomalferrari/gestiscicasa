@@ -9,9 +9,9 @@
 	 *
 	 * @param array $config Configurazione che include il percorso di base, i nomi delle cartelle e le estensioni dei file.
 	 *
-	 * @return string Ritorna una stringa se tutte le cartelle e i file sono stati creati o già esistenti la stringa sarà vuota, altrimenti restituisce il messaggio.
+	 * @throws CustomException Genera un'eccezione personalizzata in caso di errore.
 	 */
-	function createDirectories(array $config): string
+	function createDirectories(array $config): void
 	{
 		$basePath = $config['log']['path'];
 		$extensions = $config['log']['extension'];
@@ -59,28 +59,23 @@
 			"{$basePath}/{$config['log']['nome']['performance']}/{$config['log']['sub_path'][1]}/info_log.{$extensions}",
 		];
 
-		foreach ($directories as $dir) {
-			if (!file_exists($dir) || !is_dir($dir)) {
-				if (!mkdir($dir, 0755, true)) {
-					return "Impossibile creare la cartella $dir\n";
+		try {
+			foreach ($directories as $dir) {
+				if (!file_exists($dir) || !is_dir($dir)) {
+					if (!mkdir($dir, 0755, true)) {
+						throw new CustomException("Impossibile creare la cartella $dir",CustomException::FILE_EXCEPTION);
+					}
 				}
-				//echo "Creata la cartella $dir\n";
-			} else {
-				//$msg_error = "La cartella $dir esiste già\n";
 			}
-		}
 
-		foreach ($filesToCreate as $file) {
-			if (!file_exists($file)) {
-				if (!touch($file)) {
-					return "Impossibile creare il file $file\n";
+			foreach ($filesToCreate as $file) {
+				if (!file_exists($file)) {
+					if (!touch($file)) {
+						throw new CustomException("Impossibile creare il file $file",CustomException::DIRECTORY_EXCEPTION);
+					}
 				}
-				//echo "Creato il file $file\n";
-			} else {
-				//$msg_error = "Il file $file esiste già\n";
 			}
+		} catch (Throwable $e) {
+			throw new CustomException($e->getMessage(), $e->getCode(), $e);
 		}
-
-		//echo "Tutte le cartelle e i file sono stati controllati o creati correttamente.\n";
-		return "";
 	}
