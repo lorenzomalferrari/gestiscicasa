@@ -14,10 +14,12 @@
 
     //Controllo prima che token non esista
     $query = "SELECT $params_select FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS) . " u LEFT JOIN " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::PERSON) . " p on p.idUser = u.id WHERE u.token = :token AND (u.isActive = 0 OR u.isActive IS NULL)";
-    $row = DB->select($query, $params_where);
+   //applicare log in select
+     $row = DB->select($query, $params_where);
 
     if ($row) {
         $update = "UPDATE " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS) . " SET token = NULL, isActive = 1 WHERE token = :token";
+        //applicare log in update
         $update_id = DB->update($update, $params_where);
         print_r("Numero di righe aggiornate: " . $update_id);
 
@@ -36,4 +38,5 @@
         echo "Ora puoi chiudere questa pagina.<br>";
     }else{
         print_r("Stampare errore");
+        // applicare eccezione e registrare error log su utente?
     }
