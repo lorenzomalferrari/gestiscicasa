@@ -13,6 +13,7 @@
      */
     require_once("define/_define.php");
     require_once("functions/_functions.php");
+    require_once("functions/_create_directories.php");
     require_once("global/_global.php");
 
     require_once("session/_session_start.php");
@@ -20,7 +21,8 @@
     require_once(ROOT . "app/model/table/Tables.php");
 
     //creo connessione unica al DB
-    require_once(ROOT . 'app/model/database.php');
+    require_once(ROOT . 'app/model/Database.php');
+
     define('DB', new Database(
          CONFIG_ISTANCE->get('SERVERNAME_DB'),
          CONFIG_ISTANCE->get('USERNAME_DB'),
@@ -28,7 +30,10 @@
          CONFIG_ISTANCE->get('DBNAME')
     ));
 
-    require_once(ROOT . 'app/model/log/log.php');
+    require_once(ROOT . 'app/model/log/Log.php');
+
+    //verifico o creo le cartelle dei logs
+    createDirectories(CONFIG);
 
     DB->checkDatabaseVersion();//se non vengono generati errori, si prosegue
 

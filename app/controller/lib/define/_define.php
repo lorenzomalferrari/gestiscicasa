@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
-    /**
+
+	/**
      * File dove definisco alcune VARIABILI GLOBALI CUSTOM
      */
-
     define("HTTP_HOST", $_SERVER["HTTP_HOST"]);
     //echo "<br>HTTP_HOST:" . HTTP_HOST;
     define("PROTOCOL", $_SERVER["REQUEST_SCHEME"]);//es. http vs https
@@ -99,24 +99,29 @@
 		],
 		'log' => [
 			'path' => 'gc_logs/',
+			'sub_path' => [
+				0 => 'errors',
+				1 => 'log',
+			],
+			'prefix_file' => [
+				0 => 'day_',
+				1 => 'week_',
+				2 => 'month_',
+				3 => 'semester_',
+				4 => 'year_',
+			],
 			'nome' => [
 				'file' => 'logs',
-				'error' => 'error/error_log',
-				'database' => 'error/database_log',
+				/*'error' => 'error/error_log',*/
+				'database' => 'database',
 				'id' => 'error/ip_log',
 				'api' => 'error/api_log',
 				'performance' => 'error/server_log',
-				'user' => [
-					'subpath' => 'error',
-					/*'id_user' => $idUser //sarebbe bello fare sotto cartelle per utente*/
-					'nome' => 'user_log',
-				],
+				'user' => 'user',
 			],
 			'extension' => 'gm',
 		],
 	]);
-
-	//echo "<br>CONFIG:" . var_dump(CONFIG);
 
     // Chiave per la crittografia composta da voci interne
     //VEDERE SE AGGIUNGERE ULTERIORI CAMPI
@@ -125,7 +130,6 @@
             CONFIG['db']['tablePrefix'] .
             CONFIG['securityConfig']['key']
     ); //es. lmgc_1e2wfvdfyku65yt4efbntmyj
-	//echo "<br>CRYPTO_KEY:" . CRYPTO_KEY;
 
 	/**
 	 * Recupero il time nel momento in cui carico la pagina:

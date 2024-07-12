@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 	/**
 	 * Funzione che restituisce la lista dei nomi dei file presenti all'interno della cartella fornita
 	 */
@@ -148,9 +149,7 @@
 	 */
 	function isLocalhost(): bool
 	{
-		// Lista di host considerati come locali
 		$localHosts = ['localhost', '127.0.0.1', '::1'];
-		// Controlla l'host corrente
-		return in_array($_SERVER['HTTP_HOST'], $localHosts) || in_array($_SERVER['SERVER_NAME'], $localHosts);
+		return in_array(HTTP_HOST, $localHosts) || in_array(DOMINIO, $localHosts);
 	}
 ?>
