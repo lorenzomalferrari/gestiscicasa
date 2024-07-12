@@ -325,6 +325,7 @@ class DatabaseLog extends ErrorLog
      *
      * @return bool True se la versione corrisponde, False altrimenti.
      */
+    //NON USARE QUESTA. c'È FUNZIONE IN DATABASE.PHP
     protected function checkDatabaseVersion()
     {
         global $CONFIG; // Assumi che $CONFIG sia definito o includi il file di configurazione necessario
