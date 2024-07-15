@@ -42,7 +42,53 @@
     require_once(ROOT . 'app/model/CustomException.php');
 
     //verifico o creo le cartelle dei logs
-    createDirectories(CONFIG);
+    $basePath = CONFIG['log']['path'];
+	$extensions = CONFIG['log']['extension'];
+
+    $directories = [
+        $basePath,
+        //creo cartella file e le due sotto cartelle errors e gen
+        "{$basePath}/{CONFIG['log']['nome']['file']}/{CONFIG['log']['sub_path'][0]}",
+        "{$basePath}/{CONFIG['log']['nome']['file']}/{CONFIG['log']['sub_path'][1]}",
+
+        //creo cartella database e le due sotto cartelle errors e gen
+        "{$basePath}/{CONFIG['log']['nome']['database']}/{CONFIG['log']['sub_path'][0]}",
+        "{$basePath}/{CONFIG['log']['nome']['database']}/{CONFIG['log']['sub_path'][1]}",
+
+        //creo cartella id e le due sotto cartelle errors e gen
+        "{$basePath}/{CONFIG['log']['nome']['id']}/{CONFIG['log']['sub_path'][0]}",
+        "{$basePath}/{CONFIG['log']['nome']['id']}/{CONFIG['log']['sub_path'][1]}",
+
+        //creo cartella api e le due sotto cartelle errors e gen
+        "{$basePath}/{CONFIG['log']['nome']['api']}/{CONFIG['log']['sub_path'][0]}",
+        "{$basePath}/{CONFIG['log']['nome']['api']}/{CONFIG['log']['sub_path'][1]}",
+
+        //creo cartella performance e le due sotto cartelle errors e gen
+        "{$basePath}/{CONFIG['log']['nome']['performance']}/{CONFIG['log']['sub_path'][0]}",
+        "{$basePath}/{CONFIG['log']['nome']['performance']}/{CONFIG['log']['sub_path'][1]}",
+
+        //creo cartella user, al momento solo questa, post login faccio la sotto carte con id e poi le sotto cartelle error e log
+        "{$basePath}/{CONFIG['log']['nome']['user']}",
+    ];
+
+    $filesToCreate = [
+        //creo i files per le cartelle
+        "{$basePath}/{CONFIG['log']['nome']['file']}/{CONFIG['log']['sub_path'][0]}/error_log.{$extensions}",
+        "{$basePath}/{CONFIG['log']['nome']['file']}/{CONFIG['log']['sub_path'][1]}/info_log.{$extensions}",
+
+        "{$basePath}/{CONFIG['log']['nome']['database']}/{CONFIG['log']['sub_path'][0]}/error_log.{$extensions}",
+        "{$basePath}/{CONFIG['log']['nome']['database']}/{CONFIG['log']['sub_path'][1]}/info_log.{$extensions}",
+
+        "{$basePath}/{CONFIG['log']['nome']['id']}/{CONFIG['log']['sub_path'][0]}/error_log.{$extensions}",
+        "{$basePath}/{CONFIG['log']['nome']['id']}/{CONFIG['log']['sub_path'][1]}/info_log.{$extensions}",
+
+        "{$basePath}/{CONFIG['log']['nome']['api']}/{CONFIG['log']['sub_path'][0]}/error_log.{$extensions}",
+        "{$basePath}/{CONFIG['log']['nome']['api']}/{CONFIG['log']['sub_path'][1]}/info_log.{$extensions}",
+
+        "{$basePath}/{CONFIG['log']['nome']['performance']}/{CONFIG['log']['sub_path'][0]}/error_log.{$extensions}",
+        "{$basePath}/{CONFIG['log']['nome']['performance']}/{CONFIG['log']['sub_path'][1]}/info_log.{$extensions}",
+    ];
+    createDirectories($directories, $filesToCreate);
 
     DB->checkDatabaseVersion();//se non vengono generati errori, si prosegue
 
