@@ -19,9 +19,14 @@
         protected $message;
 
         /**
-         * @var string Azione che ha generato il log.
+         * @var int Azione che ha generato il log.
          */
         protected $action;
+
+        /**
+         * @var string Dati recuperati dalla interrogazione al database.
+         */
+        protected $data;
 
         /**
          * @var mixed Stato precedente all'azione.
@@ -38,15 +43,17 @@
          *
          * @param string $timestamp Timestamp del log.
          * @param string $message Messaggio descrittivo del log.
-         * @param string $action Azione che ha generato il log.
+         * @param int $action Azione che ha generato il log.
+         * @param string $data Dati recuperati dalla interrogazione al database.
          * @param mixed $beforeState Stato precedente all'azione.
          * @param mixed $afterState Stato successivo all'azione.
          */
-        public function __construct($timestamp, $message, $action, $beforeState, $afterState)
+        public function __construct($timestamp, $message, $action, $data, $beforeState, $afterState)
         {
             $this->timestamp = $timestamp;
             $this->message = $message;
             $this->action = $action;
+            $this->data = $data;
             $this->beforeState = $beforeState;
             $this->afterState = $afterState;
         }
@@ -74,11 +81,21 @@
         /**
          * Restituisce l'azione che ha generato il log.
          *
-         * @return string
+         * @return int
          */
         public function getAction()
         {
             return $this->action;
+        }
+
+        /**
+         * Restituisce i dati dell'interrogazione della query.
+         *
+         * @return string
+         */
+        public function getData()
+        {
+            return $this->data;
         }
 
         /**
@@ -119,14 +136,15 @@ class FileLog extends Log
      *
      * @param string $timestamp Timestamp del log.
      * @param string $message Messaggio descrittivo del log.
-     * @param string $action Azione che ha generato il log.
+     * @param int $action Azione che ha generato il log.
+     * @param string $data Dati recuperati dalla interrogazione al database.
      * @param mixed $beforeState Stato precedente all'azione.
      * @param mixed $afterState Stato successivo all'azione.
-     * @param string|null $logFile Nome del file di log. Default 'logs.lm' se null.
+     * @param string|null $logFile Nome del file di log. Default 'logs.gc' se null.
      */
-    public function __construct($timestamp, $message, $action, $beforeState, $afterState, $logFile = null)
+    public function __construct($timestamp, $message, $action, $data, $beforeState, $afterState, $logFile = null)
     {
-        parent::__construct($timestamp, $message, $action, $beforeState, $afterState);
+        parent::__construct($timestamp, $message, $action, $data,  $beforeState, $afterState);
         $this->logFile = $logFile ?? CONFIG['log']['path'] . CONFIG['log']['nome']['file'] . CONFIG['log']['extension'];
     }
 
@@ -187,15 +205,16 @@ class ErrorLog extends FileLog
      *
      * @param string $timestamp Timestamp del log.
      * @param string $message Messaggio descrittivo del log.
-     * @param string $action Azione che ha generato il log.
+     * @param int $action Azione che ha generato il log.
+     * @param string $data Dati recuperati dalla interrogazione al database.
      * @param mixed $beforeState Stato precedente all'azione.
      * @param mixed $afterState Stato successivo all'azione.
      * @param string $customException Tipo di errore generato.
-     * @param string|null $logFile Nome del file di log. Default 'error_logs.lm'.
+     * @param string|null $logFile Nome del file di log. Default 'error_logs.gc'.
      */
-    public function __construct($timestamp, $message, $action, $beforeState, $afterState, $customException, $logFile = 'error_logs.lm')
+    public function __construct($timestamp, $message, $action, $data, $beforeState, $afterState, $customException, $logFile = 'error_logs.gc')
     {
-        parent::__construct($timestamp, $message, $action, $beforeState, $afterState, $logFile);
+        parent::__construct($timestamp, $message, $action,  $data, $beforeState, $afterState, $logFile);
         $this->customException = $customException;
     }
 
@@ -257,16 +276,17 @@ class DatabaseLog extends ErrorLog
      *
      * @param string $timestamp Timestamp del log.
      * @param string $message Messaggio descrittivo del log.
-     * @param string $action Azione che ha generato il log.
+     * @param int $action Azione che ha generato il log.
+     * @param string $data Dati recuperati dalla interrogazione al database.
      * @param mixed $beforeState Stato precedente all'azione.
      * @param mixed $afterState Stato successivo all'azione.
      * @param string $customException Tipo di errore generato.
-     * @param string|null $logFile Nome del file di log. Default 'error_db.lm'.
+     * @param string|null $logFile Nome del file di log. Default 'error_db.gc'.
      * @param string $databaseConnectionInfo Informazione sulla connessione al database.
      */
-    public function __construct($timestamp, $message, $action, $beforeState, $afterState, $customException, $databaseConnectionInfo, $logFile = 'error_db.lm')
+    public function __construct($timestamp, $message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $logFile = 'error_db.gc')
     {
-        parent::__construct($timestamp, $message, $action, $beforeState, $afterState, $customException, $logFile);
+        parent::__construct($timestamp, $message, $action, $data, $beforeState, $afterState, $customException, $logFile);
         $this->databaseConnectionInfo = $databaseConnectionInfo;
     }
 
@@ -363,16 +383,17 @@ class IpLog extends DatabaseLog
      *
      * @param string $timestamp Timestamp del log.
      * @param string $message Messaggio descrittivo del log.
-     * @param string $action Azione che ha generato il log.
+     * @param int $action Azione che ha generato il log.
+     * @param string $data Dati recuperati dalla interrogazione al database.
      * @param mixed $beforeState Stato precedente all'azione.
      * @param mixed $afterState Stato successivo all'azione.
      * @param string $customException Tipo di errore generato.
      * @param string $databaseConnectionInfo Informazione sulla connessione al database.
      * @param string $ipAddress Indirizzo IP da controllare.
      */
-    public function __construct($timestamp, $message, $action, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress)
+    public function __construct($timestamp, $message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress)
     {
-        parent::__construct($timestamp, $message, $action, $beforeState, $afterState, $customException, $databaseConnectionInfo);
+        parent::__construct($timestamp, $message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo);
         $this->ipAddress = $ipAddress;
     }
 
@@ -413,7 +434,7 @@ class IpLog extends DatabaseLog
         // Scrivi il log nel database e su file
         $dbLogWritten = parent::writeToFile();
 
-        // Scrivi il log su file error_ip.lm
+        // Scrivi il log su file error_ip.gc
         $fileLogWritten = $this->writeToFileToFile();
 
         // Ritorna true se entrambi i log sono stati scritti con successo
@@ -443,7 +464,7 @@ class IpLog extends DatabaseLog
         // Aggiungi informazioni aggiuntive al messaggio di errore
         $errorMessage .= " Azione: {$this->action}, Messaggio: {$this->message}, Database Info: {$this->databaseConnectionInfo}";
 
-        // Scrivi il log nel database e su file error_ip.lm
+        // Scrivi il log nel database e su file error_ip.gc
         parent::writeToFile();
         $this->writeToFileToFile();
 
@@ -452,7 +473,7 @@ class IpLog extends DatabaseLog
     }
 
     /**
-     * Scrive il log su file error_ip.lm.
+     * Scrive il log su file error_ip.gc.
      *
      * @return bool True se il log è stato scritto con successo, False altrimenti.
      */
@@ -470,7 +491,7 @@ class IpLog extends DatabaseLog
             $this->ipAddress
         );
 
-        $logFile = 'error_ip.lm';
+        $logFile = 'error_ip.gc';
         return file_put_contents($logFile, $logEntry, FILE_APPEND | LOCK_EX) !== false;
     }
 }
@@ -492,7 +513,8 @@ class ApiLog extends IpLog
      *
      * @param string $timestamp Timestamp del log.
      * @param string $message Messaggio descrittivo del log.
-     * @param string $action Azione che ha generato il log.
+     * @param int $action Azione che ha generato il log.
+     * @param string $data Dati recuperati dalla interrogazione al database.
      * @param mixed $beforeState Stato precedente all'azione.
      * @param mixed $afterState Stato successivo all'azione.
      * @param string $customException Tipo di errore generato.
@@ -500,9 +522,9 @@ class ApiLog extends IpLog
      * @param string $ipAddress Indirizzo IP da controllare.
      * @param string $apiEndpoint Endpoint API chiamato.
      */
-    public function __construct($timestamp, $message, $action, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress, $apiEndpoint)
+    public function __construct($timestamp, $message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress, $apiEndpoint)
     {
-        parent::__construct($timestamp, $message, $action, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress);
+        parent::__construct($timestamp, $message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress);
         $this->apiEndpoint = $apiEndpoint;
     }
 
@@ -536,7 +558,7 @@ class ApiLog extends IpLog
         // Scrivi il log delle chiamate API e gestisci gli errori
         $apiLogWritten = $this->logApiCall();
 
-        // Scrivi il log su file api_logs.lm
+        // Scrivi il log su file api_logs.gc
         $fileLogWritten = $this->writeToFileApiLogs();
 
         // Ritorna true se entrambi i log sono stati scritti con successo
@@ -572,7 +594,7 @@ class ApiLog extends IpLog
             $apiLogEntry .= "Error occurred during API call.";
         }
 
-        // Scrivi il log nel database e su file error_ip.lm
+        // Scrivi il log nel database e su file error_ip.gc
         parent::writeToFile();
 
         // Esempio: log_to_api_monitoring_service($apiLogEntry);
@@ -582,7 +604,7 @@ class ApiLog extends IpLog
     }
 
     /**
-     * Scrive il log su file api_logs.lm.
+     * Scrive il log su file api_logs.gc.
      *
      * @return bool True se il log è stato scritto con successo, False altrimenti.
      */
@@ -601,7 +623,7 @@ class ApiLog extends IpLog
             $this->ipAddress
         );
 
-        $logFile = 'api_logs.lm';
+        $logFile = 'api_logs.gc';
         return file_put_contents($logFile, $logEntry, FILE_APPEND | LOCK_EX) !== false;
     }
 }
@@ -623,7 +645,8 @@ class PerformanceLog extends IpLog
      *
      * @param string $timestamp Timestamp del log.
      * @param string $message Messaggio descrittivo del log.
-     * @param string $action Azione che ha generato il log.
+     * @param int $action Azione che ha generato il log.
+     * @param string $data Dati recuperati dalla interrogazione al database.
      * @param mixed $beforeState Stato precedente all'azione.
      * @param mixed $afterState Stato successivo all'azione.
      * @param string $customException Tipo di errore generato.
@@ -631,9 +654,9 @@ class PerformanceLog extends IpLog
      * @param string $ipAddress Indirizzo IP da controllare.
      * @param float $executionTime Tempo di esecuzione della richiesta.
      */
-    public function __construct($timestamp, $message, $action, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress, $executionTime)
+    public function __construct($timestamp, $message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress, $executionTime)
     {
-        parent::__construct($timestamp, $message, $action, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress);
+        parent::__construct($timestamp, $message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress);
         $this->executionTime = $executionTime;
     }
 
@@ -658,7 +681,7 @@ class PerformanceLog extends IpLog
     }
 
     /**
-     * Scrive il log delle performance del server nel file performance/logs.lm.
+     * Scrive il log delle performance del server nel file performance/logs.gc.
      *
      * @return bool True se il log è stato scritto con successo, False altrimenti.
      */
@@ -677,7 +700,7 @@ class PerformanceLog extends IpLog
             $this->executionTime
         );
 
-        $logFile = 'performance/logs.lm';
+        $logFile = 'performance/logs.gc';
         return file_put_contents($logFile, $logEntry, FILE_APPEND | LOCK_EX) !== false;
     }
 }
@@ -699,7 +722,8 @@ class UserLog extends IpLog
      *
      * @param string $timestamp Timestamp del log.
      * @param string $message Messaggio descrittivo del log.
-     * @param string $action Azione che ha generato il log.
+     * @param int $action Azione che ha generato il log.
+     * @param string $data Dati recuperati dalla interrogazione al database.
      * @param mixed $beforeState Stato precedente all'azione.
      * @param mixed $afterState Stato successivo all'azione.
      * @param string $customException Tipo di errore generato.
@@ -707,9 +731,9 @@ class UserLog extends IpLog
      * @param string $ipAddress Indirizzo IP da controllare.
      * @param int $userId ID dell'utente.
      */
-    public function __construct($timestamp, $message, $action, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress, $userId)
+    public function __construct($timestamp, $message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress, $userId)
     {
-        parent::__construct($timestamp, $message, $action, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress);
+        parent::__construct($timestamp, $message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress);
         $this->userId = $userId;
     }
 
@@ -742,19 +766,19 @@ class UserLog extends IpLog
     public function writeUserLog()
     {
         // Verifica se l'utente è attivo
-        if (!$this->isActive) {
-            $this->logUserError("Utente non attivo");
-        }
+        //if (!$this->isActive) {
+        //    $this->logUserError("Utente non attivo");
+        //}
 
         // Verifica se il token è stato confermato
-        if (!$this->isToken) {
-            $this->logUserError("Token non confermato");
-        }
+        //if (!$this->isToken) {
+        //    $this->logUserError("Token non confermato");
+        //}
 
         // Scrive il log nel database e su file
         $dbLogWritten = parent::writeLog();
 
-        // Scrive il log su file error_user.lm
+        // Scrive il log su file error_user.gc
         $fileLogWritten = $this->writeToFileUserLogs();
 
         // Ritorna true se entrambi i log sono stati scritti con successo
@@ -762,7 +786,7 @@ class UserLog extends IpLog
     }
 
     /**
-     * Registra un errore per l'utente e salva il log su file error_user.lm.
+     * Registra un errore per l'utente e salva il log su file error_user.gc.
      *
      * @param string $errorMessage Messaggio di errore da registrare.
      */
@@ -773,7 +797,7 @@ class UserLog extends IpLog
         // Aggiungi informazioni aggiuntive al messaggio di errore
         $errorMessage .= " Azione: {$this->action}, Messaggio: {$this->message}, Database Info: {$this->databaseConnectionInfo}";
 
-        // Scrivi il log su file error_user.lm
+        // Scrivi il log su file error_user.gc
         $this->writeToFileUserLogs();
 
         // Esempio: trigger_error($errorMessage, E_USER_WARNING);
@@ -781,7 +805,7 @@ class UserLog extends IpLog
     }
 
     /**
-     * Scrive il log su file error_user.lm.
+     * Scrive il log su file error_user.gc.
      *
      * @return bool True se il log è stato scritto con successo, False altrimenti.
      */
@@ -800,7 +824,7 @@ class UserLog extends IpLog
             $this->ipAddress
         );
 
-        $logFile = 'error_user.lm';
+        $logFile = 'error_user.gc';
         return file_put_contents($logFile, $logEntry, FILE_APPEND | LOCK_EX) !== false;
     }
 }
