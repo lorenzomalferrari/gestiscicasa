@@ -9,12 +9,32 @@
 	$idUsername = $_SESSION[CONFIG['session']['keys']['IDUSER']];
 	$username = $_SESSION[CONFIG['session']['keys']['USERNAME']];
 
+
+
+
+
+	$message = "Log generico, test della classe base Log.php";
+	$action = 1;
+	$data = "{ json composto da dati, presunti dati - TEST }";
+	$beforeState = null;
+	$afterState = null;
+
+	$testLog = new Log($message, $action, $data, $beforeState, $afterState);
+
+
+
+
+
+
+
+
+
 	if (!checkUsernameAndId($username, $idUsername) && confrontaTimestamp(15, time(), $_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']])) {
 		//creare un log su DB, se vado in login.php non c'è user quindi IpLog
 		// Esempio di utilizzo
 		$path_log = "";
 
-		$message = "";
+		/*$message = "";
 		$action = "";
 		$data = "";
 		$beforeState = "";
@@ -25,7 +45,7 @@
 		$userId = $idUsername;
 
 		$userLog = new UserLog($message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress, $userId);
-		$userLog->writeToFile();
+		$userLog->writeToFile();*/
 
 		header('Location: ' . 'app/view/login.php');
 	}
