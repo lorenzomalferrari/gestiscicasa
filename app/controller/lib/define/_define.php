@@ -112,7 +112,7 @@
 			],
 			'nome' => [
 				'file' => 'logs',
-				/*'error' => 'error/error_log',*/
+				'error' => 'error',
 				'database' => 'database',
 				'id' => 'error/ip_log',
 				'api' => 'error/api_log',

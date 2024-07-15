@@ -26,10 +26,10 @@
 		 * @param string|null $logFile Nome del file di log. Default 'error_db.gc'.
 		 * @param string $databaseConnectionInfo Informazione sulla connessione al database.
 		 */
-		public function __construct($timestamp, $message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $logFile = 'error_db.gc')
+		public function __construct($message, $action, $data, $beforeState, $afterState, $logFile = null, $customException = null, $databaseConnectionInfo = null)
 		{
-			parent::__construct($timestamp, $message, $action, $data, $beforeState, $afterState, $customException, $logFile);
-			$this->databaseConnectionInfo = $databaseConnectionInfo;
+			parent::__construct($message, $action, $data, $beforeState, $afterState, $customException, $logFile ?? CONFIG['log']['path'] . CONFIG['log']['nome']['database'] . CONFIG['log']['extension'] );
+			$this->databaseConnectionInfo = $databaseConnectionInfo ?? DB->toString();
 		}
 
 		/**
@@ -71,39 +71,8 @@
 			);
 
 			// Scrivi il log nel file specificato
-			$logWritten = file_put_contents($this->logFile, $logEntry, FILE_APPEND | LOCK_EX) !== false;
-
-			// Verifica la versione del database
-			if ($this->checkDatabaseVersion()) {
-				// Reindirizza a una pagina di manutenzione
-				$this->redirectMaintenancePage();
-			}
-
-			return $logWritten;
+			//$logWritten = file_put_contents($this->logFile, $logEntry, FILE_APPEND | LOCK_EX) !== false;
+			return FileManager::writeToFile($this->logFile, $logEntry, true);
 		}
 
-		/**
-		 * Verifica se la versione del database corrisponde con quella salvata nel sistema.
-		 *
-		 * @return bool True se la versione corrisponde, False altrimenti.
-		 */
-		//NON USARE QUESTA. c'È FUNZIONE IN DATABASE.PHP
-		protected function checkDatabaseVersion()
-		{
-			global $CONFIG; // Assumi che $CONFIG sia definito o includi il file di configurazione necessario
-
-			// Simulazione di controllo della versione del database
-			$databaseVersion = '1.0'; // Da sostituire con il metodo effettivo per ottenere la versione del database
-
-			return $databaseVersion !== $CONFIG['db']['vers'];
-		}
-
-		/**
-		 * Reindirizza l'utente a una pagina di manutenzione in caso di versione del database non corrispondente.
-		 */
-		protected function redirectMaintenancePage()
-		{
-			header("Location: manutenzione.php");
-			exit;
-		}
 	}

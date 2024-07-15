@@ -238,15 +238,14 @@
             //database con credenziali messe
             $database = $this;
             //parametri insert -> prendo da params_log
-            $timestamp = date('Y-m-d H:i:s', time());
             $message = $params_log['message'];
             $action = $params_log['action'];
             $beforeState = $params_log['beforeState'];
             $afterState = $params_log['afterState'];
             $user = $params_log['user'];
 
-            $log = new CrudLog($timestamp, $message, $action, $beforeState, $afterState, $user, $database);
-            $log->execute();
+            $log = new DatabaseLog($message, $action, $beforeState, $afterState, $user, $database);
+            $log->writeToFile();
         }
 
         /**
@@ -298,5 +297,21 @@
             //header("Location: server_in_manutenzione.php");
             print_r("Location: server_in_manutenzione.php");
             exit;
+        }
+
+        /**
+         * Metodo magico per ottenere una rappresentazione testuale dell'oggetto Database.
+         *
+         * @return string Rappresentazione testuale dell'oggetto Database.
+         */
+        public function toString(): string
+        {
+            return sprintf(
+                "Database [host: %s, username: %s, password: %s, database: %s]",
+                $this->host,
+                $this->username,
+                $this->password, // Not recommended to print password, this is just for example
+                $this->database
+            );
         }
     }

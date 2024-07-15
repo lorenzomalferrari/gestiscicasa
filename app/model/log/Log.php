@@ -48,9 +48,9 @@
          * @param mixed $beforeState Stato precedente all'azione.
          * @param mixed $afterState Stato successivo all'azione.
          */
-        public function __construct($timestamp, $message, $action, $data, $beforeState, $afterState)
+        public function __construct($message, $action, $data, $beforeState, $afterState)
         {
-            $this->timestamp = $timestamp;
+            $this->timestamp = date('Y-m-d H:i:s');
             $this->message = $message;
             $this->action = $action;
             $this->data = $data;

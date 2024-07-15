@@ -11,6 +11,22 @@
 
 	if (!checkUsernameAndId($username, $idUsername) && confrontaTimestamp(15, time(), $_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']])) {
 		//creare un log su DB, se vado in login.php non c'è user quindi IpLog
+		// Esempio di utilizzo
+		$path_log = "";
+
+		$message = "";
+		$action = "";
+		$data = "";
+		$beforeState = "";
+		$afterState = "";
+		$customException  = null;
+		$databaseConnectionInfo = DB;
+		$ipAddress = $_SERVER['HTTP_CLIENT_IP'];
+		$userId = $idUsername;
+
+		$userLog = new UserLog($message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress, $userId);
+		$userLog->writeToFile();
+
 		header('Location: ' . 'app/view/login.php');
 	}
 	else {

@@ -16,7 +16,6 @@
 		/**
 		 * ErrorLog constructor.
 		 *
-		 * @param string $timestamp Timestamp del log.
 		 * @param string $message Messaggio descrittivo del log.
 		 * @param int $action Azione che ha generato il log.
 		 * @param string $data Dati recuperati dalla interrogazione al database.
@@ -25,9 +24,9 @@
 		 * @param string $customException Tipo di errore generato.
 		 * @param string|null $logFile Nome del file di log. Default 'error_logs.gc'.
 		 */
-		public function __construct($timestamp, $message, $action, $data, $beforeState, $afterState, $customException, $logFile = 'error_logs.gc')
+		public function __construct($message, $action, $data, $beforeState, $afterState, $logFile = null, $customException = null)
 		{
-			parent::__construct($timestamp, $message, $action,  $data, $beforeState, $afterState, $logFile);
+			parent::__construct($message, $action,  $data, $beforeState, $afterState, $logFile ?? CONFIG['log']['path'] . CONFIG['log']['nome']['error'] . CONFIG['log']['extension'] );
 			$this->customException = $customException;
 		}
 
@@ -39,16 +38,6 @@
 		public function getCustomException()
 		{
 			return $this->customException;
-		}
-
-		/**
-		 * Imposta il tipo di errore generato.
-		 *
-		 * @param string $customException Tipo di errore generato.
-		 */
-		public function setCustomException($customException)
-		{
-			$this->customException = $customException;
 		}
 
 		/**
@@ -68,6 +57,7 @@
 				$this->customException
 			);
 
-			return file_put_contents($this->logFile, $logEntry, FILE_APPEND | LOCK_EX) !== false;
+			//return file_put_contents($this->logFile, $logEntry, FILE_APPEND | LOCK_EX) !== false;
+			return FileManager::writeToFile($this->logFile, $logEntry, true);
 		}
 	}

@@ -38,7 +38,7 @@
          CONFIG_ISTANCE->get('DBNAME')
     ));
 
-    require_once(ROOT . 'app/model/log/Log.php');
+    require_once(ROOT . 'app/controller/lib/log/_log.php');
     require_once(ROOT . 'app/model/CustomException.php');
 
     //verifico o creo le cartelle dei logs

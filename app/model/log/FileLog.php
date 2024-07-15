@@ -16,17 +16,16 @@
 		/**
 		 * FileLog constructor.
 		 *
-		 * @param string $timestamp Timestamp del log.
 		 * @param string $message Messaggio descrittivo del log.
 		 * @param int $action Azione che ha generato il log.
 		 * @param string $data Dati recuperati dalla interrogazione al database.
 		 * @param mixed $beforeState Stato precedente all'azione.
 		 * @param mixed $afterState Stato successivo all'azione.
-		 * @param string|null $logFile Nome del file di log. Default 'logs.gc' se null.
+		 * @param string|null $logFile Nome del file di log. Compreso di path. Default 'logs.gc' se null.
 		 */
-		public function __construct($timestamp, $message, $action, $data, $beforeState, $afterState, $logFile = null)
+		public function __construct($message, $action, $data, $beforeState, $afterState, $logFile = null)
 		{
-			parent::__construct($timestamp, $message, $action, $data,  $beforeState, $afterState);
+			parent::__construct($message, $action, $data,  $beforeState, $afterState);
 			$this->logFile = $logFile ?? CONFIG['log']['path'] . CONFIG['log']['nome']['file'] . CONFIG['log']['extension'];
 		}
 
@@ -38,16 +37,6 @@
 		public function getLogFile()
 		{
 			return $this->logFile;
-		}
-
-		/**
-		 * Imposta il nome del file di log.
-		 *
-		 * @param string $logFile Nome del file di log.
-		 */
-		public function setLogFile($logFile)
-		{
-			$this->logFile = $logFile;
 		}
 
 		/**
@@ -66,6 +55,7 @@
 				json_encode($this->afterState)
 			);
 
-			return file_put_contents($this->logFile, $logEntry, FILE_APPEND | LOCK_EX) !== false;
+			//return file_put_contents($this->logFile, $logEntry, FILE_APPEND | LOCK_EX) !== false;
+			return FileManager::writeToFile($this->logFile, $logEntry, true);
 		}
 	}

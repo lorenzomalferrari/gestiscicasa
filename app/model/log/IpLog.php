@@ -26,9 +26,9 @@
 		 * @param string $databaseConnectionInfo Informazione sulla connessione al database.
 		 * @param string $ipAddress Indirizzo IP da controllare.
 		 */
-		public function __construct($timestamp, $message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress)
+		public function __construct($message, $action, $data, $beforeState, $afterState, $customException = null, $databaseConnectionInfo = null, $ipAddress, $logFile = null)
 		{
-			parent::__construct($timestamp, $message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo);
+			parent::__construct($message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $logFile ?? CONFIG['log']['path'] . CONFIG['log']['nome']['database'] . CONFIG['log']['extension']);
 			$this->ipAddress = $ipAddress;
 		}
 
@@ -40,16 +40,6 @@
 		public function getIpAddress()
 		{
 			return $this->ipAddress;
-		}
-
-		/**
-		 * Imposta l'indirizzo IP da controllare.
-		 *
-		 * @param string $ipAddress Indirizzo IP da controllare.
-		 */
-		public function setIpAddress($ipAddress)
-		{
-			$this->ipAddress = $ipAddress;
 		}
 
 		/**
@@ -70,7 +60,7 @@
 			$dbLogWritten = parent::writeToFile();
 
 			// Scrivi il log su file error_ip.gc
-			$fileLogWritten = $this->writeToFileToFile();
+			$fileLogWritten = $this->writeToFile();
 
 			// Ritorna true se entrambi i log sono stati scritti con successo
 			return $dbLogWritten && $fileLogWritten;
@@ -100,8 +90,8 @@
 			$errorMessage .= " Azione: {$this->action}, Messaggio: {$this->message}, Database Info: {$this->databaseConnectionInfo}";
 
 			// Scrivi il log nel database e su file error_ip.gc
-			parent::writeToFile();
-			$this->writeToFileToFile();
+			//parent::writeToFile();
+			$this->writeToFile();
 
 			// Esempio: trigger_error($errorMessage, E_USER_WARNING);
 			echo "Errore generato: $errorMessage\n";
@@ -112,7 +102,7 @@
 		 *
 		 * @return bool True se il log è stato scritto con successo, False altrimenti.
 		 */
-		protected function writeToFileToFile()
+		public function writeToFile()
 		{
 			$logEntry = sprintf(
 				"[%s] Action: %s, Message: %s, Before State: %s, After State: %s, Exception: %s, Database Info: %s, IP Address: %s\n",
@@ -126,7 +116,8 @@
 				$this->ipAddress
 			);
 
-			$logFile = 'error_ip.gc';
-			return file_put_contents($logFile, $logEntry, FILE_APPEND | LOCK_EX) !== false;
+			//$logFile = 'error_ip.gc';
+			//return file_put_contents($logFile, $logEntry, FILE_APPEND | LOCK_EX) !== false;
+			return FileManager::writeToFile($this->logFile, $logEntry, true);
 		}
 	}
