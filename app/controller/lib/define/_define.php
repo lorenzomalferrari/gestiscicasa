@@ -101,7 +101,7 @@
 			'path' => 'gc_logs',
 			'sub_path' => [
 				0 => 'errors',
-				1 => 'log',
+				1 => 'logs',
 			],
 			'prefix_file' => [
 				0 => 'day_',
@@ -114,7 +114,7 @@
 				'file' => 'file',
 				'error' => 'error',
 				'database' => 'database',
-				'id' => 'ip',
+				'ip' => 'ip',
 				'api' => 'api',
 				'performance' => 'server',
 				'user' => 'user',

@@ -18,7 +18,7 @@
         public static function writeToFile($filename, $data, $append = false)
         {
             $flags = $append ? FILE_APPEND | LOCK_EX : LOCK_EX;
-            return file_put_contents($filename, $data, $flags) !== false;
+            return file_put_contents(ROOT . $filename, $data, $flags) !== false;
         }
 
         /**
@@ -29,8 +29,10 @@
          */
         public static function readFromFile($filename)
         {
-            if (file_exists($filename) && is_readable($filename)) {
-                return file_get_contents($filename);
+            if (file_exists(ROOT . $filename) && is_readable(ROOT . $filename)) {
+                //return file_get_contents($filename);
+                // Converte i caratteri di nuova linea in <br> per HTML
+                return nl2br( file_get_contents($filename) );
             }
             return false;
         }

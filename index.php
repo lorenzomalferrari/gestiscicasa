@@ -6,10 +6,11 @@
 	//ZONA REQUIRE PHP
 	require_once("app/controller/lib/libs.php");
 
+	print_r("<br><br><br><br>");
 	print_r($_SESSION);
 
-	$idUsername = $_SESSION[CONFIG['session']['keys']['IDUSER']];
-	$username = $_SESSION[CONFIG['session']['keys']['USERNAME']];
+	$idUsername = $_SESSION[CONFIG['session']['keys']['IDUSER']] ?? "";
+	$username = $_SESSION[CONFIG['session']['keys']['USERNAME']] ?? "";
 
 
 
@@ -21,8 +22,18 @@
 	$beforeState = null;
 	$afterState = null;
 
-	$testLog = new Log($message, $action, $data, $beforeState, $afterState);
+	$testLog = new DatabaseLog($message, $action, $data, $beforeState, $afterState, null, null, DB->toString());
+	$testLog->writeToFile();
 
+	$fileManager = new FileManager();
+	print_r("<br><br>");
+	print_r($testLog->getMessage());
+	print_r("<br><br>");
+	print_r($testLog->getAction());
+	print_r("<br><br>");
+	print_r($testLog->getData());
+	print_r("<br><br><br><br>");
+	print_r($fileManager->readFromFile(ROOT .  PathAndFilesLog::PATH_DATABASE_ERROR));
 
 
 
@@ -49,9 +60,11 @@
 		$userLog = new UserLog($message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress, $userId);
 		$userLog->writeToFile();*/
 
-		header('Location: ' . 'app/view/login.php');
+		print_r("app/view/login.php");
+		//header('Location: ' . 'app/view/login.php');
 	}
 	else {
 		//creare un log su DB, se vado in home, il log da usare è UserLog
-		header('Location: ' . ROOT . 'app/view/home.php');
+		print_r("app/view/home.php");
+		//header('Location: ' . ROOT . 'app/view/home.php');
 	}

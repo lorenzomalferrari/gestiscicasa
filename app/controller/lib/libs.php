@@ -37,57 +37,55 @@
         CONFIG_ISTANCE->get('DBNAME')
     ));
 
+    require_once(ROOT . 'app/model/log/PathAndFilesLog.php');
+
     //verifico o creo le cartelle dei logs
     $basePath = CONFIG['log']['path'];
 	$extensions = CONFIG['log']['extension'];
 
     $directories = [
-        $basePath,
+        PathAndFilesLog::FOLDER_BASE,
         //creo cartella file e le due sotto cartelle errors e gen
-        $basePath . "/" . CONFIG['log']['nome']['file'],
-        $basePath . "/" . CONFIG['log']['nome']['file']. "/" . CONFIG['log']['sub_path'][0],
-        $basePath . "/" . CONFIG['log']['nome']['file']. "/" . CONFIG['log']['sub_path'][1],
-
+        PathAndFilesLog::FOLDER_FILE,
+        PathAndFilesLog::FOLDER_FILE_ERROR,
+        PathAndFilesLog::FOLDER_FILE_LOG,
         //creo cartella database e le due sotto cartelle errors e gen
-        $basePath . "/" . CONFIG['log']['nome']['database'],
-        $basePath . "/" . CONFIG['log']['nome']['database']. "/" . CONFIG['log']['sub_path'][0],
-        $basePath . "/" . CONFIG['log']['nome']['database']. "/" . CONFIG['log']['sub_path'][1],
-
+        PathAndFilesLog::FOLDER_DATABASE,
+        PathAndFilesLog::FOLDER_DATABASE_ERROR,
+        PathAndFilesLog::FOLDER_DATABASE_LOG,
         //creo cartella id e le due sotto cartelle errors e gen
-        $basePath . "/" . CONFIG['log']['nome']['id'],
-        $basePath . "/" . CONFIG['log']['nome']['id']. "/" . CONFIG['log']['sub_path'][0],
-        $basePath . "/" . CONFIG['log']['nome']['id']. "/" . CONFIG['log']['sub_path'][1],
-
+        PathAndFilesLog::FOLDER_IP,
+        PathAndFilesLog::FOLDER_IP_ERROR,
+        PathAndFilesLog::FOLDER_IP_LOG,
         //creo cartella api e le due sotto cartelle errors e gen
-        $basePath . "/" . CONFIG['log']['nome']['api'],
-        $basePath . "/" . CONFIG['log']['nome']['api']. "/" . CONFIG['log']['sub_path'][0],
-        $basePath . "/" . CONFIG['log']['nome']['api']. "/" . CONFIG['log']['sub_path'][1],
-
+        PathAndFilesLog::FOLDER_API,
+        PathAndFilesLog::FOLDER_API_ERROR,
+        PathAndFilesLog::FOLDER_API_LOG,
         //creo cartella performance e le due sotto cartelle errors e gen
-        $basePath . "/" . CONFIG['log']['nome']['performance'],
-        $basePath . "/" . CONFIG['log']['nome']['performance']. "/" . CONFIG['log']['sub_path'][0],
-        $basePath . "/" . CONFIG['log']['nome']['performance']. "/" . CONFIG['log']['sub_path'][1],
-
+        PathAndFilesLog::FOLDER_PERFORMANCE,
+        PathAndFilesLog::FOLDER_PERFORMANCE_ERROR,
+        PathAndFilesLog::FOLDER_PERFORMANCE_LOG,
         //creo cartella user, al momento solo questa, post login faccio la sotto carte con id e poi le sotto cartelle error e log
-        $basePath. "/" . CONFIG['log']['nome']['user'],
+        PathAndFilesLog::FOLDER_USER,
     ];
 
     $filesToCreate = [
-        //creo i files per le cartelle
-        $basePath . "/" . CONFIG['log']['nome']['file'] . "/" . CONFIG['log']['sub_path'][0] . "/" . YEARNOW . MONTH . DAY . "_error_log" . $extensions,
-        $basePath . "/" . CONFIG['log']['nome']['file'] . "/" . CONFIG['log']['sub_path'][1] . "/" . YEARNOW . MONTH . DAY . "_info_log" . $extensions,
 
-        $basePath . "/" . CONFIG['log']['nome']['database'] . "/" . CONFIG['log']['sub_path'][0] . "/" . YEARNOW . MONTH . DAY . "_error_log" . $extensions,
-        $basePath . "/" . CONFIG['log']['nome']['database'] . "/" . CONFIG['log']['sub_path'][1] . "/" . YEARNOW . MONTH . DAY . "_info_log" . $extensions,
+        PathAndFilesLog::PATH_FILE_ERROR,
+        PathAndFilesLog::PATH_FILE_LOG,
 
-        $basePath . "/" . CONFIG['log']['nome']['id'] . "/" . CONFIG['log']['sub_path'][0] . "/" . YEARNOW . MONTH . DAY . "_error_log" . $extensions,
-        $basePath . "/" . CONFIG['log']['nome']['id'] . "/" . CONFIG['log']['sub_path'][1] . "/" . YEARNOW . MONTH . DAY . "_info_log" . $extensions,
+        PathAndFilesLog::PATH_DATABASE_ERROR,
+        PathAndFilesLog::PATH_DATABASE_LOG,
 
-        $basePath . "/" . CONFIG['log']['nome']['api'] . "/" . CONFIG['log']['sub_path'][0] . "/" . YEARNOW . MONTH . DAY . "_error_log" . $extensions,
-        $basePath . "/" . CONFIG['log']['nome']['api'] . "/" . CONFIG['log']['sub_path'][1] . "/" . YEARNOW . MONTH . DAY . "_info_log" . $extensions,
+        PathAndFilesLog::PATH_IP_ERROR,
+        PathAndFilesLog::PATH_IP_LOG,
 
-        $basePath . "/" . CONFIG['log']['nome']['performance'] . "/" . CONFIG['log']['sub_path'][0] . "/" . YEARNOW . MONTH . DAY . "_error_log" . $extensions,
-        $basePath . "/" . CONFIG['log']['nome']['performance'] . "/" . CONFIG['log']['sub_path'][1] . "/" . YEARNOW . MONTH . DAY . "_info_log" . $extensions,
+        PathAndFilesLog::PATH_API_ERROR,
+        PathAndFilesLog::PATH_API_LOG,
+
+        PathAndFilesLog::PATH_PERFORMANCE_ERROR,
+        PathAndFilesLog::PATH_PERFORMANCE_LOG,
+
     ];
 
     createDirectories($directories, $filesToCreate);
