@@ -28,7 +28,7 @@
 		 */
 		public function __construct($message, $action, $data, $beforeState, $afterState, $ipAddress, $customException = null, $databaseConnectionInfo = null, $logFile = null)
 		{
-			parent::__construct($message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $logFile ?? CONFIG['log']['path'] . CONFIG['log']['nome']['database'] . CONFIG['log']['extension']);
+			parent::__construct($message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $logFile ?? PathAndFilesLog::PATH_IP_LOG);
 			$this->ipAddress = $ipAddress;
 		}
 

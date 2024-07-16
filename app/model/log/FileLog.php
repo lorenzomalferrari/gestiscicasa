@@ -26,7 +26,7 @@
 		public function __construct($message, $action, $data, $beforeState, $afterState, $logFile = null)
 		{
 			parent::__construct($message, $action, $data,  $beforeState, $afterState);
-			$this->logFile = $logFile ?? CONFIG['log']['path'] . "/" . CONFIG['log']['nome']['file'] . "/" . CONFIG['log']['sub_path'][0] . "/" . YEARNOW . MONTH . DAY . "_error_log" . CONFIG['log']['extension'];
+			$this->logFile = $logFile ?? PathAndFilesLog::PATH_FILE_ERROR;
 		}
 
 		/**

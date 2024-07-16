@@ -26,7 +26,7 @@
 		 */
 		public function __construct($message, $action, $data, $beforeState, $afterState, $logFile = null, $customException = null)
 		{
-			parent::__construct($message, $action,  $data, $beforeState, $afterState, $logFile ?? CONFIG['log']['path'] . CONFIG['log']['nome']['error'] . CONFIG['log']['extension'] );
+			parent::__construct($message, $action,  $data, $beforeState, $afterState, $logFile ?? PathAndFilesLog::PATH_FILE_ERROR );
 			$this->customException = $customException;
 		}
 
