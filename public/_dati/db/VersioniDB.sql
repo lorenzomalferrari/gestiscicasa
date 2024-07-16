@@ -1,7 +1,3 @@
-CREATE DATABASE IF NOT EXISTS Configurazioni;
-
-USE Configurazioni;
-
 CREATE TABLE IF NOT EXISTS VersioniDB (
     id INT AUTO_INCREMENT PRIMARY KEY,
     versione VARCHAR(20) NOT NULL,
