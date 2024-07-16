@@ -26,7 +26,7 @@
 		 * @param string $ipAddress Indirizzo IP da controllare.
 		 * @param int $userId ID dell'utente.
 		 */
-		public function __construct($message, $action, $data, $beforeState, $afterState, $customException = null, $databaseConnectionInfo = null, $ipAddress, $userId)
+		public function __construct($message, $action, $data, $beforeState, $afterState, $ipAddress, $userId, $customException = null, $databaseConnectionInfo = null)
 		{
 			parent::__construct($message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress);
 			$this->userId = $userId;

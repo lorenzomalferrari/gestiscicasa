@@ -244,7 +244,7 @@
             $afterState = $params_log['afterState'];
             $user = $params_log['user'];
 
-            $log = new DatabaseLog($message, $action, $beforeState, $afterState, $user, $database);
+            $log = new DatabaseLog($message, $action, $beforeState, $afterState, $user, $database->toString());
             $log->writeToFile();
         }
 

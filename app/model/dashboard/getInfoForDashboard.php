@@ -20,8 +20,8 @@
 
 	$filesToCreate = [
 		//creo i files per la cartella
-		$basePath. "/" . CONFIG['log']['nome']['user'] . "/" . $_SESSION[CONFIG['session']['keys']['IDUSER']] . "/error_log." . $extensions,
-		$basePath. "/" . CONFIG['log']['nome']['user'] . "/" . $_SESSION[CONFIG['session']['keys']['IDUSER']] . "/info_log." . $extensions,
+		$basePath. "/" . CONFIG['log']['nome']['user'] . "/" . $_SESSION[CONFIG['session']['keys']['IDUSER']] . "/" . YEARNOW . "-" . MONTH . "-" . DAY . "_error_log." . $extensions,
+		$basePath. "/" . CONFIG['log']['nome']['user'] . "/" . $_SESSION[CONFIG['session']['keys']['IDUSER']] . "/" . YEARNOW . "-" . MONTH . "-" . DAY . "_info_log." . $extensions,
 	];
 
 	createDirectories($directories, $filesToCreate);

@@ -111,15 +111,15 @@
 				4 => 'year_',
 			],
 			'nome' => [
-				'file' => 'logs',
+				'file' => 'file',
 				'error' => 'error',
 				'database' => 'database',
-				'id' => 'error/ip_log',
-				'api' => 'error/api_log',
-				'performance' => 'error/server_log',
+				'id' => 'ip',
+				'api' => 'api',
+				'performance' => 'server',
 				'user' => 'user',
 			],
-			'extension' => 'gm',
+			'extension' => '.gc',
 		],
 	]);
 
@@ -140,10 +140,12 @@
 
 	/**
 	 *
-	 * Ottieni l'anno attuale
+	 * Anno, Mese e Giorno salvati in delle definizioni
 	 *
 	 */
 	define('YEARNOW', date("Y"));
+	define('MONTH', date('m'));
+	define('DAY',date('d'));
 
 	/**
 	 * Da migliorare, usando la classe Token che è in sviluppo
