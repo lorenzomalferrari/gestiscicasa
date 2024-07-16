@@ -3,20 +3,14 @@
     /**
      * File da richiamare ovunque, il quale conterrà
      * tutti i richiami dei file importati per la gestione del progetto:
-     *
      *      _define.php: Contiene le definizioni utili per la ROOT e PATH e CONFIG
      *      _functions.php: Funzioni utili per la gestione di controlli
      *      _create_directories.php: Recupera una funzione per creare e gestire file e cartelle
      *      _globals.php: Definisce variabili GLOBALI utili ad esempio al DB
-     *
      *      __session_start.php: Gestisce la sessione
-     *
      *      Tables.php: Per ogni tabella a DB esiste una classe con costanti per richiamare nome della tabella e i campi, evitando errori di battitura
-     *
      *      Database.php: Uso della lib per la connessione al DB
-     *
      *      Log.php: Uso della lib per la gestione di tutti i Log del caso
-     *
      *      CustomException.php: Uso della lib per la gesione custom delle eccezioni
      */
     require_once("define/_define.php");
@@ -48,48 +42,47 @@
     $directories = [
         $basePath,
         //creo cartella file e le due sotto cartelle errors e gen
-        "{$basePath}/{CONFIG['log']['nome']['file']}/{CONFIG['log']['sub_path'][0]}",
-        "{$basePath}/{CONFIG['log']['nome']['file']}/{CONFIG['log']['sub_path'][1]}",
+        $basePath. "/" . CONFIG['log']['nome']['file']. "/" . CONFIG['log']['sub_path'][0],
+        $basePath. "/" . CONFIG['log']['nome']['file']. "/" . CONFIG['log']['sub_path'][1],
 
         //creo cartella database e le due sotto cartelle errors e gen
-        "{$basePath}/{CONFIG['log']['nome']['database']}/{CONFIG['log']['sub_path'][0]}",
-        "{$basePath}/{CONFIG['log']['nome']['database']}/{CONFIG['log']['sub_path'][1]}",
+        $basePath. "/" . CONFIG['log']['nome']['database']. "/" . CONFIG['log']['sub_path'][0],
+        $basePath. "/" . CONFIG['log']['nome']['database']. "/" . CONFIG['log']['sub_path'][1],
 
         //creo cartella id e le due sotto cartelle errors e gen
-        "{$basePath}/{CONFIG['log']['nome']['id']}/{CONFIG['log']['sub_path'][0]}",
-        "{$basePath}/{CONFIG['log']['nome']['id']}/{CONFIG['log']['sub_path'][1]}",
+        $basePath. "/" . CONFIG['log']['nome']['id']. "/" . CONFIG['log']['sub_path'][0],
+        $basePath. "/" . CONFIG['log']['nome']['id']. "/" . CONFIG['log']['sub_path'][1],
 
         //creo cartella api e le due sotto cartelle errors e gen
-        "{$basePath}/{CONFIG['log']['nome']['api']}/{CONFIG['log']['sub_path'][0]}",
-        "{$basePath}/{CONFIG['log']['nome']['api']}/{CONFIG['log']['sub_path'][1]}",
+        $basePath. "/" . CONFIG['log']['nome']['api']. "/" . CONFIG['log']['sub_path'][0],
+        $basePath. "/" . CONFIG['log']['nome']['api']. "/" . CONFIG['log']['sub_path'][1],
 
         //creo cartella performance e le due sotto cartelle errors e gen
-        "{$basePath}/{CONFIG['log']['nome']['performance']}/{CONFIG['log']['sub_path'][0]}",
-        "{$basePath}/{CONFIG['log']['nome']['performance']}/{CONFIG['log']['sub_path'][1]}",
+        $basePath. "/" . CONFIG['log']['nome']['performance']. "/" . CONFIG['log']['sub_path'][0],
+        $basePath. "/" . CONFIG['log']['nome']['performance']. "/" . CONFIG['log']['sub_path'][1],
 
         //creo cartella user, al momento solo questa, post login faccio la sotto carte con id e poi le sotto cartelle error e log
-        "{$basePath}/{CONFIG['log']['nome']['user']}",
+        $basePath. "/" . CONFIG['log']['nome']['user'],
     ];
 
     $filesToCreate = [
         //creo i files per le cartelle
-        "{$basePath}/{CONFIG['log']['nome']['file']}/{CONFIG['log']['sub_path'][0]}/error_log.{$extensions}",
-        "{$basePath}/{CONFIG['log']['nome']['file']}/{CONFIG['log']['sub_path'][1]}/info_log.{$extensions}",
+        $basePath . "/" . CONFIG['log']['nome']['file'] . "/" . CONFIG['log']['sub_path'][0] . "/error_log." . $extensions,
+        $basePath . "/" . CONFIG['log']['nome']['file'] . "/" . CONFIG['log']['sub_path'][1] . "/info_log." . $extensions,
 
-        "{$basePath}/{CONFIG['log']['nome']['database']}/{CONFIG['log']['sub_path'][0]}/error_log.{$extensions}",
-        "{$basePath}/{CONFIG['log']['nome']['database']}/{CONFIG['log']['sub_path'][1]}/info_log.{$extensions}",
+        $basePath . "/" . CONFIG['log']['nome']['database'] . "/" . CONFIG['log']['sub_path'][0] . "/error_log." . $extensions,
+        $basePath . "/" . CONFIG['log']['nome']['database'] . "/" . CONFIG['log']['sub_path'][1] . "/info_log." . $extensions,
 
-        "{$basePath}/{CONFIG['log']['nome']['id']}/{CONFIG['log']['sub_path'][0]}/error_log.{$extensions}",
-        "{$basePath}/{CONFIG['log']['nome']['id']}/{CONFIG['log']['sub_path'][1]}/info_log.{$extensions}",
+        $basePath . "/" . CONFIG['log']['nome']['id'] . "/" . CONFIG['log']['sub_path'][0] . "/error_log." . $extensions,
+        $basePath . "/" . CONFIG['log']['nome']['id'] . "/" . CONFIG['log']['sub_path'][1] . "/info_log." . $extensions,
 
-        "{$basePath}/{CONFIG['log']['nome']['api']}/{CONFIG['log']['sub_path'][0]}/error_log.{$extensions}",
-        "{$basePath}/{CONFIG['log']['nome']['api']}/{CONFIG['log']['sub_path'][1]}/info_log.{$extensions}",
+        $basePath . "/" . CONFIG['log']['nome']['api'] . "/" . CONFIG['log']['sub_path'][0] . "/error_log." . $extensions,
+        $basePath . "/" . CONFIG['log']['nome']['api'] . "/" . CONFIG['log']['sub_path'][1] . "/info_log." . $extensions,
 
-        "{$basePath}/{CONFIG['log']['nome']['performance']}/{CONFIG['log']['sub_path'][0]}/error_log.{$extensions}",
-        "{$basePath}/{CONFIG['log']['nome']['performance']}/{CONFIG['log']['sub_path'][1]}/info_log.{$extensions}",
+        $basePath . "/" . CONFIG['log']['nome']['performance'] . "/" . CONFIG['log']['sub_path'][0] . "/error_log." . $extensions,
+        $basePath . "/" . CONFIG['log']['nome']['performance'] . "/" . CONFIG['log']['sub_path'][1] . "/info_log." . $extensions,
     ];
+
     createDirectories($directories, $filesToCreate);
 
     DB->checkDatabaseVersion();//se non vengono generati errori, si prosegue
-
-?>

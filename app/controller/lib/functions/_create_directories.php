@@ -20,6 +20,10 @@
 				if (!file_exists(ROOT . $dir) || !is_dir(ROOT . $dir)) {
 					if (!mkdir(ROOT . $dir, 0755, true)) {
 						throw new CustomException("Impossibile creare la cartella " . ROOT . $dir,CustomException::FILE_EXCEPTION);
+					}else{
+						//creo log
+						$fileLog = new FileLog("",100,"",null,null,null);
+						$fileLog->writeToFile();
 					}
 				}
 			}
@@ -28,6 +32,10 @@
 				if (!file_exists($file)) {
 					if (!touch($file)) {
 						throw new CustomException("Impossibile creare il file $file",CustomException::DIRECTORY_EXCEPTION);
+					}else{
+						//creo log
+						$fileLog = new FileLog("",102,"",null,null,null);
+						$fileLog->writeToFile();
 					}
 				}
 			}
