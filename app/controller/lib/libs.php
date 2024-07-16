@@ -74,20 +74,20 @@
 
     $filesToCreate = [
         //creo i files per le cartelle
-        $basePath . "/" . CONFIG['log']['nome']['file'] . "/" . CONFIG['log']['sub_path'][0] . "/" . YEARNOW . "-" . MONTH . "-" . DAY . "_error_log" . $extensions,
-        $basePath . "/" . CONFIG['log']['nome']['file'] . "/" . CONFIG['log']['sub_path'][1] . "/" . YEARNOW . "-" . MONTH . "-" . DAY . "_info_log" . $extensions,
+        $basePath . "/" . CONFIG['log']['nome']['file'] . "/" . CONFIG['log']['sub_path'][0] . "/" . YEARNOW . MONTH . DAY . "_error_log" . $extensions,
+        $basePath . "/" . CONFIG['log']['nome']['file'] . "/" . CONFIG['log']['sub_path'][1] . "/" . YEARNOW . MONTH . DAY . "_info_log" . $extensions,
 
-        $basePath . "/" . CONFIG['log']['nome']['database'] . "/" . CONFIG['log']['sub_path'][0] . "/" . YEARNOW . "-" . MONTH . "-" . DAY . "_error_log" . $extensions,
-        $basePath . "/" . CONFIG['log']['nome']['database'] . "/" . CONFIG['log']['sub_path'][1] . "/" . YEARNOW . "-" . MONTH . "-" . DAY . "_info_log" . $extensions,
+        $basePath . "/" . CONFIG['log']['nome']['database'] . "/" . CONFIG['log']['sub_path'][0] . "/" . YEARNOW . MONTH . DAY . "_error_log" . $extensions,
+        $basePath . "/" . CONFIG['log']['nome']['database'] . "/" . CONFIG['log']['sub_path'][1] . "/" . YEARNOW . MONTH . DAY . "_info_log" . $extensions,
 
-        $basePath . "/" . CONFIG['log']['nome']['id'] . "/" . CONFIG['log']['sub_path'][0] . "/" . YEARNOW . "-" . MONTH . "-" . DAY . "_error_log" . $extensions,
-        $basePath . "/" . CONFIG['log']['nome']['id'] . "/" . CONFIG['log']['sub_path'][1] . "/" . YEARNOW . "-" . MONTH . "-" . DAY . "_info_log" . $extensions,
+        $basePath . "/" . CONFIG['log']['nome']['id'] . "/" . CONFIG['log']['sub_path'][0] . "/" . YEARNOW . MONTH . DAY . "_error_log" . $extensions,
+        $basePath . "/" . CONFIG['log']['nome']['id'] . "/" . CONFIG['log']['sub_path'][1] . "/" . YEARNOW . MONTH . DAY . "_info_log" . $extensions,
 
-        $basePath . "/" . CONFIG['log']['nome']['api'] . "/" . CONFIG['log']['sub_path'][0] . "/" . YEARNOW . "-" . MONTH . "-" . DAY . "_error_log" . $extensions,
-        $basePath . "/" . CONFIG['log']['nome']['api'] . "/" . CONFIG['log']['sub_path'][1] . "/" . YEARNOW . "-" . MONTH . "-" . DAY . "_info_log" . $extensions,
+        $basePath . "/" . CONFIG['log']['nome']['api'] . "/" . CONFIG['log']['sub_path'][0] . "/" . YEARNOW . MONTH . DAY . "_error_log" . $extensions,
+        $basePath . "/" . CONFIG['log']['nome']['api'] . "/" . CONFIG['log']['sub_path'][1] . "/" . YEARNOW . MONTH . DAY . "_info_log" . $extensions,
 
-        $basePath . "/" . CONFIG['log']['nome']['performance'] . "/" . CONFIG['log']['sub_path'][0] . "/" . YEARNOW . "-" . MONTH . "-" . DAY . "_error_log" . $extensions,
-        $basePath . "/" . CONFIG['log']['nome']['performance'] . "/" . CONFIG['log']['sub_path'][1] . "/" . YEARNOW . "-" . MONTH . "-" . DAY . "_info_log" . $extensions,
+        $basePath . "/" . CONFIG['log']['nome']['performance'] . "/" . CONFIG['log']['sub_path'][0] . "/" . YEARNOW . MONTH . DAY . "_error_log" . $extensions,
+        $basePath . "/" . CONFIG['log']['nome']['performance'] . "/" . CONFIG['log']['sub_path'][1] . "/" . YEARNOW . MONTH . DAY . "_info_log" . $extensions,
     ];
 
     createDirectories($directories, $filesToCreate);

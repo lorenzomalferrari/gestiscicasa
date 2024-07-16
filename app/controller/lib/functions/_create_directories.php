@@ -16,10 +16,11 @@
 	{
 		try {
 			foreach ($directories as $dir) {
-				print_r("<br>" . ROOT . $dir);
+				//print_r("<br>" . ROOT . $dir);
 				if (!file_exists(ROOT . $dir) || !is_dir(ROOT . $dir)) {
 					if (!mkdir(ROOT . $dir, 0755, true)) {
-						throw new CustomException("Impossibile creare la cartella " . ROOT . $dir,CustomException::FILE_EXCEPTION);
+						//throw new CustomException("Impossibile creare la cartella " . ROOT . $dir,CustomException::FILE_EXCEPTION);
+						print_r("-> ERRORE: Impossibile creare la cartella");
 					}else{
 						//creo log
 						$fileLog = new FileLog("",100,"",null,null,null);
@@ -29,9 +30,11 @@
 			}
 
 			foreach ($filesToCreate as $file) {
-				if (!file_exists($file)) {
-					if (!touch($file)) {
-						throw new CustomException("Impossibile creare il file $file",CustomException::DIRECTORY_EXCEPTION);
+				//print_r("<br>" . ROOT . $file);
+				if (!file_exists(ROOT . $file)) {
+					if (!touch(ROOT . $file)) {
+						//throw new CustomException("Impossibile creare il file $file",CustomException::DIRECTORY_EXCEPTION);
+						print_r("-> ERRORE: Impossibile creare il file " . ROOT . $file);
 					}else{
 						//creo log
 						$fileLog = new FileLog("",102,"",null,null,null);

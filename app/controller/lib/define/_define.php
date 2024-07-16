@@ -98,7 +98,7 @@
 			'en' => 'Inglese'
 		],
 		'log' => [
-			'path' => 'gc_logs/',
+			'path' => 'gc_logs',
 			'sub_path' => [
 				0 => 'errors',
 				1 => 'log',
