@@ -28,18 +28,18 @@
 
     require_once(ROOT . "app/model/table/Tables.php");
 
+    require_once(ROOT . 'app/controller/lib/log/_log.php');
+    require_once(ROOT . 'app/model/exception/CustomException.php');
+
     //creo connessione unica al DB
     require_once(ROOT . 'app/model/Database.php');
 
     define('DB', new Database(
-         CONFIG_ISTANCE->get('SERVERNAME_DB'),
-         CONFIG_ISTANCE->get('USERNAME_DB'),
-         CONFIG_ISTANCE->get('PASSWORD_DB'),
-         CONFIG_ISTANCE->get('DBNAME')
+        CONFIG_ISTANCE->get('SERVERNAME_DB'),
+        CONFIG_ISTANCE->get('USERNAME_DB'),
+        CONFIG_ISTANCE->get('PASSWORD_DB'),
+        CONFIG_ISTANCE->get('DBNAME')
     ));
-
-    require_once(ROOT . 'app/controller/lib/log/_log.php');
-    require_once(ROOT . 'app/model/CustomException.php');
 
     //verifico o creo le cartelle dei logs
     $basePath = CONFIG['log']['path'];

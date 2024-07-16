@@ -26,7 +26,7 @@
 		 * @param string $databaseConnectionInfo Informazione sulla connessione al database.
 		 * @param string $ipAddress Indirizzo IP da controllare.
 		 */
-		public function __construct($message, $action, $data, $beforeState, $afterState, $customException = null, $databaseConnectionInfo = null, $ipAddress, $logFile = null)
+		public function __construct($message, $action, $data, $beforeState, $afterState, $ipAddress, $customException = null, $databaseConnectionInfo = null, $logFile = null)
 		{
 			parent::__construct($message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $logFile ?? CONFIG['log']['path'] . CONFIG['log']['nome']['database'] . CONFIG['log']['extension']);
 			$this->ipAddress = $ipAddress;

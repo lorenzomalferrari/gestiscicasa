@@ -16,9 +16,10 @@
 	{
 		try {
 			foreach ($directories as $dir) {
-				if (!file_exists($dir) || !is_dir($dir)) {
-					if (!mkdir($dir, 0755, true)) {
-						throw new CustomException("Impossibile creare la cartella $dir",CustomException::FILE_EXCEPTION);
+				print_r("<br>" . ROOT . $dir);
+				if (!file_exists(ROOT . $dir) || !is_dir(ROOT . $dir)) {
+					if (!mkdir(ROOT . $dir, 0755, true)) {
+						throw new CustomException("Impossibile creare la cartella " . ROOT . $dir,CustomException::FILE_EXCEPTION);
 					}
 				}
 			}
