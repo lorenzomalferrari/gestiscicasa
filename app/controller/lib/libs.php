@@ -15,7 +15,6 @@
      */
     require_once("define/_define.php");
     require_once("functions/_functions.php");
-    require_once("functions/_create_directories.php");
     require_once("global/_global.php");
     require_once("session/_session_start.php");
     require_once(ROOT . "app/model/table/Tables.php");
@@ -40,6 +39,8 @@
 
     $directories = [
         PathAndFilesLog::FOLDER_BASE,
+        PathAndFilesLog::FOLDER_SUB_BASE,
+        PathAndFilesLog::FOLDER_SUB_BASE_BACKUP,
         //creo cartella file e le due sotto cartelle errors e gen
         PathAndFilesLog::FOLDER_FILE,
         PathAndFilesLog::FOLDER_FILE_ERROR,
@@ -90,6 +91,6 @@
 
     ];
 
-    createDirectories($directories, $filesToCreate);
+    FileManager::createDirectories($directories, $filesToCreate);
 
     DB->checkDatabaseVersion();//se non vengono generati errori, si prosegue
