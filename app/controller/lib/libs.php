@@ -40,7 +40,7 @@
     require_once(ROOT . 'app/model/log/PathAndFilesLog.php');
 
     //verifico o creo le cartelle dei logs
-    $basePath = CONFIG['log']['path'];
+    $basePath = CONFIG['log']['baseFolder'];
 	$extensions = CONFIG['log']['extension'];
 
     $directories = [
