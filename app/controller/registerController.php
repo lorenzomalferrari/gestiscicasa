@@ -39,7 +39,7 @@
                 $params_insert = array(
                     ':username' => $username,
                     /*':email' => $email,*/
-                    ':password' => $password,
+                    ':password' => password_hash($password, PASSWORD_DEFAULT),
                     ':token' => UNIQ_TOKEN
                 );
 
