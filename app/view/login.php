@@ -2,6 +2,55 @@
     require_once("../controller/lib/libs.php");
     //print_r($_SESSION);
     $titlePage = "Login";
+
+
+
+
+
+
+
+
+
+
+        $message = "Log generico, test della classe base Log.php";
+        $action = 1;
+        $data = "{ json composto da dati, presunti dati - TEST }";
+        $beforeState = null;
+        $afterState = null;
+
+        $testLog = new DatabaseLog($message, $action, $data, $beforeState, $afterState, null, null, DB->toString());
+        $testLog->writeToFile();
+
+        $fileManager = new FileManager();
+        print_r("<br><br>");
+        print_r($testLog->getMessage());
+        print_r("<br><br>");
+        print_r($testLog->getAction());
+        print_r("<br><br>");
+        print_r($testLog->getData());
+        print_r("<br><br><br><br>");
+        print_r($fileManager->readFromFile(ROOT .  PathAndFilesLog::PATH_DATABASE_ERROR));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
 <!doctype html>
 <html class="no-js" lang="">
