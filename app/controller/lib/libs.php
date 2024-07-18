@@ -17,16 +17,11 @@
     require_once("functions/_functions.php");
     require_once("functions/_create_directories.php");
     require_once("global/_global.php");
-
     require_once("session/_session_start.php");
-
     require_once(ROOT . "app/model/table/Tables.php");
-
     require_once(ROOT . 'app/model/file/FileManager.php');
-
     require_once(ROOT . 'app/controller/lib/log/_log.php');
     require_once(ROOT . 'app/model/exception/CustomException.php');
-
     //creo connessione unica al DB
     require_once(ROOT . 'app/model/Database.php');
 
@@ -65,6 +60,10 @@
         PathAndFilesLog::FOLDER_PERFORMANCE,
         PathAndFilesLog::FOLDER_PERFORMANCE_ERROR,
         PathAndFilesLog::FOLDER_PERFORMANCE_LOG,
+        //creo cartella email e le due sotto cartelle errors e gen
+        PathAndFilesLog::FOLDER_EMAIL,
+        PathAndFilesLog::FOLDER_EMAIL_ERROR,
+        PathAndFilesLog::FOLDER_EMAIL_LOG,
         //creo cartella user, al momento solo questa, post login faccio la sotto carte con id e poi le sotto cartelle error e log
         PathAndFilesLog::FOLDER_USER,
     ];
@@ -85,6 +84,9 @@
 
         PathAndFilesLog::PATH_PERFORMANCE_ERROR,
         PathAndFilesLog::PATH_PERFORMANCE_LOG,
+
+        PathAndFilesLog::PATH_EMAIL_ERROR,
+        PathAndFilesLog::PATH_EMAIL_LOG,
 
     ];
 
