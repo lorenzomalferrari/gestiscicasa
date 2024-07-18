@@ -15,13 +15,13 @@
 	//creo se non già create le cartelle dei log dedicate all'utente specifico
 	$directories = [
 		//creo cartella dedicata allo user specifico
-		$basePath. "/" . CONFIG['log']['nome']['user'] . "/" . $_SESSION[CONFIG['session']['keys']['IDUSER']],
+		PathAndFilesLog::FOLDER_USER,
 	];
 
 	$filesToCreate = [
 		//creo i files per la cartella
-		$basePath. "/" . CONFIG['log']['nome']['user'] . "/" . $_SESSION[CONFIG['session']['keys']['IDUSER']] . "/" . YEARNOW . "-" . MONTH . "-" . DAY . "_error_log." . $extensions,
-		$basePath. "/" . CONFIG['log']['nome']['user'] . "/" . $_SESSION[CONFIG['session']['keys']['IDUSER']] . "/" . YEARNOW . "-" . MONTH . "-" . DAY . "_info_log." . $extensions,
+		PathAndFilesLog::FOLDER_USER . "/" . $_SESSION[CONFIG['session']['keys']['IDUSER']] . "/" . YEARNOW . "_" . MONTH . "_" . DAY . "_error_log." . $extensions,
+		PathAndFilesLog::FOLDER_USER . "/" . $_SESSION[CONFIG['session']['keys']['IDUSER']] . "/" . YEARNOW . "_" . MONTH . "_" . DAY . "_info_log." . $extensions,
 	];
 
 	createDirectories($directories, $filesToCreate);
