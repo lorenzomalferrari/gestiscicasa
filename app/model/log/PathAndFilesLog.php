@@ -9,28 +9,32 @@
     class PathAndFilesLog
     {
         //Percorsi
-        public const FOLDER_BASE = CONFIG['log']['path'];
-        public const FOLDER_FILE = self::FOLDER_BASE . "/" . CONFIG['log']['nome']['file'];
-        public const FOLDER_FILE_ERROR = self::FOLDER_FILE . "/" . CONFIG['log']['sub_path'][0];
-        public const FOLDER_FILE_LOG = self::FOLDER_FILE . "/" . CONFIG['log']['sub_path'][1];
+        public const FOLDER_BASE = CONFIG['log']['baseFolder'];
 
-        public const FOLDER_DATABASE = self::FOLDER_BASE . "/" . CONFIG['log']['nome']['database'];
-        public const FOLDER_DATABASE_ERROR = self::FOLDER_DATABASE . "/" . CONFIG['log']['sub_path'][0];
-        public const FOLDER_DATABASE_LOG = self::FOLDER_DATABASE . "/" . CONFIG['log']['sub_path'][1];
+        public const FOLDER_SUB_BASE_BACKUP = self::FOLDER_BASE . "/" . CONFIG['log']['subFolder'][0];
+        public const FOLDER_SUB_BASE = self::FOLDER_BASE . "/" . CONFIG['log']['subFolder'][1];
 
-        public const FOLDER_IP = self::FOLDER_BASE . "/" . CONFIG['log']['nome']['ip'];
-        public const FOLDER_IP_ERROR = self::FOLDER_IP . "/" . CONFIG['log']['sub_path'][0];
-        public const FOLDER_IP_LOG = self::FOLDER_IP . "/" . CONFIG['log']['sub_path'][1];
+        public const FOLDER_FILE = self::FOLDER_SUB_BASE . "/" . CONFIG['log']['nome']['file'];
+        public const FOLDER_FILE_ERROR = self::FOLDER_FILE . "/" . CONFIG['log']['subPath'][0];
+        public const FOLDER_FILE_LOG = self::FOLDER_FILE . "/" . CONFIG['log']['subPath'][1];
 
-        public const FOLDER_API = self::FOLDER_BASE . "/" . CONFIG['log']['nome']['api'];
-        public const FOLDER_API_ERROR = self::FOLDER_API . "/" . CONFIG['log']['sub_path'][0];
-        public const FOLDER_API_LOG = self::FOLDER_API . "/" . CONFIG['log']['sub_path'][1];
+        public const FOLDER_DATABASE = self::FOLDER_SUB_BASE . "/" . CONFIG['log']['nome']['database'];
+        public const FOLDER_DATABASE_ERROR = self::FOLDER_DATABASE . "/" . CONFIG['log']['subPath'][0];
+        public const FOLDER_DATABASE_LOG = self::FOLDER_DATABASE . "/" . CONFIG['log']['subPath'][1];
 
-        public const FOLDER_PERFORMANCE = self::FOLDER_BASE . "/" . CONFIG['log']['nome']['performance'];
-        public const FOLDER_PERFORMANCE_ERROR = self::FOLDER_PERFORMANCE . "/" . CONFIG['log']['sub_path'][0];
-        public const FOLDER_PERFORMANCE_LOG = self::FOLDER_PERFORMANCE . "/" . CONFIG['log']['sub_path'][1];
+        public const FOLDER_IP = self::FOLDER_SUB_BASE . "/" . CONFIG['log']['nome']['ip'];
+        public const FOLDER_IP_ERROR = self::FOLDER_IP . "/" . CONFIG['log']['subPath'][0];
+        public const FOLDER_IP_LOG = self::FOLDER_IP . "/" . CONFIG['log']['subPath'][1];
 
-        public const FOLDER_USER = self::FOLDER_BASE . "/" . CONFIG['log']['nome']['user'];
+        public const FOLDER_API = self::FOLDER_SUB_BASE . "/" . CONFIG['log']['nome']['api'];
+        public const FOLDER_API_ERROR = self::FOLDER_API . "/" . CONFIG['log']['subPath'][0];
+        public const FOLDER_API_LOG = self::FOLDER_API . "/" . CONFIG['log']['subPath'][1];
+
+        public const FOLDER_PERFORMANCE = self::FOLDER_SUB_BASE . "/" . CONFIG['log']['nome']['performance'];
+        public const FOLDER_PERFORMANCE_ERROR = self::FOLDER_PERFORMANCE . "/" . CONFIG['log']['subPath'][0];
+        public const FOLDER_PERFORMANCE_LOG = self::FOLDER_PERFORMANCE . "/" . CONFIG['log']['subPath'][1];
+
+        public const FOLDER_USER = self::FOLDER_SUB_BASE . "/" . CONFIG['log']['nome']['user'];
 
         // Estensione dei file di log
         public const FILE_EXTENSION = CONFIG['log']['extension'];
