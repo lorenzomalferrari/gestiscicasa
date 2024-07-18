@@ -34,6 +34,10 @@
         public const FOLDER_PERFORMANCE_ERROR = self::FOLDER_PERFORMANCE . "/" . CONFIG['log']['subPath'][0];
         public const FOLDER_PERFORMANCE_LOG = self::FOLDER_PERFORMANCE . "/" . CONFIG['log']['subPath'][1];
 
+        public const FOLDER_EMAIL = self::FOLDER_SUB_BASE . "/" . CONFIG['log']['nome']['email'];
+        public const FOLDER_EMAIL_ERROR = self::FOLDER_EMAIL . "/" . CONFIG['log']['subPath'][0];
+        public const FOLDER_EMAIL_LOG = self::FOLDER_EMAIL . "/" . CONFIG['log']['subPath'][1];
+
         public const FOLDER_USER = self::FOLDER_SUB_BASE . "/" . CONFIG['log']['nome']['user'];
 
         // Estensione dei file di log
@@ -54,5 +58,8 @@
 
         public const PATH_PERFORMANCE_ERROR = self::FOLDER_PERFORMANCE_ERROR . "/" . YEARNOW . MONTH . DAY . "_error_log" . self::FILE_EXTENSION;
         public const PATH_PERFORMANCE_LOG = self::FOLDER_PERFORMANCE_LOG . "/" . YEARNOW . MONTH . DAY . "_info_log" . self::FILE_EXTENSION;
+
+        public const PATH_EMAIL_ERROR = self::FOLDER_EMAIL_ERROR . "/" . YEARNOW . MONTH . DAY . "_error_log" . self::FILE_EXTENSION;
+        public const PATH_EMAIL_LOG = self::FOLDER_EMAIL_LOG . "/" . YEARNOW . MONTH . DAY . "_info_log" . self::FILE_EXTENSION;
 
 }
