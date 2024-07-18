@@ -26,9 +26,9 @@
 		 * @param string $ipAddress Indirizzo IP da controllare.
 		 * @param int $userId ID dell'utente.
 		 */
-		public function __construct($message, $action, $data, $beforeState, $afterState, $ipAddress, $userId, $customException = null, $databaseConnectionInfo = null)
+		public function __construct($message, $action, $data, $beforeState, $afterState, $ipAddress, $userId, $customException = null, $databaseConnectionInfo = null, $logFile = null)
 		{
-			parent::__construct($message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress);
+			parent::__construct($message, $action, $data, $beforeState, $afterState, $customException, $databaseConnectionInfo, $ipAddress, $logFile ?? PathAndFilesLog::FOLDER_USER . "/" . $userId . "/" . YEARNOW . MONTH . DAY . "_error_log" . PathAndFilesLog::FILE_EXTENSION);
 			$this->userId = $userId;
 		}
 
