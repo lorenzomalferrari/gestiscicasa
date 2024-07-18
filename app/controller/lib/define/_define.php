@@ -98,12 +98,16 @@
 			'en' => 'Inglese'
 		],
 		'log' => [
-			'path' => 'gc_logs',
-			'sub_path' => [
+			'baseFolder' => 'gc_logs',
+			'subFolder' => [
+				0 => 'backup',
+				1 => 'logs',
+			],
+			'subPath' => [
 				0 => 'errors',
 				1 => 'logs',
 			],
-			'prefix_file' => [
+			'prefixFile' => [
 				0 => 'day_',
 				1 => 'week_',
 				2 => 'month_',
@@ -118,6 +122,7 @@
 				'api' => 'api',
 				'performance' => 'server',
 				'user' => 'user',
+				'email' => 'email',
 			],
 			'extension' => '.gc',
 		],
