@@ -35,123 +35,135 @@
 		public const PATH_PERMISSION_EXCEPTION = 30;
 		public const UNKNOWN_ERROR = 31;
 
+		private string $fileName = "";
+		private string $data = "";
+		private string $customMessage = "";
+		private string $dateTime = "";
+
 		// Sovrascrivi i messaggi delle eccezioni comuni
 		public function __construct($message = "", $code = 0, Throwable $previous = null)
 		{
 			$exceptionClass = get_class($previous);
 			$exceptionMessage = $previous->getMessage();
 
+			print_r("getMessage(): " . $exceptionMessage);
+			print_r("get_class(): " . $exceptionClass);
+			$this->fileName = PathAndFilesLog::PATH_ERROR_ERROR;
+			$this->dateTime = "[" . date('Y-m-d H:i:s') . "] ";
+
 			switch ($exceptionClass) {
 				case 'RuntimeException':
-					$message = "Errore di runtime: " . $exceptionMessage;
+					$this->customMessage .= "Errore di runtime: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_ERROR_ERROR;
 					break;
 				case 'InvalidArgumentException':
-					$message = "Argomento non valido: " . $exceptionMessage;
+					$this->customMessage .= "Argomento non valido: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_ERROR_ERROR;
 					break;
 				case 'OutOfBoundsException':
-					$message = "Indice fuori dai limiti: " . $exceptionMessage;
+					$this->customMessage .= "Indice fuori dai limiti: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_ERROR_ERROR;
 					break;
 				case 'LogicException':
-					$message = "Errore logico: " . $exceptionMessage;
+					$this->customMessage .= "Errore logico: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_ERROR_ERROR;
 					break;
 				case 'ParseError':
-					$message = "Errore di parsing: " . $exceptionMessage;
+					$this->customMessage .= "Errore di parsing: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_ERROR_ERROR;
 					break;
 				case 'TypeError':
-					$message = "Tipo non valido: " . $exceptionMessage;
+					$this->customMessage .= "Tipo non valido: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_ERROR_ERROR;
 					break;
 				case 'DivisionByZeroError':
-					$message = "Divisione per zero: " . $exceptionMessage;
+					$this->customMessage .= "Divisione per zero: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_ERROR_ERROR;
 					break;
 				case 'Error':
-					$message = "Errore generico: " . $exceptionMessage;
+					$this->customMessage .= "Errore generico: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_ERROR_ERROR;
 					break;
 				case 'PDOException':
-					$message = "Errore di connessione al database: " . $exceptionMessage;
+					$this->customMessage .= "Errore di connessione al database: " . $exceptionMessage;
 					break;
 				case 'mysqli_sql_exception':
-					$message = "Errore MySQLi: " . $exceptionMessage;
+					$this->customMessage .= "Errore MySQLi: " . $exceptionMessage;
 					break;
 				case 'RedisException':
-					$message = "Errore Redis: " . $exceptionMessage;
+					$this->customMessage .= "Errore Redis: " . $exceptionMessage;
 					break;
 				case 'SoapFault':
-					$message = "Errore SOAP: " . $exceptionMessage;
+					$this->customMessage .= "Errore SOAP: " . $exceptionMessage;
 					break;
 				case 'SimpleXMLElement':
-					$message = "Errore XML: " . $exceptionMessage;
+					$this->customMessage .= "Errore XML: " . $exceptionMessage;
 					break;
 				case 'JsonException':
-					$message = "Errore JSON: " . $exceptionMessage;
+					$this->customMessage .= "Errore JSON: " . $exceptionMessage;
 					break;
 				case 'DOMException':
-					$message = "Errore DOM: " . $exceptionMessage;
+					$this->customMessage .= "Errore DOM: " . $exceptionMessage;
 					break;
 				case 'ReflectionException':
-					$message = "Errore di riflessione: " . $exceptionMessage;
+					$this->customMessage .= "Errore di riflessione: " . $exceptionMessage;
 					break;
 				case 'BadFunctionCallException':
-					$message = "Chiamata di funzione non valida: " . $exceptionMessage;
+					$this->customMessage .= "Chiamata di funzione non valida: " . $exceptionMessage;
 					break;
 				case 'LengthException':
-					$message = "Eccezione di lunghezza: " . $exceptionMessage;
+					$this->customMessage .= "Eccezione di lunghezza: " . $exceptionMessage;
 					break;
 				case 'OutOfBoundsException':
-					$message = "Indice fuori dai limiti: " . $exceptionMessage;
+					$this->customMessage .= "Indice fuori dai limiti: " . $exceptionMessage;
 					break;
 				case 'OutOfRangeException':
-					$message = "Valore fuori dall'intervallo: " . $exceptionMessage;
+					$this->customMessage .= "Valore fuori dall'intervallo: " . $exceptionMessage;
 					break;
 				case 'UnderflowException':
-					$message = "Sottoscarico: " . $exceptionMessage;
+					$this->customMessage .= "Sottoscarico: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_ERROR_ERROR;
 					break;
 				case 'OverflowException':
-					$message = "Overflow: " . $exceptionMessage;
+					$this->customMessage .= "Overflow: " . $exceptionMessage;
 					break;
 				case 'UnexpectedValueException':
-					$message = "Valore inaspettato: " . $exceptionMessage;
+					$this->customMessage .= "Valore inaspettato: " . $exceptionMessage;
 					break;
 				case 'FileException':
-					$message = "Errore di file: " . $exceptionMessage;
+					$this->customMessage .= "Errore di file: " . $exceptionMessage;
 					break;
 				case 'DirectoryException':
-					$message = "Errore di directory: " . $exceptionMessage;
+					$this->customMessage .= "Errore di directory: " . $exceptionMessage;
 					break;
 				case 'FileNotFoundException':
-					$message = "File non trovato: " . $exceptionMessage;
+					$this->customMessage .= "File non trovato: " . $exceptionMessage;
 					break;
 				case 'FileNotReadableException':
-					$message = "File non leggibile: " . $exceptionMessage;
+					$this->customMessage .= "File non leggibile: " . $exceptionMessage;
 					break;
 				case 'FileNotWritableException':
-					$message = "File non scrivibile: " . $exceptionMessage;
+					$this->customMessage .= "File non scrivibile: " . $exceptionMessage;
 					break;
 				case 'PathException':
-					$message = "Errore di path: " . $exceptionMessage;
+					$this->customMessage .= "Errore di path: " . $exceptionMessage;
 					break;
 				case 'PathNotFoundException':
-					$message = "Path non trovato: " . $exceptionMessage;
+					$this->customMessage .= "Path non trovato: " . $exceptionMessage;
 					break;
 				case 'PathPermissionException':
-					$message = "Permesso negato per il path: " . $exceptionMessage;
+					$this->customMessage .= "Permesso negato per il path: " . $exceptionMessage;
 					break;
 				default:
-					$message = "Errore sconosciuto: " . $exceptionMessage;
+					$this->customMessage .= "Errore sconosciuto: " . $exceptionMessage;
 					break;
 			}
 
 			// Assicurati di chiamare il costruttore della classe base
 			parent::__construct($message, $code, $previous);
+
+			// Scrivi l'errore nel file di log
+			$this->data = $this->dateTime . ": " . json_encode($this->customMessage, JSON_PRETTY_PRINT) . PHP_EOL;
+			FileManager::writeToFile($this->fileName, $this->data, true);
 		}
 	}
-	/*
-	// Esempio di utilizzo
-	try {
-		// Simula un errore di file non trovato
-		throw new FileNotFoundException("Il file non esiste");
-	} catch (Throwable $e) {
-		// Gestione dell'eccezione con la CustomException che gestisce l'override
-		$customException = new CustomException($e->getMessage(), $e->getCode(), $e);
-		echo $customException->getMessage() . "\n";
-	}
-	*/

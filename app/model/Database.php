@@ -18,7 +18,7 @@
          * @param string $host Host del database.
          * @param string $username Username del database.
          * @param string $password Password del database.
-         * @param string database Nome del database.
+         * @param string $database Nome del database.
          */
         public function __construct($host, $username, $password, $database)
         {
@@ -31,8 +31,7 @@
                 $this->conn = new PDO("mysql:host={$this->host};dbname={$this->database}", $this->username, $this->password);
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
-                echo "Connessione al database fallita: " . $e->getMessage();
-                //TODO: Salvare nei log l'errore
+                throw new CustomException("Connessione al database fallita", CustomException::PDO_EXCEPTION, $e);
             }
         }
 
@@ -51,9 +50,7 @@
 
                 // Log dell'interrogazione al database
                 $params_log = [
-                    'message' =>
-                    'Interrogazione al database: QUERY -> ' . $query .
-                        ' - PARAMETRI -> ' . implode(", ", $params),
+                    'message' => 'Interrogazione al database: QUERY -> ' . $query . ' - PARAMETRI -> ' . implode(", ", $params),
                     'action' => CONFIG['db']['crudType']['SELECT'],
                     'beforeState' => null,
                     'afterState' => null,
@@ -61,12 +58,9 @@
                 ];
 
                 $this->executeLog($params_log);
-                //print_r($params);
-                //print_r($stmt);
                 return $stmt->fetch(PDO::FETCH_ASSOC) ?: [];
             } catch (PDOException $e) {
-                echo "Errore durante l'esecuzione della query select: " . $e->getMessage();
-                return [];
+                throw new CustomException("Errore durante l'esecuzione della query select", CustomException::PDO_EXCEPTION, $e);
             }
         }
 
@@ -83,25 +77,19 @@
                 $stmt = $this->conn->prepare($query);
                 $stmt->execute($params);
 
-            // Log dell'interrogazione al database
-            $params_log = [
-                'message' =>
-                'Interrogazione al database: QUERY -> ' . $query .
-                ' - PARAMETRI -> ' . implode(", ", $params),
-                'action' => CONFIG['db']['crudType']['SELECT'],
-                'beforeState' => null,
-                'afterState' => null,
-                'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
-            ];
+                // Log dell'interrogazione al database
+                $params_log = [
+                    'message' => 'Interrogazione al database: QUERY -> ' . $query . ' - PARAMETRI -> ' . implode(", ", $params),
+                    'action' => CONFIG['db']['crudType']['SELECT'],
+                    'beforeState' => null,
+                    'afterState' => null,
+                    'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
+                ];
 
-            $this->executeLog($params_log);
-            //print_r($params);
-            //print_r($stmt);
-
+                $this->executeLog($params_log);
                 return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
             } catch (PDOException $e) {
-                echo "Errore durante l'esecuzione della query selectAll: " . $e->getMessage();
-                return [];
+                throw new CustomException("Errore durante l'esecuzione della query selectAll", CustomException::PDO_EXCEPTION, $e);
             }
         }
 
@@ -118,25 +106,19 @@
                 $stmt = $this->conn->prepare($query);
                 $stmt->execute($params);
 
-            // Log dell'interrogazione al database
-            $params_log = [
-                'message' =>
-                'Interrogazione al database: QUERY -> ' . $query .
-                ' - PARAMETRI -> ' . implode(", ", $params),
-                'action' => CONFIG['db']['crudType']['UPDATE'],
-                'beforeState' => null,
-                'afterState' => null,
-                'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
-            ];
+                // Log dell'interrogazione al database
+                $params_log = [
+                    'message' => 'Interrogazione al database: QUERY -> ' . $query . ' - PARAMETRI -> ' . implode(", ", $params),
+                    'action' => CONFIG['db']['crudType']['UPDATE'],
+                    'beforeState' => null,
+                    'afterState' => null,
+                    'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
+                ];
 
-            $this->executeLog($params_log);
-            //print_r($params);
-            //print_r($stmt);
-
-            return $stmt->rowCount();
+                $this->executeLog($params_log);
+                return $stmt->rowCount();
             } catch (PDOException $e) {
-                echo "Errore durante l'esecuzione della query update: " . $e->getMessage();
-                return false;
+                throw new CustomException("Errore durante l'esecuzione della query update", CustomException::PDO_EXCEPTION, $e);
             }
         }
 
@@ -154,7 +136,7 @@
                 $stmt->execute($params);
                 $new_id = $this->conn->lastInsertId();
 
-                //TODO: Creare log che segnali inserimento
+                // Log dell'inserimento al database
                 $params_log = [
                     'message' => 'Creato inserimento: ' . $query,
                     'action' => CONFIG['db']['crudType']['INSERT'],
@@ -166,29 +148,7 @@
                 $this->executeLog($params_log);
                 return $new_id;
             } catch (PDOException $e) {
-                echo "Errore durante l'esecuzione della query insert: " . $e->getMessage();
-                //TODO: Creare log che segnali errore in inserimento
-                return false;
-            }
-        }
-
-        /**
-         * Funzione che crea la riga del log all'interno del database.
-         *
-         * @param string $query La query SQL da eseguire.
-         * @param array $params (Opzionale) Parametri da associare alla query.
-         * @return int|false Restituisce l'ID dell'ultima riga inserita, o false in caso di errore.
-         */
-        public function insertLogs($query, $params = array())
-        {
-            try {
-                $stmt = $this->conn->prepare($query);
-                $stmt->execute($params);
-                return $this->conn->lastInsertId();
-            } catch (PDOException $e) {
-                echo "Errore durante l'esecuzione della query insertLogs: " . $e->getMessage();
-                //TODO: Creare log che segnali errore in inserimento
-                return false;
+                throw new CustomException("Errore durante l'esecuzione della query insert", CustomException::PDO_EXCEPTION, $e);
             }
         }
 
@@ -207,9 +167,7 @@
 
                 // Log dell'interrogazione al database
                 $params_log = [
-                    'message' =>
-                    'Interrogazione al database: QUERY -> ' . $query .
-                    ' - PARAMETRI -> ' . implode(", ", $params),
+                    'message' => 'Interrogazione al database: QUERY -> ' . $query . ' - PARAMETRI -> ' . implode(", ", $params),
                     'action' => CONFIG['db']['crudType']['DELETE'],
                     'beforeState' => null,
                     'afterState' => null,
@@ -217,13 +175,58 @@
                 ];
 
                 $this->executeLog($params_log);
-                //print_r($params);
-                //print_r($stmt);
-
                 return $stmt->rowCount();
             } catch (PDOException $e) {
-                echo "Errore durante l'esecuzione della query delete: " . $e->getMessage();
-                return false;
+                throw new CustomException("Errore durante l'esecuzione della query delete", CustomException::PDO_EXCEPTION, $e);
+            }
+        }
+
+        /**
+         * Esegue una query di inserimento dei log nel database.
+         *
+         * @param string $query La query SQL da eseguire.
+         * @param array $params (Opzionale) Parametri da associare alla query.
+         * @return int|false Restituisce l'ID dell'ultima riga inserita, o false in caso di errore.
+         */
+        public function insertLogs($query, $params = array())
+        {
+            try {
+                $stmt = $this->conn->prepare($query);
+                $stmt->execute($params);
+                return $this->conn->lastInsertId();
+            } catch (PDOException $e) {
+                throw new CustomException("Errore durante l'esecuzione della query insertLogs", CustomException::PDO_EXCEPTION, $e);
+            }
+        }
+
+        /**
+         * Controlla la versione del database confrontandola con la versione specificata in configurazione.
+         *
+         * @throws CustomException Se la versione del database non corrisponde a CONFIG['db']['version'].
+         * @return void
+         */
+        public function checkDatabaseVersion(): void
+        {
+            try {
+                // Query per recuperare la versione del database
+                $query = "SELECT " . VersioniDBTable::VERSIONE . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::VERSIONDB) . " ORDER BY " . VersioniDBTable::DATA_CREAZIONE . " DESC LIMIT 1";
+                $result = $this->select($query);
+
+                if (!empty($result)) {
+                    $dbVersion = $result[VersioniDBTable::VERSIONE];
+                    $expectedVersion = CONFIG['db']['test']['version'];
+
+                    if ($dbVersion !== $expectedVersion) {
+                        throw new CustomException("Versione del database non corrispondente. Versione attuale: $dbVersion, Versione attesa: $expectedVersion");
+                    }
+                } else {
+                    throw new CustomException("Impossibile recuperare la versione del database.");
+                }
+            } catch (PDOException | CustomException $e) {
+                // Log dell'errore
+                $message = "Errore durante il controllo della versione del database: " . $e->getMessage();
+                error_log($message); // Puoi registrare l'errore in un file di log o nel modo che preferisci
+                throw $e; // Rilancia l'eccezione per gestirla più in alto nella tua applicazione, se necessario
             }
         }
 
@@ -235,68 +238,9 @@
          */
         private function executeLog($params_log = array()): void
         {
-            //database con credenziali messe
-            $database = $this;
-            //parametri insert -> prendo da params_log
-            $message = $params_log['message'];
-            $action = $params_log['action'];
-            $beforeState = $params_log['beforeState'];
-            $afterState = $params_log['afterState'];
-            $user = $params_log['user'];
-
-            $log = new DatabaseLog($message, $action, $beforeState, $afterState, $user, $database->toString());
+            // Creazione dell'oggetto DatabaseLog e scrittura del log
+            $log = new DatabaseLog($params_log['message'], $params_log['action'], $params_log['beforeState'], $params_log['afterState'], $params_log['user'], $this->toString());
             $log->writeToFile();
-        }
-
-        /**
-         * Controlla la versione del database confrontandola con la versione specificata in configurazione.
-         *
-         * @throws Exception Se la versione del database non corrisponde a CONFIG['db']['version'].
-         * @return void
-         */
-        public function checkDatabaseVersion(): void
-        {
-            try {
-                // Query per recuperare la versione del database
-                $query = "SELECT " .
-                    VersioniDBTable::VERSIONE .
-                    " FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::VERSIONDB) .
-                    " ORDER BY " .
-                    VersioniDBTable::DATA_CREAZIONE. " DESC LIMIT 1";//sarebbe da creare gli schemi anche e si chiamerebbe Configurazioni
-                $result = $this->select($query);
-
-                if (!empty($result)) {
-                    $dbVersion = $result[VersioniDBTable::VERSIONE];
-                    $expectedVersion = CONFIG['db']['test']['version'];
-
-                    if ($dbVersion !== $expectedVersion) {
-                        throw new Exception("Versione del database non corrispondente. Versione attuale: $dbVersion, Versione attesa: $expectedVersion");
-                        $this->redirectToMaintenancePage();
-                    }
-                } else {
-                    throw new Exception("Impossibile recuperare la versione del database.");
-                    $this->redirectToMaintenancePage();
-                }
-            } catch (PDOException | Exception $e) {
-                // Log dell'errore
-                echo "Errore durante il controllo della versione del database: " . $e->getMessage();
-                $this->redirectToMaintenancePage();
-            }
-        }
-
-        /**
-         * Funzione privata per reindirizzare alla pagina di manutenzione.
-         *
-         * Questa funzione reindirizza l'utente alla pagina `server_in_manutenzione.php`
-         * e termina immediatamente lo script PHP.
-         *
-         * @return void
-         */
-        private function redirectToMaintenancePage(): void
-        {
-            //header("Location: server_in_manutenzione.php");
-            print_r("Location: server_in_manutenzione.php");
-            exit;
         }
 
         /**
@@ -310,7 +254,7 @@
                 "Database [host: %s, username: %s, password: %s, database: %s]",
                 $this->host,
                 $this->username,
-                $this->password, // Not recommended to print password, this is just for example
+                password_hash($this->password, PASSWORD_DEFAULT),
                 $this->database
             );
         }

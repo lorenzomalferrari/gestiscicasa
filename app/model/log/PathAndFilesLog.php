@@ -18,6 +18,10 @@
         public const FOLDER_FILE_ERROR = self::FOLDER_FILE . "/" . CONFIG['log']['subPath'][0];
         public const FOLDER_FILE_LOG = self::FOLDER_FILE . "/" . CONFIG['log']['subPath'][1];
 
+        public const FOLDER_ERROR = self::FOLDER_SUB_BASE . "/" . CONFIG['log']['nome']['error'];
+        public const FOLDER_ERROR_ERROR = self::FOLDER_ERROR . "/" . CONFIG['log']['subPath'][0];
+        public const FOLDER_ERROR_LOG = self::FOLDER_ERROR . "/" . CONFIG['log']['subPath'][1];
+
         public const FOLDER_DATABASE = self::FOLDER_SUB_BASE . "/" . CONFIG['log']['nome']['database'];
         public const FOLDER_DATABASE_ERROR = self::FOLDER_DATABASE . "/" . CONFIG['log']['subPath'][0];
         public const FOLDER_DATABASE_LOG = self::FOLDER_DATABASE . "/" . CONFIG['log']['subPath'][1];
@@ -46,6 +50,9 @@
         //File
         public const PATH_FILE_ERROR = self::FOLDER_FILE_ERROR . "/" . YEARNOW . MONTH . DAY . "_error_log" . self::FILE_EXTENSION;
         public const PATH_FILE_LOG = self::FOLDER_FILE_LOG. "/" . YEARNOW . MONTH . DAY . "_info_log" . self::FILE_EXTENSION;
+
+        public const PATH_ERROR_ERROR = self::FOLDER_ERROR_ERROR . "/" . YEARNOW . MONTH . DAY . "_error_log" . self::FILE_EXTENSION;
+        public const PATH_ERROR_LOG = self::FOLDER_ERROR_LOG . "/" . YEARNOW . MONTH . DAY . "_info_log" . self::FILE_EXTENSION;
 
         public const PATH_DATABASE_ERROR = self::FOLDER_DATABASE_ERROR . "/" . YEARNOW . MONTH . DAY . "_error_log" . self::FILE_EXTENSION;
         public const PATH_DATABASE_LOG = self::FOLDER_DATABASE_LOG . "/" . YEARNOW . MONTH . DAY . "_info_log" . self::FILE_EXTENSION;

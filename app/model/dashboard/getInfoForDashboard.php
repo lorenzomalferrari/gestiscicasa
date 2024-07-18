@@ -24,5 +24,5 @@
 		PathAndFilesLog::FOLDER_USER . "/" . $_SESSION[CONFIG['session']['keys']['IDUSER']] . "/" . YEARNOW . "_" . MONTH . "_" . DAY . "_info_log." . $extensions,
 	];
 
-	createDirectories($directories, $filesToCreate);
+	FileManager::createDirectories($directories, $filesToCreate);
 ?>

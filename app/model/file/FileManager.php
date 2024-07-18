@@ -17,8 +17,16 @@
          */
         public static function writeToFile(string $filename, string $data, bool $append = false): bool
         {
+            $filepath = ROOT . $filename;
+
+            // Controlla se il file esiste prima di tentare di scrivere
+            if (!file_exists($filepath)) {
+                error_log("Errore: Il file {$filepath} non esiste.");
+                return false;
+            }
+
             $flags = $append ? FILE_APPEND | LOCK_EX : LOCK_EX;
-            return file_put_contents(ROOT . $filename, $data, $flags) !== false;
+            return file_put_contents($filepath, $data, $flags) !== false;
         }
 
         /**
@@ -29,12 +37,18 @@
          */
         public static function readFromFile(string $filename)
         {
-            if (file_exists(ROOT . $filename) && is_readable(ROOT . $filename)) {
+            $filepath = ROOT . $filename;
+
+            // Controlla se il file esiste ed è leggibile prima di tentare di leggere
+            if (file_exists($filepath) && is_readable($filepath)) {
                 // Converte i caratteri di nuova linea in <br> per HTML
-                return nl2br(file_get_contents(ROOT . $filename));
+                return nl2br(file_get_contents($filepath));
+            } else {
+                error_log("Errore: Il file {$filepath} non esiste o non è leggibile.");
+                return false;
             }
-            return false;
         }
+
 
         /**
          * Crea le cartelle e i file di log specificati nella configurazione.
@@ -57,8 +71,9 @@
                             print_r("-> ERRORE: Impossibile creare la cartella " . ROOT . $dir);
                         } else {
                             // Creo log
-                            $fileLog = new FileLog("", 100, "", null, null, null);
-                            $fileLog->writeToFile();
+                            //print_r("---->" .ROOT . $dir);
+                            //$fileLog = new FileLog("", 100, "", null, null, null);
+                            //$fileLog->writeToFile();
                         }
                     }
                 }
@@ -69,8 +84,9 @@
                             print_r("-> ERRORE: Impossibile creare il file " . ROOT . $file);
                         } else {
                             // Creo log
-                            $fileLog = new FileLog("", 102, "", null, null, null);
-                            $fileLog->writeToFile();
+                            //print_r("-------->" . ROOT . $dir);
+                            //$fileLog = new FileLog("", 102, "", null, null, null);
+                            //$fileLog->writeToFile();
                         }
                     }
                 }

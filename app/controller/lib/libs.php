@@ -17,6 +17,7 @@
     require_once("functions/_functions.php");
     require_once("global/_global.php");
     require_once("session/_session_start.php");
+    require_once(ROOT . 'app/model/log/PathAndFilesLog.php');
     require_once(ROOT . "app/model/table/Tables.php");
     require_once(ROOT . 'app/model/file/FileManager.php');
     require_once(ROOT . 'app/controller/lib/log/_log.php');
@@ -24,18 +25,9 @@
     //creo connessione unica al DB
     require_once(ROOT . 'app/model/Database.php');
 
-    define('DB', new Database(
-        CONFIG_ISTANCE->get('SERVERNAME_DB'),
-        CONFIG_ISTANCE->get('USERNAME_DB'),
-        CONFIG_ISTANCE->get('PASSWORD_DB'),
-        CONFIG_ISTANCE->get('DBNAME')
-    ));
-
-    require_once(ROOT . 'app/model/log/PathAndFilesLog.php');
-
     //verifico o creo le cartelle dei logs
     $basePath = CONFIG['log']['baseFolder'];
-	$extensions = CONFIG['log']['extension'];
+    $extensions = CONFIG['log']['extension'];
 
     $directories = [
         PathAndFilesLog::FOLDER_BASE,
@@ -45,6 +37,10 @@
         PathAndFilesLog::FOLDER_FILE,
         PathAndFilesLog::FOLDER_FILE_ERROR,
         PathAndFilesLog::FOLDER_FILE_LOG,
+        //creo cartella error e le due sotto cartelle errors e gen
+        PathAndFilesLog::FOLDER_ERROR,
+        PathAndFilesLog::FOLDER_ERROR_ERROR,
+        PathAndFilesLog::FOLDER_ERROR_LOG,
         //creo cartella database e le due sotto cartelle errors e gen
         PathAndFilesLog::FOLDER_DATABASE,
         PathAndFilesLog::FOLDER_DATABASE_ERROR,
@@ -74,6 +70,9 @@
         PathAndFilesLog::PATH_FILE_ERROR,
         PathAndFilesLog::PATH_FILE_LOG,
 
+        PathAndFilesLog::PATH_ERROR_ERROR,
+        PathAndFilesLog::PATH_ERROR_LOG,
+
         PathAndFilesLog::PATH_DATABASE_ERROR,
         PathAndFilesLog::PATH_DATABASE_LOG,
 
@@ -92,5 +91,12 @@
     ];
 
     FileManager::createDirectories($directories, $filesToCreate);
+
+    define('DB', new Database(
+        CONFIG_ISTANCE->get('SERVERNAME_DB'),
+        CONFIG_ISTANCE->get('USERNAME_DB'),
+        CONFIG_ISTANCE->get('PASSWORD_DB'),
+        CONFIG_ISTANCE->get('DBNAME')
+    ));
 
     DB->checkDatabaseVersion();//se non vengono generati errori, si prosegue
