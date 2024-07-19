@@ -86,9 +86,11 @@
 					break;
 				case 'PDOException':
 					$this->customMessage .= "Errore di connessione al database: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_DATABASE_ERROR;
 					break;
 				case 'mysqli_sql_exception':
 					$this->customMessage .= "Errore MySQLi: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_DATABASE_ERROR;
 					break;
 				case 'RedisException':
 					$this->customMessage .= "Errore Redis: " . $exceptionMessage;
@@ -132,30 +134,39 @@
 					break;
 				case 'FileException':
 					$this->customMessage .= "Errore di file: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_FILE_ERROR;
 					break;
 				case 'DirectoryException':
 					$this->customMessage .= "Errore di directory: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_FILE_ERROR;
 					break;
 				case 'FileNotFoundException':
 					$this->customMessage .= "File non trovato: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_FILE_ERROR;
 					break;
 				case 'FileNotReadableException':
 					$this->customMessage .= "File non leggibile: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_FILE_ERROR;
 					break;
 				case 'FileNotWritableException':
 					$this->customMessage .= "File non scrivibile: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_FILE_ERROR;
 					break;
 				case 'PathException':
 					$this->customMessage .= "Errore di path: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_FILE_ERROR;
 					break;
 				case 'PathNotFoundException':
 					$this->customMessage .= "Path non trovato: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_FILE_ERROR;
 					break;
 				case 'PathPermissionException':
 					$this->customMessage .= "Permesso negato per il path: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_FILE_ERROR;
 					break;
 				default:
 					$this->customMessage .= "Errore sconosciuto: " . $exceptionMessage;
+					$this->fileName = PathAndFilesLog::PATH_ERROR_ERROR;
 					break;
 			}
 
