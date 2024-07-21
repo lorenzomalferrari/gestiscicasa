@@ -1,14 +1,16 @@
 <?php declare(strict_types=1);
 
-    // richiamare info da mostrare
-
-    // richiamare table css
-
-    //unire il tutto applicando anche una eventuale personalizzazione
+    //Richiamare info da mostrare
+    require_once(ROOT . "app/controller/property/getPropertyList.php");
+    //Eventuale personalizzazione
+    require_once(ROOT . "app/controller/property/customTable.php");
 
     require_once("../controller/lib/libs.php");
     $titlePage = "Table";
-    $nomeTabella = $titlePage;
+
+    $tableName = $titlePage;
+    $tableDataHeader = "";
+    $tableDataRecord =  "";
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -69,11 +71,11 @@
                         </div>
                     </div>
                     <!--=====================================-->
-                    <!--=         	Button Area Start         =-->
+                    <!--=         	Table Area Start        =-->
                     <!--=====================================-->
                     <div class="container-fluid">
                         <div class="card component-table">
-                            <?php require_once("tabella_property_list.php"); /*in futuro deve richiamare file data-table.php che sarà tutto dinamico*/ ?>
+                            <?php require_once("data-table.php"); ?>
                         </div>
                     </div>
                     <!--=====================================-->

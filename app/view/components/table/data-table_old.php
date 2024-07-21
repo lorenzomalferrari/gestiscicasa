@@ -71,7 +71,7 @@
                                 <div class="table-responsive">
                                     <table id="data-table" class="table table-bordered">
                                         <thead>
-                                            <?php require_once("data/caption.php"); ?>
+                                            <?php require_once("data/header.php"); ?>
                                         </thead>
                                         <tbody>
                                             <tr>
@@ -476,7 +476,7 @@
                                             </tr>
                                         </tbody>
                                         <tfoot>
-                                            <?php require_once("data/caption.php"); ?>
+                                            <?php require_once("data/header.php"); ?>
                                         </tfoot>
                                     </table>
                                 </div>

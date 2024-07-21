@@ -466,4 +466,22 @@
 			];
 		}
 	}
+
+	class UsersPropertyTable
+	{
+		const TABLE_NAME = 'UsersProperty';
+
+		const ID_PERSON = 'idPerson';
+		const ID_PROPERTY = 'idProperty';
+		const ID_ROLE = 'idRole';
+
+	public static function getColumns()
+	{
+		return [
+			self::ID_PERSON,
+			self::ID_PROPERTY,
+			self::ID_ROLE,
+		];
+	}
+	}
 ?>
