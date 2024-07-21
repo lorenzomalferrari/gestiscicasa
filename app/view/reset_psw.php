@@ -62,7 +62,7 @@ $titlePage = "Reset password";
                                         </div>
                                     </form>
                                     <a href="login.php" class="login-back">Ritorna al login</a>
-                                    <?php require_once("copyright.php"); ?>
+                                    <?php require_once("_copyright.php"); ?>
                                 </div>
                             </div>
                         </div>

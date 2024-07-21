@@ -52,7 +52,7 @@
                                 <button type="button" class="submit-btn" onclick="checkWelcome()">REGISTRA</button>
                             </div>
                         </form>
-                        <?php require_once("copyright.php"); ?>
+                        <?php require_once("_copyright.php"); ?>
                     </div>
                 </div>
             </div>

@@ -107,7 +107,7 @@
                                     </li>
                                     -->
                         </ul>
-                        <?php require_once("copyright.php"); ?>
+                        <?php require_once("_copyright.php"); ?>
                     </div>
                 </div>
             </div>
