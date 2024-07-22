@@ -13,7 +13,7 @@ $titlePage = "Reset password";
 
 <body>
     <!-- Page Loader Start -->
-    <?php //require_once("_preloader.php"); ?>
+    <?php //require_once("template/_preloader.php"); ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">
         <i class="fas fa-angle-double-up"></i>
@@ -25,12 +25,12 @@ $titlePage = "Reset password";
                 <header class="header">
                     <!-- Inizio menù laterale -->
                     <?php
-                    require_once("_menu.php");
+                    require_once("template/_menu.php");
                     ?>
                     <!-- Fine menù laterale -->
                     <!-- Inizio intestazione -->
                     <?php
-                    require_once("_navbar.php");
+                    require_once("template/_navbar.php");
                     ?>
                     <!-- Fine intestazione -->
                 </header>
@@ -62,7 +62,7 @@ $titlePage = "Reset password";
                                         </div>
                                     </form>
                                     <a href="login.php" class="login-back">Ritorna al login</a>
-                                    <?php require_once("_copyright.php"); ?>
+                                    <?php require_once("template/_copyright.php"); ?>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@ $titlePage = "Reset password";
             </div>
         </div>
     </div>
-    <?php require_once("_script.php"); ?>
+    <?php require_once("template/_script.php"); ?>
 </body>
 
 </html>

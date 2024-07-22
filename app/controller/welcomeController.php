@@ -2,16 +2,15 @@
     require_once('lib/libs.php');
     require_once(ROOT . 'app/model/NomiTabelle.php');
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST"){
-        $nome = $_POST['nome'];
-        $cognome = $_POST['cognome'];
+    print_r($_POST);
 
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
         // Preparazione della query per la select
         $params_insert = array(
-            ':nome' => $nome,
-            ':cognome' => $cognome,
-            ':email' => $_SESSION[CONFIG['session']['keys']['EMAIL']],
-            ':idUser' => $_SESSION[CONFIG['session']['keys']['IDUSER']],
+            ':nome' => $_POST['nome'],
+            ':cognome' => $_POST['cognome'],
+            ':email' => $_POST[CONFIG['session']['keys']['EMAIL']],
+            ':idUser' => $_POST[CONFIG['session']['keys']['IDUSER']],
         );
 
         print_r("params_insert:<br>");
@@ -26,7 +25,7 @@
         //devo avere id dalla tabella Persona e idUtente attivo e senza token
 
         $params_user = array(
-            ':id' => $_SESSION[CONFIG['session']['keys']['IDUSER']],
+            ':id' => $_POST[CONFIG['session']['keys']['IDUSER']],
             ':token' => 'IS NULL',
             ':isActive' => 1,
         );
@@ -36,7 +35,7 @@
 
         if ($new_person_id > 0 && $count_user > 0) {
         //tutto ok
-        header("Location: " . ROOT . "app/view/home.php");
+        header("Location: " . PATH . "app/view/home.php");
         } else {
             //capire che messaggio restituire
             print_r("DA IMPLEMENTARE: ERRORE DA RESTITUIRE");

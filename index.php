@@ -16,5 +16,5 @@
 		header('Location: ' . 'app/view/login.php');
 	}
 	else {
-		header('Location: ' . ROOT . 'app/view/home.php');
+		header('Location: ' . 'app/view/home.php');
 	}

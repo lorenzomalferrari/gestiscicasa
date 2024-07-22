@@ -2,7 +2,7 @@
 	require_once(ROOT . 'app/model/NomiTabelle.php');
 
 	//print_r("Sto per stampare var SESSIONE");
-	//print_r($_SESSION);
+	print_r($_SESSION);
 	// Preparazione della query per la select
 	$params_where = array(
 		':id' => $_SESSION[CONFIG['session']['keys']['IDUSER']],
@@ -16,6 +16,7 @@
 	$directories = [
 		//creo cartella dedicata allo user specifico
 		PathAndFilesLog::FOLDER_USER,
+		PathAndFilesLog::FOLDER_USER . "/" . $_SESSION[CONFIG['session']['keys']['IDUSER']],
 	];
 
 	$filesToCreate = [

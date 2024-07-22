@@ -1,8 +1,7 @@
 <?php declare(strict_types=1);
-    // Pulisci tutte le variabili di sessione
-    session_unset();
+    require_once("lib/libs.php");
     // Distruggi la sessione
-    session_destroy();
+    require_once(ROOT . "app/controller/lib/session/_session_destroy.php");
     // Reindirizza l'utente alla pagina di accesso o ad un'altra pagina
-    header("Location: login.php");
+    header('Location: ' . PATH . 'app/view/login.php');
 ?>
