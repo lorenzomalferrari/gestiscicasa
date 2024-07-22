@@ -11,10 +11,10 @@ CREATE TABLE IF NOT EXISTS lmgc_Property (
     notes TEXT,
     creationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updateData TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    CONSTRAINT fk_city FOREIGN KEY (IdCity) REFERENCES City(id),
+    /*CONSTRAINT fk_city FOREIGN KEY (IdCity) REFERENCES City(id),
     CONSTRAINT fk_state FOREIGN KEY (IdState) REFERENCES State(id),
-    CONSTRAINT fk_property_type FOREIGN KEY (IdPropertyType) REFERENCES PropertyType(id),
-    CONSTRAINT chk_price CHECK (price >= 0),
+    CONSTRAINT fk_property_type FOREIGN KEY (IdPropertyType) REFERENCES PropertyType(id),*/
+    /*CONSTRAINT chk_price CHECK (price >= 0),
     CONSTRAINT chk_active CHECK (active IN (0, 1)),
-    CONSTRAINT chk_dates CHECK (creationDate <= updateDate)
+    CONSTRAINT chk_dates CHECK (creationDate <= updateDate)*/
 );

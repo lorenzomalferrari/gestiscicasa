@@ -1,16 +1,33 @@
 <?php declare(strict_types=1);
-
+    require_once("../controller/lib/libs.php");
     //Richiamare info da mostrare
     require_once(ROOT . "app/controller/property/getPropertyList.php");
     //Eventuale personalizzazione
     require_once(ROOT . "app/controller/property/customTable.php");
 
-    require_once("../controller/lib/libs.php");
     $titlePage = "Table";
 
     $tableName = $titlePage;
-    $tableDataHeader = "";
-    $tableDataRecord =  "";
+    $tableDataHeader = PropertyTable::getColumns();
+    $tableDataRecord =  [];
+
+    foreach ($arrProperty as $property) {
+        //print_r($property);
+        $tableDataRecord[] = [
+            $property->getId(),
+            $property->getName(),
+            $property->getDescription(),
+            $property->getPrice(),
+            $property->getAddress(),
+            $property->getIdCity(),
+            $property->getIdState(),
+            $property->getIdPropertyType(),
+            $property->isActive(),
+            $property->getNotes(),
+            $property->getCreationDate(),
+            $property->getupdateDate(),
+        ];
+    }
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -75,7 +92,7 @@
                     <!--=====================================-->
                     <div class="container-fluid">
                         <div class="card component-table">
-                            <?php require_once("data-table.php"); ?>
+                            <?php require_once(ROOT . "app/view/components/table/data-table.php"); ?>
                         </div>
                     </div>
                     <!--=====================================-->

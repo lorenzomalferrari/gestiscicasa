@@ -1,6 +1,4 @@
 <?php declare(strict_types=1);
-
-    require_once('lib/libs.php');
     require_once(ROOT . 'app/model/NomiTabelle.php');
     require_once(ROOT . "app/model/Property.php");
 
@@ -12,20 +10,23 @@
         SELECT $select
         FROM  "
         . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::PROPERTY ) . " AS p "
-        . " INNER JOIN "
+        /*. " INNER JOIN "
         . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERSPROPERTY) . " AS up "
-        . " ON pe." . UsersPropertyTable::ID_PROPERTY . " = " . PropertyTable::ID
+        . " ON up." . UsersPropertyTable::ID_PROPERTY . " = p." . PropertyTable::ID
         . " INNER JOIN "
         . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::PERSON) . " AS pe "
         . " ON pe." . PersonTable::ID . " = " . UsersPropertyTable::ID_PERSON
         . " INNER JOIN "
         . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS) . " AS u "
-        . " ON u." . UsersTable::ID . " = " . PersonTable::ID_USER
-        . " WHERE u." . UsersTable::ID . " = :id "
+        . " ON u." . UsersTable::ID . " = pe." . PersonTable::ID_USER
+        . " WHERE u." . UsersTable::ID . " = :id "*/
     ;
 
+    print_r($query);
+    print_r("<br>");
+
     $params_select = array(
-        ':id' => "",
+        /*':id' => $_SESSION[CONFIG['session']['keys']['IDUSER']],*/
     );
 
     $results = DB->selectAll($query, $params_select);
@@ -40,7 +41,7 @@
             $r[PropertyTable::ID_CITY],
             $r[PropertyTable::ID_STATE],
             $r[PropertyTable::ID_PROPERTY_TYPE],
-            $r[PropertyTable::ACTIVE],
+            (bool)$r[PropertyTable::ACTIVE],
             $r[PropertyTable::NOTES],
             $r[PropertyTable::CREATION_DATE],
             $r[PropertyTable::UPDATE_DATE]

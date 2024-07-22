@@ -27,9 +27,11 @@
                         <span class="dsy-menu-link-icon">
                             <i class="flaticon-null-1"></i>
                         </span>
+                        <!--
                         <span class="dsy-menu-link-text">
                             <a href="index.php" class="dsy-menu-link">Dashboards</a>
                         </span>
+                        -->
                         <!--<span class="dsy-menu-count">03</span>-->
                     </a>
                     <!--
@@ -50,11 +52,11 @@
                     <div class="dsy-menu-label-text">APPLICATIONS</div>
                 </li>
                 <li class="dsy-menu-item">
-                    <a href="calender.php" class="dsy-menu-link">
+                    <a href="<?php echo PATH . "app/view/property_list.php" ?>" class="dsy-menu-link">
                         <span class="dsy-menu-link-icon">
-                            <i class="flaticon-null-2"></i>
+                            <i class="flaticon-null-4"></i>
                         </span>
-                        <span class="dsy-menu-link-text">Calendar</span>
+                        <span class="dsy-menu-link-text">Proprietà</span>
                     </a>
                 </li>
                 <li class="dsy-menu-item">
@@ -98,6 +100,7 @@
                         </li>
                     </ul>
                 </li>
+<!--
                 <li class="dsy-menu-label">
                     <div class="dsy-menu-label-text">PAGES</div>
                 </li>
@@ -150,6 +153,8 @@
                         </li>
                     </ul>
                 </li>
+-->
+<!--
                 <li class="dsy-menu-label">
                     <div class="dsy-menu-label-text">COMPONENTS</div>
                 </li>
@@ -241,6 +246,7 @@
                         </li>
                     </ul>
                 </li>
+-->
             </ul>
         </div>
     </div>

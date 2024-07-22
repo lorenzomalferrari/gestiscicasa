@@ -3,7 +3,7 @@
     <div class="table-responsive">
         <table id="data-table" class="table table-bordered">
             <thead>
-                <?php require_once("data/header.php"); ?>
+                <?php require_once(ROOT . "app/view/components/table/data/header.php"); ?>
             </thead>
             <tbody>
                 <?php
@@ -17,7 +17,7 @@
                 ?>
             </tbody>
             <tfoot>
-                <?php require_once("data/header.php"); ?>
+                <?php require_once(ROOT . "app/view/components/table/data/header.php"); ?>
             </tfoot>
         </table>
     </div>
