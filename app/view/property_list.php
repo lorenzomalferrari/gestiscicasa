@@ -68,7 +68,7 @@
                             <div class="row align-items-center">
                                 <div class="col-sm-4 col-12">
                                     <div class="breadcrumbs-area">
-                                        <h1>Data Table</h1>
+                                        <h1>Elenco Proprietà</h1>
                                     </div>
                                 </div>
                                 <div class="col-sm-8 col-12">
