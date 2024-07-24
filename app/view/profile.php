@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
     require_once('../controller/lib/libs.php');
     require_once(ROOT . "app/controller/profileController.php");
-    $titlePage = "Profilo";
+    $titlePage = "Impostazioni Profilo";
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -23,17 +23,12 @@
                 <div class="dsy-page-content vertical-menu">
                     <header class="header">
                         <!-- Inizio menù laterale -->
-                        <?php
-                        require_once("template/_menu.php");
-                        ?>
+                        <?php require_once("template/_menu.php"); ?>
                         <!-- Fine menù laterale -->
                         <!-- Inizio intestazione -->
-                        <?php
-                        require_once("template/_navbar.php");
-                        ?>
+                        <?php require_once("template/_navbar.php"); ?>
                         <!-- Fine intestazione -->
                     </header>
-
                     <!--=====================================-->
                     <!--=         Breadcrumb Start          =-->
                     <!--=====================================-->
@@ -42,10 +37,9 @@
                             <div class="row align-items-center">
                                 <div class="col-sm-4 col-12">
                                     <div class="breadcrumbs-area">
-                                        <h1>Profile Settings</h1>
+                                        <h1><?php echo $titlePage; ?></h1>
                                     </div>
                                 </div>
-                                <!--
                                 <div class="col-sm-8 col-12">
                                     <div class="breadcrumbs-area text-sm-right">
                                         <ul>
@@ -59,7 +53,6 @@
                                         </ul>
                                     </div>
                                 </div>
-                                -->
                             </div>
                         </div>
                     </div>
@@ -339,7 +332,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Modal Area Start -->
                     <div class="modal fade basic-info-modal" id="info-edit" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
