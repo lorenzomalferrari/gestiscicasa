@@ -5,7 +5,7 @@
     //Eventuale personalizzazione
     require_once(ROOT . "app/controller/property/customTable.php");
 
-    $titlePage = "Table";
+    $titlePage = "Elenco Proprietà";
 
     $tableName = $titlePage;
     $tableDataHeader = PropertyTable::getColumns();
@@ -49,14 +49,10 @@
                 <div class="dsy-page-content vertical-menu">
                     <header class="header">
                         <!-- Inizio menù laterale -->
-                        <?php
-                        require_once("template/_menu.php");
-                        ?>
+                        <?php require_once("template/_menu.php"); ?>
                         <!-- Fine menù laterale -->
                         <!-- Inizio intestazione -->
-                        <?php
-                        require_once("template/_navbar.php");
-                        ?>
+                        <?php require_once("template/_navbar.php"); ?>
                         <!-- Fine intestazione -->
                     </header>
 
@@ -68,7 +64,7 @@
                             <div class="row align-items-center">
                                 <div class="col-sm-4 col-12">
                                     <div class="breadcrumbs-area">
-                                        <h1>Data Table</h1>
+                                        <h1><?php echo $titlePage; ?></h1>
                                     </div>
                                 </div>
                                 <div class="col-sm-8 col-12">
