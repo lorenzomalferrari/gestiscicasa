@@ -157,15 +157,6 @@
 			return $this->updateDate;
 		}
 
-		// Email validation function
-		public function validateEmail(string $email): bool
-		{
-			if (!preg_match(self::EMAIL_REGEX, $email)) {
-				throw new Exception('Invalid email format');
-			}
-			return true;
-		}
-
 		// Tax code validation function (for Italian tax code)
 		public function validateTaxCode(string $taxCode): bool
 		{
