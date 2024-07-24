@@ -1,0 +1,107 @@
+/*------------------- 6.6 Text -------------------*/
+.text-w-light {
+	font-weight: $tLight;
+}
+.text-regular {
+	font-weight: $tRegular;
+}
+.text-medium {
+	font-weight: $tMedium;
+}
+.text-semibold {
+	font-weight: $tSemibold;
+}
+.text-bold {
+	font-weight: $tBold;
+}
+.text-xtrabold {
+	font-weight: 800;
+}
+
+.text-24 {
+	font-size: rem(24px);
+}
+.text-22 {
+	font-size: rem(22px);
+	@media only screen and (max-width: 1199px) {
+		font-size: rem(20px);	
+	}
+}
+.text-15 {
+	font-size: rem(15px) !important;
+}
+.text-14 {
+	font-size: rem(14px) !important;
+}
+.text-13 {
+	font-size: rem(13px) !important;
+}
+.text-12 {
+	font-size: rem(12px) !important;
+}
+.text-11 {
+	font-size: rem(11px) !important;
+}
+.text-10 {
+	font-size: rem(10px) !important;
+}
+
+.text-blue-ribbon {
+	color: #2e5bff !important;
+}
+.text-brink-pink {
+	color: #fc6e88 !important;
+}
+.text-mountain-meadow {
+	color: #10bf90 !important;
+}
+.text-carrot-orange {
+	color: #ec9320;
+}
+.text-yellow {
+	color: #ec9524;
+}
+.text-fire-bush {
+	color: #e1972d;
+}
+.text-corn-blue {
+	color: #4f75f3;
+}
+.text-light-red {
+	color: #f31818;
+}
+.text-body {
+	color: $color_body !important;
+}
+
+.text-midnight {
+	color: #001737;
+}
+
+.text-red {
+	color: #fb0d38;
+}
+.text-mandy {
+	color: #e7515a;
+}
+.text-pink {
+	color: #ffc4c8;
+}
+
+.text-regent-gray {
+	color: #8392a5;
+}
+.text-gray {
+	color: #8392a5;
+}
+.text-manatee {
+	color: #9295a0;
+}
+.text-lynch {
+	color: #6a7b99;
+}
+.text-bombay {
+	color: #b0b0b1;
+}
+
+

@@ -1,0 +1,42 @@
+/*------------------- 4.1 Back To Top -------------------*/
+.scrollup {
+    overflow: hidden;
+    position: fixed;
+    height: rem(40px);
+    width: rem(40px);
+    line-height: rem(40px);
+    border-radius: 50%;
+    bottom: rem(-100px);
+    right: rem(20px);
+    text-align: center;
+    z-index: 9999;
+    background-color: rgba($color_primary, 0.8);
+    color: $color_light;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.8s cubic-bezier(0, 0, .15, 1.88);
+
+    i {
+        display: inline-block;
+        transition: all 0.3s ease-out;
+    }
+
+    &:focus {
+
+        i {
+            -webkit-animation: toBottomFromTop20 0.5s forwards;
+            animation: toBottomFromTop20 0.5s forwards;
+        }
+    }
+    &:hover {
+        background-color: rgba($color_primary, 1);
+        i {
+            color: #ffffff;
+        }
+    }
+}
+
+.scrollup.back-top {
+    bottom: rem(25px);
+}

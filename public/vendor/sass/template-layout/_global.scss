@@ -1,0 +1,88 @@
+/*------------------- 4.5 Global -------------------*/
+
+a {
+    color: #2e5bff;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+}
+
+a:active,
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+a:active,
+a:hover,
+a:focus {
+    outline: 0 none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+
+hr {
+    margin: rem(30px 0 0);
+}
+
+[class^="flaticon-"]:before,
+[class*=" flaticon-"]:before,
+[class^="flaticon-"]:after,
+[class*=" flaticon-"]:after {
+    margin-left: 0;
+}
+
+.form-response {
+
+    .alert-danger,
+    .alert.alert-info,
+    .alert.alert-success {
+        margin-top: rem(10px);
+        margin-bottom: 0;
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@keyframes fadeindown {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -20%, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
+@keyframes fadein {
+    0% {
+        opacity: 0;
+       
+    }
+    100% {
+        opacity: 1;
+        
+    }
+}
+
+@media only screen and (min-width: 1399px) {
+    .d-xxl-flex {
+        display: flex !important;
+    }
+}
+
+.container-fluid {
+    padding-left: 120px;
+    padding-right: 120px;
+}

@@ -1,0 +1,44 @@
+/*------------------- 5.15 Notification -------------------*/
+.crypto-notify {
+	.media {
+		border-bottom: rem(1px) solid #e3e3e4;
+		padding-bottom: rem(30px);
+		margin-bottom: rem(30px);
+		&:last-child {
+			margin-bottom: rem(15px);
+			padding-bottom: 0;
+			border-bottom: none;
+		}
+		.item-img {
+			margin-right: rem(12px);
+			img {
+				border-radius: 50%;
+			}
+		}
+		.item-title {
+			font-weight: 700;
+			margin-bottom: rem(6px);
+			a {
+				color: $color_body;
+			}
+		}
+		p {
+			font-size: rem(15px);
+		}
+		.entry-meta {
+			margin-top: rem(13px);
+			li {
+				display: inline-block;
+				margin-right: rem(20px);
+				color: #8392a5;
+				font-size: rem(13px);
+				&:last-child {
+					margin-right: 0;
+				}
+				i {
+					margin-right: rem(5px);
+				}
+			}
+		}
+	}
+}

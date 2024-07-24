@@ -1,0 +1,12 @@
+/*------------------- 2.1 Card -------------------*/
+.card {
+	background-color: transparent;
+	border: none;
+	height: 100%;
+	padding-bottom: rem(30px);
+	.card-body {
+		padding: 0;
+		box-shadow: rem(0 5px 18px 0) rgba(0, 0, 0, 0.05);
+		border-radius: rem(5px);
+	}
+}
