@@ -1,40 +1,11 @@
-<?php
-
-declare(strict_types=1);
-require_once("../../../controller/lib/libs.php");
+<?php declare(strict_types=1);
+    require_once("../../../controller/lib/libs.php");
 ?>
 <!doctype html>
 <html class="no-js" lang="">
 
 <head>
-    <!-- Meta Data -->
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashy | Data Table</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="media/favicon.png">
-
-    <!-- Dependencies CSS -->
-    <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/dependencies/bootstrap/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/dependencies/fontawesome/css/all.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/dependencies/flaticon/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/dependencies/jvectormap/css/jquery-jvectormap-2.0.3.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/dependencies/fullcalendar/main.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/dependencies/select2/css/select2.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/dependencies/bootstrap-colorpicker/bootstrap-colorpicker.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/dependencies/flatpicker/css/flatpickr.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/dependencies/quill/quill.core.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/dependencies/quill/quill.snow.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/dependencies/datatables/css/jquery.dataTables.min.css" type="text/css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/assets/css/app.css" type="text/css">
-
-    <!-- Google Web Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+    <?php require_once(ROOT . "app/view/head/_head.php"); ?>
 </head>
 
 <body>
@@ -934,32 +905,7 @@ require_once("../../../controller/lib/libs.php");
             </div>
         </div>
     </div>
-    <!-- Dependencies Js -->
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/jquery/js/jquery.min.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/popper.js/js/popper.min.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/bootstrap/js/bootstrap.min.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/chart.js/js/Chart.min.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/apexchart/apexcharts.min.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/apexchart/irregular-data-series.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/apexchart/ohlc.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/jvectormap/js/jquery-jvectormap-2.0.3.min.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/jvectormap/js/jquery-jvectormap-world-mill.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/jvectormap/js/jquery-jvectormap-us-aea.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/jvectormap/js/gdp-data.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/fullcalendar/main.min.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/select2/js/select2.min.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/flatpicker/js/flatpickr.min.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/quill/quill.min.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/assets/js/chart.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/assets/js/apex-chart.js"></script>
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/datatables/js/jquery.dataTables.min.js"></script>
-
-    <!-- Preloader Js -->
-    <script src="<?php echo PATH; ?>public/vendor/dependencies/imagesloaded/imagesloaded.pkgd.min.js"></script>
-
-    <!-- Custom Js -->
-    <script src="<?php echo PATH; ?>public/vendor/assets/js/app.js"></script>
+    <?php require_once(ROOT . "app/view/template/_script.php"); ?>
 </body>
 
 </html>

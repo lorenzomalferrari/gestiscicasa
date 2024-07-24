@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/dependencies/flatpicker/css/flatpickr.min.css" type="text/css">
 <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/dependencies/quill/quill.core.css" type="text/css">
 <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/dependencies/quill/quill.snow.css" type="text/css">
+<link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/dependencies/datatables/css/jquery.dataTables.min.css" type="text/css">
 
 <!-- Custom CSS -->
 <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/assets/css/app.css" type="text/css">
