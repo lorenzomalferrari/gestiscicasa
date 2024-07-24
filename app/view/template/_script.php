@@ -24,4 +24,4 @@
 
 <!-- Custom Js -->
 <script src="<?php echo PATH; ?>public/vendor/assets/js/app.js"></script>
-<script src="<?php echo PATH; ?>public/vendor/assets/js/myscript.js?v=<?php echo $vers; ?>"></script>
+<script src="<?php echo PATH; ?>public/my_assets/js/myscript.js?v=<?php echo $vers; ?>"></script>
