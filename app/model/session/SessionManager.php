@@ -68,10 +68,10 @@
 
         private function isSessionValid(): bool
         {
-            return $this->isNotNullOrEmpty($_SESSION['IDUSER']) &&
-                $this->isNotNullOrEmpty($_SESSION['USERNAME']) &&
-                $this->isNotNullOrEmpty($_SESSION['PASSWORD']) &&
-                $this->isNotNullOrEmpty($_SESSION['EMAIL']);
+            return $this->isNotNullOrEmpty($_SESSION[$this->config['session']['keys']['IDUSER']]) &&
+                $this->isNotNullOrEmpty($_SESSION[$this->config['session']['keys']['USERNAME']]) &&
+                $this->isNotNullOrEmpty($_SESSION[$this->config['session']['keys']['PASSWORD']]) &&
+                $this->isNotNullOrEmpty($_SESSION[$this->config['session']['keys']['EMAIL']]);
             //&& $this->isNotNullOrEmpty($_SESSION['TOKEN']);
         }
 
@@ -87,6 +87,10 @@
 
         private function arrayHasAnyKey(array $array, array $keys): bool
         {
+            print_r($array);
+            print_r("<br><br>");
+            print_r($keys);
+        print_r("<br><br>");
             foreach ($keys as $key) {
                 if (array_key_exists($key, $array)) {
                     return true;

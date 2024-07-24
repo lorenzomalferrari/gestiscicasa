@@ -26,12 +26,12 @@
         </ul>
         <ul class="navbar-nav">
             <li class="navbar-item dropdown nav-language">
-                <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"><img src="../../public/assets/media/figure/flag.jpg" alt="">En-UK<i class="flaticon-null-16"></i></a>
+                <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"><img src="<?php echo PATH; ?>public/vendor/assets/media/figure/flag.jpg" alt="">En-UK<i class="flaticon-null-16"></i></a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item text-13" href="#"><img src="../../public/assets/media/figure/flag_6.jpg" alt="Sp">Sp-Sp</a>
-                    <a class="dropdown-item text-13" href="#"><img src="../../public/assets/media/figure/flag_7.jpg" alt="Du">Du-Gm</a>
-                    <a class="dropdown-item text-13" href="#"><img src="../../public/assets/media/figure/flag_8.jpg" alt="Du">Du-It</a>
-                    <a class="dropdown-item text-13" href="#"><img src="../../public/assets/media/figure/flag_9.jpg" alt="Rus">Rus-Rs</a>
+                    <a class="dropdown-item text-13" href="#"><img src="<?php echo PATH; ?>public/vendor/assets/media/figure/flag_6.jpg" alt="Sp">Sp-Sp</a>
+                    <a class="dropdown-item text-13" href="#"><img src="<?php echo PATH; ?>public/vendor/assets/media/figure/flag_7.jpg" alt="Du">Du-Gm</a>
+                    <a class="dropdown-item text-13" href="#"><img src="<?php echo PATH; ?>public/vendor/assets/media/figure/flag_8.jpg" alt="Du">Du-It</a>
+                    <a class="dropdown-item text-13" href="#"><img src="<?php echo PATH; ?>public/vendor/assets/media/figure/flag_9.jpg" alt="Rus">Rus-Rs</a>
                 </div>
             </li>
             <li class="navbar-item dropdown nav-message">
@@ -44,7 +44,7 @@
                     <div class="nofify-list">
                         <a href="#" class="media">
                             <div class="item-img">
-                                <img src="../../public/assets/media/figure/img_1.jpg" alt="thumb">
+                                <img src="<?php echo PATH; ?>public/vendor/assets/media/figure/img_1.jpg" alt="thumb">
                             </div>
                             <div class="media-body">
                                 <h6 class="item-title text-14 text-bold mb-1">Thomas Henry</h6>
@@ -54,7 +54,7 @@
                         </a>
                         <a href="#" class="media">
                             <div class="item-img">
-                                <img src="../../public/assets/media/figure/img_4.jpg" alt="thumb">
+                                <img src="<?php echo PATH; ?>public/vendor/assets/media/figure/img_4.jpg" alt="thumb">
                             </div>
                             <div class="media-body">
                                 <h6 class="item-title text-14 text-bold mb-1">Tom Black</h6>
@@ -64,7 +64,7 @@
                         </a>
                         <a href="#" class="media">
                             <div class="item-img">
-                                <img src="../../public/assets/media/figure/admin.jpg" alt="thumb">
+                                <img src="<?php echo PATH; ?>public/vendor/assets/media/figure/admin.jpg" alt="thumb">
                             </div>
                             <div class="media-body">
                                 <h6 class="item-title text-14 text-bold mb-1">Jasmine Roberts</h6>
@@ -90,7 +90,7 @@
                     <div class="nofify-list">
                         <a href="#" class="media">
                             <div class="item-img">
-                                <img src="../../public/assets/media/figure/img_13.jpg" alt="thumb">
+                                <img src="<?php echo PATH; ?>public/vendor/assets/media/figure/img_13.jpg" alt="thumb">
                             </div>
                             <div class="media-body">
                                 <h6 class="item-title text-13 text-bold mb-1">Requested to Widthdrawl</h6>
@@ -99,7 +99,7 @@
                         </a>
                         <a href="#" class="media">
                             <div class="item-img">
-                                <img src="../../public/assets/media/figure/img_14.jpg" alt="thumb">
+                                <img src="<?php echo PATH; ?>public/vendor/assets/media/figure/img_14.jpg" alt="thumb">
                             </div>
                             <div class="media-body">
                                 <h6 class="item-title text-13 text-bold mb-1">New user registered.</h6>
@@ -108,7 +108,7 @@
                         </a>
                         <a href="#" class="media">
                             <div class="item-img">
-                                <img src="../../public/assets/media/figure/admin.jpg" alt="thumb">
+                                <img src="<?php echo PATH; ?>public/vendor/assets/media/figure/admin.jpg" alt="thumb">
                             </div>
                             <div class="media-body">
                                 <h6 class="item-title text-13 text-bold mb-1">Thomas Henry Added!</h6>
@@ -122,7 +122,7 @@
                 </div>
             </li>
             <li class="navbar-item dropdown nav-admin">
-                <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"><img src="../../public/assets/media/figure/admin.jpg" alt=""><? echo $nome_cognome; ?><i class="flaticon-null-16"></i></a>
+                <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"><img src="<?php echo PATH; ?>public/vendor/assets/media/figure/admin.jpg" alt=""><? echo $nome_cognome; ?><i class="flaticon-null-16"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <h5 class="text-bold text-body mb-0"><? echo $nome_cognome; ?></h5>
                     <div class="text-14 text-manatee">Graphic Design</div>

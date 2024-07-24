@@ -98,7 +98,7 @@
 			'en' => 'Inglese'
 		],
 		'log' => [
-			'baseFolder' => 'public/gc_logs',
+			'baseFolder' => 'gc_logs',
 			'subFolder' => [
 				0 => 'backup',
 				1 => 'logs',

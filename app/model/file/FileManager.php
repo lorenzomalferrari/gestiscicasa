@@ -67,7 +67,7 @@
             try {
                 foreach ($directories as $dir) {
                     if (!file_exists(ROOT . $dir) || !is_dir(ROOT . $dir)) {
-                        if (!mkdir(ROOT . $dir, 0755, true)) {
+                        if (!mkdir(ROOT . $dir, 777, true)) {
                             print_r("-> ERRORE: Impossibile creare la cartella " . ROOT . $dir);
                         } else {
                             // Creo log

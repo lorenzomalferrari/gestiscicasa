@@ -88,7 +88,7 @@
                     <!--=====================================-->
                     <div class="container-fluid">
                         <div class="card component-table">
-                            <?php require_once(ROOT . "app/view/components/table/data-table.php"); ?>
+                            <?php require_once(ROOT . "app/view/components/table/data-table_2.php"); ?>
                         </div>
                     </div>
                     <!--=====================================-->
