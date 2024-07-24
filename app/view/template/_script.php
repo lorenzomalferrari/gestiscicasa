@@ -17,7 +17,7 @@
 <script src="<?php echo PATH; ?>public/vendor/dependencies/quill/quill.min.js"></script>
 <script src="<?php echo PATH; ?>public/vendor/assets/js/chart.js"></script>
 <script src="<?php echo PATH; ?>public/vendor/assets/js/apex-chart.js"></script>
-<script src="<?php echo PATH; ?>public/vendor/assets/vendor/dependencies/datatables/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo PATH; ?>public/vendor/dependencies/datatables/js/jquery.dataTables.min.js"></script>
 
 <!-- Preloader Js -->
 <script src="<?php echo PATH; ?>public/vendor/dependencies/imagesloaded/imagesloaded.pkgd.min.js"></script>

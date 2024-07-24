@@ -210,7 +210,7 @@
                                             <div class="activity-list">
                                                 <div class="media">
                                                     <div class="item-img">
-                                                        <img src="../../public/assets/media/figure/img_1.jpg" alt="Girl">
+                                                        <img src="../../public/vendor/media/figure/img_1.jpg" alt="Girl">
                                                     </div>
                                                     <div class="media-body">
                                                         <div class="item-date">22 Jun. 2020</div>
@@ -219,7 +219,7 @@
                                                 </div>
                                                 <div class="media">
                                                     <div class="item-img">
-                                                        <img src="../../public/assets/media/figure/img_2.jpg" alt="Girl">
+                                                        <img src="../../public/vendor/media/figure/img_2.jpg" alt="Girl">
                                                     </div>
                                                     <div class="media-body">
                                                         <div class="item-date">24 Jun. 2020</div>
@@ -228,7 +228,7 @@
                                                 </div>
                                                 <div class="media">
                                                     <div class="item-img">
-                                                        <img src="../../public/assets/media/figure/img_3.jpg" alt="Girl">
+                                                        <img src="../../public/vendor/media/figure/img_3.jpg" alt="Girl">
                                                     </div>
                                                     <div class="media-body">
                                                         <div class="item-date">24 Jun. 2020</div>
@@ -237,7 +237,7 @@
                                                 </div>
                                                 <div class="media">
                                                     <div class="item-img">
-                                                        <img src="../../public/assets/media/figure/img_4.jpg" alt="Girl">
+                                                        <img src="../../public/vendor/media/figure/img_4.jpg" alt="Girl">
                                                     </div>
                                                     <div class="media-body">
                                                         <div class="item-date">24 Jun. 2020</div>
@@ -246,7 +246,7 @@
                                                 </div>
                                                 <div class="media">
                                                     <div class="item-img">
-                                                        <img src="../../public/assets/media/figure/img_5.jpg" alt="Girl">
+                                                        <img src="../../public/vendor/media/figure/img_5.jpg" alt="Girl">
                                                     </div>
                                                     <div class="media-body">
                                                         <div class="item-date">03 Aug 2020</div>
@@ -255,7 +255,7 @@
                                                 </div>
                                                 <div class="media d-none d-xxl-flex">
                                                     <div class="item-img">
-                                                        <img src="../../public/assets/media/figure/img_6.jpg" alt="Girl">
+                                                        <img src="../../public/vendor/media/figure/img_6.jpg" alt="Girl">
                                                     </div>
                                                     <div class="media-body">
                                                         <div class="item-date">15 Aug. 2020</div>
@@ -264,7 +264,7 @@
                                                 </div>
                                                 <div class="media d-none d-xxl-flex">
                                                     <div class="item-img">
-                                                        <img src="../../public/assets/media/figure/img_5.jpg" alt="Girl">
+                                                        <img src="../../public/vendor/media/figure/img_5.jpg" alt="Girl">
                                                     </div>
                                                     <div class="media-body">
                                                         <div class="item-date">03 Aug 2020</div>
@@ -338,35 +338,35 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/flag_1.jpg" alt="img">
+                                                            <td class="d-flex align-items-center"><img src="../../public/vendor/media/figure/flag_1.jpg" alt="img">
                                                                 <div>United States</div>
                                                             </td>
                                                             <td>13,495</td>
                                                             <td class="text-semibold">$170,400.50</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/flag_2.jpg" alt="img">
+                                                            <td class="d-flex align-items-center"><img src="../../public/vendor/media/figure/flag_2.jpg" alt="img">
                                                                 <div>Netherlands</div>
                                                             </td>
                                                             <td>11,495</td>
                                                             <td class="text-semibold">$125,400.80</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/flag_3.jpg" alt="img">
+                                                            <td class="d-flex align-items-center"><img src="../../public/vendor/media/figure/flag_3.jpg" alt="img">
                                                                 <div>United Kingdom</div>
                                                             </td>
                                                             <td>09,348</td>
                                                             <td class="text-semibold">$90,735.30</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/flag_4.jpg" alt="img">
+                                                            <td class="d-flex align-items-center"><img src="../../public/vendor/media/figure/flag_4.jpg" alt="img">
                                                                 <div>Canada</div>
                                                             </td>
                                                             <td>07,845</td>
                                                             <td class="text-semibold">$84,954.70</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/flag_5.jpg" alt="img">
+                                                            <td class="d-flex align-items-center"><img src="../../public/vendor/media/figure/flag_5.jpg" alt="img">
                                                                 <div>Australia</div>
                                                             </td>
                                                             <td>05,945</td>
@@ -526,7 +526,7 @@
                                             <div class="notify-list">
                                                 <div class="media">
                                                     <div class="item-img">
-                                                        <img src="../../public/assets/media/figure/notify_1.jpg" alt="Notification">
+                                                        <img src="../../public/vendor/media/figure/notify_1.jpg" alt="Notification">
                                                     </div>
                                                     <div class="media-body">
                                                         <h5 class="item-title"><a href="#">Triangle Concrete House</a></h5>
@@ -539,7 +539,7 @@
                                                 </div>
                                                 <div class="media">
                                                     <div class="item-img">
-                                                        <img src="../../public/assets/media/figure/notify_2.jpg" alt="Notification">
+                                                        <img src="../../public/vendor/media/figure/notify_2.jpg" alt="Notification">
                                                     </div>
                                                     <div class="media-body">
                                                         <h5 class="item-title"><a href="#">Modern concepts and designs</a></h5>
@@ -552,7 +552,7 @@
                                                 </div>
                                                 <div class="media">
                                                     <div class="item-img">
-                                                        <img src="../../public/assets/media/figure/notify_3.jpg" alt="Notification">
+                                                        <img src="../../public/vendor/media/figure/notify_3.jpg" alt="Notification">
                                                     </div>
                                                     <div class="media-body">
                                                         <h5 class="item-title"><a href="#">Architecture Awards</a></h5>
@@ -596,7 +596,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td class="transaction-id">#AB3054</td>
-                                                            <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/img_7.jpg" alt="img">
+                                                            <td class="d-flex align-items-center"><img src="../../public/vendor/media/figure/img_7.jpg" alt="img">
                                                                 <h6 class="mb-0 text-semibold">Keith Jensen</h6>
                                                             </td>
                                                             <td class="transaction-date">07 Oct, 2019</td>
@@ -607,7 +607,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="transaction-id">#AB3055</td>
-                                                            <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/img_8.jpg" alt="img">
+                                                            <td class="d-flex align-items-center"><img src="../../public/vendor/media/figure/img_8.jpg" alt="img">
                                                                 <h6 class="mb-0 text-semibold">Jacob Hunter</h6>
                                                             </td>
                                                             <td class="transaction-date">07 Oct, 2019</td>
@@ -618,7 +618,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="transaction-id">#AB3056</td>
-                                                            <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/img_9.jpg" alt="img">
+                                                            <td class="d-flex align-items-center"><img src="../../public/vendor/media/figure/img_9.jpg" alt="img">
                                                                 <h6 class="mb-0 text-semibold">Juan Mitchell</h6>
                                                             </td>
                                                             <td class="transaction-date">07 Oct, 2019</td>
@@ -629,7 +629,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="transaction-id">#AB3057</td>
-                                                            <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/img_10.jpg" alt="img">
+                                                            <td class="d-flex align-items-center"><img src="../../public/vendor/media/figure/img_10.jpg" alt="img">
                                                                 <h6 class="mb-0 text-semibold">Keith Jensen</h6>
                                                             </td>
                                                             <td class="transaction-date">07 Oct, 2019</td>
@@ -640,7 +640,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="transaction-id">#AB3058</td>
-                                                            <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/img_11.jpg" alt="img">
+                                                            <td class="d-flex align-items-center"><img src="../../public/vendor/media/figure/img_11.jpg" alt="img">
                                                                 <h6 class="mb-0 text-semibold">Juan Mitchell</h6>
                                                             </td>
                                                             <td class="transaction-date">07 Oct, 2019</td>
@@ -651,7 +651,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="transaction-id">#AB3059</td>
-                                                            <td class="d-flex align-items-center"><img src="../../public/assets/media/figure/img_12.jpg" alt="img">
+                                                            <td class="d-flex align-items-center"><img src="../../public/vendor/media/figure/img_12.jpg" alt="img">
                                                                 <h6 class="mb-0 text-semibold">Ronald Taylor</h6>
                                                             </td>
                                                             <td class="transaction-date">04 Oct, 2019</td>

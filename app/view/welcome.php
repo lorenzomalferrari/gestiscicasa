@@ -25,7 +25,7 @@ print_r($_SESSION);
             <div class="card login-form register-form">
                 <div class="card-body">
                     <div class="item-logo">
-                        <a href="index.php"><img src="../../public/assets/media/logo-large.png" alt="<?php echo CONFIG['site']['name']; ?>"></a>
+                        <a href="index.php"><img src="../../public/vendor/media/logo-large.png" alt="<?php echo CONFIG['site']['name']; ?>"></a>
                     </div>
                     <h3 class="text-body text-bold mb-1 text-22"><?php echo $titlePage; ?></h3>
                     <div class="text-manatee">
