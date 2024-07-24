@@ -41,8 +41,7 @@
          */
         public function __construct($message, $action, $data, $beforeState, $afterState, $ipAddress, $userId, $email, $subject, $emailMessage, $customException = null, $databaseConnectionInfo = null, $logFile = null)
         {
-        public const PATH_EMAIL_LOG = self::FOLDER_EMAIL_LOG . "/" . YEARNOW . MONTH . DAY . "_info_log" . self::FILE_EXTENSION;
-            parent::__construct($message, $action, $data, $beforeState, $afterState, $ipAddress, $userId, $customException, $databaseConnectionInfo, $logFile ?? PathAndFilesLog::);
+            parent::__construct($message, $action, $data, $beforeState, $afterState, $ipAddress, $userId, $customException, $databaseConnectionInfo, $logFile ?? PathAndFilesLog::PATH_EMAIL_ERROR);
             $this->email = $email;
             $this->subject = $subject;
             $this->emailMessage = $emailMessage;
