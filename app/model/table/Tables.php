@@ -5,9 +5,23 @@
 		const ID = 'id';
 		const USERNAME = 'username';
 		const PASSWORD = 'password';
+		const TOKEN = 'TOKEN';
 		const CREATION_DATE = 'creationDate';
 		const UPDATE_DATE = 'updateData';
 		const IS_ACTIVE = 'isActive';
+
+		public static function getColumns()
+		{
+			return [
+				self::ID,
+				self::USERNAME,
+				self::PASSWORD,
+				self::TOKEN,
+				self::CREATION_DATE,
+				self::UPDATE_DATE,
+				self::IS_ACTIVE
+			];
+		}
 	}
 
 	class PersonTable {

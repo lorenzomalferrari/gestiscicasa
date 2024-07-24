@@ -2,7 +2,7 @@
     require_once(ROOT . 'app/model/NomiTabelle.php');
     require_once(ROOT . "app/model/Property.php");
 
-    $arrProperty = array();
+    $arrProperties = array();
 
     $select = "*";
 
@@ -32,7 +32,7 @@
     $results = DB->selectAll($query, $params_select);
 
     foreach ($results as $r) {
-        $arrProperty[] = new Property(
+        $arrProperties[] = new Property(
             $r[PropertyTable::ID],
             $r[PropertyTable::NAME],
             $r[PropertyTable::DESCRIPTION],

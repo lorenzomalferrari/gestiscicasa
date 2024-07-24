@@ -52,7 +52,7 @@
                     <div class="dsy-menu-label-text">APPLICATIONS</div>
                 </li>
                 <li class="dsy-menu-item">
-                    <a href="<?php echo PATH . "app/view/property_list.php" ?>" class="dsy-menu-link">
+                    <a href="<?php echo PATH . "app/view/properties_list.php" ?>" class="dsy-menu-link">
                         <span class="dsy-menu-link-icon">
                             <i class="flaticon-null-4"></i>
                         </span>
@@ -60,11 +60,11 @@
                     </a>
                 </li>
                 <li class="dsy-menu-item">
-                    <a href="chat.php" class="dsy-menu-link">
+                    <a href="<?php echo PATH . "app/view/users_list.php" ?>" class="dsy-menu-link">
                         <span class="dsy-menu-link-icon">
                             <i class="flaticon-null-3"></i>
                         </span>
-                        <span class="dsy-menu-link-text">Chat</span>
+                        <span class="dsy-menu-link-text">Utenti</span>
                     </a>
                 </li>
                 <li class="dsy-menu-item">

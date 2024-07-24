@@ -1,31 +1,26 @@
 <?php declare(strict_types=1);
     require_once("../controller/lib/libs.php");
     //Richiamare info da mostrare
-    require_once(ROOT . "app/controller/property/getPropertyList.php");
+    require_once(ROOT . "app/controller/users/getUsersList.php");
     //Eventuale personalizzazione
-    require_once(ROOT . "app/controller/property/customTable.php");
+    require_once(ROOT . "app/controller/users/customTable.php");
 
-    $titlePage = "Elenco Proprietà";
+    $titlePage = "Elenco Utenti";
 
     $tableName = $titlePage;
-    $tableDataHeader = PropertyTable::getColumns();
+    $tableDataHeader = UsersTable::getColumns();
     $tableDataRecord =  [];
 
-    foreach ($arrProperty as $property) {
+    foreach ($arrUsers as $user) {
         //print_r($property);
         $tableDataRecord[] = [
-            $property->getId(),
-            $property->getName(),
-            $property->getDescription(),
-            $property->getPrice(),
-            $property->getAddress(),
-            $property->getIdCity(),
-            $property->getIdState(),
-            $property->getIdPropertyType(),
-            $property->isActive(),
-            $property->getNotes(),
-            $property->getCreationDate(),
-            $property->getupdateDate(),
+            $user->getId(),
+            $user->getUsername(),
+            $user->getPassword(),
+            $user->getToken(),
+            $user->getCreationDate(),
+            $user->getUpdateDate(),
+            $user->getIsActive(),
         ];
     }
 ?>
