@@ -4,6 +4,6 @@ CREATE TABLE IF NOT EXISTS lmgc_Catalog (
     description TEXT,
     note TEXT,
     creationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updateData TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    CONSTRAINT chk_updateDate CHECK (updateDate >= creationDate)
+    updateData TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP/*,
+    CONSTRAINT chk_updateDate CHECK (updateDate >= creationDate)*/
 );

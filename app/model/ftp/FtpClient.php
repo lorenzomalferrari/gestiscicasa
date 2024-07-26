@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
     class FtpClient {
         private $ftpServer;
         private $ftpUsername;

@@ -1,16 +1,17 @@
 <?php declare(strict_types=1);
-	require_once("../controller/lib/libs.php");
+	require_once("../../app/controller/lib/libs.php");
 
 	// Carica il file di configurazione
 	$config = include(ROOT . 'public/config/config.php');
 
 	// Recupera i dati POST
 	$input = file_get_contents('php://input');
+	print_r($input);
 	$data = json_decode($input, true);
 
 	// Verifica che i dati siano stati inviati correttamente
 	if (!isset($data['context']) || !isset($data['username']) || !isset($data['password']) || !isset($data['json'])) {
-		die(json_encode(['status' => 'error', 'message' => 'Parametri mancanti.']));
+		die(json_encode(['status' => 'error', 'message' => 'Parametri mancanti.', 'post' => var_dump($data) ]));
 	}
 
 	// Verifica le credenziali

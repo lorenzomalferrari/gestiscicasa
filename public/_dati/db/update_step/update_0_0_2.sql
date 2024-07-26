@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS lmgc_UsageDestinations (
     updateData TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     code VARCHAR(50),
     colorId INT,
-    FOREIGN KEY (colorId) REFERENCES Colors(id)
+    FOREIGN KEY (colorId) REFERENCES lmgc_Colors(id)
 );
 
 ALTER TABLE lmgc_UsageDestinations

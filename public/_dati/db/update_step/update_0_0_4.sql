@@ -9,23 +9,23 @@ CREATE TABLE IF NOT EXISTS lmgc_Rooms (
     idColor INT,
     idProperty INT,
     idRoomType INT,
-    FOREIGN KEY (idUsageDestination) REFERENCES UsageDestinations(id),
-    FOREIGN KEY (idColor) REFERENCES Colors(id),
-    FOREIGN KEY (idProperty) REFERENCES Properties(id),
-    FOREIGN KEY (idRoomType) REFERENCES RoomTypes(id)
+    FOREIGN KEY (idUsageDestination) REFERENCES lmgc_UsageDestinations(id),
+    FOREIGN KEY (idColor) REFERENCES lmgc_Colors(id),
+    FOREIGN KEY (idProperty) REFERENCES lmgc_Property(id),
+    FOREIGN KEY (idRoomType) REFERENCES lmgc_RoomTypes(id)
 );
 
 ALTER TABLE lmgc_Rooms
-ADD CONSTRAINT FK_Rooms_UsageDestinations FOREIGN KEY (idUsageDestination) REFERENCES UsageDestinations(id),
-ADD CONSTRAINT FK_Rooms_Colors FOREIGN KEY (idColor) REFERENCES Colors(id),
-ADD CONSTRAINT FK_Rooms_Properties FOREIGN KEY (idProperty) REFERENCES Properties(id),
-ADD CONSTRAINT FK_Rooms_RoomTypes FOREIGN KEY (idRoomType) REFERENCES RoomTypes(id);
+ADD CONSTRAINT FK_Rooms_UsageDestinations FOREIGN KEY (idUsageDestination) REFERENCES lmgc_UsageDestinations(id),
+ADD CONSTRAINT FK_Rooms_Colors FOREIGN KEY (idColor) REFERENCES lmgc_Colors(id),
+ADD CONSTRAINT FK_Rooms_Properties FOREIGN KEY (idProperty) REFERENCES lmgc_Property(id),
+ADD CONSTRAINT FK_Rooms_RoomTypes FOREIGN KEY (idRoomType) REFERENCES lmgc_RoomTypes(id);
 
 ALTER TABLE lmgc_Rooms
-ADD CONSTRAINT FK_Rooms_UsageDestinations FOREIGN KEY (idUsageDestination) REFERENCES UsageDestinations(id),
-ADD CONSTRAINT FK_Rooms_Colors FOREIGN KEY (idColor) REFERENCES Colors(id),
-ADD CONSTRAINT FK_Rooms_Properties FOREIGN KEY (idProperty) REFERENCES Properties(id),
-ADD CONSTRAINT FK_Rooms_RoomTypes FOREIGN KEY (idRoomType) REFERENCES RoomTypes(id);
+ADD CONSTRAINT FK_Rooms_UsageDestinations FOREIGN KEY (idUsageDestination) REFERENCES lmgc_UsageDestinations(id),
+ADD CONSTRAINT FK_Rooms_Colors FOREIGN KEY (idColor) REFERENCES lmgc_Colors(id),
+ADD CONSTRAINT FK_Rooms_Properties FOREIGN KEY (idProperty) REFERENCES lmgc_Property(id),
+ADD CONSTRAINT FK_Rooms_RoomTypes FOREIGN KEY (idRoomType) REFERENCES lmgc_RoomTypes(id);
 
 -- Inserimento della stanza "Soggiorno"
 INSERT INTO lmgc_Rooms (number, name, idUsageDestination, note, idColor, idProperty, idRoomType)

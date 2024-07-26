@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS lmgc_Brand (
     note TEXT,
     creationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updateData TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (country_of_origin) REFERENCES Countries(id),
-    FOREIGN KEY (industry_sector) REFERENCES IndustrySectors(id)
+    FOREIGN KEY (country_of_origin) REFERENCES lmgc_Countries(id),
+    FOREIGN KEY (industry_sector) REFERENCES lmgc_IndustrySectors(id)
 );
 
 INSERT INTO Brand (name, country_of_origin, industry_sector, foundation_year, note)

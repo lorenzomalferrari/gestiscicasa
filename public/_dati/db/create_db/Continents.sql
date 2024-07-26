@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS Continents (
+CREATE TABLE IF NOT EXISTS lmgc_Continents (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     population BIGINT,

@@ -6,10 +6,10 @@ CREATE TABLE IF NOT EXISTS lmgc_Category (
     creationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updateData TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     IdColor INT,
-    CONSTRAINT fk_Category_Color FOREIGN KEY (IdColor) REFERENCES Colors(id),
+    CONSTRAINT fk_Category_Color FOREIGN KEY (IdColor) REFERENCES lmgc_Colors(id)/*,
     CONSTRAINT chk_name_length CHECK (CHAR_LENGTH(name) <= 255),
     CONSTRAINT chk_description_length CHECK (CHAR_LENGTH(description) <= 65535),
-    CONSTRAINT chk_notes_length CHECK (CHAR_LENGTH(notes) <= 65535)
+    CONSTRAINT chk_notes_length CHECK (CHAR_LENGTH(notes) <= 65535)*/
 );
 
 INSERT INTO Category (name, description, notes, creationDate, updateDate, IdColor)
