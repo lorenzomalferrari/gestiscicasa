@@ -243,6 +243,27 @@
             $log->writeToFile();
         }
 
+        public function exec($query, $params = array())
+        {
+            try {
+                $stmt = $this->conn->prepare($query);
+                $stmt->execute($params);
+
+                $params_log = [
+                    'message' => 'Interrogazione al database: QUERY -> ' . $query . ' - PARAMETRI -> ' . implode(", ", $params),
+                    'action' => 'EXECUTE', // Puoi cambiare 'EXECUTE' con una stringa appropriata se hai un tipo di log specifico
+                    'beforeState' => null,
+                    'afterState' => null,
+                    'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
+                ];
+
+                $this->executeLog($params_log);
+                return $stmt->rowCount();
+            } catch (PDOException $e) {
+                throw new CustomException("Errore durante l'esecuzione della query exec", CustomException::PDO_EXCEPTION, $e);
+            }
+        }
+
         /**
          * Metodo magico per ottenere una rappresentazione testuale dell'oggetto Database.
          *
