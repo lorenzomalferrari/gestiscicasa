@@ -31,6 +31,7 @@
         case USERS = UsersTable::TABLE_NAME;
         case USERSPROPERTY = UsersPropertyTable::TABLE_NAME;
         case VERSIONDB = VersioniDBTable::TABLE_NAME;
+        case PATHVISITATED = PathVisitatedTable::TABLE_NAME;
     }
 
     function getNomeTabella(string $prefisso, NomiTabella $nomeT): string

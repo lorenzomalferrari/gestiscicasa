@@ -489,13 +489,33 @@
 		const ID_PROPERTY = 'idProperty';
 		const ID_ROLE = 'idRole';
 
-	public static function getColumns()
-	{
-		return [
-			self::ID_PERSON,
-			self::ID_PROPERTY,
-			self::ID_ROLE,
-		];
+		public static function getColumns()
+		{
+			return [
+				self::ID_PERSON,
+				self::ID_PROPERTY,
+				self::ID_ROLE,
+			];
+		}
+
 	}
+	class PathVisitatedTable
+	{
+		const TABLE_NAME = 'PathVisitated';
+
+		const ID = 'id';
+		const PATH = 'path';
+		const ID_USER = 'idUser';
+		const COUNT = 'count';
+
+		public static function getColumns()
+		{
+			return [
+				self::ID,
+				self::PATH,
+				self::ID_USER,
+				self::COUNT,
+			];
+		}
 	}
 ?>

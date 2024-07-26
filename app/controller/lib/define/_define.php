@@ -156,4 +156,19 @@
 	 * Da migliorare, usando la classe Token che è in sviluppo
 	 */
 	define('UNIQ_TOKEN', uniqid());
+
+	/**
+	 * Percorsi da escludere dal salvataggio delle path visitate in DB
+	 */
+	define('PATH_ESCLUSE', [
+		'/index.php',
+		'/confirm.php',
+		'/server_in_manutenzione.php',
+		'/app/view/login.php',
+		'/app/view/home.php',
+		'/app/view/pricing.php',
+		'/app/view/registration.php',
+		'/app/view/reset_psw.php',
+		'/app/view/welcome.php',
+	]);
 ?>

@@ -138,7 +138,6 @@
 		}
 	}
 
-
 	/**
 	 * Verifica se l'applicazione sta girando su un ambiente locale.
 	 *
