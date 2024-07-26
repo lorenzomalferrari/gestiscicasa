@@ -9,12 +9,13 @@
 	$data = json_decode($input, true);
 
 	// Verifica che i dati siano stati inviati correttamente
-	if (!isset($data['context']) || !isset($data['credentials']) || !isset($data['json'])) {
+	if (!isset($data['context']) || !isset($data['username']) || !isset($data['password']) || !isset($data['json'])) {
 		die(json_encode(['status' => 'error', 'message' => 'Parametri mancanti.']));
 	}
 
 	// Verifica le credenziali
-	list($username, $password) = explode(':', $data['credentials']);
+	$username = $data['username'];
+	$password = $data['password'];
 	if (!isset($config['allowed_users'][$username]) || $config['allowed_users'][$username] !== $password) {
 		die(json_encode(['status' => 'error', 'message' => 'Credenziali non valide.']));
 	}
@@ -32,13 +33,7 @@
 	switch ($context) {
 		case 'update_db':
 			require_once(ROOT . 'app/model/api/UpdateDB.php');
-			$dsn = 'mysql:host=localhost;dbname=your_db_name'; // Modifica con il tuo DSN
-			$dbUsername = 'db_user'; // Modifica con il tuo username DB
-			$dbPassword = 'db_password'; // Modifica con la tua password DB
-			$sqlDirectory = '/path/to/sql'; // Sostituisci con il percorso della directory SQL
-			$updateDirectory = '/path/to/updates'; // Sostituisci con il percorso della directory di aggiornamento
-
-			$handler = new UpdateDB($dsn, $dbUsername, $dbPassword, $sqlDirectory, $updateDirectory);
+			$handler = new UpdateDB();
 			$response = $handler->handle($jsonParams);
 			break;
 		case 'sends_log':
@@ -71,4 +66,3 @@
 
 	// Restituisce il risultato come JSON
 	echo json_encode($response);
-?>
