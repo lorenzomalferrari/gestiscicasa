@@ -1,29 +1,21 @@
 <?php
 
 class UpdateDB {
-	private $pdo;
 	private $sqlDirectory;
 	private $updateDirectory;
 
-	public function __construct($dsn, $dbUsername, $dbPassword, $sqlDirectory, $updateDirectory) {
-		// Connessione al database
-		$this->pdo = new PDO($dsn, $dbUsername, $dbPassword);
-		$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-		$this->sqlDirectory = $sqlDirectory;
-		$this->updateDirectory = $updateDirectory;
+	public function __construct() {
+		$this->sqlDirectory = "/public/_dati/db/create_db/";
+		$this->updateDirectory = "/public/_dati/db/update_step";
 	}
 
 	public function handle($params) {
 		try {
 			// Esegui i file SQL dalla cartella principale
 			$this->executeSqlFiles($this->sqlDirectory);
-
 			// Esegui i file di aggiornamento ordinati
 			$this->executeUpdateFiles($this->updateDirectory);
-
 			return ['status' => 'success', 'message' => 'Aggiornamenti eseguiti con successo.'];
-
 		} catch (Exception $e) {
 			return ['status' => 'error', 'message' => $e->getMessage()];
 		}
@@ -38,7 +30,7 @@ class UpdateDB {
 
 	private function executeSqlFile($file) {
 		$sql = file_get_contents($file);
-		$this->pdo->exec($sql);
+		DB->exec($sql);
 	}
 
 	private function executeUpdateFiles($directory) {
