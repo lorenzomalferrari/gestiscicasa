@@ -5,10 +5,10 @@
         private $ftpPassword;
         private $connection;
 
-        public function __construct($ftpServer, $ftpUsername, $ftpPassword) {
-            $this->ftpServer = $ftpServer;
-            $this->ftpUsername = $ftpUsername;
-            $this->ftpPassword = $ftpPassword;
+        public function __construct() {
+            $this->ftpServer = CONFIG['ftp']['server'];
+            $this->ftpUsername = CONFIG['ftp']['username'];
+            $this->ftpPassword = CONFIG['ftp']['password'];
             $this->connect();
         }
 

@@ -38,12 +38,7 @@
 			break;
 		case 'sends_log':
 			require_once(ROOT . 'app/model/api/SendsLog.php');
-			$ftpServer = 'ftp.example.com'; // Sostituisci con il tuo server FTP
-			$ftpUsername = 'ftp_user'; // Sostituisci con il tuo username FTP
-			$ftpPassword = 'ftp_password'; // Sostituisci con la tua password FTP
-			$logsDirectory = '/path/to/logs'; // Sostituisci con il percorso della directory dei log
-
-			$handler = new SendsLog($ftpServer, $ftpUsername, $ftpPassword, $logsDirectory);
+			$handler = new SendsLog();
 			$response = $handler->handle($jsonParams);
 			break;
 		case 'resend_email':

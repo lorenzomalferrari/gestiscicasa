@@ -50,6 +50,12 @@
 				'DELETE' => 4,
 			]
 		],
+		'ftp' => [
+			'server' => '81.31.158.38',
+			'username' => 'uij8aoin',
+			'password' => 'pIBqik90',
+			'directory' => 'public_ftp/gc/',
+		],
 		'email' => [
 			'smtp' => [
 				'server' => 'mail.lorenzomalferrari.com',

@@ -5,9 +5,9 @@
         private $ftpClient;
         private $logsDirectory;
 
-        public function __construct($ftpServer, $ftpUsername, $ftpPassword, $logsDirectory) {
-            $this->ftpClient = new FtpClient($ftpServer, $ftpUsername, $ftpPassword);
-            $this->logsDirectory = $logsDirectory;
+        public function __construct() {
+            $this->ftpClient = new FtpClient();
+            $this->logsDirectory = CONFIG['ftp']['directory'];
         }
 
         public function handle($params) {
