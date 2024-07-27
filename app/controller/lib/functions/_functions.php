@@ -151,4 +151,21 @@
 		$localHosts = ['localhost', '127.0.0.1', '::1'];
 		return in_array(HTTP_HOST, $localHosts) || in_array(DOMINIO, $localHosts);
 	}
+
+	/**
+	 * Data la path viene recuperato il nome della voce da usare nel menù
+	 *
+	 * @param string $path
+	 * @return string|null Percorso che ha un riscontro oppure niente
+	 */
+	function getMenuNameByPath($path)
+	{
+		foreach (MENU_PATHS as $key => $value) {
+			if ($value === $path) {
+				return $key;
+			}
+		}
+		return null; // Path non trovata
+	}
+
 ?>
