@@ -177,4 +177,19 @@
 		'/app/view/reset_psw.php',
 		'/app/view/welcome.php',
 	]);
+
+	/**
+	 * 
+	 */
+	define('MENU_PATHS', [
+		'home' => '/app/view/home.php',
+		'login' => '/app/view/login.php',
+		'pricing' => '/app/view/pricing.php',
+		'properties' => '/app/view/properties_list.php',
+		'registration' => '/app/view/registration.php',
+		'reset_psw' => '/app/view/reset_psw.php',
+		'users' => '/app/view/users_list.php',
+		'welcome' => '/app/view/welcome.php',
+	]);
+
 ?>
