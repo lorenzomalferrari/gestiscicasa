@@ -1,10 +1,10 @@
 <div class="dsy-aside dsy-aside-fixed">
     <div class="dsy-aside-brand">
         <div class="dsy-brand-logo">
-            <a href="index.php" class="main-logo">
+            <a href="<?php echo PATH . "index.php"; ?>" class="main-logo">
                 <img src="../../public/vendor/media/main-logo.png" alt="logo">
             </a>
-            <a href="index.php" class="logo-icon">
+            <a href="<?php echo PATH . "index.php"; ?>" class="logo-icon">
                 <img src="../../public/vendor/media/favicon.png" alt="logo">
             </a>
         </div>
@@ -19,22 +19,22 @@
     <div class="dsy-aside-menu-wrapper">
         <div class="dsy-aside-menu">
             <ul class="dsy-aside-nav sidebar-toggle-view">
-                <li class="dsy-menu-label">
+                <!--<li class="dsy-menu-label">
                     <div class="dsy-menu-label-text">MENU</div>
                 </li>
                 <li class="dsy-menu-item sidebar-nav-item active">
                     <a href="#" class="dsy-menu-link">
                         <span class="dsy-menu-link-icon">
                             <i class="flaticon-null-1"></i>
-                        </span>
-                        <!--
+                        </span>-->
+                <!--
                         <span class="dsy-menu-link-text">
                             <a href="index.php" class="dsy-menu-link">Dashboards</a>
                         </span>
                         -->
-                        <!--<span class="dsy-menu-count">03</span>-->
-                    </a>
-                    <!--
+                <!--<span class="dsy-menu-count">03</span>-->
+                <!--</a>-->
+                <!--
                     <ul class="dsy-sub-group sub-group-menu">
                         <li class="dsy-nav-item active">
                             <a href="index.php" class="dsy-menu-link">Sales Monitoring</a>
@@ -49,7 +49,21 @@
                     -->
                 </li>
                 <li class="dsy-menu-label">
-                    <div class="dsy-menu-label-text">APPLICATIONS</div>
+                    <div class="dsy-menu-label-text">MENU</div>
+                </li>
+                <li class="dsy-menu-item sidebar-nav-item">
+                    <a href="#" class="dsy-menu-link">
+                        <span class="dsy-menu-link-icon">
+                            <i class="flaticon-null-6"></i>
+                        </span>
+                        <span class="dsy-menu-link-text">Più Usati</span>
+                        <span class="dsy-arrow-icon"><i class="flaticon-null-8"></i></span>
+                    </a>
+                    <ul class="dsy-sub-group sub-group-menu">
+                        <?php
+                            require_once(ROOT . "app/controller/menu/piu_usati.php");
+                        ?>
+                    </ul>
                 </li>
                 <li class="dsy-menu-item">
                     <a href="<?php echo PATH . "app/view/properties_list.php" ?>" class="dsy-menu-link">
@@ -83,24 +97,7 @@
                         <span class="dsy-menu-link-text">Contacts</span>
                     </a>
                 </li>
-                <li class="dsy-menu-item sidebar-nav-item">
-                    <a href="#" class="dsy-menu-link">
-                        <span class="dsy-menu-link-icon">
-                            <i class="flaticon-null-6"></i>
-                        </span>
-                        <span class="dsy-menu-link-text">Mail</span>
-                        <span class="dsy-arrow-icon"><i class="flaticon-null-8"></i></span>
-                    </a>
-                    <ul class="dsy-sub-group sub-group-menu">
-                        <li class="dsy-nav-item">
-                            <a href="email.php" class="dsy-menu-link">Inbox</a>
-                        </li>
-                        <li class="dsy-nav-item">
-                            <a href="email-read.php" class="dsy-menu-link">Read Mail</a>
-                        </li>
-                    </ul>
-                </li>
-<!--
+                <!--
                 <li class="dsy-menu-label">
                     <div class="dsy-menu-label-text">PAGES</div>
                 </li>
@@ -154,7 +151,7 @@
                     </ul>
                 </li>
 -->
-<!--
+                <!--
                 <li class="dsy-menu-label">
                     <div class="dsy-menu-label-text">COMPONENTS</div>
                 </li>
