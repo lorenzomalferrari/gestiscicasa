@@ -179,7 +179,7 @@
 	]);
 
 	/**
-	 * 
+	 *
 	 */
 	define('MENU_PATHS', [
 		'home' => '/app/view/home.php',
@@ -192,4 +192,13 @@
 		'welcome' => '/app/view/welcome.php',
 	]);
 
+	define('API', [
+		'UPDATE_DB' => 'update_db',
+		'SEND_LOGS' => 'send_log',
+		'RESEND_EMAILS' => 'resend_emails',
+		'IMPORT_USERS' => 'import_users',
+		'IMPORT_PROPERTIES' => 'import_properties',
+		'DOWNLOAD_USERS' => 'download_users',
+		'DOWNLOAD_PROPERTIES' => 'download_properties',
+	]);
 ?>

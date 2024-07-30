@@ -3,11 +3,14 @@
 
 	// Carica il file di configurazione
 	$config = include(ROOT . 'public/config/config.php');
-
 	// Recupera i dati POST
 	$input = file_get_contents('php://input');
-	print_r($input);
-	$data = json_decode($input, true);
+
+	try {
+		$data = JSonValidator::validate($input); // $input è il JSON da validare
+	} catch (Exception $e) {
+		echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
+	}
 
 	// Verifica che i dati siano stati inviati correttamente
 	if (!isset($data['context']) || !isset($data['username']) || !isset($data['password']) || !isset($data['json'])) {
@@ -32,17 +35,17 @@
 	$response = [];
 
 	switch ($context) {
-		case 'update_db':
+		case API['UPDATE_DB']:
 			require_once(ROOT . 'app/model/api/UpdateDB.php');
 			$handler = new UpdateDB();
 			$response = $handler->handle($jsonParams);
 			break;
-		case 'sends_log':
+		case API['SEND_LOGS']:
 			require_once(ROOT . 'app/model/api/SendsLog.php');
 			$handler = new SendsLog();
 			$response = $handler->handle($jsonParams);
 			break;
-		case 'resend_email':
+		case API['RESEND_EMAILS']:
 			require_once(ROOT . 'app/model/api/ResendEmail.php');
 			$dsn = 'mysql:host=localhost;dbname=your_db_name'; // Modifica con il tuo DSN
 			$dbUsername = 'db_user'; // Modifica con il tuo username DB
@@ -54,6 +57,20 @@
 
 			$handler = new ResendEmail($dsn, $dbUsername, $dbPassword, $emailHost, $emailPort, $emailUsername, $emailPassword);
 			$response = $handler->handle($jsonParams);
+			break;
+		case API['IMPORT_USERS']:
+		case API['IMPORT_PROPERTIES']:
+			require_once(ROOT . 'app/model/api/Import.php');
+			$args = explode('_',$context);
+			$handler = new Import($args[1]);
+			$response = $handler->handle($jsonParams);
+			break;
+			break;
+		case API['DOWNLOAD_USERS']:
+		case API['DOWNLOAD_PROPERTIES']:
+			require_once(ROOT . 'app/model/api/Download.php');
+			$args = explode('_', $context);
+			$handler = new Download($args[1]);
 			break;
 		default:
 			$response = ['status' => 'error', 'message' => 'Contesto non riconosciuto. Contattare info@lorenzomalferrari.com'];

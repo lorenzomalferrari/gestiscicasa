@@ -20,6 +20,7 @@
     require_once(ROOT . 'app/model/log/PathAndFilesLog.php');
     require_once(ROOT . "app/model/table/Tables.php");
     require_once(ROOT . 'app/model/file/FileManager.php');
+    require_once(ROOT . 'app/model/formatter_validator/JSonValidator.php');
     require_once(ROOT . 'app/controller/lib/log/_log.php');
     require_once(ROOT . 'app/model/exception/CustomException.php');
     //creo connessione unica al DB

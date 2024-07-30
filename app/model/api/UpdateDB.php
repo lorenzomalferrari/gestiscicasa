@@ -27,7 +27,6 @@
 		private function executeSqlFiles($directory)
 		{
 			$files = glob($directory . '/*.sql');
-			print_r($files);
 			foreach ($files as $file) {
 				$this->executeSqlFile($file);
 			}
