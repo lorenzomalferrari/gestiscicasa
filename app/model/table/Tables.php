@@ -518,4 +518,36 @@
 			];
 		}
 	}
+
+	class NationalitiesTable
+	{
+		const TABLE_NAME = 'Nationalities';
+
+		const ID = 'id';
+		const NAME = 'name';
+		const NAME_ITALIAN = 'name_italian';
+		const NAME_FRENCH = 'name_french';
+		const NAME_SPANISH = 'name_spanish';
+		const NAME_GERMAN = 'name_german';
+		const NAME_PORTUGUESE = 'name_portuguese';
+		const NOTE = 'note';
+		const CREATION_DATE = 'creation_date';
+		const UPDATE_DATE = 'update_date';
+
+		public static function getColumns()
+		{
+			return [
+				self::ID,
+				self::NAME,
+				self::NAME_ITALIAN,
+				self::NAME_FRENCH,
+				self::NAME_SPANISH,
+				self::NAME_GERMAN,
+				self::NAME_PORTUGUESE,
+				self::NOTE,
+				self::CREATION_DATE,
+				self::UPDATE_DATE,
+			];
+		}
+	}
 ?>
