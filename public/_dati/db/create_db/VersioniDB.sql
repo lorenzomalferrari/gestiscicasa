@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS VersioniDB (
+CREATE TABLE IF NOT EXISTS lmgc_VersioniDB (
     id INT AUTO_INCREMENT PRIMARY KEY,
     versione VARCHAR(20) NOT NULL,
     nome_vers_estesa VARCHAR(100),
