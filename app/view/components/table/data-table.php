@@ -8,7 +8,9 @@
             <tbody>
                 <?php
                     for ($i = 0; $i < count($tableDataRecord); $i++) {
+                        $id = $tableDataRecord[$i][0];
                         echo "<tr>";
+                        echo "<td><a href=\"" . PATH . "app/view/input-form.php?table=" . strtolower($type_page). "&id=" . $id . "\" title=\"Modifica\">Modifica</a></td>";
                         for ($j = 0; $j < count($tableDataRecord[$i]); $j++) {
                             echo "<td>" . htmlspecialchars($tableDataRecord[$i][$j]) . "</td>";
                         }
