@@ -1,20 +1,20 @@
 <?php declare(strict_types=1);
 
 	/**
-     * File dove definisco alcune VARIABILI GLOBALI CUSTOM
-     */
-    define("HTTP_HOST", $_SERVER["HTTP_HOST"]);
-    //echo "<br>HTTP_HOST:" . HTTP_HOST;
-    define("PROTOCOL", $_SERVER["REQUEST_SCHEME"]);//es. http vs https
-    //echo "<br>PROTOCOL:" . PROTOCOL;
-    define("EMAIL_SERVER_ADMIN", $_SERVER["SERVER_ADMIN"] . "/");
-    //echo "<br>EMAIL_SERVER_ADMIN_" . EMAIL_SERVER_ADMIN;
-    define("DOMINIO", $_SERVER["SERVER_NAME"]); //es. gestiscicasa.it
-    //echo "<br>DOMINIO:" . DOMINIO;
-    define("ROOT", $_SERVER["DOCUMENT_ROOT"] . "/");
-    //echo "<br>ROOT:" . ROOT;
-    define("PATH", PROTOCOL ."://" . DOMINIO . "/");
-    //echo "<br>PATH:" . PATH;
+	 * File dove definisco alcune VARIABILI GLOBALI CUSTOM
+	 */
+	define("HTTP_HOST", $_SERVER["HTTP_HOST"]);
+	//echo "<br>HTTP_HOST:" . HTTP_HOST;
+	define("PROTOCOL", $_SERVER["REQUEST_SCHEME"]); //es. http vs https
+	//echo "<br>PROTOCOL:" . PROTOCOL;
+	define("EMAIL_SERVER_ADMIN", $_SERVER["SERVER_ADMIN"] . "/");
+	//echo "<br>EMAIL_SERVER_ADMIN_" . EMAIL_SERVER_ADMIN;
+	define("DOMINIO", $_SERVER["SERVER_NAME"]); //es. gestiscicasa.it
+	//echo "<br>DOMINIO:" . DOMINIO;
+	define("ROOT", $_SERVER["DOCUMENT_ROOT"] . "/");
+	//echo "<br>ROOT:" . ROOT;
+	define("PATH", PROTOCOL . "://" . DOMINIO . "/");
+	//echo "<br>PATH:" . PATH;
 
 	define('CONFIG', [
 		'site' => [
@@ -134,13 +134,13 @@
 		],
 	]);
 
-    // Chiave per la crittografia composta da voci interne
-    //VEDERE SE AGGIUNGERE ULTERIORI CAMPI
-    define(
-        'CRYPTO_KEY',
-            CONFIG['db']['tablePrefix'] .
-            CONFIG['securityConfig']['key']
-    ); //es. lmgc_1e2wfvdfyku65yt4efbntmyj
+	// Chiave per la crittografia composta da voci interne
+	//VEDERE SE AGGIUNGERE ULTERIORI CAMPI
+	define(
+		'CRYPTO_KEY',
+		CONFIG['db']['tablePrefix'] .
+			CONFIG['securityConfig']['key']
+	); //es. lmgc_1e2wfvdfyku65yt4efbntmyj
 
 	/**
 	 * Recupero il time nel momento in cui carico la pagina:
@@ -156,7 +156,7 @@
 	 */
 	define('YEARNOW', date("Y"));
 	define('MONTH', date('m'));
-	define('DAY',date('d'));
+	define('DAY', date('d'));
 
 	/**
 	 * Da migliorare, usando la classe Token che è in sviluppo
@@ -201,4 +201,481 @@
 		'DOWNLOAD_USERS' => 'download_users',
 		'DOWNLOAD_PROPERTIES' => 'download_properties',
 	]);
+
+	/**
+	 *
+	 */
+	define('INPUT_TYPE', [
+		"input" => [
+			"text" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"placeholder" => "",
+					"required" => "",
+					"readonly" => "",
+					"disabled" => "",
+					"maxlength" => "",
+					"minlength" => "",
+					"pattern" => "",
+					"autocomplete" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick",
+					"onchange",
+					"onfocus",
+					"onblur"
+				],
+				"model" => '<input type="text" id="" name="" value="" placeholder="" required readonly disabled maxlength="" minlength="" pattern="" autocomplete="" onclick="" onchange="" onfocus="" onblur="">'
+			],
+			"password" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"placeholder" => "",
+					"required" => "",
+					"readonly" => "",
+					"disabled" => "",
+					"maxlength" => "",
+					"minlength" => "",
+					"pattern" => "",
+					"autocomplete" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick",
+					"onchange",
+					"onfocus",
+					"onblur"
+				],
+				"model" => '<input type="password" id="" name="" value="" placeholder="" required readonly disabled maxlength="" minlength="" pattern="" autocomplete="" onclick="" onchange="" onfocus="" onblur="">'
+			],
+			"email" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"placeholder" => "",
+					"required" => "",
+					"readonly" => "",
+					"disabled" => "",
+					"maxlength" => "",
+					"minlength" => "",
+					"pattern" => "",
+					"autocomplete" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick",
+					"onchange",
+					"onfocus",
+					"onblur"
+				],
+				"model" => '<input type="email" id="" name="" value="" placeholder="" required readonly disabled maxlength="" minlength="" pattern="" autocomplete="" onclick="" onchange="" onfocus="" onblur="">'
+			],
+			"number" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"placeholder" => "",
+					"required" => "",
+					"readonly" => "",
+					"disabled" => "",
+					"maxlength" => "",
+					"minlength" => "",
+					"min" => "",
+					"max" => "",
+					"step" => "",
+					"autocomplete" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick",
+					"onchange",
+					"onfocus",
+					"onblur"
+				],
+				"model" => '<input type="number" id="" name="" value="" placeholder="" required readonly disabled maxlength="" minlength="" min="" max="" step="" autocomplete="" onclick="" onchange="" onfocus="" onblur="">'
+			],
+			"range" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"placeholder" => "",
+					"required" => "",
+					"readonly" => "",
+					"disabled" => "",
+					"min" => "",
+					"max" => "",
+					"step" => "",
+					"autocomplete" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick",
+					"onchange",
+					"onfocus",
+					"onblur"
+				],
+				"model" => '<input type="range" id="" name="" value="" placeholder="" required readonly disabled min="" max="" step="" autocomplete="" onclick="" onchange="" onfocus="" onblur="">'
+			],
+			"tel" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"placeholder" => "",
+					"required" => "",
+					"readonly" => "",
+					"disabled" => "",
+					"maxlength" => "",
+					"minlength" => "",
+					"pattern" => "",
+					"autocomplete" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick",
+					"onchange",
+					"onfocus",
+					"onblur"
+				],
+				"model" => '<input type="tel" id="" name="" value="" placeholder="" required readonly disabled maxlength="" minlength="" pattern="" autocomplete="" onclick="" onchange="" onfocus="" onblur="">'
+			],
+			"url" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"placeholder" => "",
+					"required" => "",
+					"readonly" => "",
+					"disabled" => "",
+					"maxlength" => "",
+					"minlength" => "",
+					"pattern" => "",
+					"autocomplete" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick",
+					"onchange",
+					"onfocus",
+					"onblur"
+				],
+				"model" => '<input type="url" id="" name="" value="" placeholder="" required readonly disabled maxlength="" minlength="" pattern="" autocomplete="" onclick="" onchange="" onfocus="" onblur="">'
+			],
+			"date" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"required" => "",
+					"readonly" => "",
+					"disabled" => "",
+					"min" => "",
+					"max" => "",
+					"autocomplete" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick",
+					"onchange",
+					"onfocus",
+					"onblur"
+				],
+				"model" => '<input type="date" id="" name="" value="" required readonly disabled min="" max="" autocomplete="" onclick="" onchange="" onfocus="" onblur="">'
+			],
+			"time" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"required" => "",
+					"readonly" => "",
+					"disabled" => "",
+					"min" => "",
+					"max" => "",
+					"autocomplete" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick",
+					"onchange",
+					"onfocus",
+					"onblur"
+				],
+				"model" => '<input type="time" id="" name="" value="" required readonly disabled min="" max="" autocomplete="" onclick="" onchange="" onfocus="" onblur="">'
+			],
+			"datetime-local" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"required" => "",
+					"readonly" => "",
+					"disabled" => "",
+					"min" => "",
+					"max" => "",
+					"autocomplete" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick",
+					"onchange",
+					"onfocus",
+					"onblur"
+				],
+				"model" => '<input type="datetime-local" id="" name="" value="" required readonly disabled min="" max="" autocomplete="" onclick="" onchange="" onfocus="" onblur="">'
+			],
+			"month" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"required" => "",
+					"readonly" => "",
+					"disabled" => "",
+					"min" => "",
+					"max" => "",
+					"autocomplete" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick",
+					"onchange",
+					"onfocus",
+					"onblur"
+				],
+				"model" => '<input type="month" id="" name="" value="" required readonly disabled min="" max="" autocomplete="" onclick="" onchange="" onfocus="" onblur="">'
+			],
+			"week" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"required" => "",
+					"readonly" => "",
+					"disabled" => "",
+					"min" => "",
+					"max" => "",
+					"autocomplete" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick",
+					"onchange",
+					"onfocus",
+					"onblur"
+				],
+				"model" => '<input type="week" id="" name="" value="" required readonly disabled min="" max="" autocomplete="" onclick="" onchange="" onfocus="" onblur="">'
+			],
+			"color" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"required" => "",
+					"readonly" => "",
+					"disabled" => "",
+					"autocomplete" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick",
+					"onchange",
+					"onfocus",
+					"onblur"
+				],
+				"model" => '<input type="color" id="" name="" value="" required readonly disabled autocomplete="" onclick="" onchange="" onfocus="" onblur="">'
+			],
+			"checkbox" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"required" => "",
+					"readonly" => "",
+					"disabled" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick",
+					"onchange"
+				],
+				"model" => '<input type="checkbox" id="" name="" value="" required readonly disabled onclick="" onchange="">'
+			],
+			"radio" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"required" => "",
+					"readonly" => "",
+					"disabled" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick",
+					"onchange"
+				],
+				"model" => '<input type="radio" id="" name="" value="" required readonly disabled onclick="" onchange="">'
+			],
+			"file" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"required" => "",
+					"disabled" => "",
+					"multiple" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick",
+					"onchange"
+				],
+				"model" => '<input type="file" id="" name="" required disabled multiple onclick="" onchange="">'
+			],
+			"hidden" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"custom" => []
+				],
+				"model" => '<input type="hidden" id="" name="" value="">'
+			]
+		],
+		"textarea" => [
+			"attributes" => [
+				"id" => "",
+				"name" => "",
+				"value" => "",
+				"placeholder" => "",
+				"required" => "",
+				"readonly" => "",
+				"disabled" => "",
+				"maxlength" => "",
+				"minlength" => "",
+				"custom" => []
+			],
+			"js_functions" => [
+				"onclick",
+				"onchange",
+				"onfocus",
+				"onblur"
+			],
+			"model" => '<textarea id="" name="" placeholder="" required readonly disabled maxlength="" minlength="" onclick="" onchange="" onfocus="" onblur=""></textarea>'
+		],
+		"select" => [
+			"attributes" => [
+				"id" => "",
+				"name" => "",
+				"required" => "",
+				"disabled" => "",
+				"multiple" => "",
+				"custom" => []
+			],
+			"js_functions" => [
+				"onclick",
+				"onchange"
+			],
+			"model" => '<select id="" name="" required disabled multiple onclick="" onchange=""></select>'
+		],
+		"button" => [
+			"submit" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"disabled" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick"
+				],
+				"model" => '<button type="submit" id="" name="" value="" disabled onclick=""></button>'
+			],
+			"reset" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"value" => "",
+					"disabled" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick"
+				],
+				"model" => '<button type="reset" id="" name="" value="" disabled onclick=""></button>'
+			],
+			"button" => [
+				"attributes" => [
+					"id" => "",
+					"name" => "",
+					"type" => "",
+					"value" => "",
+					"disabled" => "",
+					"custom" => []
+				],
+				"js_functions" => [
+					"onclick"
+				],
+				"model" => '<button type="button" id="" name="" type="" value="" disabled onclick=""></button>'
+			]
+		],
+		"datalist" => [
+			"attributes" => [
+				"id" => "",
+				"custom" => []
+			],
+			"model" => '<datalist id="" onclick="" onchange=""></datalist>'
+		],
+		"output" => [
+			"attributes" => [
+				"id" => "",
+				"name" => "",
+				"custom" => []
+			],
+			"js_functions" => [
+				"onclick"
+			],
+			"model" => '<output id="" name="" onclick=""></output>'
+		],
+		"meter" => [
+			"attributes" => [
+				"id" => "",
+				"name" => "",
+				"value" => "",
+				"min" => "",
+				"max" => "",
+				"low" => "",
+				"high" => "",
+				"optimum" => "",
+				"custom" => []
+			],
+			"js_functions" => [
+				"onclick"
+			],
+			"model" => '<meter id="" name="" value="" min="" max="" low="" high="" optimum="" onclick=""></meter>'
+		],
+		"progress" => [
+			"attributes" => [
+				"id" => "",
+				"value" => "",
+				"max" => "",
+				"custom" => []
+			],
+			"js_functions" => [
+				"onclick"
+			],
+			"model" => '<progress id="" value="" max="" onclick=""></progress>'
+		]
+	]);
+
 ?>
