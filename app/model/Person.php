@@ -10,9 +10,9 @@
 		private string $email;
 		private int $age;
 		private string $birthdate;
-		private ?int $city;
-		private ?int $state;
-		private ?int $nationality;
+		private int $city;
+		private int $state;
+		private int $nationality;
 		private ?string $description;
 		private int $idUser;
 		private string $creationDate;
@@ -91,34 +91,34 @@
 		}
 
 		// Getter e setter per 'city'
-		public function getCity(): ?int
+		public function getCity(): int
 		{
 			return $this->city;
 		}
 
-		public function setCity(?int $city): void
+		public function setCity(int $city): void
 		{
 			$this->city = $city;
 		}
 
 		// Getter e setter per 'state'
-		public function getState(): ?int
+		public function getState(): int
 		{
 			return $this->state;
 		}
 
-		public function setState(?int $state): void
+		public function setState(int $state): void
 		{
 			$this->state = $state;
 		}
 
 		// Getter e setter per 'nationality'
-		public function getNationality(): ?int
+		public function getNationality(): int
 		{
 			return $this->nationality;
 		}
 
-		public function setNationality(?int $nationality): void
+		public function setNationality(int $nationality): void
 		{
 			$this->nationality = $nationality;
 		}
