@@ -1,42 +1,29 @@
 <!--=====================================-->
-<!--=          Form Area Start         =-->
+<!--=         	Form Area Start         =-->
 <!--=====================================-->
 <div class="container-fluid">
-    <!-- Riga per i bottoni -->
-    <div class="row mb-4">
-        <div class="col-12 d-flex justify-content-start">
-            <button type="button" class="btn btn-secondary mr-2">Indietro</button>
-            <button type="button" class="btn btn-primary mr-2">Salva</button>
-            <button type="button" class="btn btn-warning mr-2">Modifica</button>
-            <button type="button" class="btn btn-danger">Elimina</button>
-        </div>
-    </div>
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6">
             <div class="card basic-form">
                 <div class="card-body">
                     <h3 class="text-22 text-midnight text-bold mb-4">Bootstrap Form Validation</h3>
                     <form class="needs-validation" novalidate>
                         <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="input-label">
-                                        <label>Name</label>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Enter your name" name="name" required>
-                                    <div class="invalid-feedback">
-                                        Please choose a name.
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="input-label">
-                                        <label>Email or Username</label>
-                                    </div>
-                                    <input type="email" class="form-control" placeholder="Enter your email address or username" name="email" required>
-                                    <div class="invalid-feedback">
-                                        Please choose a username.
-                                    </div>
-                                </div>
+                            <div class="input-label">
+                                <label>Name</label>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Enter your name" name="name" required>
+                            <div class="invalid-feedback">
+                                Please choose a name.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-label">
+                                <label>Email or Username</label>
+                            </div>
+                            <input type="email" class="form-control" placeholder="Enter your email address or username" name="email" required>
+                            <div class="invalid-feedback">
+                                Please choose a username.
                             </div>
                         </div>
                         <div class="form-group">
@@ -57,7 +44,6 @@
                                 Please choose a password.
                             </div>
                         </div>
-                        <!--
                         <div class="form-group">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="check1" required>
@@ -70,12 +56,10 @@
                         <div class="form-group">
                             <button type="submit" class="submit-btn">REGISTER</button>
                         </div>
-                        -->
                     </form>
                 </div>
             </div>
         </div>
-        <!--
         <div class="col-lg-6">
             <div class="card basic-form">
                 <div class="card-body">
@@ -209,16 +193,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        -->
-    </div>
-    <!-- Riga per i bottoni -->
-    <div class="row mb-4">
-        <div class="col-12 d-flex justify-content-start">
-            <button type="button" class="btn btn-secondary mr-2">Indietro</button>
-            <button type="button" class="btn btn-primary mr-2">Salva</button>
-            <button type="button" class="btn btn-warning mr-2">Modifica</button>
-            <button type="button" class="btn btn-danger">Elimina</button>
         </div>
     </div>
 </div>

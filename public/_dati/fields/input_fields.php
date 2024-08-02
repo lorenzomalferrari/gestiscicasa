@@ -1,6 +1,6 @@
 <?php
 
-$fields = [
+$rows = [
     [
         [
             'type' => 'text',

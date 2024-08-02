@@ -305,160 +305,127 @@
 			}
 		}
 
-		/**
-		 * Valida e formatta le funzioni JavaScript all'interno di js_functions.
-		 *
-		 * @param array $jsFunctions L'array delle funzioni JavaScript da validare.
-		 * @return array L'array delle funzioni JavaScript validate e formattate.
-		 */
-		public static function validateJsFunctions($jsFunctions)
+		// Funzione per generare HTML per i bottoni
+		function generateButtonsHTML($buttons)
 		{
-			foreach ($jsFunctions as $event => &$handler) {
-				// Stampa le informazioni per il debug
-				print_r([
-					'event' => $event,
-					'handler_before' => $handler
-				]);
+			$buttonHTML = '
+				<!-- Riga per i bottoni -->
+				<div class="row mb-4">
+					<div class="col-12 d-flex justify-content-start">';
 
-				// Rimuove spazi bianchi iniziali e finali
-				$handler = trim($handler);
+			foreach ($buttons as $key => $value) {
+				// Mappatura dei valori dei bottoni a classi CSS
+				$buttonClasses = [
+					'cancel' => 'btn btn-secondary mr-2',
+					'save' => 'btn btn-primary mr-2',
+					'edit' => 'btn btn-warning mr-2',
+					'delete' => 'btn btn-danger'
+				];
 
-				// Dividi il valore in singole funzioni separate da ';'
-				$functions = explode(';', $handler);
-
-				// Controlla e correggi ogni funzione individualmente
-				foreach ($functions as &$func) {
-					$func = trim($func); // Rimuove spazi bianchi
-
-					if (!empty($func)) {
-						// Controlla se il valore finisce con () o )
-						if (substr($func, -2) === '()') {
-							// Aggiungi ; se finisce con ()
-							$func .= ';';
-						} elseif (substr($func, -1) === ')') {
-							// Aggiungi ; se finisce con )
-							$func .= ';';
-						}
-					}
-				}
-
-				// Ricostruisce il handler con le funzioni corrette
-				$handler = implode(' ', $functions);
-
-				// Stampa le informazioni per il debug
-				print_r([
-					'event' => $event,
-					'handler_after' => $handler
-				]);
+				// Determina la classe CSS basata sulla chiave del bottone
+				$buttonClass = isset($buttonClasses[$key]) ? $buttonClasses[$key] : 'btn btn-secondary';
+				// Genera il codice HTML per il bottone
+				$buttonHTML .= '<button type="button" class="' . $buttonClass . '">' . htmlspecialchars($value) . '</button>';
 			}
 
-			return $jsFunctions;
+			$buttonHTML .= '
+					</div>
+				</div>';
+
+			return $buttonHTML;
 		}
 
 		/**
-		 * Assicura che la somma delle colonne faccia 12. Se la somma supera 12,
-		 * resetta tutte le colonne e assegna le colonne non impostate in modo equo.
-		 * Inoltre, valida e formatta le funzioni JavaScript all'interno di js_functions.
 		 *
-		 * @param array $rows L'array delle righe da processare.
-		 * @return array L'array delle righe con colonne aggiornate e funzioni JavaScript validate.
 		 */
-		public static function validateAndFormatFields($fields) {
-
-			// Assicura che la somma delle colonne faccia 12
-			$totalCols = 0;
-			$unsetCols = [];
-
-			// Calcola il totale delle colonne impostate e trova quelle non impostate
-			foreach ($fields as $index => $field) {
-				if (isset($field['col'])) {
-					$totalCols += $field['col'];
-				} else {
-					$unsetCols[] = $index;
-				}
+		public static function validateAndFormatFields($fields, $id = null){
+			$btns_fields = [];
+			$max_cols = 12;
+			// Controlla che esista la chiave 'head'
+			if (!isset($fields['head'])) {
+				return "Errore: la chiave 'head' non esiste.";
 			}
 
-			// Se la somma delle colonne impostate supera 12, resetta tutte le colonne
-			if ($totalCols > 12) {
-				$unsetCols = array_keys($fields);
-				$totalCols = 0;
+			// Controlla che esista la chiave 'body'
+			if (!isset($fields['body'])) {
+				return "Errore: la chiave 'body' non esiste.";
 			}
 
-			// Assegna le colonne non impostate
-			$remainingCols = 12 - $totalCols;
-			$colValue = floor($remainingCols / count($unsetCols));
-			$remainder = $remainingCols % count($unsetCols);
-
-			foreach ($unsetCols as $index) {
-				$fields[$index]['col'] = $colValue;
-				// Distribuisce il resto tra le prime colonne non impostate
-				if ($remainder > 0) {
-					$fields[$index]['col']++;
-					$remainder--;
-				}
+			// Controlla se la chiave 'title' esiste in 'head', se no, la crea con valore vuoto
+			if (!isset($fields['head']['title'])) {
+				$fields['head']['title'] = '';
 			}
 
-			// Valida e formatta le funzioni JavaScript e i tipi di input
-			foreach ($fields as &$field) {
-				// Verifica se il tipo di campo è valido
-				if (!isset($field['type']) || !self::isValidType($field['type'], INPUT_TYPE)) {
-					throw new Exception("Tipo di campo non valido o mancante: {$field['type']}");
-				}
-
-				// Verifica se le chiavi degli attributi sono valide
-				if (isset($field['attributes']) && is_array($field['attributes'])) {
-					self::validateAttributes($field['type'], $field['attributes'], INPUT_TYPE);
-				}
-
-				// Valida le funzioni JavaScript
-				if (isset($field['js_functions']) && is_array($field['js_functions'])) {
-					$field['js_functions'] = self::validateJsFunctions($field['js_functions']);
-				}
+			// Imposta il valore di 'title' basato sull'esistenza di $id
+			if ($id) {
+				$fields['head']['title'] = 'Modifica';
+			} else {
+				$fields['head']['title'] = 'Nuova';
 			}
 
-			return $fields;
-		}
+			// Genera l'HTML per i bottoni se la chiave 'buttons' esiste in 'body'
+			if (isset($fields['body']['buttons']))
+				$btns_fields['btns'] = generateButtonsHTML($fields['body']['buttons']);
+			else
+				$fields['body']['buttonsHTML'] = "Errore: la chiave 'buttons' non esiste.";
 
-		// Funzione per verificare se il tipo è valido
-		private static function isValidType($type, $input_type)
-		{
-			foreach ($input_type as $category => $types) {
-				if (array_key_exists($type, $types)) {
-					return true;
-				}
-			}
-			return false;
-		}
+			if (isset($fields['body']['rows'])) {
+				foreach ($fields['body']['rows'] as &$row) {
+					$totalCols = 0;
+					$numElements = count($row);
 
-		// Funzione per validare gli attributi
-		private static function validateAttributes($type, $attributes, $input_type)
-		{
-			foreach ($input_type as $category => $types) {
-				if (isset($types[$type])) {
-					$validAttributes = $types[$type]['attributes'];
-					foreach ($attributes as $key => $value) {
-						if (!array_key_exists($key, $validAttributes)) {
-							throw new Exception("Attributo non valido per il tipo {$type}: {$key}");
+					// Calcola il numero totale di colonne assegnate
+					foreach ($row as &$element) {
+						if (!isset($element['col'])) {
+							$element['col'] = 0;
+						}
+						$totalCols += $element['col'];
+					}
+
+					// Se la somma supera il valore massimo e atteso = 12
+					if ($totalCols !== $max_cols) {
+						$remainingCols = $max_cols - $totalCols;
+						$defaultCol = $remainingCols > 0 ? intdiv($remainingCols, $numElements) : 1;
+						$remainingCols -= $defaultCol * $numElements;
+
+						foreach ($row as &$element) {
+							// Controllo col
+							if ($element['col'] == 0) {
+								$element['col'] = $defaultCol;
+								if ($remainingCols > 0) {
+									$element['col']++;
+									$remainingCols--;
+								}
+							}
+
+							// Controllo type
+							if (isset($element['type'])) {
+								$type_el = $element['type'];
+
+								$msg_error = "";
+								// Controlla il tipo al primo livello
+								if (!array_key_exists($type_el, INPUT_TYPE)) {
+									$msg_error = "Errore: Tipo '$type_el' non definito in INPUT_TYPE.";
+								}else{
+									// Se è un tipo di input, verifica se il sottotipo è valido (secondo livello)
+									if (!array_key_exists($type_el, INPUT_TYPE['input'])) {
+										$msg_error "Errore: Sottotipo '$subtype' non definito per 'input' in INPUT_TYPE.";
+									}
+								}
+
+								if( count($msg_error) > 0 )
+									return $msg_error;
+							}
+
+							// Controllo attributes
+
+							// Controllo js_function
 						}
 					}
 				}
+			} else {
+				return "Errore: la chiave 'rows' non esiste.";
 			}
-		}
-
-		// Funzione per ottenere il modello di input HTML
-		public static function getInputModel($type, $input_type, $js_functions)
-		{
-			if (isset($input_type[$type])) {
-				$model = $input_type[$type]['model'];
-				foreach ($input_type[$type]['attributes'] as $attribute => $default) {
-					$model = str_replace('{' . $attribute . '}', '', $model);
-				}
-				foreach ($js_functions as $function) {
-					$model = str_replace('{' . $function . '}', '', $model);
-				}
-				return $model;
-			}
-			return '';
+			return $btns_fields;
 		}
 	}
-?>

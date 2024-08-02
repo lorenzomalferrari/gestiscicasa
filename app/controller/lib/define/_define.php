@@ -209,17 +209,17 @@
 		"input" => [
 			"text" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
-					"placeholder" => "",
-					"required" => "",
-					"readonly" => "",
-					"disabled" => "",
-					"maxlength" => "",
-					"minlength" => "",
-					"pattern" => "",
-					"autocomplete" => "",
+					"id",
+					"name",
+					"value",
+					"placeholder",
+					"required",
+					"readonly",
+					"disabled",
+					"maxlength",
+					"minlength",
+					"pattern",
+					"autocomplete",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -232,17 +232,17 @@
 			],
 			"password" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
-					"placeholder" => "",
-					"required" => "",
-					"readonly" => "",
-					"disabled" => "",
-					"maxlength" => "",
-					"minlength" => "",
-					"pattern" => "",
-					"autocomplete" => "",
+					"id",
+					"name",
+					"value",
+					"placeholder",
+					"required",
+					"readonly",
+					"disabled",
+					"maxlength",
+					"minlength",
+					"pattern",
+					"autocomplete",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -255,17 +255,17 @@
 			],
 			"email" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
-					"placeholder" => "",
-					"required" => "",
-					"readonly" => "",
-					"disabled" => "",
-					"maxlength" => "",
-					"minlength" => "",
-					"pattern" => "",
-					"autocomplete" => "",
+					"id",
+					"name",
+					"value",
+					"placeholder",
+					"required",
+					"readonly",
+					"disabled",
+					"maxlength",
+					"minlength",
+					"pattern",
+					"autocomplete",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -278,19 +278,19 @@
 			],
 			"number" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
-					"placeholder" => "",
-					"required" => "",
-					"readonly" => "",
-					"disabled" => "",
-					"maxlength" => "",
-					"minlength" => "",
-					"min" => "",
-					"max" => "",
-					"step" => "",
-					"autocomplete" => "",
+					"id",
+					"name",
+					"value",
+					"placeholder",
+					"required",
+					"readonly",
+					"disabled",
+					"maxlength",
+					"minlength",
+					"min",
+					"max",
+					"step",
+					"autocomplete",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -303,17 +303,17 @@
 			],
 			"range" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
-					"placeholder" => "",
-					"required" => "",
-					"readonly" => "",
-					"disabled" => "",
-					"min" => "",
-					"max" => "",
-					"step" => "",
-					"autocomplete" => "",
+					"id",
+					"name",
+					"value",
+					"placeholder",
+					"required",
+					"readonly",
+					"disabled",
+					"min",
+					"max",
+					"step",
+					"autocomplete",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -326,17 +326,17 @@
 			],
 			"tel" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
-					"placeholder" => "",
-					"required" => "",
-					"readonly" => "",
-					"disabled" => "",
-					"maxlength" => "",
-					"minlength" => "",
-					"pattern" => "",
-					"autocomplete" => "",
+					"id",
+					"name",
+					"value",
+					"placeholder",
+					"required",
+					"readonly",
+					"disabled",
+					"maxlength",
+					"minlength",
+					"pattern",
+					"autocomplete",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -349,17 +349,17 @@
 			],
 			"url" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
-					"placeholder" => "",
-					"required" => "",
-					"readonly" => "",
-					"disabled" => "",
-					"maxlength" => "",
-					"minlength" => "",
-					"pattern" => "",
-					"autocomplete" => "",
+					"id",
+					"name",
+					"value",
+					"placeholder",
+					"required",
+					"readonly",
+					"disabled",
+					"maxlength",
+					"minlength",
+					"pattern",
+					"autocomplete",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -372,15 +372,15 @@
 			],
 			"date" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
-					"required" => "",
-					"readonly" => "",
-					"disabled" => "",
-					"min" => "",
-					"max" => "",
-					"autocomplete" => "",
+					"id",
+					"name",
+					"value",
+					"required",
+					"readonly",
+					"disabled",
+					"min",
+					"max",
+					"autocomplete",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -393,15 +393,15 @@
 			],
 			"time" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
-					"required" => "",
-					"readonly" => "",
-					"disabled" => "",
-					"min" => "",
-					"max" => "",
-					"autocomplete" => "",
+					"id",
+					"name",
+					"value",
+					"required",
+					"readonly",
+					"disabled",
+					"min",
+					"max",
+					"autocomplete",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -414,15 +414,15 @@
 			],
 			"datetime-local" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
-					"required" => "",
-					"readonly" => "",
-					"disabled" => "",
-					"min" => "",
-					"max" => "",
-					"autocomplete" => "",
+					"id",
+					"name",
+					"value",
+					"required",
+					"readonly",
+					"disabled",
+					"min",
+					"max",
+					"autocomplete",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -435,15 +435,15 @@
 			],
 			"month" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
-					"required" => "",
-					"readonly" => "",
-					"disabled" => "",
-					"min" => "",
-					"max" => "",
-					"autocomplete" => "",
+					"id",
+					"name",
+					"value",
+					"required",
+					"readonly",
+					"disabled",
+					"min",
+					"max",
+					"autocomplete",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -456,15 +456,15 @@
 			],
 			"week" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
-					"required" => "",
-					"readonly" => "",
-					"disabled" => "",
-					"min" => "",
-					"max" => "",
-					"autocomplete" => "",
+					"id",
+					"name",
+					"value",
+					"required",
+					"readonly",
+					"disabled",
+					"min",
+					"max",
+					"autocomplete",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -477,13 +477,13 @@
 			],
 			"color" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
-					"required" => "",
-					"readonly" => "",
-					"disabled" => "",
-					"autocomplete" => "",
+					"id",
+					"name",
+					"value",
+					"required",
+					"readonly",
+					"disabled",
+					"autocomplete",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -496,12 +496,12 @@
 			],
 			"checkbox" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
-					"required" => "",
-					"readonly" => "",
-					"disabled" => "",
+					"id",
+					"name",
+					"value",
+					"required",
+					"readonly",
+					"disabled",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -512,12 +512,12 @@
 			],
 			"radio" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
-					"required" => "",
-					"readonly" => "",
-					"disabled" => "",
+					"id",
+					"name",
+					"value",
+					"required",
+					"readonly",
+					"disabled",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -528,11 +528,11 @@
 			],
 			"file" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"required" => "",
-					"disabled" => "",
-					"multiple" => "",
+					"id",
+					"name",
+					"required",
+					"disabled",
+					"multiple",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -543,9 +543,9 @@
 			],
 			"hidden" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
+					"id",
+					"name",
+					"value",
 					"custom" => []
 				],
 				"model" => '<input type="hidden" id="" name="" value="">'
@@ -553,15 +553,15 @@
 		],
 		"textarea" => [
 			"attributes" => [
-				"id" => "",
-				"name" => "",
-				"value" => "",
-				"placeholder" => "",
-				"required" => "",
-				"readonly" => "",
-				"disabled" => "",
-				"maxlength" => "",
-				"minlength" => "",
+				"id",
+				"name",
+				"value",
+				"placeholder",
+				"required",
+				"readonly",
+				"disabled",
+				"maxlength",
+				"minlength",
 				"custom" => []
 			],
 			"js_functions" => [
@@ -574,11 +574,11 @@
 		],
 		"select" => [
 			"attributes" => [
-				"id" => "",
-				"name" => "",
-				"required" => "",
-				"disabled" => "",
-				"multiple" => "",
+				"id",
+				"name",
+				"required",
+				"disabled",
+				"multiple",
 				"custom" => []
 			],
 			"js_functions" => [
@@ -590,10 +590,10 @@
 		"button" => [
 			"submit" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
-					"disabled" => "",
+					"id",
+					"name",
+					"value",
+					"disabled",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -603,10 +603,10 @@
 			],
 			"reset" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"value" => "",
-					"disabled" => "",
+					"id",
+					"name",
+					"value",
+					"disabled",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -616,11 +616,11 @@
 			],
 			"button" => [
 				"attributes" => [
-					"id" => "",
-					"name" => "",
-					"type" => "",
-					"value" => "",
-					"disabled" => "",
+					"id",
+					"name",
+					"type",
+					"value",
+					"disabled",
 					"custom" => []
 				],
 				"js_functions" => [
@@ -631,15 +631,15 @@
 		],
 		"datalist" => [
 			"attributes" => [
-				"id" => "",
+				"id",
 				"custom" => []
 			],
 			"model" => '<datalist id="" onclick="" onchange=""></datalist>'
 		],
 		"output" => [
 			"attributes" => [
-				"id" => "",
-				"name" => "",
+				"id",
+				"name",
 				"custom" => []
 			],
 			"js_functions" => [
@@ -649,14 +649,14 @@
 		],
 		"meter" => [
 			"attributes" => [
-				"id" => "",
-				"name" => "",
-				"value" => "",
-				"min" => "",
-				"max" => "",
-				"low" => "",
-				"high" => "",
-				"optimum" => "",
+				"id",
+				"name",
+				"value",
+				"min",
+				"max",
+				"low",
+				"high",
+				"optimum",
 				"custom" => []
 			],
 			"js_functions" => [
@@ -666,9 +666,9 @@
 		],
 		"progress" => [
 			"attributes" => [
-				"id" => "",
-				"value" => "",
-				"max" => "",
+				"id",
+				"value",
+				"max",
 				"custom" => []
 			],
 			"js_functions" => [
@@ -677,5 +677,4 @@
 			"model" => '<progress id="" value="" max="" onclick=""></progress>'
 		]
 	]);
-
 ?>
