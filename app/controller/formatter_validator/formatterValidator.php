@@ -304,6 +304,161 @@
 					throw new \Exception("Formato di data non riconosciuto");
 			}
 		}
-	}
 
-	?>
+		/**
+		 * Valida e formatta le funzioni JavaScript all'interno di js_functions.
+		 *
+		 * @param array $jsFunctions L'array delle funzioni JavaScript da validare.
+		 * @return array L'array delle funzioni JavaScript validate e formattate.
+		 */
+		public static function validateJsFunctions($jsFunctions)
+		{
+			foreach ($jsFunctions as $event => &$handler) {
+				// Stampa le informazioni per il debug
+				print_r([
+					'event' => $event,
+					'handler_before' => $handler
+				]);
+
+				// Rimuove spazi bianchi iniziali e finali
+				$handler = trim($handler);
+
+				// Dividi il valore in singole funzioni separate da ';'
+				$functions = explode(';', $handler);
+
+				// Controlla e correggi ogni funzione individualmente
+				foreach ($functions as &$func) {
+					$func = trim($func); // Rimuove spazi bianchi
+
+					if (!empty($func)) {
+						// Controlla se il valore finisce con () o )
+						if (substr($func, -2) === '()') {
+							// Aggiungi ; se finisce con ()
+							$func .= ';';
+						} elseif (substr($func, -1) === ')') {
+							// Aggiungi ; se finisce con )
+							$func .= ';';
+						}
+					}
+				}
+
+				// Ricostruisce il handler con le funzioni corrette
+				$handler = implode(' ', $functions);
+
+				// Stampa le informazioni per il debug
+				print_r([
+					'event' => $event,
+					'handler_after' => $handler
+				]);
+			}
+
+			return $jsFunctions;
+		}
+
+		/**
+		 * Assicura che la somma delle colonne faccia 12. Se la somma supera 12,
+		 * resetta tutte le colonne e assegna le colonne non impostate in modo equo.
+		 * Inoltre, valida e formatta le funzioni JavaScript all'interno di js_functions.
+		 *
+		 * @param array $rows L'array delle righe da processare.
+		 * @return array L'array delle righe con colonne aggiornate e funzioni JavaScript validate.
+		 */
+		public static function validateAndFormatFields($fields) {
+
+			// Assicura che la somma delle colonne faccia 12
+			$totalCols = 0;
+			$unsetCols = [];
+
+			// Calcola il totale delle colonne impostate e trova quelle non impostate
+			foreach ($fields as $index => $field) {
+				if (isset($field['col'])) {
+					$totalCols += $field['col'];
+				} else {
+					$unsetCols[] = $index;
+				}
+			}
+
+			// Se la somma delle colonne impostate supera 12, resetta tutte le colonne
+			if ($totalCols > 12) {
+				$unsetCols = array_keys($fields);
+				$totalCols = 0;
+			}
+
+			// Assegna le colonne non impostate
+			$remainingCols = 12 - $totalCols;
+			$colValue = floor($remainingCols / count($unsetCols));
+			$remainder = $remainingCols % count($unsetCols);
+
+			foreach ($unsetCols as $index) {
+				$fields[$index]['col'] = $colValue;
+				// Distribuisce il resto tra le prime colonne non impostate
+				if ($remainder > 0) {
+					$fields[$index]['col']++;
+					$remainder--;
+				}
+			}
+
+			// Valida e formatta le funzioni JavaScript e i tipi di input
+			foreach ($fields as &$field) {
+				// Verifica se il tipo di campo è valido
+				if (!isset($field['type']) || !self::isValidType($field['type'], INPUT_TYPE)) {
+					throw new Exception("Tipo di campo non valido o mancante: {$field['type']}");
+				}
+
+				// Verifica se le chiavi degli attributi sono valide
+				if (isset($field['attributes']) && is_array($field['attributes'])) {
+					self::validateAttributes($field['type'], $field['attributes'], INPUT_TYPE);
+				}
+
+				// Valida le funzioni JavaScript
+				if (isset($field['js_functions']) && is_array($field['js_functions'])) {
+					$field['js_functions'] = self::validateJsFunctions($field['js_functions']);
+				}
+			}
+
+			return $fields;
+		}
+
+		// Funzione per verificare se il tipo è valido
+		private static function isValidType($type, $input_type)
+		{
+			foreach ($input_type as $category => $types) {
+				if (array_key_exists($type, $types)) {
+					return true;
+				}
+			}
+			return false;
+		}
+
+		// Funzione per validare gli attributi
+		private static function validateAttributes($type, $attributes, $input_type)
+		{
+			foreach ($input_type as $category => $types) {
+				if (isset($types[$type])) {
+					$validAttributes = $types[$type]['attributes'];
+					foreach ($attributes as $key => $value) {
+						if (!array_key_exists($key, $validAttributes)) {
+							throw new Exception("Attributo non valido per il tipo {$type}: {$key}");
+						}
+					}
+				}
+			}
+		}
+
+		// Funzione per ottenere il modello di input HTML
+		public static function getInputModel($type, $input_type, $js_functions)
+		{
+			if (isset($input_type[$type])) {
+				$model = $input_type[$type]['model'];
+				foreach ($input_type[$type]['attributes'] as $attribute => $default) {
+					$model = str_replace('{' . $attribute . '}', '', $model);
+				}
+				foreach ($js_functions as $function) {
+					$model = str_replace('{' . $function . '}', '', $model);
+				}
+				return $model;
+			}
+			return '';
+		}
+	}
+?>
