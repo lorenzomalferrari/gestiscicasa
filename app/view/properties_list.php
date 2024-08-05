@@ -1,37 +1,9 @@
-<?php
-
-declare(strict_types=1);
-require_once("../controller/lib/libs.php");
-//Richiamare info da mostrare
-require_once(ROOT . "app/controller/property/getPropertyList.php");
-//Eventuale personalizzazione
-require_once(ROOT . "app/controller/property/customTable.php");
-
-$type_page = PropertyTable::TABLE_NAME;
-
-$titlePage = "Elenco Proprietà";
-
-$tableName = $titlePage;
-$tableDataHeader = PropertyTable::getColumns();
-$tableDataRecord =  [];
-
-foreach ($arrProperties as $property) {
-    //print_r($property);
-    $tableDataRecord[] = [
-        $property->getId(),
-        $property->getName(),
-        $property->getDescription(),
-        $property->getPrice(),
-        $property->getAddress(),
-        $property->getIdCity(),
-        $property->getIdState(),
-        $property->getIdPropertyType(),
-        $property->isActive(),
-        $property->getNotes(),
-        $property->getCreationDate(),
-        $property->getupdateDate(),
-    ];
-}
+<?php declare(strict_types=1);
+    require_once("../controller/lib/libs.php");
+    //Richiamare info da mostrare
+    require_once(ROOT . "app/controller/property/getPropertyList.php");
+    //Eventuale personalizzazione
+    require_once(ROOT . "app/controller/property/customTable.php");
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -42,9 +14,7 @@ foreach ($arrProperties as $property) {
 
 <body>
     <!-- Page Loader Start -->
-    <?php
-    //require_once("template/_preloader.php");
-    ?>
+    <?php //require_once("template/_preloader.php"); ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">
         <i class="fas fa-angle-double-up"></i>
@@ -77,12 +47,12 @@ foreach ($arrProperties as $property) {
                                 <div class="breadcrumbs-area text-sm-right">
                                     <ul>
                                         <li>
-                                            <a href="#">COMPONENTS</a>
+                                            <a href="#"><?php echo $titlePage; ?></a>
                                         </li>
                                         <li>
-                                            <a href="#">TABLE</a>
+                                            <a href="#">Elenco</a>
                                         </li>
-                                        <li>Data Table</li>
+                                        <!--<li>Data Table</li>-->
                                     </ul>
                                 </div>
                             </div>

@@ -306,7 +306,7 @@
 		}
 
 		// Funzione per generare HTML per i bottoni
-		function generateButtonsHTML($buttons)
+		private static function generateButtonsHTML($buttons)
 		{
 			$buttonHTML = '
 				<!-- Riga per i bottoni -->
@@ -338,9 +338,10 @@
 		/**
 		 *
 		 */
-		public static function validateAndFormatFields($fields, $id = null){
-			$btns_fields = [];
+		public static function validateAndFormatFields($fields, $id = null) {
+			//$btns_fields = [];
 			$max_cols = 12;
+
 			// Controlla che esista la chiave 'head'
 			if (!isset($fields['head'])) {
 				return "Errore: la chiave 'head' non esiste.";
@@ -364,12 +365,15 @@
 			}
 
 			// Genera l'HTML per i bottoni se la chiave 'buttons' esiste in 'body'
-			if (isset($fields['body']['buttons']))
-				$btns_fields['btns'] = generateButtonsHTML($fields['body']['buttons']);
+			/*if (isset($fields['body']['buttons']))
+				$btns_fields['btns'] = self::generateButtonsHTML($fields['body']['buttons']);
 			else
-				$fields['body']['buttonsHTML'] = "Errore: la chiave 'buttons' non esiste.";
+				$btns_fields['btns'] = "Errore: la chiave 'buttons' non esiste.";
+			*/
 
+			// Ora passiamo adnanalizzare le rows
 			if (isset($fields['body']['rows'])) {
+				//$btns_fields['rows'] = [];
 				foreach ($fields['body']['rows'] as &$row) {
 					$totalCols = 0;
 					$numElements = count($row);
@@ -401,31 +405,202 @@
 							// Controllo type
 							if (isset($element['type'])) {
 								$type_el = $element['type'];
-
-								$msg_error = "";
 								// Controlla il tipo al primo livello
-								if (!array_key_exists($type_el, INPUT_TYPE)) {
-									$msg_error = "Errore: Tipo '$type_el' non definito in INPUT_TYPE.";
-								}else{
-									// Se è un tipo di input, verifica se il sottotipo è valido (secondo livello)
-									if (!array_key_exists($type_el, INPUT_TYPE['input'])) {
-										$msg_error "Errore: Sottotipo '$subtype' non definito per 'input' in INPUT_TYPE.";
-									}
-								}
-
-								if( count($msg_error) > 0 )
-									return $msg_error;
+								if ( ! in_array($type_el, array_keys(INPUT_TYPE)) && ! in_array($type_el, array_keys(INPUT_TYPE['input']) ))
+									return "Errore: Tipo o sottotipo '$type_el' non definito in INPUT_TYPE.";
+							}else{
+								print_r("Chiave type non presente.");
 							}
 
-							// Controllo attributes
-
 							// Controllo js_function
+							if (isset($element['js_functions'])) {
+								foreach ($element['js_functions'] as $event => &$js_function) {
+									$element['js_functions'][$event] = self::verify_semicolons($js_function);
+								}
+							}
 						}
 					}
+
+					$errors = self::validateFieldsInAttributes($row);
+					print_r($errors);
+					if ( ! empty($errors))
+						echo "Errors found:\n" . implode("\n", $errors);
 				}
+
 			} else {
 				return "Errore: la chiave 'rows' non esiste.";
 			}
-			return $btns_fields;
+			return $fields;
+		}
+
+		// Funzione per assicurarsi che le funzioni siano separate da un punto e virgola e che ci sia un punto e virgola finale
+		private static function verify_semicolons($code) {
+			// Rimuove spazi bianchi extra all'inizio e alla fine
+			$code = trim($code );
+			// Divide la stringa in base ai punti e virgola esistenti e spazi bianchi
+			$functions = preg_split('/;\s*/', $code);
+			// Rimuovere gli elementi vuoti dall'array
+			$functions = array_filter($functions, fn($func) => !empty(trim($func)));
+			// Riassembla la stringa con punti e virgola e uno spazio
+			$code = implode('; ', $functions) . ';';
+			return $code;
+		}
+
+		private static function validateFieldsInAttributes($row)
+		{
+			$errors = [];
+			foreach ($row as $field) {
+				if (is_array($field) && isset($field['type'], $field['attributes'])) {
+					$type = $field['type'];
+					if (isset(INPUT_TYPE['input'][$type])) {
+						$validAttributes = INPUT_TYPE['input'][$type]['attributes'];
+					} elseif (isset(INPUT_TYPE[$type])) {
+						$validAttributes = INPUT_TYPE[$type]['attributes'];
+					} else {
+						$errors[] = "Unknown input type: $type";
+						continue;
+					}
+					//$validAttributes = array_keys($validAttributes);
+					$error = self::validateAttributes($type, $field['attributes'], $validAttributes);
+					if( !empty($error) )
+					$errors[] = $error;
+				}
+			}
+			return $errors;
+		}
+
+		// Helper function to validate attributes
+		private static function validateAttributes($type, $attributes, $validAttributes)
+		{
+			$invalidAttributes = [];
+			foreach ($attributes as $key => $value) {
+				if (!in_array($key, $validAttributes)) {
+					$invalidAttributes[] = $key;
+				}
+			}
+
+			if (!empty($invalidAttributes)) {
+				return "Invalid attributes for type $type: " . implode(", ", $invalidAttributes);
+			}
+
+			return null;
+		}
+
+		public static function getInputFieldsModal($element): string{
+			$modal = "";
+			$class = "form-control";
+
+			$type_el = $element['type'];
+			$attributes = $element['attributes'];
+			$custom = self::addAttributes($element['attributes']);
+			// Controlla il tipo al primo livello
+			if (in_array($type_el, array_keys(INPUT_TYPE))){
+				$modal = INPUT_TYPE[$type_el]['model'];
+			}
+			else{
+				$modal = INPUT_TYPE['input'][$type_el]['model'];
+			}
+
+			$modal = self::filterAndUpdateHtmlAttributes($modal, $attributes);
+			$modal = self::addAttributesToTag($modal,$custom);
+
+			return $modal;
+		}
+
+		/**
+		 * Filtra e aggiorna gli attributi di un tag HTML basandosi su un array di attributi.
+		 *
+		 * @param string $element La stringa HTML da analizzare.
+		 * @param array $attributes L'array contenente le chiavi degli attributi da mantenere e i loro valori.
+		 * @return string La stringa HTML con solo gli attributi specificati e con i valori aggiornati.
+		 */
+		private static function filterAndUpdateHtmlAttributes(string $element, array $attributes): string
+		{
+			// Usa una regex per trovare tutti gli attributi nel tag HTML
+			$pattern = '/(\w+)\s*=\s*"[^"]*"/';
+			// Trova tutte le corrispondenze
+			preg_match_all($pattern, $element, $matches);
+			// $matches[1] contiene i nomi degli attributi
+			$existingAttributes = $matches[1];
+			// Filtra l'array di attributi per mantenere solo quelli che devono essere aggiornati
+			$filteredAttributes = [];
+
+			foreach ($attributes as $key => $value) {
+				if ($key === "type") {
+					// Salta l'attributo 'type'
+					continue;
+				}
+				if (in_array($key, $existingAttributes)) {
+					// Se l'attributo esiste, aggiungilo con il nuovo valore
+					$filteredAttributes[] = $key . '="' . $value . '"';
+				}
+			}
+
+			// Costruisci una stringa di attributi filtrati
+			$filteredAttributesString = implode(' ', $filteredAttributes);
+			// Trova il tag di apertura
+			$tagPattern = '/<(\w+)([^>]*)>/';
+			// Rimuovi gli attributi esistenti nel tag
+			$htmlWithoutAttributes = preg_replace($pattern, '', $element);
+			// Aggiungi gli attributi aggiornati al tag
+			$filteredHtml = preg_replace($tagPattern, '<$1 ' . $filteredAttributesString . '>', $htmlWithoutAttributes);
+			// Rimuovi eventuali spazi extra tra gli attributi
+			$filteredHtml = preg_replace('/\s+/', ' ', $filteredHtml);
+			// Rimuove eventuali spazi in eccesso all'inizio e alla fine
+			$filteredHtml = trim($filteredHtml);
+
+			return $filteredHtml;
+		}
+
+		/**
+		 * Crea una stringa di attributi basata su un array specificato.
+		 * Se l'array contiene la chiave 'custom' con un array come valore, crea una stringa di attributi.
+		 *
+		 * @param array $attributes L'array contenente le chiavi e valori degli attributi.
+		 * @return string La stringa di attributi formattata.
+		 */
+		private static function addAttributes(array $attributes): string
+		{
+			// Verifica se 'custom' è presente e se il suo valore è un array
+			if (isset($attributes['custom']) && is_array($attributes['custom'])) {
+				// Crea un array di attributi formattati
+				$formattedAttributes = array_map(function ($key, $value) {
+					return $key . '="' . $value . '"';
+				}, array_keys($attributes['custom']), $attributes['custom']);
+
+				// Combina gli attributi formattati in una stringa separata da spazi
+				return implode(' ', $formattedAttributes);
+			}
+
+			// Se 'custom' non è presente o non è un array, ritorna una stringa vuota
+			return '';
+		}
+
+		/**
+		 * Aggiunge una stringa di attributi a un tag HTML, rispettando la chiusura del tag.
+		 *
+		 * @param string $html La stringa HTML del tag.
+		 * @param string $attributes La stringa di attributi da aggiungere.
+		 * @return string La stringa HTML con gli attributi aggiunti.
+		 */
+		private static function addAttributesToTag(string $html, string $attributes): string
+		{
+			// Trova la posizione del primo spazio dopo il nome del tag di apertura
+			$position = strpos($html, ' ');
+
+			// Se non ci sono spazi, il tag è chiuso direttamente, quindi non ci sono attributi esistenti
+			if ($position === false) {
+				$position = strpos($html, '>');
+			}
+
+			// Se il tag è un tag auto-chiudente o non ha spazi, si aggiungono gli attributi subito dopo il nome del tag
+			if ($position === false) {
+				return $html;
+			}
+
+			// Inserisci gli attributi prima della chiusura del tag
+			$htmlWithAttributes = substr($html, 0, $position) . ' ' . $attributes . substr($html, $position);
+
+			return $htmlWithAttributes;
 		}
 	}

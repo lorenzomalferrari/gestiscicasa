@@ -3,14 +3,22 @@
     <div class="table-responsive">
         <table id="data-table" class="table table-bordered">
             <thead>
-                <?php require_once(ROOT . "app/view/components/table/data/header.php"); ?>
+                <?php
+                    // Converti l'array in JSON
+                    $input_fields = urlencode(json_encode($fields, JSON_PRETTY_PRINT));
+                    require(ROOT . "app/view/components/table/data/header.php"); ?>
             </thead>
             <tbody>
                 <?php
                     for ($i = 0; $i < count($tableDataRecord); $i++) {
                         $id = $tableDataRecord[$i][0];
                         echo "<tr>";
-                        echo "<td><a href=\"" . PATH . "app/view/input-form.php?table=" . strtolower($type_page). "&id=" . $id . "\" title=\"Modifica\">Modifica</a></td>";
+                        echo "<td><a href=\"" . PATH . "app/view/input-form.php?"
+                            . "page=" . $titlePage
+                            . "&table=" . $tableName
+                            . "&input_fields=" . $input_fields
+                            . "&id=" . $id
+                            . "\" title=\"Modifica\">Modifica</a></td>";
                         for ($j = 0; $j < count($tableDataRecord[$i]); $j++) {
                             echo "<td>" . htmlspecialchars($tableDataRecord[$i][$j]) . "</td>";
                         }
@@ -19,7 +27,9 @@
                 ?>
             </tbody>
             <tfoot>
-                <?php require_once(ROOT . "app/view/components/table/data/header.php"); ?>
+                <?php
+                    require(ROOT . "app/view/components/table/data/header.php");
+                ?>
             </tfoot>
         </table>
     </div>

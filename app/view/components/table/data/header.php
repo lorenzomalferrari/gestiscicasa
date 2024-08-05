@@ -1,6 +1,10 @@
 <tr>
     <?php
-        echo "<th><a href=\"" . PATH . "app/view/input-form.php?table=" . $type_page . "\" title=\"Aggiungi nuovo\">+</a></th>";
+        echo "<th><a href=\"" . PATH . "app/view/input-form.php?"
+        . "page=" . $titlePage
+        . "&table=" . $tableName
+        . "&input_fields=" . $input_fields
+        . "\" title=\"Nuovo\">+</a></th>";
         for ($j = 0; $j < count($tableDataHeader); $j++) {
             echo "<th>" . htmlspecialchars($tableDataHeader[$j]) . "</th>";
         }
