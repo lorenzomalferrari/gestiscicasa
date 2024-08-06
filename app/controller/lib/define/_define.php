@@ -180,7 +180,7 @@
 	]);
 
 	/**
-	 *
+	 * Path delle voci del menu
 	 */
 	define('MENU_PATHS', [
 		'home' => '/app/view/home.php',
@@ -193,6 +193,9 @@
 		'welcome' => '/app/view/welcome.php',
 	]);
 
+	/**
+	 * Contiene le possibili chiamate gestite dal'api
+	 */
 	define('API', [
 		'UPDATE_DB' => 'update_db',
 		'SEND_LOGS' => 'send_log',
@@ -204,7 +207,8 @@
 	]);
 
 	/**
-	 *
+	 * Per ogni tag html che può essere usato per salvare dati, vengono fornite le chiavi che posso essere usate
+	 * Se voce non presente in chiave, non può essere usata
 	 */
 	define('INPUT_TYPE', [
 		"input" => [
