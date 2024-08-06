@@ -21,6 +21,7 @@
 			'name' => 'Gestisci Casa',
 			'name_sigla' => 'GC',
 			'name_esteso' => 'CRM Gestisci Casa',
+			'email' => 'info@gestiscicasa.it',
 			'autore' => 'Lorenzo Malferrari',
 			'azienda' => 'LM Servizi e Consulenze IT',
 			'version' => '1.0.1',
