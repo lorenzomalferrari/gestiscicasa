@@ -145,17 +145,17 @@
 	}
 
 	/**
-	 * Verifica se l'applicazione sta girando su un ambiente locale.
+	 * Verifica se l'applicazione sta girando su un ambiente locale e restituisce la chiave appropriata.
 	 *
 	 * Questa funzione controlla l'host corrente confrontandolo con una lista
 	 * di host considerati come locali (localhost, 127.0.0.1, ::1).
 	 *
-	 * @return bool Restituisce true se l'applicazione sta girando in locale, false altrimenti.
+	 * @return string Restituisce "test" se l'applicazione sta girando in locale, "produzione" altrimenti.
 	 */
-	function isLocalhost(): bool
+	function getEnvironmentKey(): string
 	{
 		$localHosts = ['localhost', '127.0.0.1', '::1'];
-		return in_array(HTTP_HOST, $localHosts) || in_array(DOMINIO, $localHosts);
+		return in_array($_SERVER['HTTP_HOST'], $localHosts) ? "test" : "produzione";
 	}
 
 	/**
