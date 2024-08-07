@@ -61,12 +61,12 @@
                     </a>
                     <ul class="dsy-sub-group sub-group-menu">
                         <?php
-                            require_once(ROOT . "app/controller/menu/piu_usati.php");
+                        require_once(ROOT . "app/controller/menu/piu_usati.php");
                         ?>
                     </ul>
                 </li>
                 <li class="dsy-menu-item">
-                    <a href="<?php echo PATH . "app/view/properties_list.php" ?>" class="dsy-menu-link">
+                    <a href="<?php echo PATH . "app/view/list/properties_list.php" ?>" class="dsy-menu-link">
                         <span class="dsy-menu-link-icon">
                             <i class="flaticon-null-4"></i>
                         </span>
@@ -74,13 +74,22 @@
                     </a>
                 </li>
                 <li class="dsy-menu-item">
-                    <a href="<?php echo PATH . "app/view/users_list.php" ?>" class="dsy-menu-link">
+                    <a href="<?php echo PATH . "app/view/list/users_list.php" ?>" class="dsy-menu-link">
                         <span class="dsy-menu-link-icon">
                             <i class="flaticon-null-3"></i>
                         </span>
                         <span class="dsy-menu-link-text">Utenti</span>
                     </a>
                 </li>
+                <li class="dsy-menu-item">
+                    <a href="<?php echo PATH . "app/view/list/nazionalities_list.php" ?>" class="dsy-menu-link">
+                        <span class="dsy-menu-link-icon">
+                            <i class="flaticon-null-3"></i>
+                        </span>
+                        <span class="dsy-menu-link-text">Nazioni</span>
+                    </a>
+                </li>
+                <!--
                 <li class="dsy-menu-item">
                     <a href="file-manager.php" class="dsy-menu-link">
                         <span class="dsy-menu-link-icon">
@@ -97,7 +106,6 @@
                         <span class="dsy-menu-link-text">Contacts</span>
                     </a>
                 </li>
-                <!--
                 <li class="dsy-menu-label">
                     <div class="dsy-menu-label-text">PAGES</div>
                 </li>

@@ -27,7 +27,7 @@
 <!doctype html>
 <html class="no-js" lang="">
     <head>
-        <?php require_once("head/_head.php"); ?>
+        <?php require_once("template/head/_head.php"); ?>
     </head>
     <body>
         <!-- Page Loader Start -->
