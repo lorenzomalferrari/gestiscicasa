@@ -13,7 +13,7 @@
                     for ($i = 0; $i < count($tableDataRecord); $i++) {
                         $id = $tableDataRecord[$i][0];
                         echo "<tr>";
-                        echo "<td><a href=\"" . PATH . "app/view/input-form.php?"
+                        echo "<td><a href=\"" . PATH . "app/view/components/input/input-form.php?"
                             . "page=" . $titlePage
                             . "&table=" . $tableName
                             . "&input_fields=" . $input_fields
