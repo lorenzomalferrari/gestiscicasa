@@ -46,8 +46,12 @@
 				return $this->compareUpdateFiles($a, $b);
 			});
 
-			foreach ($files as $file) {
+			foreach ($files as $index => $file) {
 				$this->executeSqlFile($file);
+				if ($index === count($files) - 1) {
+					$version = $this->getVersionFromFilename($file);
+					DB->insertDatabaseVersion($version);
+				}
 			}
 		}
 
