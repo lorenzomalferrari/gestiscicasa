@@ -66,7 +66,7 @@
                     </ul>
                 </li>
                 <li class="dsy-menu-item">
-                    <a href="<?php echo PATH . "app/view/list/properties_list.php" ?>" class="dsy-menu-link">
+                    <a href="<?php echo PATH . "app/view/lists/properties_list.php" ?>" class="dsy-menu-link">
                         <span class="dsy-menu-link-icon">
                             <i class="flaticon-null-4"></i>
                         </span>
@@ -74,7 +74,7 @@
                     </a>
                 </li>
                 <li class="dsy-menu-item">
-                    <a href="<?php echo PATH . "app/view/list/users_list.php" ?>" class="dsy-menu-link">
+                    <a href="<?php echo PATH . "app/view/lists/users_list.php" ?>" class="dsy-menu-link">
                         <span class="dsy-menu-link-icon">
                             <i class="flaticon-null-3"></i>
                         </span>
@@ -82,7 +82,7 @@
                     </a>
                 </li>
                 <li class="dsy-menu-item">
-                    <a href="<?php echo PATH . "app/view/list/nazionalities_list.php" ?>" class="dsy-menu-link">
+                    <a href="<?php echo PATH . "app/view/lists/nazionalities_list.php" ?>" class="dsy-menu-link">
                         <span class="dsy-menu-link-icon">
                             <i class="flaticon-null-3"></i>
                         </span>
