@@ -232,6 +232,36 @@
         }
 
         /**
+         * Inserisce la nuova versione a DB nella tabella dedicata lmgc_VersioniDB
+         */
+        public function insertDatabaseVersion($version): void
+        {
+            try {
+                // Inizia la transazione
+                DB->beginTransaction();
+
+                $params = [
+                    ':v' => $version,
+                    ':v_e' => $version,
+                    ':n' => "Eseguito tramite API - UpdateDB",
+                ];
+
+                $insert =
+                    "INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::VERSIONDB)
+                    . " (" . VersioniDBTable::VERSIONE. " , " . VersioniDBTable::NOME_VERS_ESTESA . " , " . VersioniDBTable::NOTE . ")"
+                    ." VALUES (:v, :v_e, :n)";
+                DB->insert($insert, $params);
+
+                // Conferma la transazione
+                DB->commit();
+            } catch (CustomException $e) {
+                // Annulla la transazione in caso di errore
+                DB->rollBack();
+                echo "Operazione fallita: " . $e->getMessage();
+            }
+        }
+
+        /**
          * Controlla la versione del database confrontandola con la versione specificata in configurazione.
          *
          * @throws CustomException Se la versione del database non corrisponde a CONFIG['db']['version'].
@@ -240,6 +270,9 @@
         public function checkDatabaseVersion(): void
         {
             try {
+                // Inizia la transazione
+                DB->beginTransaction();
+
                 // Query per recuperare la versione del database
                 $query = "SELECT " . VersioniDBTable::VERSIONE . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::VERSIONDB) . " ORDER BY " . VersioniDBTable::DATA_CREAZIONE . " DESC LIMIT 1";
                 $result = $this->select($query);
@@ -254,7 +287,12 @@
                 } else {
                     throw new CustomException("Impossibile recuperare la versione del database.");
                 }
+
+                // Conferma la transazione
+                DB->commit();
             } catch (PDOException | CustomException $e) {
+                // Annulla la transazione in caso di errore
+                DB->rollBack();
                 // Log dell'errore
                 $message = "Errore durante il controllo della versione del database: " . $e->getMessage();
                 error_log($message); // Puoi registrare l'errore in un file di log o nel modo che preferisci
