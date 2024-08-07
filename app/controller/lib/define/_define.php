@@ -186,11 +186,12 @@
 		'home' => '/app/view/home.php',
 		'login' => '/app/view/login.php',
 		'pricing' => '/app/view/pricing.php',
-		'properties' => '/app/view/properties_list.php',
+		'properties' => '/app/view/list/properties_list.php',
 		'registration' => '/app/view/registration.php',
 		'reset_psw' => '/app/view/reset_psw.php',
-		'users' => '/app/view/users_list.php',
+		'users' => '/app/view/list/users_list.php',
 		'welcome' => '/app/view/welcome.php',
+		'nazionalities' => '/app/view/list/nazionalities_list.php'
 	]);
 
 	/**
