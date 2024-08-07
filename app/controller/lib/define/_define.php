@@ -50,7 +50,11 @@
 				'SELECT' => 2,
 				'UPDATE' => 3,
 				'DELETE' => 4,
-			]
+			],
+			'update' => [
+				'create' => 'public/_dati/db/create_db/',
+				'step' => 'public/_dati/db/update_step',
+			],
 		],
 		'ftp' => [
 			'server' => '81.31.158.38',
