@@ -1,5 +1,6 @@
-<?php declare(strict_types=1);
-    require_once("../controller/lib/libs.php");
+<?php
+    declare(strict_types=1);
+    require_once("../../controller/lib/libs.php");
     //Richiamare info da mostrare
     require_once(ROOT . "app/controller/property/getPropertyList.php");
     //Eventuale personalizzazione
@@ -9,12 +10,13 @@
 <html class="no-js" lang="">
 
 <head>
-    <?php require_once(ROOT . "app/view/template/head/_head.php"); ?>
+    <?php require_once(ROOT . "app/view/components/template/_head.php"); ?>
 </head>
 
 <body>
     <!-- Page Loader Start -->
-    <?php //require_once(ROOT . "app/view/components/template/_preloader.php"); ?>
+    <?php //require_once(ROOT . "app/view/components/template/_preloader.php");
+    ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">
         <i class="fas fa-angle-double-up"></i>

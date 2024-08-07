@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-    require_once("../controller/lib/libs.php");
+    require_once("../../controller/lib/libs.php");
     //Richiamare info da mostrare
     require_once(ROOT . "app/controller/users/getUsersList.php");
     //Eventuale personalizzazione
