@@ -1,6 +1,4 @@
 <?php
-    require_once("../controller/lib/libs.php");
-
     //recupero le path più usate
     $params = array(
         ':idUser' => $_SESSION[CONFIG['session']['keys']['IDUSER']],
