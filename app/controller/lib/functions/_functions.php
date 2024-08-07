@@ -150,7 +150,9 @@
 	 * Questa funzione controlla l'host corrente confrontandolo con una lista
 	 * di host considerati come locali (localhost, 127.0.0.1, ::1).
 	 *
-	 * @return string Restituisce "test" se l'applicazione sta girando in locale, "produzione" altrimenti.
+	 * @return string Restituisce
+	 * 			- "test" se l'applicazione sta girando in locale;
+	 * 			- "produzione" altrimenti;
 	 */
 	function getEnvironmentKey(): string
 	{

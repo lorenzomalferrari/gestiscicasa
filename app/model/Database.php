@@ -36,6 +36,38 @@
         }
 
         /**
+         * Inizia una transazione.
+         * Utile per eseguire blocco di operazioni a DB, senza che gli stati cambino
+         *
+         * @return void
+         */
+        public function beginTransaction(): void
+        {
+            $this->conn->beginTransaction();
+        }
+
+        /**
+         * Conferma una transazione.
+         *
+         * @return void
+         */
+        public function commit(): void
+        {
+            $this->conn->commit();
+        }
+
+        /**
+         * Annulla una transazione.
+         * In caso di errori, non vengono applicate le operazioni
+         *
+         * @return void
+         */
+        public function rollBack(): void
+        {
+            $this->conn->rollBack();
+        }
+
+        /**
          * Esegue una query di selezione sul database e restituisce la prima riga come array associativo.
          *
          * @param string $query La query SQL da eseguire.
@@ -214,7 +246,7 @@
 
                 if (!empty($result)) {
                     $dbVersion = $result[VersioniDBTable::VERSIONE];
-                    $expectedVersion = CONFIG['db']['test']['version'];
+                    $expectedVersion = CONFIG['db'][getEnvironmentKey()]['version'];
 
                     if ($dbVersion !== $expectedVersion) {
                         throw new CustomException("Versione del database non corrispondente. Versione attuale: $dbVersion, Versione attesa: $expectedVersion");
