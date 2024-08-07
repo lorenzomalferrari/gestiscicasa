@@ -1,8 +1,5 @@
 <?php
-    require_once("../../../../controller/lib/libs.php");
-    $nomeGestionale = CONFIG['site']['name'];
-    $email = CONFIG['site']['email'];
-    $telefono = CONFIG['site']['telefono'];
+    require_once("_getInfo.php");
 ?>
 <!DOCTYPE html>
 <html lang="it">
