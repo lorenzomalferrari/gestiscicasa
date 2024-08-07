@@ -8,7 +8,7 @@ $titlePage = "Reset password";
 <html class="no-js" lang="">
 
 <head>
-    <?php require_once("template/head/_head.php"); ?>
+    <?php require_once(ROOT . 'app/view/components/template/_head.php'); ?>
 </head>
 
 <body>
