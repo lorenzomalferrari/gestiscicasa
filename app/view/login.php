@@ -31,7 +31,7 @@
     </head>
     <body>
         <!-- Page Loader Start -->
-        <?php //require_once("template/_preloader.php");
+        <?php //require_once(ROOT . "app/view/components/template/_preloader.php");
         ?>
         <!-- Page Loader End -->
         <a href="#main-wrapper" data-type="section-switch" class="scrollup">
@@ -79,11 +79,11 @@
                                     </li>
                                     -->
                         </ul>
-                        <?php require_once("template/_copyright.php"); ?>
+                        <?php require_once(ROOT . "app/view/components/template/_copyright.php"); ?>
                     </div>
                 </div>
             </div>
         </div>
-        <?php require_once("template/_script.php"); ?>
+        <?php require_once(ROOT . "app/view/components/template/_script.php"); ?>
     </body>
 </html>

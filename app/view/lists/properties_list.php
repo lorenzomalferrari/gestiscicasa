@@ -14,7 +14,7 @@
 
 <body>
     <!-- Page Loader Start -->
-    <?php //require_once("template/_preloader.php"); ?>
+    <?php //require_once(ROOT . "app/view/components/template/_preloader.php"); ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">
         <i class="fas fa-angle-double-up"></i>
@@ -25,10 +25,10 @@
             <div class="dsy-page-content vertical-menu">
                 <header class="header">
                     <!-- Inizio menù laterale -->
-                    <?php require_once("template/_menu.php"); ?>
+                    <?php require_once(ROOT . "app/view/components/template/_menu.php"); ?>
                     <!-- Fine menù laterale -->
                     <!-- Inizio intestazione -->
-                    <?php require_once("template/_navbar.php"); ?>
+                    <?php require_once(ROOT . "app/view/components/template/_navbar.php"); ?>
                     <!-- Fine intestazione -->
                 </header>
 
@@ -70,11 +70,11 @@
                 <!--=====================================-->
                 <!--=       	Footer Start     		=-->
                 <!--=====================================-->
-                <?php require_once("template/_footer.php"); ?>
+                <?php require_once(ROOT . "app/view/components/template/_footer.php"); ?>
             </div>
         </div>
     </div>
-    <?php require_once("template/_script.php"); ?>
+    <?php require_once(ROOT . "app/view/components/template/_script.php"); ?>
 </body>
 
 </html>

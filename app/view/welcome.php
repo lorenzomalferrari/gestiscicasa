@@ -14,7 +14,7 @@ print_r($_SESSION);
 
 <body>
     <!-- Page Loader Start -->
-    <?php //require_once("template/_preloader.php");
+    <?php //require_once(ROOT . "app/view/components/template/_preloader.php");
     ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">
@@ -62,12 +62,12 @@ print_r($_SESSION);
                             <button type="button" class="submit-btn" onclick="checkWelcome()">REGISTRA</button>
                         </div>
                     </form>
-                    <?php require_once("template/_copyright.php"); ?>
+                    <?php require_once(ROOT . "app/view/components/template/_copyright.php"); ?>
                 </div>
             </div>
         </div>
     </div>
-    <?php require_once("template/_script.php"); ?>
+    <?php require_once(ROOT . "app/view/components/template/_script.php"); ?>
 </body>
 
 </html>

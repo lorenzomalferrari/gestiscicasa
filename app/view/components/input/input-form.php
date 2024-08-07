@@ -21,7 +21,7 @@
 <body>
     <!-- Page Loader Start -->
     <?php
-    //require_once("template/_preloader.php");
+    //require_once(ROOT . "app/view/components/template/_preloader.php");
     ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">
