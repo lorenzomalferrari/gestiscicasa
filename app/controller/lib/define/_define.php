@@ -23,6 +23,7 @@
 			'name_esteso' => 'CRM Gestisci Casa',
 			'email' => 'info@gestiscicasa.it',
 			'autore' => 'Lorenzo Malferrari',
+			'telefono' => '+39 3519325656',
 			'azienda' => 'LM Servizi e Consulenze IT',
 			'version' => '1.0.1',
 		],
