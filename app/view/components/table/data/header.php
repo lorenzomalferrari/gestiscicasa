@@ -1,6 +1,6 @@
 <tr>
     <?php
-        echo "<th><a href=\"" . PATH . "app/view/input-form.php?"
+        echo "<th><a href=\"" . PATH . "app/view/components/input/input-form.php?"
         . "page=" . $titlePage
         . "&table=" . $tableName
         . "&input_fields=" . $input_fields
