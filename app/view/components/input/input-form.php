@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-    require_once("../controller/lib/libs.php");
+    require_once("../../../controller/lib/libs.php");
     getToPost();
 
     $page = $_POST['page'];
@@ -33,10 +33,10 @@
             <div class="dsy-page-content vertical-menu">
                 <header class="header">
                     <!-- Inizio menù laterale -->
-                    <?php require_once(ROOT . "app/view/template/_menu.php"); ?>
+                    <?php require_once(ROOT . "app/view/components/template/_menu.php"); ?>
                     <!-- Fine menù laterale -->
                     <!-- Inizio intestazione -->
-                    <?php require_once(ROOT . "app/view/template/_navbar.php"); ?>
+                    <?php require_once(ROOT . "app/view/components/template/_navbar.php"); ?>
                     <!-- Fine intestazione -->
                 </header>
 
@@ -78,11 +78,11 @@
                 <!--=====================================-->
                 <!--=       	Footer Start     		=-->
                 <!--=====================================-->
-                <?php require_once(ROOT . "app/view/template/_footer.php"); ?>
+                <?php require_once(ROOT . "app/view/components/template/_footer.php"); ?>
             </div>
         </div>
     </div>
-    <?php require_once(ROOT . "app/view/template/_script.php"); ?>
+    <?php require_once(ROOT . "app/view/components/template/_script.php"); ?>
 </body>
 
 </html>
