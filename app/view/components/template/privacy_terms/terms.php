@@ -1,11 +1,14 @@
+<?php
+    require_once("_getInfo.php");
+?>
 <!DOCTYPE html>
 <html lang="it">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Termini e Condizioni d'Uso - [Nome del Gestionale]</title>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <title>Termini e Condizioni d'Uso - <?php echo $nomeGestionale; ?></title>
+        <?php require_once(ROOT . 'app/view/components/template/_head.php'); ?>
     </head>
 
     <body>
@@ -13,7 +16,7 @@
         <div class="container mt-5">
             <h1 class="mb-4">Termini e Condizioni d'Uso</h1>
 
-            <p>Benvenuti ai Termini e Condizioni d'Uso di <strong>[Nome del Gestionale]</strong>. Utilizzando il nostro gestionale, accetti questi termini. Se non sei d'accordo con questi termini, ti preghiamo di non utilizzare il nostro servizio.</p>
+            <p>Benvenuti ai Termini e Condizioni d'Uso di <strong><?php echo $nomeGestionale; ?></strong>. Utilizzando il nostro gestionale, accetti questi termini. Se non sei d'accordo con questi termini, ti preghiamo di non utilizzare il nostro servizio.</p>
 
             <h2 class="mt-4">Uso del Gestionale</h2>
             <p>Ti concediamo una licenza limitata, non esclusiva e revocabile per utilizzare il gestionale secondo questi termini. Non è consentito:</p>
@@ -54,20 +57,18 @@
             <p>Ci riserviamo il diritto di modificare questi termini in qualsiasi momento. Gli utenti saranno notificati delle modifiche attraverso il gestionale o tramite email. Le modifiche entreranno in vigore immediatamente dopo la pubblicazione. L'uso continuato del gestionale costituisce accettazione delle modifiche.</p>
 
             <h2 class="mt-4">Legge Applicabile</h2>
-            <p>Questi termini saranno regolati e interpretati secondo le leggi di [Indica la Giurisdizione], senza riguardo ai principi di conflitto di leggi. Qualsiasi controversia derivante da o relativa a questi termini sarà sottoposta alla giurisdizione esclusiva dei tribunali di [Indica la Giurisdizione].</p>
+            <p>Questi termini saranno regolati e interpretati secondo le leggi italiane, senza riguardo ai principi di conflitto di leggi. Qualsiasi controversia derivante da o relativa a questi termini sarà sottoposta alla giurisdizione esclusiva dei tribunali italiani.</p>
 
             <h2 class="mt-4">Contatti</h2>
             <p>Per domande o richieste riguardanti questi Termini e Condizioni, contattaci a:</p>
             <p>
-                <strong>Email:</strong> [Indirizzo Email]<br>
-                <strong>Telefono:</strong> [Numero di Telefono]<br>
-                <strong>Indirizzo:</strong> [Indirizzo Fisico]
+            <strong>Email:</strong><?php echo $email; ?><br>
+                <strong>Telefono:</strong><?php echo $telefono; ?><br>
+                <!--<strong>Indirizzo:</strong> [Indirizzo Fisico]-->
             </p>
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <?php require_once(ROOT . 'app/view/components/template/_script.php'); ?>
     </body>
 
 </html>

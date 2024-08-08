@@ -36,6 +36,38 @@
         }
 
         /**
+         * Inizia una transazione.
+         * Utile per eseguire blocco di operazioni a DB, senza che gli stati cambino
+         *
+         * @return void
+         */
+        public function beginTransaction(): void
+        {
+            $this->conn->beginTransaction();
+        }
+
+        /**
+         * Conferma una transazione.
+         *
+         * @return void
+         */
+        public function commit(): void
+        {
+            $this->conn->commit();
+        }
+
+        /**
+         * Annulla una transazione.
+         * In caso di errori, non vengono applicate le operazioni
+         *
+         * @return void
+         */
+        public function rollBack(): void
+        {
+            $this->conn->rollBack();
+        }
+
+        /**
          * Esegue una query di selezione sul database e restituisce la prima riga come array associativo.
          *
          * @param string $query La query SQL da eseguire.
@@ -200,6 +232,36 @@
         }
 
         /**
+         * Inserisce la nuova versione a DB nella tabella dedicata lmgc_VersioniDB
+         */
+        public function insertDatabaseVersion($version): void
+        {
+            try {
+                // Inizia la transazione
+                DB->beginTransaction();
+
+                $params = [
+                    ':v' => $version,
+                    ':v_e' => $version,
+                    ':n' => "Eseguito tramite API - UpdateDB",
+                ];
+
+                $insert =
+                    "INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::VERSIONDB)
+                    . " (" . VersioniDBTable::VERSIONE. " , " . VersioniDBTable::NOME_VERS_ESTESA . " , " . VersioniDBTable::NOTE . ")"
+                    ." VALUES (:v, :v_e, :n)";
+                DB->insert($insert, $params);
+
+                // Conferma la transazione
+                DB->commit();
+            } catch (CustomException $e) {
+                // Annulla la transazione in caso di errore
+                DB->rollBack();
+                echo "Operazione fallita: " . $e->getMessage();
+            }
+        }
+
+        /**
          * Controlla la versione del database confrontandola con la versione specificata in configurazione.
          *
          * @throws CustomException Se la versione del database non corrisponde a CONFIG['db']['version'].
@@ -208,13 +270,16 @@
         public function checkDatabaseVersion(): void
         {
             try {
+                // Inizia la transazione
+                DB->beginTransaction();
+
                 // Query per recuperare la versione del database
                 $query = "SELECT " . VersioniDBTable::VERSIONE . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::VERSIONDB) . " ORDER BY " . VersioniDBTable::DATA_CREAZIONE . " DESC LIMIT 1";
                 $result = $this->select($query);
 
                 if (!empty($result)) {
                     $dbVersion = $result[VersioniDBTable::VERSIONE];
-                    $expectedVersion = CONFIG['db']['test']['version'];
+                    $expectedVersion = CONFIG['db'][getEnvironmentKey()]['version'];
 
                     if ($dbVersion !== $expectedVersion) {
                         throw new CustomException("Versione del database non corrispondente. Versione attuale: $dbVersion, Versione attesa: $expectedVersion");
@@ -222,7 +287,12 @@
                 } else {
                     throw new CustomException("Impossibile recuperare la versione del database.");
                 }
+
+                // Conferma la transazione
+                DB->commit();
             } catch (PDOException | CustomException $e) {
+                // Annulla la transazione in caso di errore
+                DB->rollBack();
                 // Log dell'errore
                 $message = "Errore durante il controllo della versione del database: " . $e->getMessage();
                 error_log($message); // Puoi registrare l'errore in un file di log o nel modo che preferisci

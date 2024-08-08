@@ -47,16 +47,16 @@
 			break;
 		case API['RESEND_EMAILS']:
 			require_once(ROOT . 'app/model/api/ResendEmail.php');
-			$dsn = 'mysql:host=localhost;dbname=your_db_name'; // Modifica con il tuo DSN
-			$dbUsername = 'db_user'; // Modifica con il tuo username DB
-			$dbPassword = 'db_password'; // Modifica con la tua password DB
-			$emailHost = 'smtp.example.com'; // Sostituisci con il tuo server SMTP
-			$emailPort = 587; // Porta SMTP, tipicamente 587 per TLS
-			$emailUsername = 'email_user'; // Sostituisci con il tuo username email
-			$emailPassword = 'email_password'; // Sostituisci con la tua password email
+			//$dsn = 'mysql:host=localhost;dbname=your_db_name'; // Modifica con il tuo DSN
+			//$dbUsername = 'db_user'; // Modifica con il tuo username DB
+			//$dbPassword = 'db_password'; // Modifica con la tua password DB
+			//$emailHost = 'smtp.example.com'; // Sostituisci con il tuo server SMTP
+			//$emailPort = 587; // Porta SMTP, tipicamente 587 per TLS
+			//$emailUsername = 'email_user'; // Sostituisci con il tuo username email
+			//$emailPassword = 'email_password'; // Sostituisci con la tua password email
 
-			$handler = new ResendEmail($dsn, $dbUsername, $dbPassword, $emailHost, $emailPort, $emailUsername, $emailPassword);
-			$response = $handler->handle($jsonParams);
+			//$handler = new ResendEmail($dsn, $dbUsername, $dbPassword, $emailHost, $emailPort, $emailUsername, $emailPassword);
+			//$response = $handler->handle($jsonParams);
 			break;
 		case API['IMPORT_USERS']:
 		case API['IMPORT_PROPERTIES']:
@@ -73,7 +73,7 @@
 			$handler = new Download($args[1]);
 			break;
 		default:
-			$response = ['status' => 'error', 'message' => 'Contesto non riconosciuto. Contattare info@lorenzomalferrari.com'];
+			$response = ['status' => 'error', 'message' => 'Contesto non riconosciuto. Contattare ' . CONFIG['site']['email']];
 			break;
 	}
 
