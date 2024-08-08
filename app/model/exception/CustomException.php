@@ -43,8 +43,14 @@
 		// Sovrascrivi i messaggi delle eccezioni comuni
 		public function __construct($message = "", $code = 0, Throwable $previous = null)
 		{
-			$exceptionClass = get_class($previous);
-			$exceptionMessage = $previous->getMessage();
+			// Verifica se $previous è un oggetto prima di chiamare get_class
+			if ($previous !== null) {
+				$exceptionClass = get_class($previous);
+				$exceptionMessage = $previous->getMessage();
+			} else {
+				$exceptionClass = 'UnknownException'; // Puoi usare un nome predefinito per le eccezioni sconosciute
+				$exceptionMessage = 'No previous exception';
+			}
 
 			print_r("getMessage(): " . $exceptionMessage);
 			print_r("get_class(): " . $exceptionClass);
