@@ -262,6 +262,27 @@
         }
 
         /**
+         * Restituisce la versione del Database salvata
+         * @return mixed Numero della versione. In caso contrario stringa vuota
+         */
+        public function getDatabaseVersion(): mixed
+        {
+            $vers = null;
+
+            // Query per recuperare la versione del database
+            $query = "SELECT " . VersioniDBTable::VERSIONE
+                . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::VERSIONDB)
+                . " ORDER BY " . VersioniDBTable::DATA_CREAZIONE . " DESC LIMIT 1";
+
+            $result = $this->select($query);
+
+            if (!empty($result))
+                $vers = $result[VersioniDBTable::VERSIONE];
+
+            return $vers;
+        }
+
+        /**
          * Controlla la versione del database confrontandola con la versione specificata in configurazione.
          *
          * @throws CustomException Se la versione del database non corrisponde a CONFIG['db']['version'].
@@ -273,12 +294,9 @@
                 // Inizia la transazione
                 DB->beginTransaction();
 
-                // Query per recuperare la versione del database
-                $query = "SELECT " . VersioniDBTable::VERSIONE . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::VERSIONDB) . " ORDER BY " . VersioniDBTable::DATA_CREAZIONE . " DESC LIMIT 1";
-                $result = $this->select($query);
+                $dbVersion = self::getDatabaseVersion();
 
-                if (!empty($result)) {
-                    $dbVersion = $result[VersioniDBTable::VERSIONE];
+                if (!empty($dbVersion)) {
                     $expectedVersion = CONFIG['db'][getEnvironmentKey()]['version'];
 
                     if ($dbVersion !== $expectedVersion) {
