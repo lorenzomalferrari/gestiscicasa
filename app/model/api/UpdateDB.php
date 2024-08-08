@@ -20,6 +20,8 @@
 		{
 			$this->sqlDirectory = ROOT . CONFIG['db']['update']['create'];
 			$this->updateDirectory = ROOT . CONFIG['db']['update']['step'];
+
+			DB->checkDatabaseVersion();
 		}
 
 		/**
@@ -113,7 +115,6 @@
 			}
 		}
 
-
 		/**
 		 * Confronta due file di aggiornamento basandosi sulla versione nel loro nome.
 		 *
@@ -138,15 +139,10 @@
 		{
 			// Estrae il basename del file
 			$basename = basename($filename, '.sql');
-
 			// Rimuove "update_" dal basename
 			$versionPart = substr($basename, strlen('update_'));
-
 			// Converti gli underscore in punti nella versione
 			$versionPart = str_replace('_', '.', $versionPart);
-
-			print_r("Versione: " . $versionPart);
-
 			return $versionPart;
 		}
 	}
