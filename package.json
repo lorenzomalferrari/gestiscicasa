@@ -4,7 +4,7 @@
   "description": "Progetto che nasce privato con lo scopo di gestire al meglio la propria casa in tutte le sue necessità",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/lorenzomalferrari/gestiscicasa#readme",
   "dependencies": {
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
