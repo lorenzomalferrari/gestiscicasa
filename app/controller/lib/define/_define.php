@@ -30,7 +30,7 @@
 		'db' => [
 			'tablePrefix' => 'lmgc_',
 			'test' => [
-				'version' => '1.0.0',
+				'version' => '1.1.15',
 				'host' => '81.31.158.38',
 				'port' => '3306',
 				'username' => 'uij8aoin_gestiscicasa',
@@ -38,7 +38,7 @@
 				'database' => 'uij8aoin_gestiscicasa',
 			],
 			'produzione' => [
-				'version' => '1.0.0',
+				'version' => '0.0.1',
 				'host' => '127.0.0.1',
 				'port' => '3306',
 				'username' => 'uij8aoin_gestiscicasa',
