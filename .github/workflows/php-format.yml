@@ -16,6 +16,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: List files in root directory
+      run: ls -la
+
     - name: Set up PHP
       uses: shivammathur/setup-php@v2
       with:
