@@ -1,0 +1,22 @@
+{
+  "name": "gestiscicasa",
+  "version": "1.0.0",
+  "description": "Progetto che nasce privato con lo scopo di gestire al meglio la propria casa in tutte le sue necessità",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lorenzomalferrari/gestiscicasa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lorenzomalferrari/gestiscicasa/issues"
+  },
+  "homepage": "https://github.com/lorenzomalferrari/gestiscicasa#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
