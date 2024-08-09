@@ -1,0 +1,21 @@
+name: Python Security Audit
+
+on: [push, pull_request]
+
+jobs:
+  python-security-audit:
+    name: Run Python Security Audit
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+
+    - name: Install pip-audit
+      run: pip install pip-audit
+
+    - name: Run pip-audit
+      run: pip-audit

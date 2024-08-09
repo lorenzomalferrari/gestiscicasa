@@ -1,0 +1,18 @@
+name: HTML Analysis
+
+on: [push, pull_request]
+
+jobs:
+  html-analysis:
+    name: Validate HTML Files
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install HTMLHint
+      run: npm install htmlhint
+
+    - name: Run HTMLHint
+      run: npx htmlhint "**/*.html"
