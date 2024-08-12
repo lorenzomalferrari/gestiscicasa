@@ -1,7 +1,7 @@
 <?php
-//echo "<pre>"; // Iniziamo il blocco di stampa formattata
-//print_r($fields); // Stampa l'array in formato leggibile
-//echo "</pre>"; // Chiudiamo il blocco di stampa formattata
+    //echo "<pre>"; // Iniziamo il blocco di stampa formattata
+    //print_r($fields); // Stampa l'array in formato leggibile
+    //echo "</pre>"; // Chiudiamo il blocco di stampa formattata
 ?>
 <div class="container-fluid">
     <?php require(ROOT . "app/view/components/table/buttons/buttons_list.php"); ?>

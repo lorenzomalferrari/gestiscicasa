@@ -9,6 +9,7 @@
         $params_insert = array(
             ':nome' => $_POST['nome'],
             ':cognome' => $_POST['cognome'],
+            ':idGender' => $_POST['sesso'],
             ':email' => $_POST[CONFIG['session']['keys']['EMAIL']],
             ':idUser' => $_POST[CONFIG['session']['keys']['IDUSER']],
         );
@@ -17,7 +18,10 @@
         print_r($params_insert);
 
         //Gestisco l'inserimento in DB
-        $insert = "INSERT INTO " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'),NomiTabella::PERSON) . " (name, surname, email, idUser) VALUES (:nome, :cognome, :email, :idUser)";
+        $insert = "INSERT INTO "
+                    . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'),NomiTabella::PERSON)
+                    . " (" . PersonTable::NAME . ", " . PersonTable::SURNAME . ", " . PersonTable::EMAIL . ", " . PersonTable::ID_USER. ", " . PersonTable::ID_GENDER. ") "
+                    . " VALUES (:nome, :cognome, :email, :idUser, :idGender)";
         $new_person_id = DB->insert($insert, $params_insert);
         print_r("Nuova Persona creata - id: " . $new_person_id);
 
@@ -34,11 +38,9 @@
         $count_user = DB->selectAll($select_user, $params_user);
 
         if ($new_person_id > 0 && $count_user > 0) {
-        //tutto ok
-        header("Location: " . PATH . "app/view/home.php");
+            header("Location: " . PATH . "app/view/home.php");
         } else {
             //capire che messaggio restituire
             print_r("DA IMPLEMENTARE: ERRORE DA RESTITUIRE");
         }
     }
-?>

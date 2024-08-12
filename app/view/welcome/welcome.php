@@ -3,7 +3,8 @@
 declare(strict_types=1);
 require_once("../controller/lib/libs.php");
 $titlePage = "Benvenuti";
-print_r($_SESSION);
+$sesso_options = "<option value=\"scegli\">Scegli</option>";
+require_once(ROOT . "setInputFields.php");
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -50,14 +51,23 @@ print_r($_SESSION);
                             <div class="input-label">
                                 <label>Nome</label>
                             </div>
-                            <input type="text" class="form-control" placeholder="Nome" name="nome" id="nome">
+                            <input type="text" class="form-control" placeholder="Nome" name="nome" id="nome" required>
                         </div>
                         <div class="form-group">
                             <div class="input-label">
                                 <label>Cognome</label>
                             </div>
-                            <input type="text" class="form-control" placeholder="Cognome" name="cognome" id="cognome">
+                            <input type="text" class="form-control" placeholder="Cognome" name="cognome" id="cognome" required>
                         </div>
+                        <div class="form-group">
+                            <div class="input-label">
+                                <label>Sesso</label>
+                            </div>
+                            <select class="form-control" name="sesso" id="sesso" required>
+                                <?php echo $sesso_options; ?>
+                            </select>
+                        </div>
+
                         <div class="form-group">
                             <button type="button" class="submit-btn" onclick="checkWelcome()">REGISTRA</button>
                         </div>

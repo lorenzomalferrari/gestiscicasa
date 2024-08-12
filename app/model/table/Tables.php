@@ -40,6 +40,7 @@
 		const CREATION_DATE = 'creationDate';
 		const UPDATE_DATE = 'updateData';
 		const EMAIL = 'email';
+		const ID_GENDER = 'idGender';
 	}
 
 	class BrandTable {

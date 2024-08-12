@@ -1,15 +1,9 @@
 function checkLogin() {
     //recupero i campi del form
-    var email_username = document.getElementById("email").value; //può essere anche username
+    var email_username = document.getElementById("email").value;//può essere anche username
     var password = document.getElementById("password").value;
 
-    var errorLogin = "";
-    //convalido il contenuto dei campi del form
-
-    console.log(email_username);
-    console.log(password);
-
-    if (checkForAtSymbol(email_username) ){ //se ha @ controllo se è email valida
+    if (checkForAtSymbol(email_username) ){ //se ha @ controllo in relazione al campo email e se è valida
         login_result = validateEmail(email_username);
         login_isValid = login_result.isValid;
         login_message = login_result.message;
@@ -103,12 +97,50 @@ function checkForAtSymbol(inputString) {
 }
 
 function validateUsername(username_str) {
+
+    const emailError = document.getElementById("email-error");
+
     // Lunghezza minima e massima consentita per lo username
-    var minLength = 3;
-    var maxLength = 20;
+    const minLength = 3;
+    const maxLength = 20;
+
+    var flag = false;
+    var text = "";
+    var display = "";
+    emailError.textContent = "";
+    emailError.style.display = "none";
 
     // Espressione regolare per la verifica dell'username (solo lettere e numeri)
-    var usernamePattern = /^[a-zA-Z0-9]+$/;
+    const usernamePattern = /^[a-zA-Z0-9]+$/;
+
+    if (username_str.trim() === "") {
+        emailError.textContent = "Inserire username o email, campo obbligatorio.";
+        emailError.style.display = "block";
+        return false;
+    } else if (!soloLettere(username_str) && !username_str()) {
+        emailError.textContent = "Inserisci un'email valida o uno username valido.";
+        emailError.style.display = "block";
+        return false;
+    } else if (username_str.length < minLength || username_str.length > maxLength) {
+        return { isValid: false, message: "Lo username deve avere una lunghezza compresa tra " + minLength + " e " + maxLength + " caratteri" };
+    }
+    else {
+        emailError.textContent = "";
+        emailError.style.display = "none";
+        return true;
+    }
+
+
+    emailError.textContent = text;
+    emailError.style.display = display;
+    return flag;
+
+
+
+
+
+
+
 
     // Controlla la lunghezza
     if (username_str.length < minLength || username_str.length > maxLength) {
@@ -188,19 +220,6 @@ function validateCheckbox(checkbox) {
     }
 }
 
-function checkWelcome() {
-    //recupero i campi del form
-    var nome = document.getElementById("nome").value;
-    var cognome = document.getElementById("cognome").value;
-
-    if (!(soloLettere(nome) && soloLettere(cognome) )){
-        //stampare messaggio di errore
-        //segnalando che nome e cognome devono contenere solo lettere
-    }else{
-        document.getElementById("welcome_form").submit();
-    }
-}
-
 /**
  * Verifica se una stringa contiene solo lettere dalla A alla Z (maiuscole e minuscole).
  *
@@ -211,4 +230,46 @@ function soloLettere(str) {
     // Usa una espressione regolare per verificare se la stringa contiene solo lettere
     const regex = /^[A-Za-z]+$/;
     return regex.test(str);
+}
+
+function soloNumeri(str) {
+    // Usa una espressione regolare per verificare se la stringa contiene solo numeri
+    const regex = /^[0-9]+$/;
+    return regex.test(str);
+}
+
+/**
+ *
+ */
+function checkWelcome() {
+    // Ottieni i valori degli input e della select
+    var nome = document.getElementById('nome').value.trim();
+    var cognome = document.getElementById('cognome').value.trim();
+    var sesso = document.getElementById('sesso').value;
+
+    // Flag per il controllo
+    var isValid = true;
+
+    // Controlla se il campo Nome è compilato
+    if ( nome === "" && !soloLettere(nome) ) {
+        alert("Il campo Nome è obbligatorio.");
+        isValid = false;
+    }
+
+    // Controlla se il campo Cognome è compilato
+    if ( cognome === "" && !soloLettere(cognome) ) {
+        alert("Il campo Cognome è obbligatorio.");
+        isValid = false;
+    }
+
+    // Controlla se il campo Sesso ha un valore selezionato
+    if ( sesso === "scegli" && !soloNumeri(sesso) ) {
+        alert("Obbligatorio, selezionare un sesso.");
+        isValid = false;
+    }
+
+    // Se tutti i controlli sono superati, invia il modulo
+    if (isValid) {
+        document.getElementById('welcome_form').submit();
+    }
 }
