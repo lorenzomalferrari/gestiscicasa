@@ -1,0 +1,29 @@
+stages:
+  - test
+
+# Test unitari PHP
+php_unit_tests:
+  stage: test
+  script:
+    - echo "Esecuzione test unitari PHP"
+    - phpunit --configuration phpunit.xml
+  only:
+    - branches
+
+# Test unitari JS
+js_unit_tests:
+  stage: test
+  script:
+    - echo "Esecuzione test unitari JS"
+    - jest
+  only:
+    - branches
+
+# Test end-to-end
+e2e_tests:
+  stage: test
+  script:
+    - echo "Esecuzione test end-to-end"
+    - cypress run
+  only:
+    - branches

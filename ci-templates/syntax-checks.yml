@@ -1,0 +1,47 @@
+stages:
+  - syntax
+
+# Controllo sintassi PHP
+php_syntax_check:
+  stage: syntax
+  script:
+    - echo "Controllo sintassi PHP"
+    - find ./ -name '*.php' -exec php -l {} \;
+  only:
+    - branches
+
+# Controllo sintassi JS
+js_syntax_check:
+  stage: syntax
+  script:
+    - echo "Controllo sintassi JS"
+    - eslint . || exit 1
+  only:
+    - branches
+
+# Controllo sintassi HTML
+html_syntax_check:
+  stage: syntax
+  script:
+    - echo "Controllo sintassi HTML"
+    - htmlhint . || exit 1
+  only:
+    - branches
+
+# Controllo sintassi CSS
+css_syntax_check:
+  stage: syntax
+  script:
+    - echo "Controllo sintassi CSS"
+    - stylelint "**/*.css" || exit 1
+  only:
+    - branches
+
+# Controllo sintassi SQL
+sql_syntax_check:
+  stage: syntax
+  script:
+    - echo "Controllo sintassi SQL"
+    - sqlcheck || exit 1  # Sostituisci con il comando reale per il controllo della sintassi SQL
+  only:
+    - branches
