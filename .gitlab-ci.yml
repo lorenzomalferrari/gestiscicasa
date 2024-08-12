@@ -1,11 +1,185 @@
-include:
-  - local: '/ci-templates/syntax-checks.yml'
-  - local: '/ci-templates/validation-checks.yml'
-  - local: '/ci-templates/version-checks.yml'
-  - local: '/ci-templates/test-checks.yml'
-
+# Definizione delle fasi della pipeline
 stages:
-  - syntax
-  - validation
-  - version
+  - formatting
+  - analysis
+  - documentation
   - test
+  - deploy
+
+# Job per il formatting PHP
+php_formatting:
+  stage: formatting
+  image: php:8.1
+  script:
+    - composer global require friendsofphp/php-cs-fixer
+    - php-cs-fixer fix --verbose --config=.php_cs.dist --ignore=vendor
+  except:
+    - vendor
+
+# Job per il formatting CSS
+css_formatting:
+  stage: formatting
+  image: node:16
+  script:
+    - npm install -g stylelint stylelint-config-standard
+    - stylelint "**/*.css" --fix || exit 1
+  except:
+    - vendor
+
+# Job per il formatting SQL
+sql_formatting:
+  stage: formatting
+  image: mysql:8
+  script:
+    - apt-get update && apt-get install -y sql-formatter
+    - sql-formatter --fix **/*.sql
+  except:
+    - vendor
+
+# Job per il formatting JavaScript
+js_formatting:
+  stage: formatting
+  image: node:16
+  script:
+    - npm install -g eslint
+    - eslint "**/*.js" --fix || exit 1
+  except:
+    - vendor
+
+# Job per il formatting HTML
+html_formatting:
+  stage: formatting
+  image: node:16
+  script:
+    - npm install -g htmlhint
+    - htmlhint "**/*.html" || exit 1
+  except:
+    - vendor
+
+# Job per l'analisi del codice PHP
+php_analysis:
+  stage: analysis
+  image: php:8.1
+  script:
+    - composer global require phpstan/phpstan
+    - phpstan analyse src/
+  except:
+    - vendor
+
+# Job per l'analisi del CSS
+css_analysis:
+  stage: analysis
+  image: node:16
+  script:
+    - npm install -g stylelint stylelint-config-standard
+    - stylelint "**/*.css" --print-config || exit 1
+  except:
+    - vendor
+
+# Job per l'analisi dei file SQL
+sql_analysis:
+  stage: analysis
+  image: mysql:8
+  script:
+    - apt-get update && apt-get install -y sqlint
+    - sqlint "**/*.sql" || exit 1
+  except:
+    - vendor
+
+# Job per l'analisi del JavaScript
+js_analysis:
+  stage: analysis
+  image: node:16
+  script:
+    - npm install -g eslint
+    - eslint "**/*.js" || exit 1
+  except:
+    - vendor
+
+# Job per l'analisi dell'HTML
+html_analysis:
+  stage: analysis
+  image: node:16
+  script:
+    - npm install -g htmlhint
+    - htmlhint "**/*.html" || exit 1
+  except:
+    - vendor
+
+# Job per la documentazione PHP
+php_documentation:
+  stage: documentation
+  image: php:8.1
+  script:
+    - composer global require phpdocumentor/phpdocumentor
+    - phpdoc
+  except:
+    - vendor
+
+# Job per la documentazione JavaScript
+js_documentation:
+  stage: documentation
+  image: node:16
+  script:
+    - npm install -g jsdoc
+    - jsdoc -d docs/js "**/*.js"
+  except:
+    - vendor
+
+# Job per il testing con PHP 8.0
+php_test_8_0:
+  stage: test
+  image: php:8.0
+  script:
+    - composer install
+    - ./vendor/bin/phpunit
+  except:
+    - vendor
+
+# Job per il testing con PHP 8.1
+php_test_8_1:
+  stage: test
+  image: php:8.1
+  script:
+    - composer install
+    - ./vendor/bin/phpunit
+  except:
+    - vendor
+
+# Job per il testing con PHP 8.2
+php_test_8_2:
+  stage: test
+  image: php:8.2
+  script:
+    - composer install
+    - ./vendor/bin/phpunit
+  except:
+    - vendor
+
+# Job per il testing con PHP 8.3
+php_test_8_3:
+  stage: test
+  image: php:8.3
+  script:
+    - composer install
+    - ./vendor/bin/phpunit
+  except:
+    - vendor
+
+# Job per il deploy via FTP su gestiscicasa.lorenzomalferrari.com
+deploy_ftp_1:
+  stage: deploy
+  script:
+    - apt-get update && apt-get install -y lftp
+    - lftp -c "open -u $FTP_USER,$FTP_PASS ftp://gestiscicasa.lorenzomalferrari.com; mirror -R . /path/to/remote/dir"
+  only:
+    - main
+
+# Job per il deploy via FTP su gestiscicasa.it
+deploy_ftp_2:
+  stage: deploy
+  script:
+    - apt-get update && apt-get install -y lftp
+    - lftp -c "open -u $FTP_USER,$FTP_PASS ftp://gestiscicasa.it; mirror -R . /path/to/remote/dir"
+  only:
+    - main
