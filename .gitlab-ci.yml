@@ -1,0 +1,47 @@
+stages:
+  - lint
+
+# Controllo tabulazione nei file PHP
+php_tabulation_check:
+  stage: lint
+  script:
+    - echo "Controllo tabulazione nei file PHP"
+    - if find ./ -name '*.php' -exec grep -P '\t' {} \;; then echo "Errore: Tabulazione trovata nei file PHP" && exit 1; else echo "Nessuna tabulazione trovata nei file PHP"; fi
+  only:
+    - branches
+
+# Controllo tabulazione nei file JS
+js_tabulation_check:
+  stage: lint
+  script:
+    - echo "Controllo tabulazione nei file JS"
+    - if find ./ -name '*.js' -exec grep -P '\t' {} \;; then echo "Errore: Tabulazione trovata nei file JS" && exit 1; else echo "Nessuna tabulazione trovata nei file JS"; fi
+  only:
+    - branches
+
+# Controllo tabulazione nei file HTML
+html_tabulation_check:
+  stage: lint
+  script:
+    - echo "Controllo tabulazione nei file HTML"
+    - if find ./ -name '*.html' -exec grep -P '\t' {} \;; then echo "Errore: Tabulazione trovata nei file HTML" && exit 1; else echo "Nessuna tabulazione trovata nei file HTML"; fi
+  only:
+    - branches
+
+# Controllo tabulazione nei file CSS
+css_tabulation_check:
+  stage: lint
+  script:
+    - echo "Controllo tabulazione nei file CSS"
+    - if find ./ -name '*.css' -exec grep -P '\t' {} \;; then echo "Errore: Tabulazione trovata nei file CSS" && exit 1; else echo "Nessuna tabulazione trovata nei file CSS"; fi
+  only:
+    - branches
+
+# Controllo tabulazione nei file SQL
+sql_tabulation_check:
+  stage: lint
+  script:
+    - echo "Controllo tabulazione nei file SQL"
+    - if find ./ -name '*.sql' -exec grep -P '\t' {} \;; then echo "Errore: Tabulazione trovata nei file SQL" && exit 1; else echo "Nessuna tabulazione trovata nei file SQL"; fi
+  only:
+    - branches
