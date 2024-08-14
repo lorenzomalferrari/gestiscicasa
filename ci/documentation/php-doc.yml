@@ -1,8 +1,49 @@
-php_doc_check:
+php_doc_check_8.0:
   stage: documentation
+  image: php:8.0
   script:
-    - echo "Checking PHP documentation..."
-    - phpdoc -d src/ -t docs/php
+    - echo "Checking PHP documentation on PHP 8.0..."
+    - composer global require phpdocumentor/phpdocumentor
+    - ~/.composer/vendor/bin/phpdoc -d src/ -t docs/php
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches
+
+php_doc_check_8.1:
+  stage: documentation
+  image: php:8.1
+  script:
+    - echo "Checking PHP documentation on PHP 8.1..."
+    - composer global require phpdocumentor/phpdocumentor
+    - ~/.composer/vendor/bin/phpdoc -d src/ -t docs/php
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches
+
+php_doc_check_8.2:
+  stage: documentation
+  image: php:8.2
+  script:
+    - echo "Checking PHP documentation on PHP 8.2..."
+    - composer global require phpdocumentor/phpdocumentor
+    - ~/.composer/vendor/bin/phpdoc -d src/ -t docs/php
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches
+
+php_doc_check_8.3:
+  stage: documentation
+  image: php:8.3
+  script:
+    - echo "Checking PHP documentation on PHP 8.3..."
+    - composer global require phpdocumentor/phpdocumentor
+    - ~/.composer/vendor/bin/phpdoc -d src/ -t docs/php
   except:
     changes:
       - $EXCLUDED_PATHS

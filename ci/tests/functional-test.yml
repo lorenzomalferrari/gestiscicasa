@@ -2,7 +2,7 @@ functional_test:
   stage: testing
   script:
     - echo "Running functional tests..."
-    - # Comandi per eseguire test funzionali simulando l'uso del gestionale
+    - ./run-functional-tests.sh
   except:
     changes:
       - $EXCLUDED_PATHS
