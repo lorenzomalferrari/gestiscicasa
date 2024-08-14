@@ -1,6 +1,8 @@
 js_doc_check:
   stage: documentation
+  image: node:alpine
   script:
+    - npm install -g jsdoc
     - echo "Checking JavaScript documentation..."
     - jsdoc src/js/ -d docs/js
   except:
