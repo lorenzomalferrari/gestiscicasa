@@ -1,13 +1,33 @@
-# You can override the included template(s) by including variable overrides
-# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
-# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/pipeline/#customization
-# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
-# Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
-# Note that environment variables can be set in several places
-# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
 stages:
-- test
-sast:
-  stage: test
+  - documentation
+  - formatting
+  - validation
+  - testing
+  - deploy
+
+variables:
+  EXCLUDED_PATHS: |
+    node_modules/**/* 
+    vendor/**/*
+    logs/**/*
+    tests/**/*
+    tmp/**/*
+
 include:
-- template: Security/SAST.gitlab-ci.yml
+  - local: 'ci/documentation/php-doc.yml'
+  - local: 'ci/documentation/js-doc.yml'
+  - local: 'ci/formatting/php-format.yml'
+  - local: 'ci/formatting/html-format.yml'
+  - local: 'ci/formatting/css-format.yml'
+  - local: 'ci/formatting/js-format.yml'
+  - local: 'ci/formatting/sql-format.yml'
+  - local: 'ci/validation/php-validation.yml'
+  - local: 'ci/validation/html-validation.yml'
+  - local: 'ci/validation/css-validation.yml'
+  - local: 'ci/validation/js-validation.yml'
+  - local: 'ci/validation/sql-validation.yml'
+  - local: 'ci/tests/php-8.0-test.yml'
+  - local: 'ci/tests/php-8.1-test.yml'
+  - local: 'ci/tests/php-8.2-test.yml'
+  - local: 'ci/tests/php-8.3-test.yml'
+  - local: 'ci/tests/functional-test.yml'
