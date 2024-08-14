@@ -1,0 +1,10 @@
+js_format_check:
+  stage: formatting
+  script:
+    - echo "Checking JavaScript formatting..."
+    - eslint src/**/*.js --fix --dry-run
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches

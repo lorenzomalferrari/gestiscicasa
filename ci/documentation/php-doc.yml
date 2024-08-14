@@ -1,0 +1,10 @@
+php_doc_check:
+  stage: documentation
+  script:
+    - echo "Checking PHP documentation..."
+    - phpdoc -d src/ -t docs/php
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches
