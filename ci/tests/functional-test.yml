@@ -1,0 +1,10 @@
+functional_test:
+  stage: testing
+  script:
+    - echo "Running functional tests..."
+    - # Comandi per eseguire test funzionali simulando l'uso del gestionale
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches

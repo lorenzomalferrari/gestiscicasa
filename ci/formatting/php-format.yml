@@ -1,0 +1,10 @@
+php_format_check:
+  stage: formatting
+  script:
+    - echo "Checking PHP formatting..."
+    - php-cs-fixer fix --dry-run --diff
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches

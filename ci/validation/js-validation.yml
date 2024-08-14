@@ -1,0 +1,10 @@
+js_validation:
+  stage: validation
+  script:
+    - echo "Validating JavaScript files..."
+    - eslint src/**/*.js
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches

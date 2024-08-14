@@ -1,0 +1,10 @@
+css_format_check:
+  stage: formatting
+  script:
+    - echo "Checking CSS formatting..."
+    - stylelint "src/**/*.css" --syntax css
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches

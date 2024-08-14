@@ -1,0 +1,10 @@
+html_format_check:
+  stage: formatting
+  script:
+    - echo "Checking HTML formatting..."
+    - tidy -errors -q src/**/*.html
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches

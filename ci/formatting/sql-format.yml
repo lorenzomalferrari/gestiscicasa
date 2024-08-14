@@ -1,0 +1,10 @@
+sql_format_check:
+  stage: formatting
+  script:
+    - echo "Checking SQL formatting..."
+    - sqlfluff lint src/**/*.sql
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches

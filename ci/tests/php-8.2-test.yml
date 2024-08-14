@@ -1,0 +1,11 @@
+php_82_test:
+  stage: testing
+  image: php:8.2-cli
+  script:
+    - echo "Running tests on PHP 8.2..."
+    - phpunit --configuration phpunit.xml
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches

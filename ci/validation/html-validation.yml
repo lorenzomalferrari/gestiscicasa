@@ -1,0 +1,10 @@
+html_validation:
+  stage: validation
+  script:
+    - echo "Validating HTML files..."
+    - tidy -q -e src/**/*.html
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches

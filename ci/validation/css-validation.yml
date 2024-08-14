@@ -1,0 +1,10 @@
+css_validation:
+  stage: validation
+  script:
+    - echo "Validating CSS files..."
+    - stylelint "src/**/*.css" --syntax css
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches

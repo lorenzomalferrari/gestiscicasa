@@ -1,0 +1,10 @@
+php_validation:
+  stage: validation
+  script:
+    - echo "Validating PHP files..."
+    - phpstan analyse src/ --level=max
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches

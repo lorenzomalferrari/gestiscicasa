@@ -1,0 +1,10 @@
+sql_validation:
+  stage: validation
+  script:
+    - echo "Validating SQL files..."
+    - sqlfluff lint src/**/*.sql
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches
