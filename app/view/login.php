@@ -58,7 +58,7 @@ $titlePage = "Login";
                                 <a href="#">Bisogno di aiuto?</a>
                             </div>
                             <input type="text" class="form-control" placeholder="Inserire username o email" id="email" name="email"
-                                onblur="validateUsername()" oninput="validateUsername()">
+                                onblur="validateLoginUsernameOrEmail()" oninput="validateLoginUsernameOrEmail()">
                             <div class="invalid-feedback" id="email-error"></div>
                         </div>
                         <div class="form-group">

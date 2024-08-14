@@ -66,8 +66,8 @@
                     $_SESSION[CONFIG['session']['keys']['TOKEN']] = "";// da implementare token
 
                     require_once(ROOT . "app/controller/sendEmail.php");
-                    header("Location: " . "../view/welcome.php");
-                    //print_r("Location: " . "../view/welcome.php");
+                    header("Location: " . "../view/welcome/welcome.php");
+                    //print_r("Location: " . "../view/welcome/welcome.php");
                 } else {
                     echo "Utente non creato";
                 }

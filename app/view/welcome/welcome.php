@@ -1,10 +1,8 @@
-<?php
-
-declare(strict_types=1);
-require_once("../controller/lib/libs.php");
-$titlePage = "Benvenuti";
-$sesso_options = "<option value=\"scegli\">Scegli</option>";
-require_once(ROOT . "setInputFields.php");
+<?php declare(strict_types=1);
+    require_once("../../controller/lib/libs.php");
+    $titlePage = "Benvenuti";
+    $sesso_options = "<option value=\"scegli\">Scegli</option>";
+    require_once(ROOT . "app/view/welcome/setInputFields.php");
 ?>
 <!doctype html>
 <html class="no-js" lang="">

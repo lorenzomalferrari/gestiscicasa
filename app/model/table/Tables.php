@@ -242,25 +242,32 @@
 		const TABLE_NAME = 'Gender';
 
 		const ID = 'id';
-		const GENDER = 'gender';
+		const GENDER_IT = 'gender_it';
 		const GENDER_EN = 'gender_en';
 		const GENDER_FR = 'gender_fr';
 		const GENDER_ES = 'gender_es';
 		const GENDER_DE = 'gender_de';
 		const GENDER_PT = 'gender_pt';
+		const NOTE = 'note';
+		const CREATED_AT = 'created_at';
+		const UPDATED_AT = 'updated_at';
 
 		public static function getColumns() {
 			return [
 				self::ID,
-				self::GENDER,
+				self::GENDER_IT,
 				self::GENDER_EN,
 				self::GENDER_FR,
 				self::GENDER_ES,
 				self::GENDER_DE,
-				self::GENDER_PT
+				self::GENDER_PT,
+				self::NOTE,
+				self::CREATED_AT,
+				self::UPDATED_AT
 			];
 		}
 	}
+
 
 	class PersonPropertyRolesTable {
 		const TABLE_NAME = 'PersonPropertyRoles';

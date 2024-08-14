@@ -6,8 +6,6 @@
 
     $inactivityLimit = CONFIG['session']['settings']['inactivityLimit'];// deafult come gc_maxlifetime
 
-    $_time = time();
-
     $_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']] = isset($_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']]) && !empty($_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']]) ? $_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']] : time();
 
     if (isset($_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']]) && (time() - $_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']]) > $inactivityLimit) {

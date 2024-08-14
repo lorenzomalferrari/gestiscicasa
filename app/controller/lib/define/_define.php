@@ -204,6 +204,7 @@
 	 */
 	define('API', [
 		'UPDATE_DB' => 'update_db',
+		'DELETE_DB' => 'delete_db',
 		'SEND_LOGS' => 'send_log',
 		'RESEND_EMAILS' => 'resend_emails',
 		'IMPORT_USERS' => 'import_users',

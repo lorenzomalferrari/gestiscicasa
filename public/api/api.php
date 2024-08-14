@@ -40,6 +40,16 @@
 			$handler = new UpdateDB();
 			$response = $handler->handle($jsonParams);
 			break;
+		case API['DELETE_DB']:
+			require_once(ROOT . 'app/model/api/DeleteDB.php');
+			$handler_del = new DeleteDB();
+			$response = $handler_del->handle();
+			if( !is_array($response) ){
+				$handler = new UpdateDB();
+				$response = $handler->handle($jsonParams);
+			}
+
+			break;
 		case API['SEND_LOGS']:
 			require_once(ROOT . 'app/model/api/SendsLog.php');
 			$handler = new SendsLog();

@@ -1,9 +1,3 @@
-/*ALTER TABLE lmgc_Person
-ADD CONSTRAINT fk_city FOREIGN KEY (city) REFERENCES lmgc_Cities(id),
-ADD CONSTRAINT fk_state FOREIGN KEY (state) REFERENCES lmgc_Countries(id),
-ADD CONSTRAINT fk_nationality FOREIGN KEY (nationality) REFERENCES lmgc_Nationality(id),
-ADD CONSTRAINT fk_user FOREIGN KEY (idUser) REFERENCES lmgc_Users(id);*/
-
 CREATE TABLE IF NOT EXISTS lmgc_PhoneType (
     id INT AUTO_INCREMENT PRIMARY KEY,
     type VARCHAR(50) NOT NULL UNIQUE,   -- Tipo generale
