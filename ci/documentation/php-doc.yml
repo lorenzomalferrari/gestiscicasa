@@ -1,10 +1,38 @@
-php_doc_check:
+.default_php_doc_job: &default_php_doc_job
   stage: documentation
   script:
-    - echo "Checking PHP documentation..."
-    - phpdoc -d src/ -t docs/php
+    - composer global require phpdocumentor/phpdocumentor
+    - ~/.composer/vendor/bin/phpdoc -d src/ -t docs/php
   except:
     changes:
       - $EXCLUDED_PATHS
   only:
     - branches
+
+php_doc_check_8.0:
+  <<: *default_php_doc_job
+  image: php:8.0
+  script:
+    - echo "Checking PHP documentation on PHP 8.0..."
+    - *default_php_doc_job
+
+php_doc_check_8.1:
+  <<: *default_php_doc_job
+  image: php:8.1
+  script:
+    - echo "Checking PHP documentation on PHP 8.1..."
+    - *default_php_doc_job
+
+php_doc_check_8.2:
+  <<: *default_php_doc_job
+  image: php:8.2
+  script:
+    - echo "Checking PHP documentation on PHP 8.2..."
+    - ~/.composer/vendor/bin/phpdoc -d src/ -t docs/php
+
+php_doc_check_8.3:
+  <<: *default_php_doc_job
+  image: php:8.3
+  script:
+    - echo "Checking PHP documentation on PHP 8.3..."
+    - ~/.composer/vendor/bin/phpdoc -d src/ -t docs/php
