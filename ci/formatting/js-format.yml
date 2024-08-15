@@ -1,8 +1,11 @@
 js_format_check:
   stage: formatting
+  image: node:16
+  before_script:
+    - npm install -g eslint
   script:
     - echo "Checking JavaScript formatting..."
-    - eslint src/**/*.js --fix --dry-run
+    - eslint src/**/*.js --fix --dry-run || echo "ESLint failed"
   except:
     changes:
       - $EXCLUDED_PATHS

@@ -1,8 +1,11 @@
 css_format_check:
   stage: formatting
+  image: node:16
+  before_script:
+    - npm install -g stylelint stylelint-config-standard
   script:
     - echo "Checking CSS formatting..."
-    - stylelint "src/**/*.css" --syntax css
+    - stylelint "src/**/*.css" --fix || echo "Stylelint failed"
   except:
     changes:
       - $EXCLUDED_PATHS

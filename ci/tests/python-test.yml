@@ -1,0 +1,24 @@
+# Linting del codice con flake8 (stage: validation)
+python-validation:
+  stage: validation
+  image: python:3.11
+  script:
+    - pip install --upgrade pip
+    - pip install flake8
+    - echo "Running flake8 linting..."
+    # Configura flake8 per ignorare errori sugli spazi
+    - flake8 --ignore=W293,E302,E305 public/py/  # Path di esempio
+  only:
+    - branches
+
+# Esecuzione dei test unitari con pytest (stage: testing)
+python-test:
+  stage: testing
+  image: python:3.11
+  script:
+    - pip install --upgrade pip
+    - pip install pytest
+    - echo "Running pytest..."
+    - pytest public/py/  # Path di esempio
+  only:
+    - branches

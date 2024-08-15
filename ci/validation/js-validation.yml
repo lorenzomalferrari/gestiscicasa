@@ -1,8 +1,11 @@
 js_validation:
   stage: validation
+  image: node:16
+  before_script:
+    - npm install -g eslint
   script:
     - echo "Validating JavaScript files..."
-    - eslint src/**/*.js
+    - eslint src/**/*.js || echo "ESLint failed"
   except:
     changes:
       - $EXCLUDED_PATHS

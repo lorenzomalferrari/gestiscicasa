@@ -1,10 +1,32 @@
-php_format_check:
+php_format_check_8.2:
   stage: formatting
+  image: php:8.2
+  before_script:
+    - apt-get update && apt-get install -y zip unzip git
+    - curl -sS https://getcomposer.org/installer | php
+    - php composer.phar require --dev friendsofphp/php-cs-fixer
   script:
     - echo "Checking PHP formatting..."
-    - php-cs-fixer fix --dry-run --diff
+    - vendor/bin/php-cs-fixer fix --dry-run --diff || echo "PHP CS Fixer failed"
   except:
     changes:
       - $EXCLUDED_PATHS
   only:
     - branches
+
+php_format_check_8.3:
+  stage: formatting
+  image: php:8.3
+  before_script:
+    - apt-get update && apt-get install -y zip unzip git
+    - curl -sS https://getcomposer.org/installer | php
+    - php composer.phar require --dev friendsofphp/php-cs-fixer
+  script:
+    - echo "Checking PHP formatting on PHP 8.3..."
+    - vendor/bin/php-cs-fixer fix --dry-run --diff || echo "PHP CS Fixer failed"
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches
+

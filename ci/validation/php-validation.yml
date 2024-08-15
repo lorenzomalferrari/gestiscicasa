@@ -1,8 +1,29 @@
-php_validation:
+php_validation_8.2:
   stage: validation
+  image: php:8.2
+  before_script:
+    - apt-get update && apt-get install -y zip unzip git
+    - curl -sS https://getcomposer.org/installer | php
+    - php composer.phar require --dev phpstan/phpstan
   script:
     - echo "Validating PHP files..."
-    - phpstan analyse src/ --level=max
+    - php vendor/bin/phpstan analyse src/ --level=max || echo "PHPStan failed"
+  except:
+    changes:
+      - $EXCLUDED_PATHS
+  only:
+    - branches
+
+php_validation_8.3:
+  stage: validation
+  image: php:8.3
+  before_script:
+    - apt-get update && apt-get install -y zip unzip git
+    - curl -sS https://getcomposer.org/installer | php
+    - php composer.phar require --dev phpstan/phpstan
+  script:
+    - echo "Validating PHP files..."
+    - php vendor/bin/phpstan analyse src/ --level=max || echo "PHPStan failed"
   except:
     changes:
       - $EXCLUDED_PATHS

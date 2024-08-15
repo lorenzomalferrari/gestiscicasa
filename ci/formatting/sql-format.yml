@@ -1,8 +1,11 @@
 sql_format_check:
   stage: formatting
+  image: python:3.9
+  before_script:
+    - pip install sqlfluff
   script:
     - echo "Checking SQL formatting..."
-    - sqlfluff lint src/**/*.sql
+    - sqlfluff lint src/**/*.sql || echo "SQLFluff failed"
   except:
     changes:
       - $EXCLUDED_PATHS

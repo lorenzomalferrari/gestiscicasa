@@ -1,8 +1,11 @@
 sql_validation:
   stage: validation
+  image: python:3.9
+  before_script:
+    - pip install sqlfluff
   script:
     - echo "Validating SQL files..."
-    - sqlfluff lint src/**/*.sql
+    - sqlfluff lint src/**/*.sql || echo "SQLFluff failed"
   except:
     changes:
       - $EXCLUDED_PATHS

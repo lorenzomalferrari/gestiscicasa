@@ -1,9 +1,13 @@
-php_83_test:
+php_test_8.3:
   stage: testing
   image: php:8.3-cli
+  before_script:
+    - apt-get update && apt-get install -y git unzip
+    - curl -sS https://getcomposer.org/installer | php
+    - php composer.phar install || { echo "Composer install failed"; exit 1; }
   script:
     - echo "Running tests on PHP 8.3..."
-    - phpunit --configuration phpunit.xml
+    - php vendor/bin/phpunit --configuration phpunit.xml || { echo "PHPUnit tests failed"; exit 1; }
   except:
     changes:
       - $EXCLUDED_PATHS

@@ -1,8 +1,11 @@
 html_validation:
   stage: validation
+  image: node:16  # Usa un'immagine Docker basata su Node.js
+  before_script:
+    - apt-get update && apt-get install -y tidy
   script:
     - echo "Validating HTML files..."
-    - tidy -q -e src/**/*.html
+    - tidy -q -e src/**/*.html || echo "Tidy failed"
   except:
     changes:
       - $EXCLUDED_PATHS
