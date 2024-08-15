@@ -30,11 +30,11 @@
 		'db' => [
 			'tablePrefix' => 'lmgc_',
 			'test' => [
-				'version' => '1.1.15',
+				'version' => '1.1.19',
 				'host' => '81.31.158.38',
 				'port' => '3306',
 				'username' => 'uij8aoin_gestiscicasa',
-				'password' => '20Progetto24',
+				'password' => '7hnv8MKFDJ7DBnvsXqH5',
 				'database' => 'uij8aoin_gestiscicasa',
 			],
 			'produzione' => [
@@ -42,7 +42,7 @@
 				'host' => '127.0.0.1',
 				'port' => '3306',
 				'username' => 'uij8aoin_gestiscicasa',
-				'password' => '20Progetto24',
+				'password' => '7hnv8MKFDJ7DBnvsXqH5',
 				'database' => 'uij8aoin_gestiscicasa',
 			],
 			'crudType' => [
@@ -203,6 +203,7 @@
 	 * Contiene le possibili chiamate gestite dal'api
 	 */
 	define('API', [
+		'CREATE_DB' => 'create_db',
 		'UPDATE_DB' => 'update_db',
 		'DELETE_DB' => 'delete_db',
 		'SEND_LOGS' => 'send_log',
