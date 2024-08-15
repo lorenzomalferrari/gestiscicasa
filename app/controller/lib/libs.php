@@ -22,7 +22,10 @@
         CONFIG_ISTANCE->get('DBNAME')
     ));
 
-    DB->checkDatabaseVersion();//se non vengono generati errori, si prosegue
+    if ( !isset($flag_api) ) { $flag_api = false; }
+    if( !$flag_api ) {
+        DB->checkDatabaseVersion();//se non vengono generati errori, si prosegue
 
-    require_once(ROOT . "app/controller/lib/functions/_visitedPath.php");
-    saveVisitedPath();
+        require_once(ROOT . "app/controller/lib/functions/_visitedPath.php");
+        saveVisitedPath();
+    }
