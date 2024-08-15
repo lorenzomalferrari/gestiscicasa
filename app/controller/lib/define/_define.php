@@ -175,7 +175,7 @@
 	define('PATH_ESCLUSE', [
 		'/index.php',
 		'/confirm.php',
-		'/server_in_manutenzione.php',
+		'/server_not_work.php',
 		'/app/view/login.php',
 		'/app/view/home.php',
 		'/app/view/pricing.php',
