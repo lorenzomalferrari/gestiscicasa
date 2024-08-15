@@ -7,3 +7,6 @@ CREATE TABLE IF NOT EXISTS lmgc_VersioniDB (
     data_aggiornamento TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     UNIQUE KEY unique_versione_nome_vers_estesa (versione, nome_vers_estesa)
 );
+
+INSERT INTO lmgc_VersioniDB (versione, nome_vers_estesa)
+VALUES ('0.0.1', '0.0.1');
