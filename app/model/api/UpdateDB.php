@@ -8,7 +8,6 @@
 	 */
 	class UpdateDB
 	{
-		private $sqlDirectory;
 		private $updateDirectory;
 
 		/**
@@ -18,9 +17,7 @@
 		 */
 		public function __construct()
 		{
-			$this->sqlDirectory = ROOT . CONFIG['db']['update']['create'];
 			$this->updateDirectory = ROOT . CONFIG['db']['update']['step'];
-
 			DB->checkDatabaseVersion();
 		}
 
@@ -37,29 +34,11 @@
 		{
 			try {
 				$vers = DB->getDatabaseVersion();
-				if(empty($vers)){
-					// Esegui i file SQL dalla cartella principale
-					$this->executeSqlFiles($this->sqlDirectory);
-				}
 				// Esegui i file di aggiornamento ordinati
 				$this->executeUpdateFiles($this->updateDirectory, $vers);
 				return ['status' => 'success', 'message' => 'Aggiornamenti eseguiti con successo.'];
 			} catch (Exception $e) {
 				return ['status' => 'error', 'message' => $e->getMessage()];
-			}
-		}
-
-		/**
-		 * Esegue tutti i file SQL in una directory.
-		 *
-		 * @param string $directory Il percorso della directory contenente i file SQL.
-		 * @return void
-		 */
-		private function executeSqlFiles($directory)
-		{
-			$files = glob($directory . '/*.sql');
-			foreach ($files as $file) {
-				$this->executeSqlFile($file);
 			}
 		}
 

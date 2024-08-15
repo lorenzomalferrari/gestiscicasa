@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+	$flag_api = true;
 	require_once("../../app/controller/lib/libs.php");
 
 	// Carica il file di configurazione
@@ -35,6 +36,11 @@
 	$response = [];
 
 	switch ($context) {
+		case API['CREATE_DB']:
+			require_once(ROOT . 'app/model/api/CreateDB.php');
+			$handler = new CreateDB();
+			$response = $handler->handle($jsonParams);
+			break;
 		case API['UPDATE_DB']:
 			require_once(ROOT . 'app/model/api/UpdateDB.php');
 			$handler = new UpdateDB();
@@ -45,10 +51,10 @@
 			$handler_del = new DeleteDB();
 			$response = $handler_del->handle();
 			if( !is_array($response) ){
+				require_once(ROOT . 'app/model/api/UpdateDB.php');
 				$handler = new UpdateDB();
 				$response = $handler->handle($jsonParams);
 			}
-
 			break;
 		case API['SEND_LOGS']:
 			require_once(ROOT . 'app/model/api/SendsLog.php');

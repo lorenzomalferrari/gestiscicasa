@@ -10,15 +10,30 @@
 	{
 		public function __construct()
 		{
-			DB->checkDatabaseVersion();
+			//DB->checkDatabaseVersion();
 		}
 
 		public function handle()
 		{
 			try {
-				$sql = "DROP DATABASE " . CONFIG['db'][getEnvironmentKey()]['database'];
-				DB->exec($sql);
-				$sql = "CREATE DATABASE nome_database " . CONFIG['db'][getEnvironmentKey()]['database'];
+				$database = CONFIG['db'][getEnvironmentKey()]['database'];
+				$sql = <<<sql
+					SET FOREIGN_KEY_CHECKS = 0;
+
+					-- Genera un comando SQL per eliminare tutte le tabelle
+					SET @tables = NULL;
+					SELECT GROUP_CONCAT(table_name) INTO @tables
+					FROM information_schema.tables
+					WHERE table_schema = '$database';
+
+					-- Se ci sono tabelle, esegui il comando per eliminarle
+					SET @tables = CONCAT('DROP TABLE IF EXISTS ', @tables);
+					PREPARE stmt FROM @tables;
+					EXECUTE stmt;
+					DEALLOCATE PREPARE stmt;
+
+					SET FOREIGN_KEY_CHECKS = 1;
+sql;
 				DB->exec($sql);
 			} catch (Exception $e) {
 				return ['status' => 'error', 'message' => $e->getMessage()];
