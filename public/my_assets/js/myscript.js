@@ -154,6 +154,15 @@ function checkLogin() {
 
 
 
+
+
+
+
+
+
+
+
+
 function validateCheckbox(checkbox) {
     // Controlla se la checkbox è stata selezionata
     if (checkbox.checked) {
@@ -181,38 +190,98 @@ function soloNumeri(str) {
     return regex.test(str);
 }
 
-/**
- *
- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function validateTextInput(id, feedbackId) {
+    const input = document.getElementById(id);
+    const feedback = document.getElementById(feedbackId);
+    const value = input.value.trim();
+    const regex = /^[A-Za-z]+$/;
+    if (value === '') {
+        feedback.textContent = 'Questo campo è obbligatorio.';
+        feedback.style.color = 'red';
+        feedback.style.display = 'block'; // Mostra il feedback
+    } else if (!regex.test(value)) {
+        feedback.textContent = 'Il campo può contenere solo lettere.';
+        feedback.style.color = 'red';
+        feedback.style.display = 'block'; // Mostra il feedback
+    } else {
+        feedback.textContent = '';
+        feedback.style.display = 'none'; // Nascondi il feedback
+    }
+}
+
+// Funzione per controllare la validità della data di nascita
+function validateDate() {
+    const dateInput = document.getElementById('data_nascita');
+    const feedback = document.getElementById('data_nascita-feedback');
+    const value = dateInput.value;
+    if (!value) {
+        feedback.textContent = 'Questo campo è obbligatorio.';
+        feedback.style.color = 'red';
+        feedback.style.display = 'block'; // Mostra il feedback
+    } else {
+        const today = new Date();
+        const selectedDate = new Date(value);
+        if (selectedDate > today) {
+            feedback.textContent = 'La data di nascita non può essere nel futuro.';
+            feedback.style.color = 'red';
+            feedback.style.display = 'block'; // Mostra il feedback
+        } else {
+            feedback.textContent = '';
+            feedback.style.display = 'none'; // Nascondi il feedback
+        }
+    }
+}
+
+// Funzione per controllare il campo Sesso
+function validateSesso() {
+    const sessoInput = document.getElementById('sesso');
+    const feedback = document.getElementById('sesso-feedback');
+    const value = sessoInput.value;
+    if (value === '' || value === 'Seleziona...') { // Assumi che 'Seleziona...' sia il valore predefinito
+        feedback.textContent = 'Per favore, seleziona un sesso.';
+        feedback.style.color = 'red';
+        feedback.style.display = 'block'; // Mostra il feedback
+    } else {
+        feedback.textContent = '';
+        feedback.style.display = 'none'; // Nascondi il feedback
+    }
+}
+
+// Funzione di controllo del modulo
 function checkWelcome() {
-    // Ottieni i valori degli input e della select
-    var nome = document.getElementById('nome').value.trim();
-    var cognome = document.getElementById('cognome').value.trim();
-    var sesso = document.getElementById('sesso').value;
+    validateTextInput('nome', 'nome-feedback');
+    validateTextInput('cognome', 'cognome-feedback');
+    validateDate();
+    validateSesso();
 
-    // Flag per il controllo
-    var isValid = true;
+    // Aggiungi ulteriori controlli o invia il modulo se tutto è valido
+    const nomeFeedback = document.getElementById('nome-feedback').textContent;
+    const cognomeFeedback = document.getElementById('cognome-feedback').textContent;
+    const dataNascitaFeedback = document.getElementById('data_nascita-feedback').textContent;
+    const sessoFeedback = document.getElementById('sesso-feedback').textContent;
 
-    // Controlla se il campo Nome è compilato
-    if ( nome === "" && !soloLettere(nome) ) {
-        alert("Il campo Nome è obbligatorio.");
-        isValid = false;
-    }
-
-    // Controlla se il campo Cognome è compilato
-    if ( cognome === "" && !soloLettere(cognome) ) {
-        alert("Il campo Cognome è obbligatorio.");
-        isValid = false;
-    }
-
-    // Controlla se il campo Sesso ha un valore selezionato
-    if ( sesso === "scegli" && !soloNumeri(sesso) ) {
-        alert("Obbligatorio, selezionare un sesso.");
-        isValid = false;
-    }
-
-    // Se tutti i controlli sono superati, invia il modulo
-    if (isValid) {
+    if (nomeFeedback === '' && cognomeFeedback === '' && dataNascitaFeedback === '' && sessoFeedback === '') {
         document.getElementById('welcome_form').submit();
     }
 }
