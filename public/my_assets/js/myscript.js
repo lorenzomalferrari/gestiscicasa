@@ -211,7 +211,7 @@ function soloNumeri(str) {
 
 
 
-function validateTextInput(id, feedbackId) {
+function checkTextInput(id, feedbackId) {
     const input = document.getElementById(id);
     const feedback = document.getElementById(feedbackId);
     const value = input.value.trim();
@@ -231,7 +231,7 @@ function validateTextInput(id, feedbackId) {
 }
 
 // Funzione per controllare la validità della data di nascita
-function validateDate() {
+function checkDate() {
     const dateInput = document.getElementById('data_nascita');
     const feedback = document.getElementById('data_nascita-feedback');
     const value = dateInput.value;
@@ -254,7 +254,7 @@ function validateDate() {
 }
 
 // Funzione per controllare il campo Sesso
-function validateSesso() {
+function checkGender() {
     const sessoInput = document.getElementById('sesso');
     const feedback = document.getElementById('sesso-feedback');
     const value = sessoInput.value;
@@ -270,10 +270,12 @@ function validateSesso() {
 
 // Funzione di controllo del modulo
 function checkWelcome() {
-    validateTextInput('nome', 'nome-feedback');
-    validateTextInput('cognome', 'cognome-feedback');
-    validateDate();
-    validateSesso();
+    checkTextInput('nome', 'nome-feedback');
+    checkTextInput('cognome', 'cognome-feedback');
+    checkDate();
+    checkGender();
+
+    const isUserConfirmed = await checkConfirmUser();
 
     // Aggiungi ulteriori controlli o invia il modulo se tutto è valido
     const nomeFeedback = document.getElementById('nome-feedback').textContent;
@@ -281,7 +283,42 @@ function checkWelcome() {
     const dataNascitaFeedback = document.getElementById('data_nascita-feedback').textContent;
     const sessoFeedback = document.getElementById('sesso-feedback').textContent;
 
-    if (nomeFeedback === '' && cognomeFeedback === '' && dataNascitaFeedback === '' && sessoFeedback === '') {
+    if (nomeFeedback === '' && cognomeFeedback === '' && dataNascitaFeedback === '' && sessoFeedback === '' && isUserConfirmed ) {
         document.getElementById('welcome_form').submit();
+    } else {
+        // Se l'utente non è confermato, non inviare il modulo
+        alert('Utente non confermato via email. Controllare le email.');
+    }
+}
+
+async function checkConfirmUser() {
+    const iduser = document.getElementById("<?php echo CONFIG['session']['keys']['IDUSER']; ?>");
+    console.log(iduser);
+
+    try {
+        const response = await fetch('../../controller/user/checkUserStatus.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({ iduser: iduser })
+        });
+
+        const result = await response.json();
+
+        const feedbackElement = document.getElementById('user-status-feedback');
+
+        if (result.status) {
+            feedbackElement.style.display = 'none'; // Nascondi feedback se l'utente è attivo
+            return true;
+        } else {
+            feedbackElement.textContent = result.message;
+            feedbackElement.style.color = 'red';
+            feedbackElement.style.display = 'block'; // Mostra feedback se l'utente non è attivo
+            return false;
+        }
+    } catch (error) {
+        console.error('Errore nella richiesta:', error);
+        return false;
     }
 }

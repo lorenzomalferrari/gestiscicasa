@@ -5,13 +5,16 @@
     <input type="hidden" name="<?php echo CONFIG['session']['keys']['EMAIL'] ?>" value="<?php echo $_SESSION[CONFIG['session']['keys']['EMAIL']]; ?>">
     <input type="hidden" name="<?php echo CONFIG['session']['keys']['TOKEN'] ?>" value="<?php echo $_SESSION[CONFIG['session']['keys']['TOKEN']]; ?>">
 
+    <!-- Feedback per stato utente -->
+    <div id="user-status-feedback" class="feedback"></div>
+
     <div class="form-group">
         <div class="input-label">
             <label>Nome</label>
         </div>
         <input type="text" class="form-control" placeholder="Nome" name="nome" id="nome" required
-            oninput="validateTextInput('nome', 'nome-feedback')"
-            onblur="validateTextInput('nome', 'nome-feedback')">
+            oninput="checkTextInput('nome', 'nome-feedback')"
+            onblur="checkTextInput('nome', 'nome-feedback')">
         <div id="nome-feedback" class="feedback"></div> <!-- Feedback per Nome -->
     </div>
 
@@ -20,8 +23,8 @@
             <label>Cognome</label>
         </div>
         <input type="text" class="form-control" placeholder="Cognome" name="cognome" id="cognome" required
-            oninput="validateTextInput('cognome', 'cognome-feedback')"
-            onblur="validateTextInput('cognome', 'cognome-feedback')">
+            oninput="checkTextInput('cognome', 'cognome-feedback')"
+            onblur="checkTextInput('cognome', 'cognome-feedback')">
         <div id="cognome-feedback" class="feedback"></div> <!-- Feedback per Cognome -->
     </div>
 
@@ -30,7 +33,7 @@
             <label>Sesso</label>
         </div>
         <select class="form-control" name="sesso" id="sesso" required
-            onchange="validateSesso()">
+            onchange="checkGender()">
             <?php echo $sesso_options; ?>
         </select>
         <div id="sesso-feedback" class="feedback"></div> <!-- Feedback per Sesso -->
@@ -41,7 +44,7 @@
             <label>Data di Nascita</label>
         </div>
         <input type="date" class="form-control" name="data_nascita" id="data_nascita" required
-            onchange="validateDate()">
+            onchange="checkDate()">
         <div id="data_nascita-feedback" class="feedback"></div> <!-- Feedback per Data di Nascita -->
     </div>
 
