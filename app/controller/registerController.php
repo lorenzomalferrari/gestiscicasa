@@ -1,6 +1,5 @@
 <?php declare(strict_types=1);
     require_once('lib/libs.php');
-    
     require_once(ROOT . 'app/model/NomiTabelle.php');
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -8,8 +7,6 @@
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
-
-         
 
         // Preparazione della query per la select
         $params_where = array(
