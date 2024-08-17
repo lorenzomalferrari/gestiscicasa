@@ -18,7 +18,10 @@
     $row = DB->select($query, $params_where);
 
     if ($row) {
-        $update = "UPDATE " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS) . " SET token = NULL, isActive = 1 WHERE token = :token";
+        $update =
+            "UPDATE " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS)
+            . " SET " . UsersTable::TOKEN. " = NULL "
+            . " WHERE " . UsersTable::TOKEN . " = :token";
         //applicare log in update
         $update_id = DB->update($update, $params_where);
         print_r("Numero di righe aggiornate: " . $update_id);
@@ -31,7 +34,7 @@
         $_SESSION[CONFIG['session']['keys']['PASSWORD']] = $row['password'];
         $_SESSION[CONFIG['session']['keys']['EMAIL']] = $row['email'];
         $_SESSION[CONFIG['session']['keys']['TOKEN']] = "DA COSTRUIRE"; // da implementare token
-        $_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']] = "DA PENSARE"; // da pensare se al momento del confirm bisogna fare qualcosa
+        $_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']] = time(); // da pensare se al momento del confirm bisogna fare qualcosa
 
         //eseguo Location a Index
         echo "Account confermato!<br>";
