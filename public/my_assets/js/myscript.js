@@ -292,8 +292,8 @@ function checkWelcome() {
 }
 
 async function checkConfirmUser() {
-    const iduser = document.getElementById("<?php echo CONFIG['session']['keys']['IDUSER']; ?>");
-    console.log(iduser);
+    const idUser = document.getElementById("<?php echo CONFIG['session']['keys']['IDUSER']; ?>");
+    console.log(idUser);
 
     try {
         const response = await fetch('../../controller/user/checkUserStatus.php', {
@@ -301,10 +301,11 @@ async function checkConfirmUser() {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body: new URLSearchParams({ iduser: iduser })
+            body: new URLSearchParams({ idUser: idUser })
         });
 
         const result = await response.json();
+        console.log(result);
 
         const feedbackElement = document.getElementById('user-status-feedback');
 
