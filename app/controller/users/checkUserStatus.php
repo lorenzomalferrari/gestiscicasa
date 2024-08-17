@@ -1,20 +1,26 @@
 <?php declare(strict_types=1);
     header('Content-Type: application/json');
-    include 'database_connection.php'; // Include la connessione al database
+    require_once('../lib/libs.php');
 
-    $iduser = $_POST['iduser'] ?? null;
+    $idUser = $_POST['idUser'] ?? null;
 
     $response = ['status' => false, 'message' => 'Utente non trovato'];
 
-    if ($iduser) {
-        $stmt = $pdo->prepare("SELECT active FROM users WHERE id = ?");
-        $stmt->execute([$iduser]);
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($idUser) {
+        $params_where = array(
+            ':id' => $idUser
+        );
 
-        if ($result && $result['active']) {
-            $response = ['status' => true, 'message' => 'Utente attivo'];
+        $select = "SELECT " . UsersTable::TOKEN
+                . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS)
+                . " WHERE " . UsersTable::ID . " = :id ";
+        //applicare log in select
+        $row = DB->select($select, $params_where);
+
+        if ($row && $result[UsersTable::TOKEN]) {
+            $response = ['status' => true, 'message' => 'L\'utente ha confermato l\'email'];
         } else {
-            $response = ['status' => false, 'message' => 'Utente non attivo'];
+            $response = ['status' => false, 'message' => 'L\'utente non ha ancora confermato l\'email'];
         }
     }
 
