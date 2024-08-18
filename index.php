@@ -12,7 +12,7 @@
 	$idUsername = $_SESSION[CONFIG['session']['keys']['IDUSER']] ?? "";
 	$username = $_SESSION[CONFIG['session']['keys']['USERNAME']] ?? "";
 
-	if (!checkUsernameAndId($username, $idUsername) && confrontaTimestamp(15, time(), $_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']])) {
+	if (!validateUsernameAndId($username, $idUsername) && confrontaTimestamp(15, time(), $_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']])) {
 		header('Location: ' . 'app/view/login.php');
 	}
 	else {

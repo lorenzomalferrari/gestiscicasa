@@ -26,7 +26,7 @@
 	/**
 	 *
 	 */
-	function checkUsernameAndId($username, $idUsername)
+	function validateUsernameAndId($username, $idUsername)
 	{
 		// Controlla se entrambi i parametri sono stati compilati
 		if (!empty($username) && !empty($idUsername)) {
