@@ -35,13 +35,15 @@
                 // Preparazione della query per la INSERT in Utenti
                 $params_insert = array(
                     ':username' => $username,
-                    /*':email' => $email,*/
                     ':password' => password_hash($password, PASSWORD_DEFAULT),
                     ':token' => UNIQ_TOKEN
                 );
 
                 //Gestisco l'inserimento in DB
-                $insert = "INSERT INTO " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS) . " (username, password, token) VALUES (:username, :password, :token)";
+                $insert = "INSERT INTO " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS)
+                                . " (" . UsersTable::USERNAME. ","  . UsersTable::PASSWORD . ", " . UsersTable::TOKEN . ") "
+                                . " VALUES (:username, :password, :token)";
+
                 $new_user_id = DB->insert($insert, $params_insert);
                 print_r("Nuovo utente id: " . $new_user_id);
 
