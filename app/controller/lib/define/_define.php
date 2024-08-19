@@ -107,7 +107,11 @@
 		],
 		'language' => [
 			'it' => 'Italiano',
-			'en' => 'Inglese'
+			'en' => 'English',
+			'fr' => 'Français',
+			'de' => 'Deutsch',
+			'es' => 'Español',
+			'pt' => 'Português',
 		],
 		'log' => [
 			'baseFolder' => 'gc_logs',
