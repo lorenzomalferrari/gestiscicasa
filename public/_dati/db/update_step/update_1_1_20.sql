@@ -1,0 +1,2 @@
+ALTER TABLE lmgc_Person
+ADD COLUMN idGender INT NULL;
