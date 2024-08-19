@@ -2,6 +2,9 @@
     require_once('lib/libs.php');
     require_once(ROOT . 'app/model/NomiTabelle.php');
 
+print_r($_POST);
+print_r("<br>");
+
     $nome = $_POST['nome'];
     $cognome = $_POST['cognome'];
     $sesso = $_POST['sesso'];
@@ -20,6 +23,9 @@
             ':data_nascita' => $data_nascita,
         );
 
+        print_r($params_insert);
+        print_r("<br>");
+
         //Gestisco l'inserimento in DB
         $insert = "INSERT INTO "
                     . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'),NomiTabella::PERSON)
@@ -32,6 +38,9 @@
                         . PersonTable::BIRTHDATE
                     . ") "
                     . " VALUES (:nome, :cognome, :email, :idUser, :idGender, :data_nascita)";
+
+    print_r($insert);
+    print_r("<br>");
 
         $new_person_id = DB->insert($insert, $params_insert);
 
@@ -63,9 +72,11 @@
         $count_user = DB->selectAll($select_user, $params_user);
 
         if ($new_person_id > 0 && $count_user > 0) {
-            header("Location: " . PATH . "app/view/home.php");
+            //header("Location: " . PATH . "app/view/home.php");
+            die("Location: " . PATH . "app/view/home.php");
         } else {
             //capire che messaggio restituire
             print_r("DA IMPLEMENTARE: ERRORE DA RESTITUIRE");
+            die("DA IMPLEMENTARE: ERRORE DA RESTITUIRE");
         }
     }
