@@ -6,14 +6,13 @@
 ?>
 <!doctype html>
 <html class="no-js" lang="">
-
     <head>
         <?php require_once(ROOT . 'app/view/components/template/_head.php'); ?>
     </head>
-
     <body>
         <!-- Page Loader Start -->
-        <?php //require_once(ROOT . "app/view/components/template/_preloader.php");
+        <?php
+            //require_once(ROOT . "app/view/components/template/_preloader.php");
         ?>
         <!-- Page Loader End -->
         <a href="#main-wrapper" data-type="section-switch" class="scrollup">
@@ -48,5 +47,4 @@
         </div>
         <?php require_once(ROOT . "app/view/components/template/_script.php"); ?>
     </body>
-
 </html>
