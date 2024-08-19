@@ -1,9 +1,13 @@
 <form id="welcome_form" action="<?php ROOT . "app/controller/welcomeController.php" ?>" method="post">
-    <input type="hidden" name="<?php echo CONFIG['session']['keys']['IDUSER'] ?>" value="<?php echo $_SESSION[CONFIG['session']['keys']['IDUSER']]; ?>">
-    <input type="hidden" name="<?php echo CONFIG['session']['keys']['USERNAME'] ?>" value="<?php echo $_SESSION[CONFIG['session']['keys']['USERNAME']]; ?>">
-    <input type="hidden" name="<?php echo CONFIG['session']['keys']['PASSWORD'] ?>" value="<?php echo $_SESSION[CONFIG['session']['keys']['PASSWORD']]; ?>">
-    <input type="hidden" name="<?php echo CONFIG['session']['keys']['EMAIL'] ?>" value="<?php echo $_SESSION[CONFIG['session']['keys']['EMAIL']]; ?>">
-    <input type="hidden" name="<?php echo CONFIG['session']['keys']['TOKEN'] ?>" value="<?php echo $_SESSION[CONFIG['session']['keys']['TOKEN']]; ?>">
+    <input type="hidden" id="<?php echo CONFIG['session']['keys']['IDUSER'] ?>" name="<?php echo CONFIG['session']['keys']['IDUSER'] ?>" value="<?php echo $_SESSION[CONFIG['session']['keys']['IDUSER']]; ?>">
+    <!--
+    <input type="hidden" id="<?php //echo CONFIG['session']['keys']['USERNAME'] ?>" name="<?php //echo CONFIG['session']['keys']['USERNAME'] ?>" value="<?php //echo $_SESSION[CONFIG['session']['keys']['USERNAME']]; ?>">
+    <input type="hidden" id="<?php //echo CONFIG['session']['keys']['PASSWORD'] ?>" name="<?php //echo CONFIG['session']['keys']['PASSWORD'] ?>" value="<?php //echo $_SESSION[CONFIG['session']['keys']['PASSWORD']]; ?>">
+    -->
+    <input type="hidden" id="<?php echo CONFIG['session']['keys']['EMAIL'] ?>" name="<?php echo CONFIG['session']['keys']['EMAIL'] ?>" value="<?php echo $_SESSION[CONFIG['session']['keys']['EMAIL']]; ?>">
+    <!--
+    <input type="hidden" id="<?php //echo CONFIG['session']['keys']['TOKEN'] ?>" name="<?php //echo CONFIG['session']['keys']['TOKEN'] ?>" value="<?php //echo $_SESSION[CONFIG['session']['keys']['TOKEN']]; ?>">
+    -->
 
     <!-- Feedback per stato utente -->
     <div id="user-status-feedback" class="feedback"></div>
