@@ -1,4 +1,4 @@
-<form id="welcome_form" action="<?php ROOT . "app/controller/welcomeController.php" ?>" method="post">
+<form id="welcome_form" action="../../controller/welcomeController.php" method="post">
     <input type="hidden" id="<?php echo CONFIG['session']['keys']['IDUSER'] ?>" name="<?php echo CONFIG['session']['keys']['IDUSER'] ?>" value="<?php echo $_SESSION[CONFIG['session']['keys']['IDUSER']]; ?>">
     <!--
     <input type="hidden" id="<?php //echo CONFIG['session']['keys']['USERNAME'] ?>" name="<?php //echo CONFIG['session']['keys']['USERNAME'] ?>" value="<?php //echo $_SESSION[CONFIG['session']['keys']['USERNAME']]; ?>">
