@@ -143,7 +143,7 @@ function checkLogin() {
     const isLoginPasswordValid = validatePassword();
 
     if (isLoginUsernameValid && isLoginPasswordValid) {
-        document.getElementById('login_form').submit(); // Submit the form if both are valid
+        document.getElementById('login_form').submit();
     }
 }
 
@@ -269,7 +269,7 @@ function checkGender() {
 }
 
 // Funzione di controllo del modulo
-function checkWelcome() {
+async function checkWelcome() {
     checkTextInput('nome', 'nome-feedback');
     checkTextInput('cognome', 'cognome-feedback');
     checkDate();
@@ -283,39 +283,55 @@ function checkWelcome() {
     const dataNascitaFeedback = document.getElementById('data_nascita-feedback').textContent;
     const sessoFeedback = document.getElementById('sesso-feedback').textContent;
 
-    if (nomeFeedback === '' && cognomeFeedback === '' && dataNascitaFeedback === '' && sessoFeedback === '' && isUserConfirmed ) {
+    console.log("nomeFeedback: " + nomeFeedback);
+    console.log("cognomeFeedback: " + cognomeFeedback);
+    console.log("dataNascitaFeedback: " + dataNascitaFeedback);
+    console.log("sessoFeedback: " + sessoFeedback);
+    console.log("isUserConfirmed: " + isUserConfirmed);
+
+    if (nomeFeedback === '' && cognomeFeedback === '' && dataNascitaFeedback === '' && sessoFeedback === '' && isUserConfirmed){
+        console.log("Proseguo");
         document.getElementById('welcome_form').submit();
-    } else {
-        // Se l'utente non è confermato, non inviare il modulo
-        alert('Utente non confermato via email. Controllare le email.');
+    }
+    else {
+        console.log("I campi sono obbligatori.");
+        alert('I campi sono obbligatori. O bisogna confermare il link nell\'email mandata');
     }
 }
 
 async function checkConfirmUser() {
-    const idUser = document.getElementById("<?php echo CONFIG['session']['keys']['IDUSER']; ?>");
-    console.log(idUser);
+    console.log("checkConfirmUser");
+    const idUser = document.getElementById("IDUSER").value;
+    console.log("idUser" + idUser);
+    console.log(window.location.origin + '/app/controller/users/checkUserStatus.php');
 
     try {
-        const response = await fetch('../../controller/user/checkUserStatus.php', {
+        const response = await fetch(window.location.origin + '/app/controller/users/checkUserStatus.php', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'application/json'  // Imposta l'intestazione per JSON
             },
-            body: new URLSearchParams({ idUser: idUser })
+            body: JSON.stringify({ idUser: idUser })  // Invia i dati come JSON
         });
 
-        const result = await response.json();
+        console.log("Raw response:", response);
+        const responseText = await response.text();
+        console.log("Raw Response:", responseText); // Logga la risposta completa
+
+        // Ora prova a fare il parsing JSON
+        const result = JSON.parse(responseText);
+        console.log("result");
         console.log(result);
 
         const feedbackElement = document.getElementById('user-status-feedback');
 
         if (result.status) {
-            feedbackElement.style.display = 'none'; // Nascondi feedback se l'utente è attivo
+            feedbackElement.style.display = 'none';  // Nascondi feedback se l'utente è attivo
             return true;
         } else {
             feedbackElement.textContent = result.message;
             feedbackElement.style.color = 'red';
-            feedbackElement.style.display = 'block'; // Mostra feedback se l'utente non è attivo
+            feedbackElement.style.display = 'block';  // Mostra feedback se l'utente non è attivo
             return false;
         }
     } catch (error) {
