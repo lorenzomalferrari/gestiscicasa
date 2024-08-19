@@ -1,27 +1,37 @@
 <?php declare(strict_types=1);
-    header('Content-Type: application/json');
-    require_once('../lib/libs.php');
+header('Content-Type: application/json');
+require_once('../lib/libs.php');
 
-    $idUser = $_POST['idUser'] ?? null;
+// Decodifica il JSON in un array associativo
+$data = json_decode(file_get_contents('php://input'), true);
 
-    $response = ['status' => false, 'message' => 'Utente non trovato'];
+// Ottieni il valore di 'idUser' dal JSON decodificato
+$idUser = $data['idUser'] ?? null;
 
-    if ($idUser) {
-        $params_where = array(
-            ':id' => $idUser
-        );
+$response = ['status' => false, 'message' => 'Utente non trovato'];
 
-        $select = "SELECT " . UsersTable::TOKEN
-                . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS)
-                . " WHERE " . UsersTable::ID . " = :id ";
-        //applicare log in select
-        $row = DB->select($select, $params_where);
+if ($idUser) {
+    $params_where = array(
+        ':id' => $idUser
+    );
 
-        if ($row && $result[UsersTable::TOKEN]) {
-            $response = ['status' => true, 'message' => 'L\'utente ha confermato l\'email'];
-        } else {
-            $response = ['status' => false, 'message' => 'L\'utente non ha ancora confermato l\'email'];
-        }
+    $select = "SELECT
+                CASE
+                    WHEN " . UsersTable::TOKEN . " IS NULL THEN TRUE
+                    ELSE FALSE
+                END AS is_token_null
+                FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS)
+        . " WHERE " . UsersTable::ID . " = :id ";
+
+    // Esegui la query
+    $row = DB->select($select, $params_where);
+
+    if ($row && $row['is_token_null'] == 1) {
+        $response = ['status' => true, 'message' => 'Utente ha confermato il link tramite email'];
+    } else {
+        $response = ['status' => false, 'message' => 'Utente non ha ancora confermato il link nella email'];
     }
+}
 
-    echo json_encode($response);
+// Restituisci la risposta JSON
+echo json_encode($response);
