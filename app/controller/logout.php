@@ -3,5 +3,5 @@
     // Distruggi la sessione
     require_once(ROOT . "app/controller/lib/session/_session_destroy.php");
     // Reindirizza l'utente alla pagina di accesso o ad un'altra pagina
-    header('Location: ' . PATH . 'app/view/login.php');
+    redirectPath("app/view/login.php");
 ?>

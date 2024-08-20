@@ -13,8 +13,8 @@
 	$username = $_SESSION[CONFIG['session']['keys']['USERNAME']] ?? "";
 
 	if (!validateUsernameAndId($username, $idUsername) && confrontaTimestamp(15, time(), $_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']])) {
-		header('Location: ' . 'app/view/login.php');
+		redirectPath("app/view/login.php");
 	}
 	else {
-		header('Location: ' . 'app/view/home.php');
+		redirectPath("app/view/home.php");
 	}
