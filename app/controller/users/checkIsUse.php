@@ -10,30 +10,35 @@
     // Risposta di default
     $response = ['status' => false, 'message' => 'Utente non trovato'];
 
-    if ($params) {
+    if ($params && $value) {
 
         if( $params === "username")
-            $key = ":" .UsersTable::USERNAME;
+            $column = UsersTable::USERNAME;
         else
-            $key = ":" . PersonTable::EMAIL;
+            $column = PersonTable::EMAIL;
 
+        $key = ":" . $column;
         $params_where = array(
             $key => $value
         );
 
-        print_r("key: " . $key);
+        $params_select = "COUNT($column) as isUse";
 
-        $select = "SELECT COUNT(" . UsersTable::ID . ")"
-                    . "FORM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS)
-                    . "";
+        //Controllo prima che token non esista
+        $query = "SELECT $params_select FROM "
+        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS) . " u "
+            . " LEFT JOIN " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::PERSON) . " p "
+            . " on p." . PersonTable::ID_USER . " = u." . UsersTable::ID . " "
+            . " WHERE "
+                . " $column = $key ";
 
-        // Esegui la query
-        $row = DB->select($select, $params_where);
+        //applicare log in select
+        $row = DB->select($query, $params_where);
 
-        if ($row && $row['is_token_null'] == 1) {
-            $response = ['status' => true, 'message' => 'Utente ha confermato il link tramite email'];
+        if ($row && $row['isUse'] == 1) {
+            $response = ['status' => false, 'message' => "$column già in uso del CRM"];
         } else {
-            $response = ['status' => false, 'message' => 'Utente non ha ancora confermato il link nella email'];
+            $response = ['status' => true, 'message' => "$column non ancora presente nel CRM"];
         }
     }
 
