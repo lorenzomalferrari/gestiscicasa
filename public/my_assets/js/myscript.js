@@ -165,6 +165,9 @@ function checkLogin() {
     }
 }
 
+function goBack() {
+    window.history.back();
+}
 
 
 

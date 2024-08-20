@@ -1,16 +1,10 @@
-<?php declare(strict_types=1);
-    require_once("../../../controller/lib/libs.php");
-    getToPost();//funzione che porta tutto da GET a POST
-
-    $page = $_POST['page'];
-    $tableName = $_POST['table'];
-    $id = isset($_POST['id']) ? $id : "";
-
-    $fields = json_decode(urldecode($_POST['input_fields']), true);
-
-    $subTitle = ( isset($id) && $id > 0 ) ? "Modifica" : "Nuovo";
-
-    $fields = FormatterValidator::validateAndFormatFields($fields);
+<?php
+    declare(strict_types=1);
+    require_once("../../controller/lib/libs.php");
+    //Richiamare info da mostrare
+    require_once(ROOT . "app/controller/property/getPropertyTypeList.php");
+    //Eventuale personalizzazione
+    require_once(ROOT . "app/controller/property/type/customTable.php");
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -21,8 +15,7 @@
 
 <body>
     <!-- Page Loader Start -->
-    <?php
-    //require_once(ROOT . "app/view/components/template/_preloader.php");
+    <?php //require_once(ROOT . "app/view/components/template/_preloader.php");
     ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">
@@ -49,17 +42,17 @@
                         <div class="row align-items-center">
                             <div class="col-sm-4 col-12">
                                 <div class="breadcrumbs-area">
-                                    <h1><?php echo $page; ?></h1>
+                                    <h1><?php echo $titlePage; ?></h1>
                                 </div>
                             </div>
                             <div class="col-sm-8 col-12">
                                 <div class="breadcrumbs-area text-sm-right">
                                     <ul>
                                         <li>
-                                            <a href="#"><?php echo $page; ?></a>
+                                            <a href="#"><?php echo $titlePage; ?></a>
                                         </li>
                                         <li>
-                                            <a href="#"><?php echo $subTitle; ?></a>
+                                            <a href="#">Elenco</a>
                                         </li>
                                         <!--<li>Data Table</li>-->
                                     </ul>
@@ -73,7 +66,7 @@
                 <!--=====================================-->
                 <div class="container-fluid">
                     <div class="card component-table">
-                        <?php require_once(ROOT . "app/view/components/table/input-table.php"); ?>
+                        <?php require_once(ROOT . "app/view/components/table/data-table.php"); ?>
                     </div>
                 </div>
                 <!--=====================================-->
