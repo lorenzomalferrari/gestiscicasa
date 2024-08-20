@@ -1,19 +1,16 @@
-<?php
-
-declare(strict_types=1);
-require_once("../controller/lib/libs.php");
-$titlePage = "Registrazione";
+<?php declare(strict_types=1);
+    require_once("../controller/lib/libs.php");
+    $titlePage = "Registrazione";
 ?>
 <!doctype html>
 <html class="no-js" lang="">
-
 <head>
     <?php require_once(ROOT . 'app/view/components/template/_head.php'); ?>
 </head>
-
 <body>
     <!-- Page Loader Start -->
-    <?php //require_once(ROOT . "app/view/components/template/_preloader.php"); 
+    <?php
+        //require_once(ROOT . "app/view/components/template/_preloader.php");
     ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">
@@ -31,6 +28,10 @@ $titlePage = "Registrazione";
                         Crea un nuovo accout su <?php echo CONFIG['site']['name']; ?>
                     </div>
                     <form id="registration_form" action="../controller/registerController.php" method="post">
+
+                        <!-- Feedback per stato utente -->
+                        <div id="user-status-feedback" class="feedback"></div>
+
                         <div class="form-group">
                             <div class="input-label">
                                 <label>Username</label>
