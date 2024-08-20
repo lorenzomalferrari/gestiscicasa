@@ -10,6 +10,7 @@ async function validateUsername() {
     const usernameRegex = /^[A-Za-z\d]{5,20}$/;
 
     const isUse = await checkIsUse("username", username);
+    console.log(isUse)
 
     if (username.length < 5 || username.length > 20) {
         usernameError.textContent = 'Lo username deve essere lungo tra 5 e 20 caratteri.';
@@ -381,7 +382,7 @@ async function checkIsUse(params, value) {
         console.log("result");
         console.log(result);
 
-        const feedbackElement = document.getElementById('user-status-feedback');
+        const feedbackElement = document.getElementById(params + '-status-feedback');
 
         if (result.status) {
             feedbackElement.style.display = 'none';  // Nascondi feedback se l'utente è attivo
