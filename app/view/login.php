@@ -51,6 +51,12 @@ $titlePage = "Login";
                     <div class="text-manatee">Accedi a <strong><?php echo CONFIG['site']['name']; ?></strong>
                         usando usarname o email e la password
                     </div>
+                    <?php
+                        if (isset($_SESSION['login_error'])) {
+                            echo '<div class="alert alert-danger">' . $_SESSION['login_error'] . '</div>';
+                            unset($_SESSION['login_error']);
+                        }
+                    ?>
                     <form id="login_form" action="../controller/loginController.php" method="post">
                         <div class=" form-group">
                             <div class="input-label">

@@ -50,7 +50,9 @@
 				redirectPath("app/view/home.php");
 			}
 		} else {
-			echo "Credenziali non valide.";
+			// Memorizza il messaggio di errore nella sessione
+			$_SESSION['login_error'] = "Credenziali non valide.";
+			redirectPath("app/view/login.php");
 		}
 	}
 ?>
