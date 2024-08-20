@@ -20,18 +20,18 @@
         case EVENT = EventTable::TABLE_NAME;
         case GENDER = GenderTable::TABLE_NAME;
         case PERSON = PersonTable::TABLE_NAME;
-        case PERSONPROPERTYROLES = PersonPropertyRolesTable::TABLE_NAME;
+        case PERSON_PROPERTY_ROLES = PersonPropertyRolesTable::TABLE_NAME;
         case PRODUCT = ProductTable::TABLE_NAME;
         case PROPERTY = PropertyTable::TABLE_NAME;
-        case PROPERTYTYPE = PropertyTypeTable::TABLE_NAME;
+        case PROPERTY_TYPE = PropertyTypeTable::TABLE_NAME;
         case ROLES = RolesTable::TABLE_NAME;
         case ROOM = RoomsTable::TABLE_NAME;
         case ROOMTYPE = RoomTypesTable::TABLE_NAME;
-        case USAGEDESTINATIONS = UsageDestinationsTable::TABLE_NAME;
+        case USAGE_DESTINATIONS = UsageDestinationsTable::TABLE_NAME;
         case USERS = UsersTable::TABLE_NAME;
-        case USERSPROPERTY = UsersPropertyTable::TABLE_NAME;
+        case USERS_PROPERTY = UsersPropertyTable::TABLE_NAME;
         case VERSIONDB = VersioniDBTable::TABLE_NAME;
-        case PATHVISITATED = PathVisitatedTable::TABLE_NAME;
+        case PATHV_ISITATED = PathVisitatedTable::TABLE_NAME;
         case NATIONALITIES = NationalitiesTable::TABLE_NAME;
     }
 

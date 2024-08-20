@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
     $backgroundTable = "";
 
-    $tableName = PropertyTable::TABLE_NAME;
     $titlePage = "Proprietà";
+    $tableName = PropertyTable::TABLE_NAME;
 
     $tableDataHeader = PropertyTable::getColumns();
     $tableDataRecord =  [];
