@@ -10,7 +10,7 @@
         ':token' => $token
     );
 
-    $params_select = "u.id as idUtente, u.username, u.password, p.email, u.token";
+    $params_select = "u." . UsersTable::ID . " as idUtente, u." . UsersTable::USERNAME . ", u." . UsersTable::PASSWORD . ", p." . PersonTable::EMAIL. ", u." . UsersTable::TOKEN;
 
     //Controllo prima che token non esista
     $query = "SELECT $params_select FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS) . " u LEFT JOIN " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::PERSON) . " p on p.idUser = u.id WHERE u.token = :token AND (u.isActive = 0 OR u.isActive IS NULL)";
@@ -33,12 +33,15 @@
         $_SESSION[CONFIG['session']['keys']['USERNAME']] = $row['username'];
         $_SESSION[CONFIG['session']['keys']['PASSWORD']] = $row['password'];
         $_SESSION[CONFIG['session']['keys']['EMAIL']] = $row['email'];
-        $_SESSION[CONFIG['session']['keys']['TOKEN']] = "DA COSTRUIRE"; // da implementare token
-        $_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']] = time(); // da pensare se al momento del confirm bisogna fare qualcosa
+        $_SESSION[CONFIG['session']['keys']['TOKEN']] = "DA COSTRUIRE";// da implementare token
+        $_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']] = time();// da pensare se al momento del confirm bisogna fare qualcosa
 
         //eseguo Location a Index
         echo "Account confermato!<br>";
         echo "Ora puoi chiudere questa pagina.<br>";
+        echo "<br><br>Progetto: " . CONFIG['site']['name_esteso'];
+        echo "<br>Versione: " . CONFIG['site']['version'];
+        echo "<br><br>Sviluppatore: " . CONFIG['site']['autore'];
     }else{
         print_r("Stampare errore");
         // applicare eccezione e registrare error log su utente?
