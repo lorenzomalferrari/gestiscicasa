@@ -1,5 +1,5 @@
 // Funzione per validare lo username
-function validateUsername() {
+async function validateUsername() {
     const usernameField = document.getElementById('username');
     const usernameError = document.getElementById('username-error');
     const username = usernameField.value.trim();
@@ -9,13 +9,22 @@ function validateUsername() {
     // Regex per validare lo username (5-20 caratteri, solo lettere e numeri)
     const usernameRegex = /^[A-Za-z\d]{5,20}$/;
 
+    const isUse = await checkIsUse("username", username);
+
     if (username.length < 5 || username.length > 20) {
         usernameError.textContent = 'Lo username deve essere lungo tra 5 e 20 caratteri.';
         usernameError.style.display = 'block'; // Mostra l'errore
         return false;
     }
+
     if (!usernameRegex.test(username)) {
         usernameError.textContent = 'Lo username può contenere solo lettere e numeri. Non sono ammessi caratteri speciali.';
+        usernameError.style.display = 'block'; // Mostra l'errore
+        return false;
+    }
+
+    if ( isUse ) {
+        usernameError.textContent = 'Lo username è già usato.';
         usernameError.style.display = 'block'; // Mostra l'errore
         return false;
     }
@@ -24,7 +33,7 @@ function validateUsername() {
 }
 
 // Funzione per validare l'email
-function validateEmail() {
+async function validateEmail() {
     const emailField = document.getElementById('email');
     const emailError = document.getElementById('email-error');
     const email = emailField.value.trim();
@@ -34,9 +43,17 @@ function validateEmail() {
     // Regex per validare il formato dell'email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    const isUse = await checkIsUse("email", email);
+
     if (!emailRegex.test(email)) {
         emailError.textContent = 'L\'email inserita non è valida. Assicurati di aver utilizzato il formato corretto (ad esempio, nome@dominio.com).';
         emailError.style.display = 'block'; // Mostra l'errore
+        return false;
+    }
+
+    if (isUse) {
+        usernameError.textContent = 'L\'email è già stata usata.';
+        usernameError.style.display = 'block'; // Mostra l'errore
         return false;
     }
 
@@ -311,7 +328,48 @@ async function checkConfirmUser() {
             headers: {
                 'Content-Type': 'application/json'  // Imposta l'intestazione per JSON
             },
-            body: JSON.stringify({ idUser: idUser })  // Invia i dati come JSON
+            body: JSON.stringify({ idUser : idUser })  // Invia i dati come JSON
+        });
+
+        console.log("Raw response:", response);
+        const responseText = await response.text();
+        console.log("Raw Response:", responseText); // Logga la risposta completa
+
+        // Ora prova a fare il parsing JSON
+        const result = JSON.parse(responseText);
+        console.log("result");
+        console.log(result);
+
+        const feedbackElement = document.getElementById('user-status-feedback');
+
+        if (result.status) {
+            feedbackElement.style.display = 'none';  // Nascondi feedback se l'utente è attivo
+            return true;
+        } else {
+            feedbackElement.textContent = result.message;
+            feedbackElement.style.color = 'red';
+            feedbackElement.style.display = 'block';  // Mostra feedback se l'utente non è attivo
+            return false;
+        }
+    } catch (error) {
+        console.error('Errore nella richiesta:', error);
+        return false;
+    }
+}
+
+async function checkIsUse(params, value) {
+    console.log("checkIsUse");
+    console.log("params: " + params);
+    console.log("value: " + value);
+    console.log(window.location.origin + '/app/controller/users/checkIsUse.php');
+
+    try {
+        const response = await fetch(window.location.origin + '/app/controller/users/checkIsUse.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'  // Imposta l'intestazione per JSON
+            },
+            body: JSON.stringify({ params : params, value : value })  // Invia i dati come JSON
         });
 
         console.log("Raw response:", response);
