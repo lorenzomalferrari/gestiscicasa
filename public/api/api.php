@@ -22,7 +22,7 @@
 	$username = $data['username'];
 	$password = $data['password'];
 	if (!isset($config['allowed_users'][$username]) || $config['allowed_users'][$username] !== $password) {
-		die(json_encode(['status' => 'error', 'message' => 'Credenziali non valide.']));
+		die(json_encode(['status' => 'error', 'message' => 'Credenziali API non valide.']));
 	}
 
 	// Convalida il JSON
