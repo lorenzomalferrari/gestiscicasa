@@ -1,8 +1,8 @@
 <?php
 if( isset($id) 
-$action = "<button type="button" onclick="action('insert',<?php echo $tableName; ?> )" class="btn btn-primary mr-2">Salva</button>";
+$action = "<button type=\"button\" onclick=\"action('insert',<?php echo $tableName; ?> )\" class=\"btn btn-primary mr-2\">Salva</button>";
 else
-$action = "<button type="button" onclick="action('update',<?php echo $id . ',' . $tableName; ?> )" class="btn btn-warning mr-2">Modifica</button>";
+$action = "<button type=\"button\" onclick=\"action('update',<?php echo $id . ',' . $tableName; ?> )\" class=\"btn btn-warning mr-2\">Modifica</button>";
 ?>
 <!-- Riga per i bottoni -->
 <div class="row mb-4">
