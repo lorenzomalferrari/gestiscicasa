@@ -5,6 +5,7 @@
     require_once("session/_session_start.php");
     require_once(ROOT . 'app/model/log/PathAndFilesLog.php');
     require_once(ROOT . "app/model/table/Tables.php");
+    require_once(ROOT . 'app/model/NomiTabelle.php');
     require_once(ROOT . 'app/model/file/FileManager.php');
     require_once(ROOT . 'app/model/formatter_validator/JSonValidator.php');
     require_once(ROOT . 'app/controller/formatter_validator/formatterValidator.php');

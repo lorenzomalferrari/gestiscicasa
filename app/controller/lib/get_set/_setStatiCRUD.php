@@ -1,12 +1,10 @@
 <?php declare(strict_types=1);
-    
     require_once(ROOT . 'app/model/CrudType.php');
     require_once(ROOT . 'app/model/NomiTabelle.php');
 
     // Array che conterrà gli oggetti CrudType
     global $CRUDTYPEOBJ;// vedere se portarlo in _def.php
 
-     
     // Preparazione della query
     $params = array();
     //Controllo prima che Utente non esista già
