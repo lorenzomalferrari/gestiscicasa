@@ -13,7 +13,8 @@ $titlePage = "Registrazione";
 
 <body>
     <!-- Page Loader Start -->
-    <?php //require_once(ROOT . "app/view/components/template/_preloader.php"); 
+    <?php
+    //require_once(ROOT . "app/view/components/template/_preloader.php");
     ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">
@@ -31,6 +32,10 @@ $titlePage = "Registrazione";
                         Crea un nuovo accout su <?php echo CONFIG['site']['name']; ?>
                     </div>
                     <form id="registration_form" action="../controller/registerController.php" method="post">
+
+                        <!-- Feedback per stato utente -->
+                        <div id="username-status-feedback" class="feedback"></div>
+
                         <div class="form-group">
                             <div class="input-label">
                                 <label>Username</label>
@@ -39,6 +44,10 @@ $titlePage = "Registrazione";
                                 oninput="validateUsername()" onblur="validateUsername()">
                             <div class="invalid-feedback" id="username-error"></div>
                         </div>
+
+                        <!-- Feedback per stato utente -->
+                        <div id="email-status-feedback" class="feedback"></div>
+
                         <div class="form-group">
                             <div class="input-label">
                                 <label>Email</label>

@@ -12,7 +12,18 @@
     $params_select = "u." . UsersTable::ID . " as idUtente, u." . UsersTable::USERNAME . ", u." . UsersTable::PASSWORD . ", p." . PersonTable::EMAIL. ", u." . UsersTable::TOKEN;
 
     //Controllo prima che token non esista
-    $query = "SELECT $params_select FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS) . " u LEFT JOIN " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::PERSON) . " p on p.idUser = u.id WHERE u.token = :token AND (u.isActive = 0 OR u.isActive IS NULL)";
+    $query = "SELECT $params_select FROM "
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS) . " u "
+        . " LEFT JOIN " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::PERSON) . " p "
+        . " on p." . PersonTable::ID_USER . " = u." . UsersTable::ID . " "
+        . " WHERE "
+        . "         u." . UsersTable::TOKEN . " = :token
+                AND
+                    (
+                            u." . UsersTable::IS_ACTIVE . " = 0
+                        OR
+                            u." . UsersTable::IS_ACTIVE . " IS NULL
+                    )";
     //applicare log in select
     $row = DB->select($query, $params_where);
 
