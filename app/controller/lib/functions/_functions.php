@@ -176,4 +176,9 @@
 		return null; // Path non trovata
 	}
 
+	function redirectPath($path){
+		header("Location: " . PATH . $path);
+		exit();
+	}
+
 ?>
