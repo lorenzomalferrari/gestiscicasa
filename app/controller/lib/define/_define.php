@@ -30,7 +30,7 @@
 		'db' => [
 			'tablePrefix' => 'lmgc_',
 			'test' => [
-				'version' => '1.1.19',
+				'version' => '1.1.20',
 				'host' => '81.31.158.38',
 				'port' => '3306',
 				'username' => 'uij8aoin_gestiscicasa',
@@ -164,7 +164,7 @@
 	 * Anno, Mese e Giorno salvati in delle definizioni
 	 *
 	 */
-	define('YEARNOW', date("Y"));
+	define('YEARNOW', date('Y'));
 	define('MONTH', date('m'));
 	define('DAY', date('d'));
 
