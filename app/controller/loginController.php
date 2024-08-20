@@ -11,12 +11,10 @@
 					. " 	on p.idUser = u.id "
 					. " WHERE
 							(
-										u." . UsersTable::USERNAME . " = :username
-									OR
-										p." . PersonTable::EMAIL . " = :username
+									u." . UsersTable::USERNAME . " = :username
+								OR
+									p." . PersonTable::EMAIL . " = :username
 							)
-							AND
-								u." . UsersTable::PASSWORD . " = :password
 							AND
 								u." . UsersTable::TOKEN . " IS NULL
 							AND
@@ -25,7 +23,6 @@
 		// Preparazione della query
 		$params = array(
 			':username' => $username_form,
-			':password' => $password_form
 		);
 
 		$record = DB->select($query, $params);
