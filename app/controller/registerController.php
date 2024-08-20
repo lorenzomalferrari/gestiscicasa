@@ -14,7 +14,7 @@
         );
 
         //Controllo prima che Utente non esista già
-        $query = "SELECT * FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS) . " WHERE username = :username";
+        $query = "SELECT * FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS) . " WHERE " . UsersTable::USERNAME . " = :username";
         $row = DB->select($query, $params_where);
         if ($row) {
             echo "Utente già presente con questo username: " . json_encode($row);
@@ -24,7 +24,7 @@
                 ':email' => $email
             );
 
-            $selectPerson = "SELECT COUNT(*) as count FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::PERSON) . " WHERE email = :email";
+            $selectPerson = "SELECT COUNT(*) as count FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::PERSON) . " WHERE " . PersonTable::EMAIL . " = :email";
             $countP = DB->select($selectPerson, $params_selectP)['count'];
 
             if($countP > 0){
@@ -65,10 +65,11 @@
                     $_SESSION[CONFIG['session']['keys']['TOKEN']] = "";// da implementare token
 
                     require_once(ROOT . "app/controller/sendEmail.php");
-                    header("Location: " . "../view/welcome/welcome.php");
-                    //print_r("Location: " . "../view/welcome/welcome.php");
+                    redirectPath("app/view/welcome/welcome.php");
                 } else {
                     echo "Utente non creato";
+                    //TODO: Salvare un log con Utente non creato
+                    redirectPath("server_not_work.php");
                 }
             }
         }

@@ -2,9 +2,6 @@
     require_once('lib/libs.php');
     require_once(ROOT . 'app/model/NomiTabelle.php');
 
-print_r($_POST);
-print_r("<br>");
-
     $nome = $_POST['nome'];
     $cognome = $_POST['cognome'];
     $sesso = $_POST['sesso'];
@@ -23,9 +20,6 @@ print_r("<br>");
             ':data_nascita' => $data_nascita,
         );
 
-        print_r($params_insert);
-        print_r("<br>");
-
         //Gestisco l'inserimento in DB
         $insert = "INSERT INTO "
                     . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'),NomiTabella::PERSON)
@@ -39,9 +33,6 @@ print_r("<br>");
                     . ") "
                     . " VALUES (:nome, :cognome, :email, :idUser, :idGender, :data_nascita)";
 
-    print_r($insert);
-    print_r("<br>");
-
         $new_person_id = DB->insert($insert, $params_insert);
 
         //per portare la persona alla dashboard,
@@ -49,11 +40,13 @@ print_r("<br>");
 
         //aggiorno portando isActive a true
         $update_where = array(
-            ':id' => $idUser
+            ':id' => $idUser,
+            ':isActive' => 1
         );
         $update_user = "UPDATE " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS)
-                    . " SET " . UsersTable::IS_ACTIVE
+                    . " SET " . UsersTable::IS_ACTIVE . " = :isActive"
                     . " WHERE " . UsersTable::ID . " = :id";
+
         $update_id = DB->update($update_user, $update_where);
 
         $params_user = array(
@@ -72,8 +65,7 @@ print_r("<br>");
         $count_user = DB->selectAll($select_user, $params_user);
 
         if ($new_person_id > 0 && $count_user > 0) {
-            //header("Location: " . PATH . "app/view/home.php");
-            die("Location: " . PATH . "app/view/home.php");
+            redirectPath("app/view/home.php");
         } else {
             //capire che messaggio restituire
             print_r("DA IMPLEMENTARE: ERRORE DA RESTITUIRE");
