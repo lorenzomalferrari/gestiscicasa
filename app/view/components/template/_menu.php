@@ -65,13 +65,39 @@
                         ?>
                     </ul>
                 </li>
-                <li class="dsy-menu-item">
+                <li class="dsy-menu-item sidebar-nav-item">
                     <a href="<?php echo PATH . "app/view/lists/properties_list.php" ?>" class="dsy-menu-link">
                         <span class="dsy-menu-link-icon">
                             <i class="flaticon-null-4"></i>
                         </span>
                         <span class="dsy-menu-link-text">Proprietà</span>
+                        <span class="dsy-arrow-icon"><i class="flaticon-null-8"></i></span>
                     </a>
+                    <ul class="dsy-sub-group sub-group-menu">
+                        <li class="dsy-nav-item">
+                            <a href="<?php echo PATH . "app/view/lists/properties_list.php" ?>" class="dsy-menu-link">Elenco</a>
+                        </li>
+                        <li class="dsy-nav-item">
+                            <a href="<?php echo PATH . "app/view/lists/properties_type_list.php" ?>" class="dsy-menu-link">Tipi</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dsy-menu-item sidebar-nav-item">
+                    <a href="<?php echo PATH . "app/view/lists/rooms_list.php" ?>" class="dsy-menu-link">
+                        <span class="dsy-menu-link-icon">
+                            <i class="flaticon-null-4"></i>
+                        </span>
+                        <span class="dsy-menu-link-text">Stanze</span>
+                        <span class="dsy-arrow-icon"><i class="flaticon-null-8"></i></span>
+                    </a>
+                    <ul class="dsy-sub-group sub-group-menu">
+                        <li class="dsy-nav-item">
+                            <a href="<?php echo PATH . "app/view/lists/rooms_list.php" ?>" class="dsy-menu-link">Elenco</a>
+                        </li>
+                        <li class="dsy-nav-item">
+                            <a href="<?php echo PATH . "app/view/lists/rooms_type_list.php" ?>" class="dsy-menu-link">Tipi</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="dsy-menu-item">
                     <a href="<?php echo PATH . "app/view/lists/users_list.php" ?>" class="dsy-menu-link">
