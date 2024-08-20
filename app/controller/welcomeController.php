@@ -1,6 +1,5 @@
 <?php declare(strict_types=1);
     require_once('lib/libs.php');
-    require_once(ROOT . 'app/model/NomiTabelle.php');
 
     $nome = $_POST['nome'];
     $cognome = $_POST['cognome'];
