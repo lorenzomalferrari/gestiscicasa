@@ -169,6 +169,71 @@ function goBack() {
     window.history.back();
 }
 
+function action(action, id = null, tableName) {
+    let url = window.location.origin + '/';
+
+    // Crea FormData dal form
+    const formElement = document.getElementById('dynamicForm');
+    const formData = new FormData(formElement);
+
+    // Converti FormData in un oggetto JavaScript
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+
+    // Costruzione dell'URL in base al valore di action
+    if (action === 'insert') {
+        url += 'app/controller/action/insert.php';
+    } else if (action === 'update') {
+        data['id'] = id;
+        url += 'app/controller/action/update.php';
+    } else if (action === 'delete') {
+        data['id'] = id;
+        url += 'app/controller/action/delete.php';
+    } else {
+        // Caso di default
+        url += 'app/controller/action/default.php';
+    }
+
+    // Aggiungi tableName ai dati dell'oggetto
+    data['tableName'] = tableName;
+
+    // Usa fetch per inviare i dati via POST come JSON
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => response.json())
+        .then(result => {
+            // Gestisci la risposta del file PHP
+            console.log('Success:', result);
+
+            // Azione specifica per ogni file PHP
+            if (action === 'delete') {
+                // Reindirizza alla pagina "lista.php"
+                window.location.href = window.location.origin + '/lista.php';
+            } else if (action === 'insert' && result.newId) {
+                // Ricarica la pagina attuale passando il nuovo id come parametro GET
+                window.location.href = window.location.pathname + '?id=' + result.newId;
+            } else if (action === 'update') {
+                // Ricarica la pagina attuale
+                window.location.reload();
+            } else {
+                // Azione di default, se necessaria
+                console.error('Azione non riconosciuta');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+
+
 
 
 
