@@ -62,6 +62,23 @@
 			'password' => 'pIBqik90',
 			'directory' => 'public_ftp/gc/',
 		],
+		'api' => [
+			'super_admin' => [
+				'auth' => '0',
+				'username' => 'super',
+				'password' => 'LU=yA3K-#08^mFIdt;>QZaGU)',
+			],
+			'admin' => [
+				'auth' => '1',
+				'username' => 'admin',
+				'password' => 'd<dW~1;2zZ@S,;7Kh#?!Lg9km',
+			],
+			'user_lorenzo' => [
+				'auth' => '2',
+				'username' => 'lorenzo',
+				'password' => 'KTZF*AX_pD:3Tg[-JLlFP8c-p',
+			],
+		],
 		'email' => [
 			'smtp' => [
 				'server' => 'mail.lorenzomalferrari.com',
