@@ -16,7 +16,7 @@
 
 	// Verifica che i dati siano stati inviati correttamente
 	if (!isset($data['context']) || !isset($data['username']) || !isset($data['password']) || !isset($data['json'])) {
-		die(json_encode(['status' => 'error', 'message' => 'Parametri mancanti.', 'post' => var_dump($data) ]));
+		die(json_encode(['status' => 'error', 'message' => JSonValidator::ERROR_MISSING_DATA, 'post' => var_dump($data) ]));
 	}
 
 	// Verifica le credenziali
@@ -33,13 +33,13 @@
 	}
 
 	if ($auth === null) {
-		die(json_encode(['status' => 'error', 'message' => 'Credenziali API non valide.']));
+		die(json_encode(['status' => 'error', 'message' => JSonValidator::ERROR_API_CRED]));
 	}
 
 	// Convalida il JSON
 	$jsonParams = $data['json'];
 	if (!is_array($jsonParams)) {
-		die(json_encode(['status' => 'error', 'message' => 'JSON non valido.']));
+		die(json_encode(['status' => 'error', 'message' => JSonValidator::ERROR_INVALID_JSON]));
 	}
 
 	// Seleziona la classe da eseguire in base al contesto

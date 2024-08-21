@@ -5,7 +5,7 @@
 		switch ($context) {
 			case API['CREATE_DB']:
 				if ($auth === '2') {
-					return ['status' => 'error', 'message' => 'Permesso negato per CREATE_DB.'];
+					return returnError($context);
 				}
 				require_once(ROOT . 'app/model/api/CreateDB.php');
 				$handler = new CreateDB();
@@ -13,7 +13,7 @@
 				break;
 			case API['UPDATE_DB']:
 				if ($auth === '2') {
-					return ['status' => 'error', 'message' => 'Permesso negato per UPDATE_DB.'];
+					return returnError($context);
 				}
 				require_once(ROOT . 'app/model/api/UpdateDB.php');
 				$handler = new UpdateDB();
@@ -21,7 +21,7 @@
 				break;
 			case API['DELETE_DB']:
 				if ($auth === '1' || $auth === '2') {
-					return ['status' => 'error', 'message' => 'Permesso negato per DELETE_DB.'];
+					return returnError($context);
 				}
 				require_once(ROOT . 'app/model/api/DeleteDB.php');
 				$handler_del = new DeleteDB();
@@ -61,4 +61,8 @@
 		}
 		return $response;
 	}
+
+    function returnError($context): array {
+        return ['status' => 'error', 'message' => JSonValidator::PERMISSION_DENIED ." $context."];
+    }
 ?>
