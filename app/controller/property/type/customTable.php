@@ -36,7 +36,7 @@
                         "type" => "text",
                         "attributes" => [
                             "id" => "",
-                            "name" => "nome",
+                            "name" => PropertyTypeTable::DESCRIPTION,
                             "class" => "form-control",
                             "placeholder" => "Tipo proprietà",
                             "required" => "required",
@@ -51,7 +51,7 @@
                         "attributes" => [
                             "id" => "",
                             "class" => "form-control",
-                            "name" => "note",
+                            "name" => PropertyTypeTable::NOTES,
                             "placeholder" => "Note",
                             "maxlength" => "100"
                         ],
