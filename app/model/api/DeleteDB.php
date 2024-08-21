@@ -16,7 +16,7 @@
 		public function handle()
 		{
 			try {
-				$database = CONFIG['db'][getEnvironmentKey()]['database'];
+				$database = CONFIG['db']['server'][getEnvironmentKey()]['database'];
 				$sql = <<<sql
 					SET FOREIGN_KEY_CHECKS = 0;
 

@@ -29,21 +29,23 @@
 		],
 		'db' => [
 			'tablePrefix' => 'lmgc_',
-			'test' => [
-				'version' => '1.1.20',
-				'host' => '81.31.158.38',
-				'port' => '3306',
-				'username' => 'uij8aoin_gestiscicasa',
-				'password' => '7hnv8MKFDJ7DBnvsXqH5',
-				'database' => 'uij8aoin_gestiscicasa',
-			],
-			'produzione' => [
-				'version' => '0.0.1',
-				'host' => '127.0.0.1',
-				'port' => '3306',
-				'username' => 'uij8aoin_gestiscicasa',
-				'password' => '7hnv8MKFDJ7DBnvsXqH5',
-				'database' => 'uij8aoin_gestiscicasa',
+			'server' => [
+				'test' => [
+					'version' => '1.1.20',
+					'host' => '81.31.158.38',
+					'port' => '3306',
+					'username' => 'uij8aoin_gestiscicasa',
+					'password' => '7hnv8MKFDJ7DBnvsXqH5',
+					'database' => 'uij8aoin_gestiscicasa',
+				],
+				'produzione' => [
+					'version' => '0.0.1',
+					'host' => '127.0.0.1',
+					'port' => '3306',
+					'username' => 'uij8aoin_gestiscicasa',
+					'password' => '7hnv8MKFDJ7DBnvsXqH5',
+					'database' => 'uij8aoin_gestiscicasa',
+				],
 			],
 			'crudType' => [
 				'INSERT' => 1,

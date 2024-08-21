@@ -297,7 +297,7 @@
                 $dbVersion = self::getDatabaseVersion();
 
                 if (!empty($dbVersion)) {
-                    $expectedVersion = CONFIG['db'][getEnvironmentKey()]['version'];
+                    $expectedVersion = CONFIG['db']['server'][getEnvironmentKey()]['version'];
 
                     if ($dbVersion !== $expectedVersion) {
                         throw new CustomException("Versione del database non corrispondente. Versione attuale: $dbVersion, Versione attesa: $expectedVersion");
