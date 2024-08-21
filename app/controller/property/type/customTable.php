@@ -40,7 +40,7 @@
                             "class" => "form-control",
                             "placeholder" => "Tipo proprietà",
                             "required" => "required",
-                            "maxlength" => "100"
+                            "maxlength" => "50"
                         ]
                     ]
                 ],
@@ -53,7 +53,6 @@
                             "class" => "form-control",
                             "name" => "note",
                             "placeholder" => "Note",
-                            "required" => "required",
                             "maxlength" => "100"
                         ],
                     ],
