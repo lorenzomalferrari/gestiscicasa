@@ -21,7 +21,8 @@
 			'name' => 'Gestisci Casa',
 			'name_sigla' => 'GC',
 			'name_esteso' => 'CRM Gestisci Casa',
-			'email' => 'info@gestiscicasa.it',
+			'email_aziendale' => 'info@gestiscicasa.it',
+			'email_privata' => 'malfe.lore@gmail.com',
 			'autore' => 'Lorenzo Malferrari',
 			'telefono' => '+39 3519325656',
 			'azienda' => 'LM Servizi e Consulenze IT',
@@ -29,21 +30,23 @@
 		],
 		'db' => [
 			'tablePrefix' => 'lmgc_',
-			'test' => [
-				'version' => '1.1.20',
-				'host' => '81.31.158.38',
-				'port' => '3306',
-				'username' => 'uij8aoin_gestiscicasa',
-				'password' => '7hnv8MKFDJ7DBnvsXqH5',
-				'database' => 'uij8aoin_gestiscicasa',
-			],
-			'produzione' => [
-				'version' => '0.0.1',
-				'host' => '127.0.0.1',
-				'port' => '3306',
-				'username' => 'uij8aoin_gestiscicasa',
-				'password' => '7hnv8MKFDJ7DBnvsXqH5',
-				'database' => 'uij8aoin_gestiscicasa',
+			'server' => [
+				'test' => [
+					'version' => '1.1.20',
+					'host' => '81.31.158.38',
+					'port' => '3306',
+					'username' => 'uij8aoin_gestiscicasa',
+					'password' => '7hnv8MKFDJ7DBnvsXqH5',
+					'database' => 'uij8aoin_gestiscicasa',
+				],
+				'produzione' => [
+					'version' => '0.0.1',
+					'host' => '127.0.0.1',
+					'port' => '3306',
+					'username' => 'uij8aoin_gestiscicasa',
+					'password' => '7hnv8MKFDJ7DBnvsXqH5',
+					'database' => 'uij8aoin_gestiscicasa',
+				],
 			],
 			'crudType' => [
 				'INSERT' => 1,
@@ -61,6 +64,23 @@
 			'username' => 'uij8aoin',
 			'password' => 'pIBqik90',
 			'directory' => 'public_ftp/gc/',
+		],
+		'api' => [
+			'super_admin' => [
+				'auth' => '0',
+				'username' => 'super',
+				'password' => 'LU=yA3K-#08^mFIdt;>QZaGU)',
+			],
+			'admin' => [
+				'auth' => '1',
+				'username' => 'admin',
+				'password' => 'd<dW~1;2zZ@S,;7Kh#?!Lg9km',
+			],
+			'user_lorenzo' => [
+				'auth' => '2',
+				'username' => 'lorenzo',
+				'password' => 'KTZF*AX_pD:3Tg[-JLlFP8c-p',
+			],
 		],
 		'email' => [
 			'smtp' => [

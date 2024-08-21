@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
     $configArray = [
-        'SERVERNAME_DB' => CONFIG['db'][getEnvironmentKey()]['host'] . ':' . CONFIG['db'][getEnvironmentKey()]['port'],
-        'USERNAME_DB' => CONFIG['db'][getEnvironmentKey()]['username'],
-        'PASSWORD_DB' => CONFIG['db'][getEnvironmentKey()]['password'],
-        'DBNAME' => CONFIG['db'][getEnvironmentKey()]['database'],
+        'SERVERNAME_DB' => CONFIG['db']['server'][getEnvironmentKey()]['host'] . ':' . CONFIG['db']['server'][getEnvironmentKey()]['port'],
+        'USERNAME_DB' => CONFIG['db']['server'][getEnvironmentKey()]['username'],
+        'PASSWORD_DB' => CONFIG['db']['server'][getEnvironmentKey()]['password'],
+        'DBNAME' => CONFIG['db']['server'][getEnvironmentKey()]['database'],
         'TABLEPREFIX' => CONFIG['db']['tablePrefix'],
         'VERSTIME' => VERSTIME,
         'YEARNOW' => YEARNOW,
