@@ -6,6 +6,11 @@
         const ERROR_INVALID_JSON = 'JSON non valido.';
         const ERROR_INVALID_STRUCTURE = 'Struttura JSON non valida.';
         const ERROR_INVALID_DATA = 'Dati JSON non validi.';
+        const ERROR_MISSING_DATA = 'Parametri mancanti.';
+        const ERROR_API_CRED = 'Credenziali API non valide.';
+
+        const PERMISSION_DENIED = 'Permesso negato per';
+
 
         // Funzione per validare e sanitizzare il JSON
         public static function validate($jsonString)
