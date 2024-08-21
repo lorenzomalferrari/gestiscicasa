@@ -15,21 +15,49 @@
 
     // Verifica che i dati necessari siano presenti
     if (isset($data['tableName'])) {
-        //$tableName = $conn->real_escape_string($data['tableName']);
+        $params_insert = [];
+        $columns_insert = "";
+        $columns_arr = [];
+        $values_arr = [];
 
+        try {
+            $instances = ClassFactory::create($data['tableName']);
+            $instanceClass = $instances['class'];
+            $instanceTable = $instances['table'];
 
+            // Cicla su tutte le chiavi dell'array esclusa quella denominata tableName
+            foreach ($data as $key => $value) {
+                if ($key !== 'tableName') {
+                    $columns_arr[] = $key;
+                    $values_arr[] = ":" . $key;
 
+                    $params_insert[] = $value;
+                }
+            }
 
+            print_r("params_insert<br>");
+            print_r($params_insert);
 
-        // Esecuzione della query e gestione della risposta
-        //if ($conn->query($sql) === TRUE) {
-        //    $newId = $conn->insert_id; // Ottieni l'ID del nuovo record inserito
-        //    echo json_encode(['success' => true, 'newId' => $newId]);
-        //} else {
-        //    echo json_encode(['success' => false, 'message' => 'Error during insertion: ' . $conn->error]);
-        //}
+            $columns_insert = concatenateWithComma($columns_arr);
+            print_r("columns_insert<br>");
+            print_r($columns_insert);
+
+            $values_insert = concatenateWithComma($values_arr);
+            print_r("values_insert<br>");
+            print_r($values_insert);
+
+            $insert = "INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), $instanceTable::TABLE_NAME)
+                . " (" . $columns_insert . ") "
+                . " VALUES (" . $values_insert . ")";
+
+            print_r("insert QUERY: <br>");
+            print_r($columns_insert);
+
+            $new_id = DB->insert($insert, $params_insert);
+
+        } catch (Exception $e) {
+            echo 'Errore: ' . $e->getMessage();
+        }
     } else {
-        echo json_encode(['success' => false, 'message' => 'Missing required data.']);
+        echo json_encode(['success' => false, 'id' => $new_id, 'message' => 'Missing required data.']);
     }
-
-    die();
