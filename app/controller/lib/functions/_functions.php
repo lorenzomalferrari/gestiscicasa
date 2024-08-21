@@ -181,4 +181,16 @@
 		exit();
 	}
 
+	/**
+	 * Concatena gli elementi di un array, separandoli con una virgola.
+	 *
+	 * @param array $items L'array di elementi da concatenare.
+	 * @return string La stringa risultante dalla concatenazione.
+	 */
+	function concatenateWithComma(array $items): string
+	{
+		// Concatena gli elementi dell'array con una virgola
+		return implode(', ', $items);
+	}
+
 ?>
