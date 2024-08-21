@@ -1,8 +1,13 @@
 <?php
-    if( isset($id) )
+    $annulla = "<button type=\"button\" onclick=\"annulla\" class=\"btn btn-primary mr-2\">Annnulla</button>";
+
+    if( isset($id) ) {
         $action = "<button type=\"button\" onclick=\"action('insert', null, '$tableName')\" class=\"btn btn-primary mr-2\">Salva</button>";
+        $action .= $annulla;
+    }
     else {
         $action = "<button type=\"button\" onclick=\"action('update', $id, '$tableName')\" class=\"btn btn-warning mr-2\">Modifica</button>";
+        $action .= $annulla;
         $action .= "<button type=\"button\" onclick=\"action('delete', $id, '$tableName')\" class=\"btn btn-danger\">Elimina</button>";
     }
 ?>
