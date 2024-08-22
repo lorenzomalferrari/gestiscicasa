@@ -11,21 +11,21 @@
     $tableDataHeader = NationalitiesTable::getColumns();
     $tableDataRecord =  [];
 
-    foreach ($arrNazionalities as $nazionality) {
+    foreach ($arrNazionalities as $nationality) {
         //print_r($property);
         $tableDataRecord[] = [
-            $nazionality->getId(),
-            $nazionality->getName(),
-            $nazionality->getDescription(),
-            $nazionality->getPrice(),
-            $nazionality->getAddress(),
-            $nazionality->getIdCity(),
-            $nazionality->getIdState(),
-            $nazionality->getIdPropertyType(),
-            $nazionality->isActive(),
-            $nazionality->getNotes(),
-            $nazionality->getCreationDate(),
-            $nazionality->getupdateDate(),
+            $nationality->getId(),
+            $nationality->getName(),
+            $nationality->getDescription(),
+            $nationality->getPrice(),
+            $nationality->getAddress(),
+            $nationality->getIdCity(),
+            $nationality->getIdState(),
+            $nationality->getIdPropertyType(),
+            $nationality->isActive(),
+            $nationality->getNotes(),
+            $nationality->getCreationDate(),
+            $nationality->getupdateDate(),
         ];
     }
 ?>
