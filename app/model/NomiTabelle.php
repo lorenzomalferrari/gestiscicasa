@@ -12,7 +12,7 @@
         case BRAND = BrandTable::TABLE_NAME;
         case CATALOG = CatalogTable::TABLE_NAME;
         case CATEGORY = CategoryTable::TABLE_NAME;
-        case COLORS = ColorsTable::TABLE_NAME;
+        case COLOR = ColorsTable::TABLE_NAME;
         case CONTINENTS = ContinentsTable::TABLE_NAME;
         case COUNTRIES = CountriesTable::TABLE_NAME;
         case CRUDLOGS = CrudLogsTable::TABLE_NAME;
@@ -24,11 +24,11 @@
         case PRODUCT = ProductTable::TABLE_NAME;
         case PROPERTY = PropertyTable::TABLE_NAME;
         case PROPERTYTYPE = PropertyTypeTable::TABLE_NAME;
-        case ROLES = RolesTable::TABLE_NAME;
+        case ROLE = RolesTable::TABLE_NAME;
         case ROOM = RoomsTable::TABLE_NAME;
         case ROOMTYPE = RoomTypesTable::TABLE_NAME;
         case USAGEDESTINATIONS = UsageDestinationsTable::TABLE_NAME;
-        case USERS = UsersTable::TABLE_NAME;
+        case USER = UsersTable::TABLE_NAME;
         case USERSPROPERTY = UsersPropertyTable::TABLE_NAME;
         case VERSIONDB = VersionDBTable::TABLE_NAME;
         case PATHVISITATED = PathVisitatedTable::TABLE_NAME;
