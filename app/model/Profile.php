@@ -9,43 +9,26 @@
     {
         // Importa le funzionalità di User e Person come trait
         use Person, User {
-            Person::__construct as personConstruct;
-            Person::getId as personGetId;
-            Person::setId as personSetId;
-            Person::getCreationDate as personGetCreationDate;
+            //Person::getId as personGetId;
+            //Person::setId as personSetId;
+            //Person::getCreationDate as personGetCreationDate;
+            //Person::getUpdateDate as personGetUpdateDate;
 
-            User::__construct as userConstruct;
-            User::getId as userGetId;
-            User::setId as userSetId;
-            User::getCreationDate as userGetCreationDate;
+            //User::getId as userGetId;
+            //User::setId as userSetId;
+            //User::getCreationDate as userGetCreationDate;
+            //User::getUpdateDate as userGetUpdateDate;
         }
-
-        private static $db;
 
         /**
          * Metodo per inizializzare la classe, utilizzato per inizializzare il database
          */
-        public static function init(): void
-        {
-            if (self::$db === null) {
-                $configInstance = Config::getInstance();
-                self::$db = new Database(
-                    $configInstance->get('SERVERNAME_DB'),
-                    $configInstance->get('USERNAME_DB'),
-                    $configInstance->get('PASSWORD_DB'),
-                    $configInstance->get('DBNAME')
-                );
-            }
-        }
+        public static function init(): void {}
 
         /**
          * Costruttore per la classe Profile
          */
-        public function __construct()
-        {
-            $this->userConstruct();
-            $this->personConstruct();
-        }
+        public function __construct(){}
 
         /**
          * Metodo per ottenere il profilo completo di un utente persona combinato
@@ -56,10 +39,8 @@
          */
         public static function getProfile(int $userId): Profile
         {
-            // Assicurati che il database sia inizializzato
-            self::init();
+            //self::init();
 
-            // Query per ottenere i dati combinati da User e Person
             $query = "SELECT
                     p.id as personId,
                     p.name,
@@ -83,14 +64,12 @@
                 WHERE
                     u.id = :userId";
 
-            // Eseguire la query utilizzando il metodo select del database
-            $profileData = self::$db->select($query, ['userId' => $userId]);
+            $profileData = DB->select($query, ['userId' => $userId]);
 
             if (empty($profileData)) {
                 throw new Exception("Profile not found");
             }
 
-            // Creare un oggetto Profile utilizzando il metodo statico
             return self::createFromDatabaseResult($profileData);
         }
 
@@ -104,7 +83,7 @@
         {
             $profile = new Profile();
             // Info per Person
-            $profile->personSetId($profileData['personId']);
+            $profile->setPersonId($profileData['personId']);
             $profile->setName($profileData['name']);
             $profile->setSurname($profileData['surname']);
             $profile->setAge($profileData['age']);
@@ -115,22 +94,20 @@
             $profile->setDescription($profileData['description']);
             $profile->setEmail($profileData['email']);
             // Info per User
-            $profile->userSetId($profileData['userId']);
+            $profile->setUserId($profileData['userId']);
             $profile->setUsername($profileData['username']);
             $profile->setPassword($profileData['password']);
             $profile->setToken($profileData['token']);
             $profile->setIsActive($profileData['isActive']);
-            // Return info
+            // Return Info
             return $profile;
         }
 
-        /**
-         * Restituisce il nominativo completo dell'utente (nome e cognome)
-         *
-         * @return string
-         */
-        public function getNominativo(): string
+        public function getIds(): array
         {
-            return $this->getName() . ' ' . $this->getSurname();
+            return [
+                'id_person' => $this->getPersonId(),
+                'id_user' => $this->getUserId()
+            ];
         }
     }

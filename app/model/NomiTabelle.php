@@ -23,21 +23,50 @@
         case PERSON_PROPERTY_ROLES = PersonPropertyRolesTable::TABLE_NAME;
         case PRODUCT = ProductTable::TABLE_NAME;
         case PROPERTY = PropertyTable::TABLE_NAME;
-        case PROPERTY_TYPE = PropertyTypeTable::TABLE_NAME;
+        case PROPERTYTYPE = PropertyTypeTable::TABLE_NAME;
         case ROLES = RolesTable::TABLE_NAME;
         case ROOM = RoomsTable::TABLE_NAME;
         case ROOMTYPE = RoomTypesTable::TABLE_NAME;
-        case USAGE_DESTINATIONS = UsageDestinationsTable::TABLE_NAME;
+        case USAGEDESTINATIONS = UsageDestinationsTable::TABLE_NAME;
         case USERS = UsersTable::TABLE_NAME;
-        case USERS_PROPERTY = UsersPropertyTable::TABLE_NAME;
+        case USERSPROPERTY = UsersPropertyTable::TABLE_NAME;
         case VERSIONDB = VersioniDBTable::TABLE_NAME;
-        case PATHV_ISITATED = PathVisitatedTable::TABLE_NAME;
+        case PATHVISITATED = PathVisitatedTable::TABLE_NAME;
         case NATIONALITIES = NationalitiesTable::TABLE_NAME;
+
+        // Funzione per ottenere il caso dell'enum dal valore della tabella
+        private static function getEnumCaseFromValue(string $value): ?self
+        {
+            foreach (self::cases() as $case) {
+                if ($case->value === $value)
+                    return $case;
+            }
+            return null;
+        }
+
+        // Funzione pubblica per ottenere il valore della tabella dal nome
+        public static function getTableName(string $key): ?string
+        {
+            foreach (self::cases() as $case) {
+                if ($case->name === $key)
+                    return $case->value;
+            }
+            return null;
+        }
+
+        // Funzione pubblica per ottenere il caso dell'enum dal nome della tabella
+        public static function getEnumCaseFromName(string $key): ?self
+        {
+            $tableName = self::getTableName($key);
+            if ($tableName !== null)
+                return self::getEnumCaseFromValue($tableName);
+
+            return null;
+        }
     }
 
     function getNomeTabella(string $prefisso, NomiTabelle $nomeT): string
     {
         return TableNames::getPrefixedName($prefisso, $nomeT->value);
     }
-
 ?>

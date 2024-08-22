@@ -19,7 +19,7 @@
 		public const LAND = 5; //Land
 
 		// Constructor
-		public function __construct(
+		/*public function __construct(
 			int $id,
 			string $description,
 			string $creationDate,
@@ -31,6 +31,14 @@
 			$this->creationDate = $creationDate;
 			$this->lastModifiedDate = $lastModifiedDate;
 			$this->notes = $notes;
+		}*/
+
+		public function __construct() {
+			$this->id = 0;
+			$this->description = "";
+			$this->creationDate = "";
+			$this->lastModifiedDate = "";
+			$this->notes = "";
 		}
 
 		// Getter and setter methods for 'id'

@@ -4,17 +4,18 @@
     $tableName = PropertyTypeTable::TABLE_NAME;
     $titlePage = "Tipo Proprietà";
 
-    $tableDataHeader = PropertyTypeTable::getColumns();
+    $tableDataHeader = /*PropertyTypeTable::getColumns()*/[
+        PropertyTypeTable::ID,
+        PropertyTypeTable::DESCRIPTION,
+        PropertyTypeTable::NOTES
+    ];
     $tableDataRecord =  [];
 
     foreach ($arrTypeProperties as $typeProperty) {
-        //print_r($property);
         $tableDataRecord[] = [
             $typeProperty->getId(),
-            $typeProperty->getDescription,
-            $typeProperty->getCreationDate,
-            $typeProperty->getLastModifiedDate,
-            $typeProperty->getNotes,
+            $typeProperty->getDescription(),
+            $typeProperty->getNotes(),
         ];
     }
 

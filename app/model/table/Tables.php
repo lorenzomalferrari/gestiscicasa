@@ -391,7 +391,7 @@
 		const ADDRESS = 'address';
 		const ID_CITY = 'IdCity';
 		const ID_STATE = 'IdState';
-		const ID_PROPERTY_TYPE = 'IdPropertyType';
+		const ID_PROPERTYTYPE = 'IdPropertyType';
 		const ACTIVE = 'active';
 		const NOTES = 'notes';
 		const CREATION_DATE = 'creationDate';
@@ -406,7 +406,7 @@
 				self::ADDRESS,
 				self::ID_CITY,
 				self::ID_STATE,
-				self::ID_PROPERTY_TYPE,
+				self::ID_PROPERTYTYPE,
 				self::ACTIVE,
 				self::NOTES,
 				self::CREATION_DATE,

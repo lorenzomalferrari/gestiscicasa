@@ -40,7 +40,7 @@
             $r[PropertyTable::ADDRESS],
             $r[PropertyTable::ID_CITY],
             $r[PropertyTable::ID_STATE],
-            $r[PropertyTable::ID_PROPERTY_TYPE],
+            $r[PropertyTable::ID_PROPERTYTYPE],
             (bool)$r[PropertyTable::ACTIVE],
             $r[PropertyTable::NOTES],
             $r[PropertyTable::CREATION_DATE],

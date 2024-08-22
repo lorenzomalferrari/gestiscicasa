@@ -16,7 +16,7 @@
                         echo "<td><a href=\"" . PATH . "app/view/components/input/input-form.php?"
                             . "page=" . $titlePage
                             . "&table=" . $tableName
-                            . "&input_fields=" . $input_fields
+                            /*. "&input_fields=" . $input_fields*/
                             . "&id=" . $id
                             . "\" title=\"Modifica\">Modifica</a></td>";
                         for ($j = 0; $j < count($tableDataRecord[$i]); $j++) {

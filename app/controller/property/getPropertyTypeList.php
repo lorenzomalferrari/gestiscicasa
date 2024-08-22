@@ -2,18 +2,17 @@
     require_once(ROOT . 'app/model/NomiTabelle.php');
     require_once(ROOT . "app/model/PropertyType.php");
 
-    $arrProperties = array();
+    $arrTypeProperties = array();
 
-    $select = "*";
+    $select = PropertyTypeTable::ID . ", "
+            . PropertyTypeTable::DESCRIPTION . ", "
+            . PropertyTypeTable::NOTES;
 
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::PROPERTY_TYPE ) . " AS pt "
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::PROPERTYTYPE ) . " AS pt "
     ;
-
-    //print_r($query);
-    //print_r("<br>");
 
     $params_select = array(
         /*':id' => $_SESSION[CONFIG['session']['keys']['IDUSER']],*/
@@ -22,11 +21,10 @@
     $results = DB->selectAll($query, $params_select);
 
     foreach ($results as $r) {
-        $arrTypeProperties[] = new PropertyType(
-            $r[PropertyTypeTable::ID],
-            $r[PropertyTypeTable::DESCRIPTION],
-            $r[PropertyTypeTable::CREATION_DATE],
-            $r[PropertyTypeTable::UPDATE_DATE],
-            $r[PropertyTypeTable::NOTES]
-        );
+        $propertyType = new PropertyType();
+        //set
+        $propertyType->setId($r[PropertyTypeTable::ID]);
+        $propertyType->setDescription($r[PropertyTypeTable::DESCRIPTION]);
+        $propertyType->setNotes($r[PropertyTypeTable::NOTES]);
+        $arrTypeProperties[] = $propertyType;
     }

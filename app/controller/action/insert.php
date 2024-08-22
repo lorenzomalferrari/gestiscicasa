@@ -11,7 +11,7 @@
         exit;
     }
 
-    print_r($data);
+    //print_r($data);
 
     // Verifica che i dati necessari siano presenti
     if (isset($data['tableName'])) {
@@ -22,8 +22,11 @@
 
         try {
             $instances = ClassFactory::create($data['tableName']);
-            $instanceClass = $instances['class'];
-            $instanceTable = $instances['table'];
+            //$instanceClass = $instances['class'];
+            //$instanceTable = strtoupper($instances['table']);
+
+            //print_r("<br>instanceClass<br>");
+            //print_r($instanceClass);
 
             // Cicla su tutte le chiavi dell'array esclusa quella denominata tableName
             foreach ($data as $key => $value) {
@@ -31,29 +34,31 @@
                     $columns_arr[] = $key;
                     $values_arr[] = ":" . $key;
 
-                    $params_insert[] = $value;
+                    $params_insert[":" . $key] = $value;
                 }
             }
 
-            print_r("params_insert<br>");
-            print_r($params_insert);
+            //print_r("<br>params_insert<br>");
+            //print_r($params_insert);
 
             $columns_insert = concatenateWithComma($columns_arr);
-            print_r("columns_insert<br>");
-            print_r($columns_insert);
+            //print_r("<br>columns_insert<br>");
+            //print_r($columns_insert);
 
             $values_insert = concatenateWithComma($values_arr);
-            print_r("values_insert<br>");
-            print_r($values_insert);
+            //print_r("<br>values_insert<br>");
+            //print_r($values_insert);
 
-            $insert = "INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), $instanceTable::TABLE_NAME)
+            $insert = "INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::getEnumCaseFromName( strtoupper($data['tableName'])) )
                 . " (" . $columns_insert . ") "
                 . " VALUES (" . $values_insert . ")";
 
-            print_r("insert QUERY: <br>");
-            print_r($columns_insert);
+            //print_r("insert QUERY: <br>");
+            //print_r($insert);
 
             $new_id = DB->insert($insert, $params_insert);
+            //print_r("id: <br>");
+            //print_r($new_id);
 
         } catch (Exception $e) {
             echo 'Errore: ' . $e->getMessage();

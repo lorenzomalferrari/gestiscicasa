@@ -25,12 +25,12 @@
 		public function __construct() {}
 
 		// Getter e setter per 'id'
-		public function getId(): int
+		public function getPersonId(): int
 		{
 			return $this->id;
 		}
 
-		public function setId(int $id): void
+		public function setPersonId(int $id): void
 		{
 			$this->id = $id;
 		}
@@ -146,13 +146,13 @@
 		}
 
 		// Getter e setter per 'creationDate'
-		public function getCreationDate(): string
+		public function getPersonCreationDate(): string
 		{
 			return $this->creationDate;
 		}
 
 		// Getter e setter per 'updateDate'
-		public function getUpdateDate(): string
+		public function getPersonUpdateDate(): string
 		{
 			return $this->updateDate;
 		}
