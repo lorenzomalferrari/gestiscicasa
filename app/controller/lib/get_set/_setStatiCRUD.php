@@ -8,7 +8,7 @@
     // Preparazione della query
     $params = array();
     //Controllo prima che Utente non esista già
-    $query = "SELECT * FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::CRUDTYPE);
+    $query = "SELECT * FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::CRUDTYPE);
     $rows = DB->selectAll($query, $params);
 
     foreach ($rows as $row) {

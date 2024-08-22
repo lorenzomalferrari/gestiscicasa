@@ -9,7 +9,7 @@
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS ) . " AS u "
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::USERS ) . " AS u "
     ;
 
     print_r($query);

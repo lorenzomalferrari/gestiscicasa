@@ -9,15 +9,15 @@
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::PROPERTY ) . " AS p "
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::PROPERTY ) . " AS p "
         /*. " INNER JOIN "
-        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERSPROPERTY) . " AS up "
+        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::USERSPROPERTY) . " AS up "
         . " ON up." . UsersPropertyTable::ID_PROPERTY . " = p." . PropertyTable::ID
         . " INNER JOIN "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::PERSON) . " AS pe "
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::PERSON) . " AS pe "
         . " ON pe." . PersonTable::ID . " = " . UsersPropertyTable::ID_PERSON
         . " INNER JOIN "
-        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS) . " AS u "
+        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::USERS) . " AS u "
         . " ON u." . UsersTable::ID . " = pe." . PersonTable::ID_USER
         . " WHERE u." . UsersTable::ID . " = :id "*/
     ;

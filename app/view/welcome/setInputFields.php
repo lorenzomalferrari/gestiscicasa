@@ -2,7 +2,7 @@
     require_once("../../controller/lib/libs.php");
 
     $select = "SELECT " . GenderTable::ID . ", " . GenderTable::GENDER_IT
-    . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::GENDER);
+    . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::GENDER);
 
     $rows = DB->selectAll($select);
 

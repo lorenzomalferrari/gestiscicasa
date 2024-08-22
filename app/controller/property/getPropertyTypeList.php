@@ -9,7 +9,7 @@
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::PROPERTY_TYPE ) . " AS pt "
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::PROPERTY_TYPE ) . " AS pt "
     ;
 
     //print_r($query);

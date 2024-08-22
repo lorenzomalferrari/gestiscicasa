@@ -13,8 +13,8 @@
 
     //Controllo prima che token non esista
     $query = "SELECT $params_select FROM "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS) . " u "
-        . " LEFT JOIN " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::PERSON) . " p "
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::USERS) . " u "
+        . " LEFT JOIN " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::PERSON) . " p "
         . " on p." . PersonTable::ID_USER . " = u." . UsersTable::ID . " "
         . " WHERE "
         . "         u." . UsersTable::TOKEN . " = :token
@@ -29,7 +29,7 @@
 
     if ($row) {
         $update =
-            "UPDATE " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabella::USERS)
+            "UPDATE " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::USERS)
             . " SET " . UsersTable::TOKEN. " = NULL "
             . " WHERE " . UsersTable::TOKEN . " = :token";
         //applicare log in update
