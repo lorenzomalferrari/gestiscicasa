@@ -1,6 +1,4 @@
 <?php declare(strict_types=1);
-    require_once('../controller/lib/libs.php');
-
     require_once(ROOT . 'app/model/User.php');
     require_once(ROOT . 'app/model/Person.php');
 
@@ -79,9 +77,9 @@
                     u.token,
                     u.isActive
                 FROM
-                    " . NomiTabella::USERS . " u
+                    " . NomiTabelle::USERS . " u
                 INNER JOIN
-                    " . NomiTabella::PERSON . " p ON u.id = p.idUser
+                    " . NomiTabelle::PERSON . " p ON u.id = p.idUser
                 WHERE
                     u.id = :userId";
 
@@ -122,7 +120,7 @@
             $profile->setPassword($profileData['password']);
             $profile->setToken($profileData['token']);
             $profile->setIsActive($profileData['isActive']);
-
+            // Return info
             return $profile;
         }
 
