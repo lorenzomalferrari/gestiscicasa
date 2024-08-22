@@ -10,10 +10,10 @@ class Product {
 	private int $IdCategory;
 	private string $note;
 	private string $creationDate;
-	private string $updateData;
+	private string $updateDate;
 
 	// Constructor
-	public function __construct(int $id, string $name, string $description, float $price, string $barcode, int $IdBrand, int $IdCategory, string $note=null, string $creationDate, string $updateData) {
+	public function __construct(int $id, string $name, string $description, float $price, string $barcode, int $IdBrand, int $IdCategory, string $note=null, string $creationDate, string $updateDate) {
 		$this->id = $id;
 		$this->name = $name;
 		$this->description = $description;
@@ -23,7 +23,7 @@ class Product {
 		$this->IdCategory = $IdCategory;
 		$this->note = $note;
 		$this->creationDate = $creationDate;
-		$this->updateData = $updateData;
+		$this->updateDate = $updateDate;
 	}
 
 	// Getter and setter methods
@@ -95,8 +95,8 @@ class Product {
 		return $this->creationDate;
 	}
 
-	public function getUpdateData() {
-		return $this->updateData;
+	public function getupdateDate() {
+		return $this->updateDate;
 	}
 
 	// toString method
@@ -111,7 +111,7 @@ class Product {
 		", IdCategory: " . $this->IdCategory .
 		", Note: " . $this->note .
 		", Creation Data: " . $this->creationDate .
-		", Update Data: " . $this->updateData;
+		", Update Data: " . $this->updateDate;
 	}
 }
 ?>

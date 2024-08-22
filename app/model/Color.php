@@ -3,7 +3,7 @@
 	 * Classe per gestire il Colore.
 	 * Utile per dare un colore a Proprietà, Prodotti e altro
 	 */
-	class Colors {
+	class Color {
 		private int $id;
 		private string $name;
 		private string $hexCode;

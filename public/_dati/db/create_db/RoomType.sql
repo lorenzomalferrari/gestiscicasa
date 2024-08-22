@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS lmgc_RoomTypes (
     description TEXT,
     note TEXT,
     creationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updateData TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    updateDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 -- Aggiunta della constraint unica per la colonna name

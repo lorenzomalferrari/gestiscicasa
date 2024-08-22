@@ -2,7 +2,7 @@
 	/**
 	 * Classe che rappresenta i ruoli ammessi nel progetto
 	 */
-	class Roles {
+	class Role {
 		public const PURCHASING_MANAGER = "Purchasing Manager";
 		public const SALES_PERSON = "Sales Person";
 		public const SUPPLIER = "Supplier";

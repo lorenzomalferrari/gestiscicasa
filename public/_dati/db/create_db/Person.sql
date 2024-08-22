@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS lmgc_Person (
     description VARCHAR(255) NULL,
     idUser INT NOT NULL,
     creationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updateData TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    updateDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 INSERT INTO lmgc_Person (name, surname, age, birthdate, city, state, nationality, description, idUser)

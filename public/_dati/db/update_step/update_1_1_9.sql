@@ -8,9 +8,9 @@ CREATE TABLE IF NOT EXISTS lmgc_Product (
     IdCategory INT NOT NULL,
     note TEXT,
     creationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updateData TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    updateDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CONSTRAINT fk_brand FOREIGN KEY (IdBrand) REFERENCES lmgc_Brand(id),
     CONSTRAINT fk_category FOREIGN KEY (IdCategory) REFERENCES lmgc_Category(id)/*,
     CONSTRAINT chk_price CHECK (price >= 0),
-    CONSTRAINT chk_dates CHECK (creationDate <= updateData)*/
+    CONSTRAINT chk_dates CHECK (creationDate <= updateDate)*/
 );

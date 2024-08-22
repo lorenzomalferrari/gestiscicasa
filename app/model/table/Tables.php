@@ -1,5 +1,10 @@
-<?php
-	class UsersTable {
+<?php declare(strict_types=1);
+
+	/**
+	 * Class representing the 'Users' table.
+	 */
+	class UsersTable
+	{
 		const TABLE_NAME = 'Users';
 
 		const ID = 'id';
@@ -7,10 +12,15 @@
 		const PASSWORD = 'password';
 		const TOKEN = 'TOKEN';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateData';
+		const UPDATE_DATE = 'updateDate';
 		const IS_ACTIVE = 'isActive';
 
-		public static function getColumns()
+		/**
+		 * Get the list of columns for the Users table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
 		{
 			return [
 				self::ID,
@@ -24,8 +34,12 @@
 		}
 	}
 
-	class PersonTable {
-		const TABLE_NAME = 'Person';
+	/**
+	 * Class representing the 'People' table.
+	 */
+	class PersonTable
+	{
+		const TABLE_NAME = 'People';
 
 		const ID = 'id';
 		const NAME = 'name';
@@ -38,13 +52,42 @@
 		const DESCRIPTION = 'description';
 		const ID_USER = 'idUser';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateData';
+		const UPDATE_DATE = 'updateDate';
 		const EMAIL = 'email';
 		const ID_GENDER = 'idGender';
+
+		/**
+		 * Get the list of columns for the People table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
+			return [
+				self::ID,
+				self::NAME,
+				self::SURNAME,
+				self::AGE,
+				self::BIRTHDATE,
+				self::CITY,
+				self::STATE,
+				self::NATIONALITY,
+				self::DESCRIPTION,
+				self::ID_USER,
+				self::CREATION_DATE,
+				self::UPDATE_DATE,
+				self::EMAIL,
+				self::ID_GENDER
+			];
+		}
 	}
 
-	class BrandTable {
-		const TABLE_NAME = 'Brand';
+	/**
+	 * Class representing the 'Brands' table.
+	 */
+	class BrandTable
+	{
+		const TABLE_NAME = 'Brands';
 
 		const ID = 'id';
 		const NAME = 'name';
@@ -53,20 +96,49 @@
 		const FOUNDATION_YEAR = 'foundation_year';
 		const NOTE = 'note';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateData';
+		const UPDATE_DATE = 'updateDate';
+
+		/**
+		 * Get the list of columns for the Brands table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
+			return [
+				self::ID,
+				self::NAME,
+				self::COUNTRY_OF_ORIGIN,
+				self::INDUSTRY_SECTOR,
+				self::FOUNDATION_YEAR,
+				self::NOTE,
+				self::CREATION_DATE,
+				self::UPDATE_DATE
+			];
+		}
 	}
 
-	class CatalogTable {
-		const TABLE_NAME = 'Catalog';
+	/**
+	 * Class representing the 'Catalogs' table.
+	 */
+	class CatalogTable
+	{
+		const TABLE_NAME = 'Catalogs';
 
 		const ID = 'id';
 		const NAME = 'name';
 		const DESCRIPTION = 'description';
 		const NOTE = 'note';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateData';
+		const UPDATE_DATE = 'updateDate';
 
-		public static function getColumns() {
+		/**
+		 * Get the list of columns for the Catalogs table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
 			return [
 				self::ID,
 				self::NAME,
@@ -78,18 +150,28 @@
 		}
 	}
 
-	class CategoryTable {
-		const TABLE_NAME = 'Category';
+	/**
+	 * Class representing the 'Categories' table.
+	 */
+	class CategoryTable
+	{
+		const TABLE_NAME = 'Categories';
 
 		const ID = 'id';
 		const NAME = 'name';
 		const DESCRIPTION = 'description';
 		const NOTES = 'notes';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateData';
+		const UPDATE_DATE = 'updateDate';
 		const ID_COLOR = 'IdColor';
 
-		public static function getColumns() {
+		/**
+		 * Get the list of columns for the Categories table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
 			return [
 				self::ID,
 				self::NAME,
@@ -102,7 +184,11 @@
 		}
 	}
 
-	class ColorsTable {
+	/**
+	 * Class representing the 'Colors' table.
+	 */
+	class ColorsTable
+	{
 		const TABLE_NAME = 'Colors';
 
 		const ID = 'id';
@@ -113,7 +199,13 @@
 		const HSL_CODE = 'hslCode';
 		const NOTE = 'note';
 
-		public static function getColumns() {
+		/**
+		 * Get the list of columns for the Colors table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
 			return [
 				self::ID,
 				self::NAME,
@@ -126,7 +218,11 @@
 		}
 	}
 
-	class ContinentsTable {
+	/**
+	 * Class representing the 'Continents' table.
+	 */
+	class ContinentsTable
+	{
 		const TABLE_NAME = 'Continents';
 
 		const ID = 'id';
@@ -137,7 +233,13 @@
 		const CREATION_DATE = 'creationDate';
 		const UPDATE_DATE = 'updateDate';
 
-		public static function getColumns() {
+		/**
+		 * Get the list of columns for the Continents table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
 			return [
 				self::ID,
 				self::NAME,
@@ -150,7 +252,11 @@
 		}
 	}
 
-	class CountriesTable {
+	/**
+	 * Class representing the 'Countries' table.
+	 */
+	class CountriesTable
+	{
 		const TABLE_NAME = 'Countries';
 
 		const ID = 'id';
@@ -159,7 +265,13 @@
 		const CREATION_DATE = 'creationDate';
 		const UPDATE_DATE = 'updateDate';
 
-		public static function getColumns() {
+		/**
+		 * Get the list of columns for the Countries table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
 			return [
 				self::ID,
 				self::NAME,
@@ -170,7 +282,11 @@
 		}
 	}
 
-	class CrudLogsTable {
+	/**
+	 * Class representing the 'CrudLogs' table.
+	 */
+	class CrudLogsTable
+	{
 		const TABLE_NAME = 'CrudLogs';
 
 		const ID = 'id';
@@ -181,7 +297,13 @@
 		const AFTER_STATE = 'after_state';
 		const USER_ID = 'user_id';
 
-		public static function getColumns() {
+		/**
+		 * Get the list of columns for the CrudLogs table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
 			return [
 				self::ID,
 				self::TIMESTAMP,
@@ -194,16 +316,26 @@
 		}
 	}
 
-	class EventTable {
-		const TABLE_NAME = 'Event';
+	/**
+	 * Class representing the 'Events' table.
+	 */
+	class EventTable
+	{
+		const TABLE_NAME = 'Events';
 
 		const ID = 'id';
 		const ACTION = 'action';
 		const NOTES = 'notes';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateData';
+		const UPDATE_DATE = 'updateDate';
 
-		public static function getColumns() {
+		/**
+		 * Get the list of columns for the Events table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
 			return [
 				self::ID,
 				self::ACTION,
@@ -214,8 +346,12 @@
 		}
 	}
 
-	class CrudTypeTable {
-		const TABLE_NAME = 'CrudType';
+	/**
+	 * Class representing the 'CrudTypes' table.
+	 */
+	class CrudTypeTable
+	{
+		const TABLE_NAME = 'CrudTypes';
 
 		const ID = 'id';
 		const NAME = 'nome';
@@ -225,7 +361,13 @@
 		const UPDATE_DATE = 'data_aggiornamento';
 		const NOTE = 'note';
 
-		public static function getColumns() {
+		/**
+		 * Get the list of columns for the CrudTypes table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
 			return [
 				self::ID,
 				self::NAME,
@@ -238,8 +380,12 @@
 		}
 	}
 
-	class GenderTable {
-		const TABLE_NAME = 'Gender';
+	/**
+	 * Class representing the 'Genders' table.
+	 */
+	class GenderTable
+	{
+		const TABLE_NAME = 'Genders';
 
 		const ID = 'id';
 		const GENDER_IT = 'gender_it';
@@ -252,7 +398,13 @@
 		const CREATED_AT = 'created_at';
 		const UPDATED_AT = 'updated_at';
 
-		public static function getColumns() {
+		/**
+		 * Get the list of columns for the Genders table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
 			return [
 				self::ID,
 				self::GENDER_IT,
@@ -268,8 +420,11 @@
 		}
 	}
 
-
-	class PersonPropertyRolesTable {
+	/**
+	 * Class representing the 'PersonPropertyRoles' table.
+	 */
+	class PersonPropertyRolesTable
+	{
 		const TABLE_NAME = 'PersonPropertyRoles';
 
 		const PERSON_ID = 'personId';
@@ -278,7 +433,13 @@
 		const CREATION_DATE = 'creationDate';
 		const UPDATE_DATE = 'updateDate';
 
-		public static function getColumns() {
+		/**
+		 * Get the list of columns for the PersonPropertyRoles table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
 			return [
 				self::PERSON_ID,
 				self::PROPERTY_ID,
@@ -289,7 +450,11 @@
 		}
 	}
 
-	class UsageDestinationsTable {
+	/**
+	 * Class representing the 'UsageDestinations' table.
+	 */
+	class UsageDestinationsTable
+	{
 		const TABLE_NAME = 'UsageDestinations';
 
 		const ID = 'id';
@@ -301,7 +466,13 @@
 		const CODE = 'code';
 		const COLOR_ID = 'colorId';
 
-		public static function getColumns() {
+		/**
+		 * Get the list of columns for the UsageDestinations table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
 			return [
 				self::ID,
 				self::NAME,
@@ -315,7 +486,11 @@
 		}
 	}
 
-	class RoomTypesTable {
+	/**
+	 * Class representing the 'RoomTypes' table.
+	 */
+	class RoomTypesTable
+	{
 		const TABLE_NAME = 'RoomTypes';
 
 		const ID = 'id';
@@ -323,21 +498,31 @@
 		const DESCRIPTION = 'description';
 		const NOTE = 'note';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateData';
+		const UPDATE_DATE = 'updateDate';
 
-		public static function getColumns() {
+		/**
+		 * Get the list of columns for the RoomTypes table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
 			return [
 				self::ID,
 				self::NAME,
 				self::DESCRIPTION,
 				self::NOTE,
 				self::CREATION_DATE,
-				self::UPDATE_DATE,
+				self::UPDATE_DATE
 			];
 		}
 	}
 
-	class RoomsTable {
+	/**
+	 * Class representing the 'Rooms' table.
+	 */
+	class RoomsTable
+	{
 		const TABLE_NAME = 'Rooms';
 
 		const ID = 'id';
@@ -345,13 +530,19 @@
 		const NAME = 'name';
 		const ID_USAGE_DESTINATION = 'idUsageDestination';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateData';
+		const UPDATE_DATE = 'updateDate';
 		const NOTE = 'note';
 		const ID_COLOR = 'idColor';
 		const ID_PROPERTY = 'idProperty';
 		const ID_ROOM_TYPE = 'idRoomType';
 
-		public static function getColumns() {
+		/**
+		 * Get the list of columns for the Rooms table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
 			return [
 				self::ID,
 				self::NUMBER,
@@ -362,27 +553,41 @@
 				self::NOTE,
 				self::ID_COLOR,
 				self::ID_PROPERTY,
-				self::ID_ROOM_TYPE,
+				self::ID_ROOM_TYPE
 			];
 		}
 	}
 
-	class RolesTable {
+	/**
+	 * Class representing the 'Roles' table.
+	 */
+	class RolesTable
+	{
 		const TABLE_NAME = 'Roles';
 
 		const ID = 'id';
 		const ROLE_NAME = 'roleName';
 
-		public static function getColumns() {
+		/**
+		 * Get the list of columns for the Roles table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
 			return [
 				self::ID,
-				self::ROLE_NAME,
+				self::ROLE_NAME
 			];
 		}
 	}
 
-	class PropertyTable {
-		const TABLE_NAME = 'Property';
+	/**
+	 * Class representing the 'Properties' table.
+	 */
+	class PropertyTable
+	{
+		const TABLE_NAME = 'Properties';
 
 		const ID = 'id';
 		const NAME = 'name';
@@ -395,9 +600,15 @@
 		const ACTIVE = 'active';
 		const NOTES = 'notes';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateData';
+		const UPDATE_DATE = 'updateDate';
 
-		public static function getColumns() {
+		/**
+		 * Get the list of columns for the Properties table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
 			return [
 				self::ID,
 				self::NAME,
@@ -410,13 +621,17 @@
 				self::ACTIVE,
 				self::NOTES,
 				self::CREATION_DATE,
-				self::UPDATE_DATE,
+				self::UPDATE_DATE
 			];
 		}
 	}
 
-	class ProductTable {
-		const TABLE_NAME = 'Product';
+	/**
+	 * Class representing the 'Products' table.
+	 */
+	class ProductTable
+	{
+		const TABLE_NAME = 'Products';
 
 		const ID = 'id';
 		const NAME = 'name';
@@ -427,9 +642,15 @@
 		const ID_CATEGORY = 'IdCategory';
 		const NOTE = 'note';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateData';
+		const UPDATE_DATE = 'updateDate';
 
-		public static function getColumns() {
+		/**
+		 * Get the list of columns for the Products table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
 			return [
 				self::ID,
 				self::NAME,
@@ -440,34 +661,47 @@
 				self::ID_CATEGORY,
 				self::NOTE,
 				self::CREATION_DATE,
-				self::UPDATE_DATE,
+				self::UPDATE_DATE
 			];
 		}
 	}
 
-	class PropertyTypeTable {
-		const TABLE_NAME = 'PropertyType';
+	/**
+	 * Class representing the 'PropertyTypes' table.
+	 */
+	class PropertyTypeTable
+	{
+		const TABLE_NAME = 'PropertyTypes';
 
 		const ID = 'id';
 		const DESCRIPTION = 'description';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateData';
+		const UPDATE_DATE = 'updateDate';
 		const NOTES = 'notes';
 
-		public static function getColumns() {
+		/**
+		 * Get the list of columns for the PropertyTypes table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
 			return [
 				self::ID,
 				self::DESCRIPTION,
 				self::CREATION_DATE,
 				self::UPDATE_DATE,
-				self::NOTES,
+				self::NOTES
 			];
 		}
 	}
 
-	class VersioniDBTable
+	/**
+	 * Class representing the 'VersionDBs' table.
+	 */
+	class VersionDBTable
 	{
-		const TABLE_NAME = 'VersioniDB';
+		const TABLE_NAME = 'VersionDBs';
 
 		const ID = 'id';
 		const VERSIONE = 'versione';
@@ -476,7 +710,12 @@
 		const DATA_CREAZIONE = 'data_creazione';
 		const DATA_AGGIORNAMENTO = 'data_aggiornamento';
 
-		public static function getColumns()
+		/**
+		 * Get the list of columns for the VersionDBs table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
 		{
 			return [
 				self::ID,
@@ -484,29 +723,40 @@
 				self::NOME_VERS_ESTESA,
 				self::NOTE,
 				self::DATA_CREAZIONE,
-				self::DATA_AGGIORNAMENTO,
+				self::DATA_AGGIORNAMENTO
 			];
 		}
 	}
 
+	/**
+	 * Class representing the 'UsersProperties' table.
+	 */
 	class UsersPropertyTable
 	{
-		const TABLE_NAME = 'UsersProperty';
+		const TABLE_NAME = 'UsersProperties';
 
 		const ID_PERSON = 'idPerson';
 		const ID_PROPERTY = 'idProperty';
 		const ID_ROLE = 'idRole';
 
-		public static function getColumns()
+		/**
+		 * Get the list of columns for the UsersProperties table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
 		{
 			return [
 				self::ID_PERSON,
 				self::ID_PROPERTY,
-				self::ID_ROLE,
+				self::ID_ROLE
 			];
 		}
-
 	}
+
+	/**
+	 * Class representing the 'PathVisitated' table.
+	 */
 	class PathVisitatedTable
 	{
 		const TABLE_NAME = 'PathVisitated';
@@ -516,17 +766,25 @@
 		const ID_USER = 'idUser';
 		const COUNT = 'count';
 
-		public static function getColumns()
+		/**
+		 * Get the list of columns for the PathVisitated table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
 		{
 			return [
 				self::ID,
 				self::PATH,
 				self::ID_USER,
-				self::COUNT,
+				self::COUNT
 			];
 		}
 	}
 
+	/**
+	 * Class representing the 'Nationalities' table.
+	 */
 	class NationalitiesTable
 	{
 		const TABLE_NAME = 'Nationalities';
@@ -542,7 +800,12 @@
 		const CREATION_DATE = 'creation_date';
 		const UPDATE_DATE = 'update_date';
 
-		public static function getColumns()
+		/**
+		 * Get the list of columns for the Nationalities table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
 		{
 			return [
 				self::ID,
@@ -554,8 +817,7 @@
 				self::NAME_PORTUGUESE,
 				self::NOTE,
 				self::CREATION_DATE,
-				self::UPDATE_DATE,
+				self::UPDATE_DATE
 			];
 		}
 	}
-?>

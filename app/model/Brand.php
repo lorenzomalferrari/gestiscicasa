@@ -8,12 +8,12 @@
 		private int $foundation_year;
 		private string $note;
 		private string $creationDate;
-		private string $updateData;
+		private string $updateDate;
 
 		/**
 		 * Costruttore della classe Brand
 		 */
-		public function __construct(int $id, string $name, int $country_of_origin=null, int $industry_sector=null, int $foundation_year=null, string $note=null, string $creationDate=null, string $updateData=null) {
+		public function __construct(int $id, string $name, int $country_of_origin=null, int $industry_sector=null, int $foundation_year=null, string $note=null, string $creationDate=null, string $updateDate=null) {
 			$this->id = $id;
 			$this->name = $name;
 			$this->country_of_origin = $country_of_origin;
@@ -21,7 +21,7 @@
 			$this->foundation_year = $foundation_year;
 			$this->note = $note;
 			$this->creationDate = $creationDate;
-			$this->updateData = $updateData;
+			$this->updateDate = $updateDate;
 		}
 
 		// Getter and setter methods
@@ -77,8 +77,8 @@
 			return $this->creationDate;
 		}
 
-		public function getUpdateData() {
-			return $this->updateData;
+		public function getupdateDate() {
+			return $this->updateDate;
 		}
 
 		// toString method
@@ -91,7 +91,7 @@
 				", Foundation Year: " . $this->foundation_year .
 				", Note: " . $this->note .
 				", Creation Date: " . $this->creationDate .
-				", Update Data: " . $this->updateData;
+				", Update Data: " . $this->updateDate;
 		}
 	}
 ?>

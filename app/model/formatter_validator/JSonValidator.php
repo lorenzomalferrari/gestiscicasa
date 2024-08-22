@@ -1,29 +1,60 @@
 <?php declare(strict_types=1);
 
+    /**
+     * Classe per la validazione e la sanitizzazione di JSON.
+     */
     class JSonValidator
     {
-        // Costanti per messaggi di errore
-        const ERROR_INVALID_JSON = 'JSON non valido.';
-        const ERROR_INVALID_STRUCTURE = 'Struttura JSON non valida.';
-        const ERROR_INVALID_DATA = 'Dati JSON non validi.';
-        const ERROR_MISSING_DATA = 'Parametri mancanti.';
-        const ERROR_API_CRED = 'Credenziali API non valide.';
+        /**
+         * Messaggio di errore per JSON non valido.
+         */
+        public const ERROR_INVALID_JSON = 'JSON non valido.';
 
-        const PERMISSION_DENIED = 'Permesso negato per';
+        /**
+         * Messaggio di errore per struttura JSON non valida.
+         */
+        public const ERROR_INVALID_STRUCTURE = 'Struttura JSON non valida.';
 
+        /**
+         * Messaggio di errore per dati JSON non validi.
+         */
+        public const ERROR_INVALID_DATA = 'Dati JSON non validi.';
 
-        // Funzione per validare e sanitizzare il JSON
-        public static function validate($jsonString)
+        /**
+         * Messaggio di errore per parametri mancanti.
+         */
+        public const ERROR_MISSING_DATA = 'Parametri mancanti.';
+
+        /**
+         * Messaggio di errore per credenziali API non valide.
+         */
+        public const ERROR_API_CRED = 'Credenziali API non valide.';
+
+        /**
+         * Messaggio di errore per permesso negato.
+         */
+        public const PERMISSION_DENIED = 'Permesso negato per';
+
+        /**
+         * Valida e sanitizza una stringa JSON.
+         *
+         * @param string $jsonString La stringa JSON da validare e sanitizzare.
+         *
+         * @return array I dati JSON validati e sanitizzati.
+         *
+         * @throws \Exception Se il JSON non è valido o se la struttura non è corretta.
+         */
+        public static function validate(string $jsonString): array
         {
             // Decodifica il JSON
             $data = json_decode($jsonString, true);
             if (json_last_error() !== JSON_ERROR_NONE) {
-                throw new Exception(self::ERROR_INVALID_JSON);
+                throw new \Exception(self::ERROR_INVALID_JSON);
             }
 
             // Esegui ulteriori controlli sulla struttura e sul contenuto
             if (!self::validateStructure($data)) {
-                throw new Exception(self::ERROR_INVALID_STRUCTURE);
+                throw new \Exception(self::ERROR_INVALID_STRUCTURE);
             }
 
             // Sanitizza i dati
@@ -32,18 +63,30 @@
             return $data;
         }
 
-        // Funzione per validare la struttura del JSON
-        private static function validateStructure($data)
+        /**
+         * Valida la struttura dei dati JSON.
+         *
+         * @param array $data I dati JSON da verificare.
+         *
+         * @return bool True se la struttura è valida, false altrimenti.
+         */
+        private static function validateStructure(array $data): bool
         {
-            if (!is_array($data) || !isset($data['context']) || !isset($data['username']) || !isset($data['password']) || !isset($data['json'])) {
+            if (!isset($data['context']) || !isset($data['username']) || !isset($data['password']) || !isset($data['json'])) {
                 return false;
             }
             // Ulteriori controlli sulla struttura possono essere aggiunti qui
             return true;
         }
 
-        // Funzione per sanitizzare i dati
-        private static function sanitizeData(&$data)
+        /**
+         * Sanitizza i dati JSON.
+         *
+         * @param array $data I dati JSON da sanitizzare (passati per riferimento).
+         *
+         * @return void
+         */
+        private static function sanitizeData(array &$data): void
         {
             // Esempio di sanitizzazione
             array_walk_recursive($data, function (&$value) {

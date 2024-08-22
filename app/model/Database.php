@@ -232,7 +232,7 @@
         }
 
         /**
-         * Inserisce la nuova versione a DB nella tabella dedicata lmgc_VersioniDB
+         * Inserisce la nuova versione a DB nella tabella dedicata lmgc_VersionDB
          */
         public function insertDatabaseVersion($version): void
         {
@@ -248,7 +248,7 @@
 
                 $insert =
                     "INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::VERSIONDB)
-                    . " (" . VersioniDBTable::VERSIONE. " , " . VersioniDBTable::NOME_VERS_ESTESA . " , " . VersioniDBTable::NOTE . ")"
+                    . " (" . VersionDBTable::VERSIONE. " , " . VersionDBTable::NOME_VERS_ESTESA . " , " . VersionDBTable::NOTE . ")"
                     ." VALUES (:v, :v_e, :n)";
                 DB->insert($insert, $params);
 
@@ -270,14 +270,14 @@
             $vers = null;
 
             // Query per recuperare la versione del database
-            $query = "SELECT " . VersioniDBTable::VERSIONE
+            $query = "SELECT " . VersionDBTable::VERSIONE
                 . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::VERSIONDB)
-                . " ORDER BY " . VersioniDBTable::DATA_CREAZIONE . " DESC LIMIT 1";
+                . " ORDER BY " . VersionDBTable::DATA_CREAZIONE . " DESC LIMIT 1";
 
             $result = $this->select($query);
 
             if (!empty($result))
-                $vers = $result[VersioniDBTable::VERSIONE];
+                $vers = $result[VersionDBTable::VERSIONE];
 
             return $vers;
         }
