@@ -9,7 +9,7 @@
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::NATIONALITIES ) . " AS n "
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesNATIONALITIES ) . " AS n "
     ;
 
     $results = DB->selectAll($query);

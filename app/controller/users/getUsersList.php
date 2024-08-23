@@ -9,7 +9,7 @@
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::USERS ) . " AS u "
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesUSERS ) . " AS u "
     ;
 
     print_r($query);

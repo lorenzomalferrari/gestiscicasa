@@ -9,7 +9,7 @@
 	);
 
 	//Recupero le info dell'utente da mostrare a video
-	$query = "SELECT * FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::USERS) . " WHERE id = :id";
+	$query = "SELECT * FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesUSERS) . " WHERE id = :id";
 	$row = DB->select($query, $params_where);
 
 	//creo se non già create le cartelle dei log dedicate all'utente specifico

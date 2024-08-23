@@ -8,7 +8,7 @@
         }
     }
 
-    enum TableNames: string
+    enum EnumTableNames: string
     {
         case BRAND = BrandTable::TABLE_NAME;
         case CATALOG = CatalogTable::TABLE_NAME;
@@ -72,6 +72,6 @@
 
     function getNomeTabella(string $prefisso, TableNames $nomeT): string
     {
-        return TableNames::getPrefixedName($prefisso, $nomeT->value);
+        return EnumTableNamesgetPrefixedName($prefisso, $nomeT->value);
     }
 ?>

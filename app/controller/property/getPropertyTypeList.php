@@ -11,7 +11,7 @@
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::PropertyTypes ) . " AS pt "
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesPropertyTypes ) . " AS pt "
     ;
 
     $params_select = array(

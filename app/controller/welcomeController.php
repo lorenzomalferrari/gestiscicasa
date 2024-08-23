@@ -21,7 +21,7 @@
 
         //Gestisco l'inserimento in DB
         $insert = "INSERT INTO "
-                    . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'),TableNames::PERSON)
+                    . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'),EnumTableNamesPERSON)
                     . " ("
                         . PersonTable::NAME . ", "
                         . PersonTable::SURNAME . ", "
@@ -42,7 +42,7 @@
             ':id' => $idUser,
             ':isActive' => 1
         );
-        $update_user = "UPDATE " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::USERS)
+        $update_user = "UPDATE " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesUSERS)
                     . " SET " . UsersTable::IS_ACTIVE . " = :isActive"
                     . " WHERE " . UsersTable::ID . " = :id";
 
@@ -55,7 +55,7 @@
         );
 
         $select_user = "SELECT COUNT(*) FROM "
-                    . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::USERS)
+                    . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesUSERS)
                     . " WHERE "
                         . UsersTable::ID . " = :id AND "
                         . UsersTable::TOKEN . " = :token AND "

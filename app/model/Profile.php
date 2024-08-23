@@ -58,9 +58,9 @@
                     u.token,
                     u.isActive
                 FROM
-                    " . TableNames::USERS . " u
+                    " . EnumTableNamesUSERS . " u
                 INNER JOIN
-                    " . TableNames::PERSON . " p ON u.id = p.idUser
+                    " . EnumTableNamesPERSON . " p ON u.id = p.idUser
                 WHERE
                     u.id = :userId";
 

@@ -6,8 +6,8 @@
 		$password_form = $_POST["password"];
 
 		$query = "SELECT * FROM "
-					. getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::USERS) . " u "
-					. " LEFT JOIN " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::PERSON) . " p "
+					. getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesUSERS) . " u "
+					. " LEFT JOIN " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesPERSON) . " p "
 					. " 	on p.idUser = u.id "
 					. " WHERE
 							(

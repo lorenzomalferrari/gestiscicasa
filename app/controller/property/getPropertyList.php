@@ -9,15 +9,15 @@
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::PROPERTY ) . " AS p "
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesPROPERTY ) . " AS p "
         /*. " INNER JOIN "
-        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::USERSPROPERTY) . " AS up "
+        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesUSERSPROPERTY) . " AS up "
         . " ON up." . UsersPropertyTable::ID_PROPERTY . " = p." . PropertyTable::ID
         . " INNER JOIN "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::PERSON) . " AS pe "
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesPERSON) . " AS pe "
         . " ON pe." . PersonTable::ID . " = " . UsersPropertyTable::ID_PERSON
         . " INNER JOIN "
-        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::USERS) . " AS u "
+        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesUSERS) . " AS u "
         . " ON u." . UsersTable::ID . " = pe." . PersonTable::ID_USER
         . " WHERE u." . UsersTable::ID . " = :id "*/
     ;
