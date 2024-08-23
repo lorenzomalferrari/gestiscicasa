@@ -11,7 +11,7 @@
 		private string $address;
 		private int $IdCity;
 		private int $IdState;
-		private int $IdPropertyType;
+		private int $IdPropertyTypes;
 		private bool $active;
 		private string $notes;
 		private string $creationDate;
@@ -26,7 +26,7 @@
 			string $address,
 			int $IdCity,
 			int $IdState,
-			int $IdPropertyType,
+			int $IdPropertyTypes,
 			bool $active,
 			string $notes,
 			string $creationDate,
@@ -39,7 +39,7 @@
 			$this->address = $address;
 			$this->IdCity = $IdCity;
 			$this->IdState = $IdState;
-			$this->IdPropertyType = $IdPropertyType;
+			$this->IdPropertyTypes = $IdPropertyTypes;
 			$this->active = $active;
 			$this->notes = $notes;
 			$this->creationDate = $creationDate;
@@ -109,13 +109,13 @@
 			$this->IdState = $IdState;
 		}
 
-		// Getter and setter methods for 'IdPropertyType'
-		public function getIdPropertyType(): int {
-			return $this->IdPropertyType;
+		// Getter and setter methods for 'IdPropertyTypes'
+		public function getIdPropertyTypes(): int {
+			return $this->IdPropertyTypes;
 		}
 
-		public function setIdPropertyType(int $IdPropertyType): void {
-			$this->IdPropertyType = $IdPropertyType;
+		public function setIdPropertyTypes(int $IdPropertyTypes): void {
+			$this->IdPropertyTypes = $IdPropertyTypes;
 		}
 
 		// Getter and setter methods for 'active'
@@ -156,7 +156,7 @@
 				", Address: " . $this->address .
 				", City ID: " . $this->IdCity .
 				", State ID: " . $this->IdState .
-				", Property Type ID: " . $this->IdPropertyType .
+				", Property Type ID: " . $this->IdPropertyTypes .
 				", Creation Date: " . $this->creationDate .
 				", Last Modified Date: " . $this->updateDate;
 		}

@@ -27,7 +27,7 @@
 
     $fields = [
         "head" => [
-            "title" => "Titolo Pagina"
+            "title" => $titlePage,
         ],
         "body" => [
             "buttons" => [

@@ -23,7 +23,7 @@
 
         $select =
             "SELECT " . PathVisitatedTable::COUNT
-            . " FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::PATHVISITATED)
+            . " FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::PATHVISITATED)
             . " WHERE " . PathVisitatedTable::PATH. " = :path and " . PathVisitatedTable::ID_USER. " = :idUser ";
 
         $params = array(
@@ -35,14 +35,14 @@
 
         if( $row ){
             $update =
-                "UPDATE " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::PATHVISITATED)
+                "UPDATE " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::PATHVISITATED)
                 . " SET " . PathVisitatedTable::COUNT . " = ( ( $select ) + 1 )"
                 . " WHERE " . PathVisitatedTable::PATH . " = :path and " . PathVisitatedTable::ID_USER . " = :idUser ";
             DB->update($update, $params);
         }else{
             // Se non esiste, inserisci una nuova riga
             $insert =
-                "INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::PATHVISITATED)
+                "INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::PATHVISITATED)
                 . " (" . PathVisitatedTable::PATH. " , " . PathVisitatedTable::COUNT . " , " . PathVisitatedTable::ID_USER. ")"
                 ." VALUES (:path, 1, :idUser)";
             DB->insert($insert, $params);

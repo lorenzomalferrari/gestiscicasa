@@ -3,7 +3,7 @@
     //Richiamare info da mostrare
     require_once(ROOT . "app/controller/nazionnalities/getPropertyList.php");
     //Eventuale personalizzazione
-    require_once(ROOT . "app/controller/nazionnalities/customTable.php");
+    require_once(ROOT . "app/controller/nazionnalities/initTable.php");
 
     $titlePage = "Elenco Naionalità";
 
@@ -21,7 +21,7 @@
             $nationality->getAddress(),
             $nationality->getIdCity(),
             $nationality->getIdState(),
-            $nationality->getIdPropertyType(),
+            $nationality->getIdPropertyTypes(),
             $nationality->isActive(),
             $nationality->getNotes(),
             $nationality->getCreationDate(),

@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-	require_once(ROOT . 'app/model/NomiTabelle.php');
+	require_once(ROOT . 'app/model/TableNames.php');
 
 	//print_r("Sto per stampare var SESSIONE");
 	//print_r($_SESSION);
@@ -9,7 +9,7 @@
 	);
 
 	//Recupero le info dell'utente da mostrare a video
-	$query = "SELECT * FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::USERS) . " WHERE id = :id";
+	$query = "SELECT * FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::USERS) . " WHERE id = :id";
 	$row = DB->select($query, $params_where);
 
 	//creo se non già create le cartelle dei log dedicate all'utente specifico

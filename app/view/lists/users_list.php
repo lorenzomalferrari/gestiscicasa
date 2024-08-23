@@ -3,7 +3,7 @@
     //Richiamare info da mostrare
     require_once(ROOT . "app/controller/users/getUsersList.php");
     //Eventuale personalizzazione
-    require_once(ROOT . "app/controller/users/customTable.php");
+    require_once(ROOT . "app/controller/users/initTable.php");
 
     $titlePage = "Elenco Utenti";
 

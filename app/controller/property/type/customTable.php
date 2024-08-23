@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
     $backgroundTable = "";
 
-    $tableName = PropertyTypeTable::TABLE_NAME;
+    $tableName = PropertyTypesTable::TABLE_NAME;
     $titlePage = "Tipo Proprietà";
 
-    $tableDataHeader = /*PropertyTypeTable::getColumns()*/[
-        PropertyTypeTable::ID,
-        PropertyTypeTable::DESCRIPTION,
-        PropertyTypeTable::NOTES
+    $tableDataHeader = /*PropertyTypesTable::getColumns()*/[
+        PropertyTypesTable::ID,
+        PropertyTypesTable::DESCRIPTION,
+        PropertyTypesTable::NOTES
     ];
     $tableDataRecord =  [];
 
@@ -37,7 +37,7 @@
                         "type" => "text",
                         "attributes" => [
                             "id" => "",
-                            "name" => PropertyTypeTable::DESCRIPTION,
+                            "name" => PropertyTypesTable::DESCRIPTION,
                             "class" => "form-control",
                             "placeholder" => "Tipo proprietà",
                             "required" => "required",
@@ -52,7 +52,7 @@
                         "attributes" => [
                             "id" => "",
                             "class" => "form-control",
-                            "name" => PropertyTypeTable::NOTES,
+                            "name" => PropertyTypesTable::NOTES,
                             "placeholder" => "Note",
                             "maxlength" => "100"
                         ],

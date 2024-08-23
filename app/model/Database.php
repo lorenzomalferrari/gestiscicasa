@@ -83,7 +83,7 @@
                 // Log dell'interrogazione al database
                 $params_log = [
                     'message' => 'Interrogazione al database: QUERY -> ' . $query . ' - PARAMETRI -> ' . implode(", ", $params),
-                    'action' => CONFIG['db']['crudType']['SELECT'],
+                    'action' => CONFIG['db']['CrudTypes']['SELECT'],
                     'beforeState' => null,
                     'afterState' => null,
                     'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
@@ -112,7 +112,7 @@
                 // Log dell'interrogazione al database
                 $params_log = [
                     'message' => 'Interrogazione al database: QUERY -> ' . $query . ' - PARAMETRI -> ' . implode(", ", $params),
-                    'action' => CONFIG['db']['crudType']['SELECT'],
+                    'action' => CONFIG['db']['CrudTypes']['SELECT'],
                     'beforeState' => null,
                     'afterState' => null,
                     'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
@@ -141,7 +141,7 @@
                 // Log dell'interrogazione al database
                 $params_log = [
                     'message' => 'Interrogazione al database: QUERY -> ' . $query . ' - PARAMETRI -> ' . implode(", ", $params),
-                    'action' => CONFIG['db']['crudType']['UPDATE'],
+                    'action' => CONFIG['db']['CrudTypes']['UPDATE'],
                     'beforeState' => null,
                     'afterState' => null,
                     'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
@@ -171,7 +171,7 @@
                 // Log dell'inserimento al database
                 $params_log = [
                     'message' => 'Creato inserimento: ' . $query,
-                    'action' => CONFIG['db']['crudType']['INSERT'],
+                    'action' => CONFIG['db']['CrudTypes']['INSERT'],
                     'beforeState' => '',
                     'afterState' => '',
                     'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
@@ -200,7 +200,7 @@
                 // Log dell'interrogazione al database
                 $params_log = [
                     'message' => 'Interrogazione al database: QUERY -> ' . $query . ' - PARAMETRI -> ' . implode(", ", $params),
-                    'action' => CONFIG['db']['crudType']['DELETE'],
+                    'action' => CONFIG['db']['CrudTypes']['DELETE'],
                     'beforeState' => null,
                     'afterState' => null,
                     'user' => !empty($_SESSION["IDUSER_SE"]) ? $_SESSION["IDUSER_SE"] : -1,
@@ -247,7 +247,7 @@
                 ];
 
                 $insert =
-                    "INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::VERSIONDB)
+                    "INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::VERSIONDB)
                     . " (" . VersionDBTable::VERSIONE. " , " . VersionDBTable::NOME_VERS_ESTESA . " , " . VersionDBTable::NOTE . ")"
                     ." VALUES (:v, :v_e, :n)";
                 DB->insert($insert, $params);
@@ -271,7 +271,7 @@
 
             // Query per recuperare la versione del database
             $query = "SELECT " . VersionDBTable::VERSIONE
-                . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::VERSIONDB)
+                . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::VERSIONDB)
                 . " ORDER BY " . VersionDBTable::DATA_CREAZIONE . " DESC LIMIT 1";
 
             $result = $this->select($query);

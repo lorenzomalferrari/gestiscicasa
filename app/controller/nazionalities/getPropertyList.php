@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-    require_once(ROOT . 'app/model/NomiTabelle.php');
+    require_once(ROOT . 'app/model/TableNames.php');
     require_once(ROOT . "app/model/Nazioni.php");
 
     $arrNazionalities = array();
@@ -9,7 +9,7 @@
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::NATIONALITIES ) . " AS n "
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::NATIONALITIES ) . " AS n "
     ;
 
     $results = DB->selectAll($query);

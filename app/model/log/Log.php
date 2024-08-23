@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-    require_once(ROOT . 'app/model/NomiTabelle.php');
+    require_once(ROOT . 'app/model/TableNames.php');
 
     /**
      * Class Log

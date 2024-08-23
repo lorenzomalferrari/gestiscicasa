@@ -48,7 +48,7 @@
 					'database' => 'uij8aoin_gestiscicasa',
 				],
 			],
-			'crudType' => [
+			'CrudTypes' => [
 				'INSERT' => 1,
 				'SELECT' => 2,
 				'UPDATE' => 3,

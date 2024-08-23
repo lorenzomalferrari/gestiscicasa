@@ -10,7 +10,7 @@
 		private string $note;
 		private int $idColor;
 		private int $idProperty;
-		private int $idRoomType;
+		private int $idRoomTypes;
 
 		// Constructor
 		public function __construct(
@@ -23,7 +23,7 @@
 			string $note=null,
 			int $idColor=null,
 			int $idProperty,
-			int $idRoomType=null
+			int $idRoomTypes=null
 		) {
 			$this->id = $id;
 			$this->number = $number;
@@ -34,7 +34,7 @@
 			$this->note = $note;
 			$this->idColor = $idColor;
 			$this->idProperty = $idProperty;
-			$this->idRoomType = $idRoomType;
+			$this->idRoomTypes = $idRoomTypes;
 		}
 
 		// Getter and setter methods for id
@@ -110,13 +110,13 @@
 			$this->idProperty = $idProperty;
 		}
 
-		// Getter and setter methods for idRoomType
-		public function getIdRoomType(): int {
-			return $this->idRoomType;
+		// Getter and setter methods for idRoomTypes
+		public function getIdRoomTypes(): int {
+			return $this->idRoomTypes;
 		}
 
-		public function setIdRoomType(int $idRoomType): void {
-			$this->idRoomType = $idRoomType;
+		public function setIdRoomTypes(int $idRoomTypes): void {
+			$this->idRoomTypes = $idRoomTypes;
 		}
 
 		// Method for textual representation of the object
@@ -131,7 +131,7 @@
 				", note: " .$this->note .
 				", Color Id: " .$this->idColor .
 				", Property Id: " .$this->idProperty .
-				", RoomType Id: " .$this->idRoomType ;
+				", RoomTypes Id: " .$this->idRoomTypes ;
 		}
 	}
 ?>
