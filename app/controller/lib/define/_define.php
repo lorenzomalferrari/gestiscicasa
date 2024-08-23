@@ -69,7 +69,7 @@
 			'super_admin' => [
 				'auth' => '0',
 				'username' => 'super',
-				'password' => 'LU=yA3K-#08^mFIdt;>QZaGU)',
+				'password' => 'LU=yA3K-#08^mFIdt;4QZaGU)',
 			],
 			'admin' => [
 				'auth' => '1',
