@@ -36,7 +36,8 @@
 				$vers = DB->getDatabaseVersion();
 				// Esegui i file di aggiornamento ordinati
 				$this->executeUpdateFiles($this->updateDirectory, $vers);
-				return ['status' => 'success', 'message' => 'Aggiornamenti eseguiti con successo. Versione del DB attuale: ' . $vers];
+				$new_vers = DB->getDatabaseVersion();
+				return ['status' => 'success', 'message' => 'Aggiornamenti eseguiti con successo. Versione del DB attuale: ' . $new_vers];
 			} catch (Exception $e) {
 				return ['status' => 'error', 'message' => $e->getMessage()];
 			}
@@ -51,7 +52,7 @@
 		private function executeSqlFile($file)
 		{
 			$sql = file_get_contents($file);
-			print_r($sql);
+			//print_r($sql);
 			DB->exec($sql);
 		}
 
@@ -85,13 +86,9 @@
 
 			// Execute each SQL file
 			foreach ($files as $index => $file) {
-				print_r($file,true);
 				$this->executeSqlFile($file);
-				if ($index === count($files) - 1) {
-					// Get the version from the filename and insert it into the database
-					$version = $this->getVersionFromFilename($file);
-					DB->insertDatabaseVersion($version);
-				}
+				$version = $this->getVersionFromFilename($file);
+				DB->insertDatabaseVersion($version);
 			}
 		}
 
