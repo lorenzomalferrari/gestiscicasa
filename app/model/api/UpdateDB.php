@@ -36,7 +36,7 @@
 				$vers = DB->getDatabaseVersion();
 				// Esegui i file di aggiornamento ordinati
 				$this->executeUpdateFiles($this->updateDirectory, $vers);
-				return ['status' => 'success', 'message' => 'Aggiornamenti eseguiti con successo.'];
+				return ['status' => 'success', 'message' => 'Aggiornamenti eseguiti con successo. Versione del DB attuale: ' . $vers];
 			} catch (Exception $e) {
 				return ['status' => 'error', 'message' => $e->getMessage()];
 			}
