@@ -272,7 +272,7 @@
             // Query per recuperare la versione del database
             $query = "SELECT " . VersionDBTable::VERSIONE
                 . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::VERSIONDB)
-                . " ORDER BY " . VersionDBTable::DATA_CREAZIONE . " DESC LIMIT 1";
+                . " ORDER BY " . VersionDBTable::ID . " DESC LIMIT 1";
 
             $result = $this->select($query);
 
@@ -294,7 +294,7 @@
                 // Inizia la transazione
                 DB->beginTransaction();
 
-                $dbVersion = self::getDatabaseVersion();
+                $dbVersion = DB->getDatabaseVersion();
 
                 if (!empty($dbVersion)) {
                     $expectedVersion = CONFIG['db']['server'][getEnvironmentKey()]['version'];
