@@ -27,9 +27,14 @@
 				$handler_del = new DeleteDB();
 				$response = $handler_del->handle();
 				if (!is_array($response)) {
-					require_once(ROOT . 'app/model/api/UpdateDB.php');
-					$handler = new UpdateDB();
+					require_once(ROOT . 'app/model/api/CreateDB.php');
+					$handler = new CreateDB();
 					$response = $handler->handle($jsonParams);
+					if (!is_array($response)) {
+						require_once(ROOT . 'app/model/api/UpdateDB.php');
+						$handler = new UpdateDB();
+						$response = $handler->handle($jsonParams);
+					}
 				}
 				break;
 			case API['SEND_LOGS']:

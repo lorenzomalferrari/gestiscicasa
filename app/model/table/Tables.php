@@ -697,11 +697,11 @@
 	}
 
 	/**
-	 * Class representing the 'VersionDBs' table.
+	 * Class representing the 'VersionDB' table.
 	 */
 	class VersionDBTable
 	{
-		const TABLE_NAME = 'VersionDBs';
+		const TABLE_NAME = 'VersionDB';
 
 		const ID = 'id';
 		const VERSIONE = 'versione';
@@ -711,7 +711,7 @@
 		const DATA_AGGIORNAMENTO = 'data_aggiornamento';
 
 		/**
-		 * Get the list of columns for the VersionDBs table.
+		 * Get the list of columns for the VersionDB table.
 		 *
 		 * @return array List of column names
 		 */

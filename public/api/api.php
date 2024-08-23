@@ -25,10 +25,10 @@
 	$auth = null;
 
 	// Cicla attraverso i permessi per verificare le credenziali
-	foreach (CONFIG['api'] as $key => $value) {
-		if ($value['username'] === $username && $value['password'] === $password) {
-			$auth = $value['auth'];
-			break;
+	foreach (CONFIG['api'] as $profilo => $creds) {
+		if ($creds['username'] === $username && $creds['password'] === $password) {
+			$auth = $creds['auth'];
+			break; // Esci dal ciclo una volta trovata la corrispondenza
 		}
 	}
 
