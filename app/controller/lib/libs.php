@@ -7,12 +7,12 @@
     require_once(ROOT . "app/model/table/Tables.php");
     require_once(ROOT . 'app/model/NomiTabelle.php');
     require_once(ROOT . 'app/model/file/FileManager.php');
-    require_once(ROOT . 'app/model/formatter_validator/JSonValidator.php');
+    require_once(ROOT . 'app/controller/formatter_validator/JSonValidator.php');
     require_once(ROOT . 'app/controller/formatter_validator/formatterValidator.php');
     require_once(ROOT . 'app/controller/lib/log/_log.php');
     require_once(ROOT . 'app/model/exception/CustomException.php');
 
-    require_once(ROOT . 'app/model/factory/ClassFactory.php');
+    require_once(ROOT . 'app/controller/factory/ClassFactory.php');
 
     //creo connessione unica al DB
     require_once(ROOT . 'app/model/Database.php');
