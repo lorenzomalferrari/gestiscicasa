@@ -4,7 +4,7 @@
     //Richiamare info da mostrare
     require_once(ROOT . "app/controller/property/getPropertyTypesList.php");
     //Eventuale personalizzazione
-    require_once(ROOT . "app/controller/property/type/customTable.php");
+    require_once(ROOT . "app/controller/property/type/initTable.php");
 ?>
 <!doctype html>
 <html class="no-js" lang="">
