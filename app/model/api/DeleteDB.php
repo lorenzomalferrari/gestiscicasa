@@ -35,6 +35,7 @@
 					SET FOREIGN_KEY_CHECKS = 1;
 sql;
 				DB->exec($sql);
+				return ['status' => 'success', 'message' => 'Cancellazione avvenuta con successo.'];
 			} catch (Exception $e) {
 				return ['status' => 'error', 'message' => $e->getMessage()];
 			}

@@ -32,7 +32,7 @@
 			'tablePrefix' => 'lmgc_',
 			'server' => [
 				'test' => [
-					'version' => '1.1.20',
+					'version' => '1.1.22',
 					'host' => '81.31.158.38',
 					'port' => '3306',
 					'username' => 'uij8aoin_gestiscicasa',
