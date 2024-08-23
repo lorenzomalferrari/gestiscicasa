@@ -17,7 +17,7 @@
             $property->getAddress(),
             $property->getIdCity(),
             $property->getIdState(),
-            $property->getIdPropertyType(),
+            $property->getIdPropertyTypes(),
             $property->isActive(),
             $property->getNotes(),
             $property->getCreationDate(),

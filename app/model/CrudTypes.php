@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
-    class CrudType {
+
+    class CrudTypes {
         private int $id;
         private string $nome;
         private string $azione;

@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-    require_once(ROOT . 'app/model/NomiTabelle.php');
+    require_once(ROOT . 'app/model/TableNames.php');
     require_once(ROOT . "app/model/User.php");
 
     $arrUsers = array();
@@ -9,7 +9,7 @@
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), NomiTabelle::USERS ) . " AS u "
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::USERS ) . " AS u "
     ;
 
     print_r($query);

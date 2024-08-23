@@ -58,9 +58,9 @@
                     u.token,
                     u.isActive
                 FROM
-                    " . NomiTabelle::USERS . " u
+                    " . TableNames::USERS . " u
                 INNER JOIN
-                    " . NomiTabelle::PERSON . " p ON u.id = p.idUser
+                    " . TableNames::PERSON . " p ON u.id = p.idUser
                 WHERE
                     u.id = :userId";
 

@@ -1,13 +1,14 @@
 <?php declare(strict_types=1);
 
-    class TableNames {
+    class TableNames
+    {
         public static function getPrefixedName(string $prefisso, string $tableName): string
         {
             return $prefisso . $tableName;
         }
     }
 
-    enum NomiTabelle: string
+    enum TableNames: string
     {
         case BRAND = BrandTable::TABLE_NAME;
         case CATALOG = CatalogTable::TABLE_NAME;
@@ -16,23 +17,27 @@
         case CONTINENTS = ContinentsTable::TABLE_NAME;
         case COUNTRIES = CountriesTable::TABLE_NAME;
         case CRUDLOGS = CrudLogsTable::TABLE_NAME;
-        case CRUDTYPE = CrudTypeTable::TABLE_NAME;
+        case CrudTypes = CrudTypesTable::TABLE_NAME;
         case EVENT = EventTable::TABLE_NAME;
         case GENDER = GenderTable::TABLE_NAME;
         case PERSON = PersonTable::TABLE_NAME;
         case PERSON_PROPERTY_ROLES = PersonPropertyRolesTable::TABLE_NAME;
         case PRODUCT = ProductTable::TABLE_NAME;
         case PROPERTY = PropertyTable::TABLE_NAME;
-        case PROPERTYTYPE = PropertyTypeTable::TABLE_NAME;
+        case PropertyTypes = PropertyTypesTable::TABLE_NAME;
         case ROLE = RolesTable::TABLE_NAME;
         case ROOM = RoomsTable::TABLE_NAME;
-        case ROOMTYPE = RoomTypesTable::TABLE_NAME;
+        case RoomTypes = RoomTypessTable::TABLE_NAME;
         case USAGEDESTINATIONS = UsageDestinationsTable::TABLE_NAME;
         case USER = UsersTable::TABLE_NAME;
         case USERSPROPERTY = UsersPropertyTable::TABLE_NAME;
         case VERSIONDB = VersionDBTable::TABLE_NAME;
         case PATHVISITATED = PathVisitatedTable::TABLE_NAME;
         case NATIONALITIES = NationalitiesTable::TABLE_NAME;
+        case PROFILETYPES = ProfileTypesTable::TABLE_NAME;
+        case LANGUAGES = LanguagesTable::TABLE_NAME;
+        case SUPPORTEDLANGUAGE = SupportedLanguagesTable::TABLE_NAME;
+        case TRANSLATION = TranslationsTable::TABLE_NAME;
 
         // Funzione per ottenere il caso dell'enum dal valore della tabella
         private static function getEnumCaseFromValue(string $value): ?self
@@ -65,7 +70,7 @@
         }
     }
 
-    function getNomeTabella(string $prefisso, NomiTabelle $nomeT): string
+    function getNomeTabella(string $prefisso, TableNames $nomeT): string
     {
         return TableNames::getPrefixedName($prefisso, $nomeT->value);
     }

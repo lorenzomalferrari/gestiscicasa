@@ -21,7 +21,7 @@
             $nationality->getAddress(),
             $nationality->getIdCity(),
             $nationality->getIdState(),
-            $nationality->getIdPropertyType(),
+            $nationality->getIdPropertyTypes(),
             $nationality->isActive(),
             $nationality->getNotes(),
             $nationality->getCreationDate(),

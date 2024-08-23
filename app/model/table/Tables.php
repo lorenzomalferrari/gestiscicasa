@@ -347,11 +347,11 @@
 	}
 
 	/**
-	 * Class representing the 'CrudTypes' table.
+	 * Class representing the 'CrudTypess' table.
 	 */
-	class CrudTypeTable
+	class CrudTypesTable
 	{
-		const TABLE_NAME = 'CrudTypes';
+		const TABLE_NAME = 'CrudTypess';
 
 		const ID = 'id';
 		const NAME = 'nome';
@@ -362,7 +362,7 @@
 		const NOTE = 'note';
 
 		/**
-		 * Get the list of columns for the CrudTypes table.
+		 * Get the list of columns for the CrudTypess table.
 		 *
 		 * @return array List of column names
 		 */
@@ -487,11 +487,11 @@
 	}
 
 	/**
-	 * Class representing the 'RoomTypes' table.
+	 * Class representing the 'RoomTypess' table.
 	 */
-	class RoomTypesTable
+	class RoomTypessTable
 	{
-		const TABLE_NAME = 'RoomTypes';
+		const TABLE_NAME = 'RoomTypess';
 
 		const ID = 'id';
 		const NAME = 'name';
@@ -501,7 +501,7 @@
 		const UPDATE_DATE = 'updateDate';
 
 		/**
-		 * Get the list of columns for the RoomTypes table.
+		 * Get the list of columns for the RoomTypess table.
 		 *
 		 * @return array List of column names
 		 */
@@ -534,7 +534,7 @@
 		const NOTE = 'note';
 		const ID_COLOR = 'idColor';
 		const ID_PROPERTY = 'idProperty';
-		const ID_ROOM_TYPE = 'idRoomType';
+		const ID_ROOM_TYPE = 'idRoomTypes';
 
 		/**
 		 * Get the list of columns for the Rooms table.
@@ -596,7 +596,7 @@
 		const ADDRESS = 'address';
 		const ID_CITY = 'IdCity';
 		const ID_STATE = 'IdState';
-		const ID_PROPERTYTYPE = 'IdPropertyType';
+		const ID_PropertyTypes = 'IdPropertyTypes';
 		const ACTIVE = 'active';
 		const NOTES = 'notes';
 		const CREATION_DATE = 'creationDate';
@@ -617,7 +617,7 @@
 				self::ADDRESS,
 				self::ID_CITY,
 				self::ID_STATE,
-				self::ID_PROPERTYTYPE,
+				self::ID_PropertyTypes,
 				self::ACTIVE,
 				self::NOTES,
 				self::CREATION_DATE,
@@ -667,11 +667,11 @@
 	}
 
 	/**
-	 * Class representing the 'PropertyTypes' table.
+	 * Class representing the 'PropertyTypess' table.
 	 */
-	class PropertyTypeTable
+	class PropertyTypesTable
 	{
-		const TABLE_NAME = 'PropertyTypes';
+		const TABLE_NAME = 'PropertyTypess';
 
 		const ID = 'id';
 		const DESCRIPTION = 'description';
@@ -680,7 +680,7 @@
 		const NOTES = 'notes';
 
 		/**
-		 * Get the list of columns for the PropertyTypes table.
+		 * Get the list of columns for the PropertyTypess table.
 		 *
 		 * @return array List of column names
 		 */
@@ -818,6 +818,157 @@
 				self::NOTE,
 				self::CREATION_DATE,
 				self::UPDATE_DATE
+			];
+		}
+	}
+
+	class ProfileTypesTable
+	{
+		const TABLE_NAME = 'ProfileTypes';
+
+		const ID = 'id';
+		const CODE = 'code';
+		const DESCRIPTION = 'description';
+		const NOTES = 'notes';
+		const CREATION_DATE = 'creationDate';
+		const UPDATE_DATE = 'updateDate';
+
+		/**
+		 * Get the list of columns for the ProfileTypes table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
+			return [
+				self::ID,
+				self::CODE,
+				self::DESCRIPTION,
+				self::NOTES,
+				self::CREATION_DATE,
+				self::UPDATE_DATE
+			];
+		}
+	}
+
+	/**
+	 * Class LanguagesTable
+	 *
+	 * Represents the structure and columns of the languages table.
+	 */
+	class LanguagesTable
+	{
+		const TABLE_NAME = 'languages';
+
+		const ID = 'id';
+		const CODE_2 = 'code_2';
+		const CODE_3 = 'code_3';
+		const CODE_639_3 = 'code_639_3';
+		const NAME = 'name';
+		const NATIVE_NAME = 'native_name';
+		const RTL = 'rtl';
+		const REGION = 'region';
+		const ISO_3166_ALPHA2 = 'iso_3166_alpha2';
+		const ISO_3166_ALPHA3 = 'iso_3166_alpha3';
+		const CURRENCY_CODE = 'currency_code';
+		const NOTES = 'notes';
+		const CREATION_DATE = 'creation_date';
+		const UPDATE_DATE = 'update_date';
+
+		/**
+		 * Get the list of columns for the languages table.
+		 *
+		 * @return array List of column names.
+		 */
+		public static function getColumns(): array
+		{
+			return [
+				self::ID,
+				self::CODE_2,
+				self::CODE_3,
+				self::CODE_639_3,
+				self::NAME,
+				self::NATIVE_NAME,
+				self::RTL,
+				self::REGION,
+				self::ISO_3166_ALPHA2,
+				self::ISO_3166_ALPHA3,
+				self::CURRENCY_CODE,
+				self::NOTES,
+				self::CREATION_DATE,
+				self::UPDATE_DATE
+			];
+		}
+	}
+
+	/**
+	 * Class SupportedLanguagesTable
+	 *
+	 * Represents the structure and columns of the supported_languages table.
+	 */
+	class SupportedLanguagesTable
+	{
+		const TABLE_NAME = 'supported_languages';
+
+		const ID = 'id';
+		const LANGUAGE_ID = 'language_id';
+		const NAME = 'name';
+		const CREATION_DATE = 'creation_date';
+		const UPDATE_DATE = 'update_date';
+		const NOTES = 'notes';
+		const IS_ACTIVE = 'isActive';
+
+		/**
+		 * Get the list of columns for the supported_languages table.
+		 *
+		 * @return array List of column names.
+		 */
+		public static function getColumns(): array
+		{
+			return [
+				self::ID,
+				self::LANGUAGE_ID,
+				self::NAME,
+				self::CREATION_DATE,
+				self::UPDATE_DATE,
+				self::NOTES,
+				self::IS_ACTIVE
+			];
+		}
+	}
+
+	/**
+	 * Class TranslationsTable
+	 *
+	 * Represents the structure and columns of the translations table.
+	 */
+	class TranslationsTable
+	{
+		const TABLE_NAME = 'translations';
+
+		const ID = 'id';
+		const LANGUAGE_ID = 'language_id';
+		const KEY = 'key';
+		const VALUE = 'value';
+		const CREATED_AT = 'created_at';
+		const UPDATED_AT = 'updated_at';
+		const NOTES = 'notes';
+
+		/**
+		 * Get the list of columns for the translations table.
+		 *
+		 * @return array List of column names.
+		 */
+		public static function getColumns(): array
+		{
+			return [
+				self::ID,
+				self::LANGUAGE_ID,
+				self::KEY,
+				self::VALUE,
+				self::CREATED_AT,
+				self::UPDATED_AT,
+				self::NOTES
 			];
 		}
 	}

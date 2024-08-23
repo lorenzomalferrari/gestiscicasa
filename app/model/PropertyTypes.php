@@ -2,7 +2,7 @@
 	/**
 	 * Classe che rappresenta i Tipi di Proprietà
 	 */
-	class PropertyType {
+	class PropertyTypes {
 
 		// Instance variables
 		private int $id;
@@ -79,7 +79,7 @@
 		}
 
 		// Function to get all property types as an array
-		public static function getPropertyTypes(): array {
+		public static function getPropertyTypess(): array {
 			return [
 				self::BUILDING,
 				self::APARTMENT,
@@ -91,8 +91,8 @@
 		}
 
 		// toString function to display all property types
-		public static function toStringPropertyTypes(): string {
-			return implode(', ', self::getPropertyTypes());
+		public static function toStringPropertyTypess(): string {
+			return implode(', ', self::getPropertyTypess());
 		}
 
 		// toString method

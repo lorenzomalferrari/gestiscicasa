@@ -1,5 +1,5 @@
--- Creazione della tabella lmgc_RoomTypes
-CREATE TABLE IF NOT EXISTS lmgc_RoomTypes (
+-- Creazione della tabella lmgc_RoomTypess
+CREATE TABLE IF NOT EXISTS lmgc_RoomTypess (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
@@ -9,5 +9,5 @@ CREATE TABLE IF NOT EXISTS lmgc_RoomTypes (
 );
 
 -- Aggiunta della constraint unica per la colonna name
-ALTER TABLE lmgc_RoomTypes
+ALTER TABLE lmgc_RoomTypess
 ADD CONSTRAINT UC_Name UNIQUE (name);
