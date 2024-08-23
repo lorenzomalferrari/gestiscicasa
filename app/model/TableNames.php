@@ -17,19 +17,19 @@
         case CONTINENTS = ContinentsTable::TABLE_NAME;
         case COUNTRIES = CountriesTable::TABLE_NAME;
         case CRUDLOGS = CrudLogsTable::TABLE_NAME;
-        case CrudTypes = CrudTypesTable::TABLE_NAME;
+        case CRUDTYPES = CrudTypesTable::TABLE_NAME;
         case EVENT = EventTable::TABLE_NAME;
         case GENDER = GenderTable::TABLE_NAME;
         case PERSON = PersonTable::TABLE_NAME;
         case PERSON_PROPERTY_ROLES = PersonPropertyRolesTable::TABLE_NAME;
         case PRODUCT = ProductTable::TABLE_NAME;
         case PROPERTY = PropertyTable::TABLE_NAME;
-        case PropertyTypes = PropertyTypesTable::TABLE_NAME;
+        case PROPERTYTYPES = PropertyTypesTable::TABLE_NAME;
         case ROLE = RolesTable::TABLE_NAME;
         case ROOM = RoomsTable::TABLE_NAME;
-        case RoomTypes = RoomTypessTable::TABLE_NAME;
+        case ROOMTYPES = RoomTypessTable::TABLE_NAME;
         case USAGEDESTINATIONS = UsageDestinationsTable::TABLE_NAME;
-        case USER = UsersTable::TABLE_NAME;
+        case USERS = UsersTable::TABLE_NAME;
         case USERSPROPERTY = UsersPropertyTable::TABLE_NAME;
         case VERSIONDB = VersionDBTable::TABLE_NAME;
         case PATHVISITATED = PathVisitatedTable::TABLE_NAME;
@@ -70,8 +70,8 @@
         }
     }
 
-    function getNomeTabella(string $prefisso, TableNames $nomeT): string
+    function getNomeTabella(string $prefisso, EnumTableNames $nomeT): string
     {
-        return EnumTableNamesgetPrefixedName($prefisso, $nomeT->value);
+        return TableNames::getPrefixedName($prefisso, $nomeT->value);
     }
 ?>

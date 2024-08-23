@@ -49,7 +49,7 @@
             //print_r("<br>values_insert<br>");
             //print_r($values_insert);
 
-            $insert = "INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesgetEnumCaseFromName( strtoupper($data['tableName'])) )
+            $insert = "INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::getEnumCaseFromName( strtoupper($data['tableName'])) )
                 . " (" . $columns_insert . ") "
                 . " VALUES (" . $values_insert . ")";
 

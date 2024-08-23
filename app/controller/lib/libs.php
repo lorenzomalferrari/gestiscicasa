@@ -8,7 +8,6 @@
     require_once(ROOT . 'app/model/TableNames.php');
     require_once(ROOT . 'app/model/file/FileManager.php');
     require_once(ROOT . 'app/controller/formatter_validator/JSonValidator.php');
-    require_once(ROOT . 'app/controller/formatter_validator/formatterValidator.php');
     require_once(ROOT . 'app/controller/lib/log/_log.php');
     require_once(ROOT . 'app/model/exception/CustomException.php');
 

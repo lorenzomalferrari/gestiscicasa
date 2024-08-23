@@ -11,13 +11,13 @@
         FROM  "
         . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesPROPERTY ) . " AS p "
         /*. " INNER JOIN "
-        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesUSERSPROPERTY) . " AS up "
+        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::USERSPROPERTY) . " AS up "
         . " ON up." . UsersPropertyTable::ID_PROPERTY . " = p." . PropertyTable::ID
         . " INNER JOIN "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesPERSON) . " AS pe "
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PERSON) . " AS pe "
         . " ON pe." . PersonTable::ID . " = " . UsersPropertyTable::ID_PERSON
         . " INNER JOIN "
-        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesUSERS) . " AS u "
+        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::USERS) . " AS u "
         . " ON u." . UsersTable::ID . " = pe." . PersonTable::ID_USER
         . " WHERE u." . UsersTable::ID . " = :id "*/
     ;

@@ -13,7 +13,7 @@
         );
 
         //Controllo prima che Utente non esista già
-        $query = "SELECT * FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesUSERS) . " WHERE " . UsersTable::USERNAME . " = :username";
+        $query = "SELECT * FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::USERS) . " WHERE " . UsersTable::USERNAME . " = :username";
         $row = DB->select($query, $params_where);
         if ($row) {
             echo "Utente già presente con questo username: " . json_encode($row);
@@ -23,7 +23,7 @@
                 ':email' => $email
             );
 
-            $selectPerson = "SELECT COUNT(*) as count FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesPERSON) . " WHERE " . PersonTable::EMAIL . " = :email";
+            $selectPerson = "SELECT COUNT(*) as count FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PERSON) . " WHERE " . PersonTable::EMAIL . " = :email";
             $countP = DB->select($selectPerson, $params_selectP)['count'];
 
             if($countP > 0){
@@ -39,7 +39,7 @@
                 );
 
                 //Gestisco l'inserimento in DB
-                $insert = "INSERT INTO " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesUSERS)
+                $insert = "INSERT INTO " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::USERS)
                                 . " (" . UsersTable::USERNAME. ","  . UsersTable::PASSWORD . ", " . UsersTable::TOKEN . ") "
                                 . " VALUES (:username, :password, :token)";
 

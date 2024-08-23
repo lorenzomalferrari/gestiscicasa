@@ -19,7 +19,7 @@
                         WHEN " . UsersTable::TOKEN . " IS NULL THEN TRUE
                         ELSE FALSE
                     END AS is_token_null
-                    FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesUSERS)
+                    FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::USERS)
             . " WHERE " . UsersTable::ID . " = :id ";
 
         // Esegui la query

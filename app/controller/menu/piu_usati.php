@@ -6,7 +6,7 @@
 
     $select =
         "SELECT " . PathVisitatedTable::PATH
-        . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesPATHVISITATED)
+        . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PATHVISITATED)
         . " WHERE " . PathVisitatedTable::ID_USER . " = :idUser "
         . " LIMIT 5 ";
 
@@ -15,7 +15,7 @@
     if( empty($results) ) {
         $select =
             "SELECT " . PathVisitatedTable::PATH
-            . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesPATHVISITATED)
+            . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PATHVISITATED)
             . " LIMIT 5 ";
         $results = DB->selectAll($select);
     }

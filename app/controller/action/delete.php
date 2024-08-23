@@ -23,7 +23,7 @@
         try {
             $instances = ClassFactory::create($data['tableName']);
 
-            $delete = "DELETE FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesgetEnumCaseFromName(strtoupper($data['tableName'])))
+            $delete = "DELETE FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::getEnumCaseFromName(strtoupper($data['tableName'])))
                 . " WHERE id = :id ";
 
             $delete = DB->delete($delete, $params_delete);
