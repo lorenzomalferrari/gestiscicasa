@@ -38,6 +38,7 @@
         case LANGUAGES = LanguagesTable::TABLE_NAME;
         case SUPPORTEDLANGUAGE = SupportedLanguagesTable::TABLE_NAME;
         case TRANSLATION = TranslationsTable::TABLE_NAME;
+        case INFOPROFILETYPES = InfoProfileTypes::TABLE_NAME;
 
         // Funzione per ottenere il caso dell'enum dal valore della tabella
         private static function getEnumCaseFromValue(string $value): ?self
