@@ -10,10 +10,10 @@
     $results = DB->selectAll($query, $params_select);
 
     foreach ($results as $r) {
-        $PropertyTypes = new PropertyTypes();
+        $InfoProfileTypes = new InfoProfileTypes();
         //set
-        $PropertyTypes->setId($r[PropertyTypesTable::ID]);
-        $PropertyTypes->setDescription($r[PropertyTypesTable::DESCRIPTION]);
-        $PropertyTypes->setNotes($r[PropertyTypesTable::NOTES]);
-        $arrTypeProperties[] = $PropertyTypes;
+        $InfoProfileTypes->setId($r[PropertyTypesTable::ID]);
+        $InfoProfileTypes->setDescription($r[PropertyTypesTable::DESCRIPTION]);
+        $InfoProfileTypes->setNotes($r[PropertyTypesTable::NOTES]);
+        $arrInfoProfileTypes[] = $InfoProfileTypes;
     }
