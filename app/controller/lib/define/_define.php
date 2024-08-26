@@ -234,6 +234,7 @@
 	 * Contiene le possibili chiamate gestite dal'api
 	 */
 	define('API', [
+		'INIT_DB' => 'init_db',
 		'CREATE_DB' => 'create_db',
 		'UPDATE_DB' => 'update_db',
 		'DELETE_DB' => 'delete_db',
