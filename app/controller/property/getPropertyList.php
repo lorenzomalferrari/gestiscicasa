@@ -9,7 +9,7 @@
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNamesPROPERTY ) . " AS p "
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PROPERTY ) . " AS p "
         /*. " INNER JOIN "
         . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::USERSPROPERTY) . " AS up "
         . " ON up." . UsersPropertyTable::ID_PROPERTY . " = p." . PropertyTable::ID
