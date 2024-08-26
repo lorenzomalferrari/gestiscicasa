@@ -13,7 +13,7 @@
         );
 
         //Controllo prima che Utente non esista già
-        $query = "SELECT * FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::USERS) . " WHERE " . UsersTable::USERNAME . " = :username";
+        $query = "SELECT * FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::USER) . " WHERE " . UsersTable::USERNAME . " = :username";
         $row = DB->select($query, $params_where);
         if ($row) {
             echo "Utente già presente con questo username: " . json_encode($row);
@@ -39,7 +39,7 @@
                 );
 
                 //Gestisco l'inserimento in DB
-                $insert = "INSERT INTO " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::USERS)
+                $insert = "INSERT INTO " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), TableNames::USER)
                                 . " (" . UsersTable::USERNAME. ","  . UsersTable::PASSWORD . ", " . UsersTable::TOKEN . ") "
                                 . " VALUES (:username, :password, :token)";
 
