@@ -92,6 +92,13 @@
 				'confirm' => '/confirm.php',
 			],
 		],
+		'role' => [
+		'profile_type' => [
+				1 => 'Personale',
+				2 => 'Aziendale'
+			],
+			'role' => [],
+		],
 		'session' => [
 			'keys' => [
 				'IDUSER' => 'IDUSER',
