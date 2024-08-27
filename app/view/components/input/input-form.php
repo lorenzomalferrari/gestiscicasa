@@ -3,7 +3,6 @@
     getToPost();//funzione che porta tutto da GET a POST
 
     $page = $_POST['page'];
-    $parent_path = ROOT . MENU_PATHS[$_POST['path_key']];
     $tableName = $_POST['table'];
     $id = isset($_POST['id']) ? $_POST['id'] : "";
 
