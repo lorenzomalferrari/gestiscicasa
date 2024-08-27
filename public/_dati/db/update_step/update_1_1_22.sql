@@ -1,4 +1,4 @@
-CREATE TABLE ProfileTypes (
+CREATE TABLE lmgc_ProfileTypes (
     id INT PRIMARY KEY AUTO_INCREMENT,
     code VARCHAR(2) NOT NULL,
     description VARCHAR(255) NOT NULL,
@@ -8,6 +8,6 @@ CREATE TABLE ProfileTypes (
 );
 
 -- Inserimento dei record fissi
-INSERT INTO ProfileTypes (code, description, notes) VALUES
+INSERT INTO lmgc_ProfileTypes (code, description, notes) VALUES
 ('PE', 'Personal', 'Individual profile'),
 ('BU', 'Business', 'Profile for companies and organizations');

@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS lmgc_Nationalities (
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-ALTER TABLE lmgc_Person
+ALTER TABLE lmgc_People
 ADD CONSTRAINT fk_nationality FOREIGN KEY (nationality) REFERENCES lmgc_Nationalities(id);
 
 INSERT INTO lmgc_Nationalities (name, name_italian, name_french, name_spanish, name_german, name_portuguese, note) VALUES

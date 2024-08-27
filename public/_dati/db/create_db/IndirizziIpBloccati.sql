@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS lmgc_IndirizziIpBloccati (
+CREATE TABLE IF NOT EXISTS lmgc_BlockedIpAddresses (
     id INT AUTO_INCREMENT PRIMARY KEY,
     indirizzo_ip VARCHAR(45) NOT NULL,
     note TEXT,

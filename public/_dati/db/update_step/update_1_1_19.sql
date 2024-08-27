@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS lmgc_Gender;
+DROP TABLE IF EXISTS lmgc_Genders;
 
-CREATE TABLE lmgc_Gender (
+CREATE TABLE lmgc_Genders (
     id INT AUTO_INCREMENT PRIMARY KEY,
     gender_it VARCHAR(50) NOT NULL,  -- Italiano
     gender_en VARCHAR(50),           -- Inglese
@@ -14,16 +14,16 @@ CREATE TABLE lmgc_Gender (
 );
 
 -- Inserimento per "Maschio"
-INSERT INTO lmgc_Gender (gender_it, gender_en, gender_fr, gender_es, gender_de, gender_pt)
+INSERT INTO lmgc_Genders (gender_it, gender_en, gender_fr, gender_es, gender_de, gender_pt)
 VALUES
 ('Maschio', 'Male', 'Homme', 'Hombre', 'Männlich', 'Masculino');
 
 -- Inserimento per "Femmina"
-INSERT INTO lmgc_Gender (gender_it, gender_en, gender_fr, gender_es, gender_de, gender_pt)
+INSERT INTO lmgc_Genders (gender_it, gender_en, gender_fr, gender_es, gender_de, gender_pt)
 VALUES
 ('Femmina', 'Female', 'Femme', 'Mujer', 'Weiblich', 'Feminino');
 
 -- Inserimento per "Altro"
-INSERT INTO lmgc_Gender (gender_it, gender_en, gender_fr, gender_es, gender_de, gender_pt)
+INSERT INTO lmgc_Genders (gender_it, gender_en, gender_fr, gender_es, gender_de, gender_pt)
 VALUES
 ('Altro', 'Other', 'Autre', 'Otro', 'Andere', 'Outro');

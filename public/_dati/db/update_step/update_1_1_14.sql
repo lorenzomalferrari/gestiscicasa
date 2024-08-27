@@ -49,18 +49,18 @@ CREATE TABLE IF NOT EXISTS lmgc_Address (
     FOREIGN KEY (type_id) REFERENCES lmgc_AddressType(id)
 );
 
-CREATE TABLE IF NOT EXISTS lmgc_PersonAddress (
+CREATE TABLE IF NOT EXISTS lmgc_PeopleAddress (
     person_id INT NOT NULL,
     address_id INT NOT NULL,
     PRIMARY KEY (person_id, address_id),
-    FOREIGN KEY (person_id) REFERENCES lmgc_Person(id),
+    FOREIGN KEY (person_id) REFERENCES lmgc_People(id),
     FOREIGN KEY (address_id) REFERENCES lmgc_Address(id)
 );
 
-CREATE TABLE IF NOT EXISTS lmgc_PersonPhone (
+CREATE TABLE IF NOT EXISTS lmgc_PeoplePhone (
     person_id INT NOT NULL,
     phone_id INT NOT NULL,
     PRIMARY KEY (person_id, phone_id),
-    FOREIGN KEY (person_id) REFERENCES lmgc_Person(id),
+    FOREIGN KEY (person_id) REFERENCES lmgc_People(id),
     FOREIGN KEY (phone_id) REFERENCES lmgc_Phone(id)
 );
