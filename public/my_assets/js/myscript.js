@@ -165,9 +165,14 @@ function checkLogin() {
     }
 }
 
-function goBack() {
-    window.history.back();
+function goBack(path) {
+    if (path) {
+        window.location.href = path; // Reindirizza alla pagina specificata
+    } else {
+        window.history.back(); // Torna alla pagina precedente nella cronologia
+    }
 }
+
 
 function action(action, id = null, tableName) {
     let url = window.location.origin + '/';
@@ -317,10 +322,14 @@ function checkTextInput(id, feedbackId) {
 }
 
 // Funzione per controllare la validità della data di nascita
-function checkDate() {
+function checkBirthDate() {
     const dateInput = document.getElementById('data_nascita');
     const feedback = document.getElementById('data_nascita-feedback');
     const value = dateInput.value;
+
+    // Età minima
+    const minAge = 18;
+
     if (!value) {
         feedback.textContent = 'Questo campo è obbligatorio.';
         feedback.style.color = 'red';
@@ -328,8 +337,16 @@ function checkDate() {
     } else {
         const today = new Date();
         const selectedDate = new Date(value);
+
+        // Calcola la data limite per essere maggiorenne
+        const minDate = new Date(today.getFullYear() - minAge, today.getMonth(), today.getDate());
+
         if (selectedDate > today) {
             feedback.textContent = 'La data di nascita non può essere nel futuro.';
+            feedback.style.color = 'red';
+            feedback.style.display = 'block'; // Mostra il feedback
+        } else if (selectedDate > minDate) {
+            feedback.textContent = `Devi avere almeno ${minAge} anni.`;
             feedback.style.color = 'red';
             feedback.style.display = 'block'; // Mostra il feedback
         } else {
@@ -358,7 +375,7 @@ function checkGender() {
 async function checkWelcome() {
     checkTextInput('nome', 'nome-feedback');
     checkTextInput('cognome', 'cognome-feedback');
-    checkDate();
+    checkBirthDate();
     checkGender();
 
     const isUserConfirmed = await checkConfirmUser();
