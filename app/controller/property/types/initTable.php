@@ -4,7 +4,7 @@
     $tableName = PropertyTypesTable::TABLE_NAME;
     $titlePage = "Tipo Proprietà";
 
-    $parent_path = ""
+    $parent_path = ROOT . MENU_PATHS['properties_type'];
 
     $tableDataHeader = /*PropertyTypesTable::getColumns()*/[
         PropertyTypesTable::ID,
