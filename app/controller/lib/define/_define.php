@@ -227,7 +227,8 @@
 		'reset_psw' => '/app/view/reset_psw.php',
 		'users' => '/app/view/lists/users_list.php',
 		'welcome' => '/app/view/welcome.php',
-		'nazionalities' => '/app/view/lists/nazionalities_list.php'
+		'nazionalities' => '/app/view/lists/nazionalities_list.php',
+		'properties_type' => '/app/view/lists/properties_type_list.php',
 	]);
 
 	/**
