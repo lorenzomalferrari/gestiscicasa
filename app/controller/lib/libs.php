@@ -1,13 +1,14 @@
 <?php declare(strict_types=1);
     require_once("define/_define.php");
-    require_once("functions/_functions.php");
-    require_once("global/_global.php");
-    require_once("session/_session_start.php");
+    require_once(ROOT . "app/controller/lib/functions/_functions.php");
+    require_once(ROOT . "app/controller/lib/global/_global.php");
+    require_once(ROOT . "app/controller/lib/session/_session_start.php");
     require_once(ROOT . 'app/model/log/PathAndFilesLog.php');
     require_once(ROOT . "app/model/table/Tables.php");
     require_once(ROOT . 'app/model/TableNames.php');
     require_once(ROOT . 'app/model/file/FileManager.php');
     require_once(ROOT . 'app/controller/formatter_validator/JSonValidator.php');
+    require_once(ROOT . 'app/controller/formatter_validator/FormatterInputValidator.php');
     require_once(ROOT . 'app/controller/lib/log/_log.php');
     require_once(ROOT . 'app/model/exception/CustomException.php');
 

@@ -1,7 +1,7 @@
 <?php
     $annulla = "<button type=\"button\" onclick=\"annulla\" class=\"btn btn-primary mr-2\">Annnulla</button>";
 
-    if( isset($id) ) {
+    if( !($id > 0) ) {
         $action = "<button type=\"button\" onclick=\"action('insert', null, '$tableName')\" class=\"btn btn-primary mr-2\">Salva</button>";
         $action .= $annulla;
     }
@@ -14,7 +14,7 @@
 <!-- Riga per i bottoni -->
 <div class="row mb-4">
     <div class="col-12 d-flex justify-content-start">
-        <button type="button" onclick="goBack()" class="btn btn-secondary mr-2">Indietro</button>
+        <button type="button" onclick="goBack(<?php echo $parent_path; ?>)" class="btn btn-secondary mr-2">Indietro</button>
         <?php echo $action; ?>
     </div>
 </div>

@@ -27,7 +27,7 @@
         //Controllo prima che token non esista
         $query = "SELECT $params_select FROM "
         . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::USERS) . " u "
-            . " LEFT JOIN " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PERSON) . " p "
+            . " LEFT JOIN " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PEOPLE) . " p "
             . " on p." . PersonTable::ID_USER . " = u." . UsersTable::ID . " "
             . " WHERE "
                 . " $column = $key ";

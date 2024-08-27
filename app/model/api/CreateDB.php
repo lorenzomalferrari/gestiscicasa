@@ -43,7 +43,6 @@
 		private function executeSqlFile($file)
 		{
 			$sql = file_get_contents($file);
-			print_r($sql);
 			DB->exec($sql);
 		}
 	}

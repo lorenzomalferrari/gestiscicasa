@@ -48,7 +48,7 @@
             <label>Data di Nascita</label>
         </div>
         <input type="date" class="form-control" name="data_nascita" id="data_nascita" required
-            onchange="checkDate()">
+            onchange="checkBirthDate()">
         <div id="data_nascita-feedback" class="feedback"></div> <!-- Feedback per Data di Nascita -->
     </div>
 

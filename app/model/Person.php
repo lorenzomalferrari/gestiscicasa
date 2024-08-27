@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 	/**
-	 * Classe che rappresenta un record della tabella lmgc_Person e la Persona che utilizza il gestionale.
+	 * Classe che rappresenta un record della tabella lmgc_People e la Persona che utilizza il gestionale.
 	 */
 	trait Person
 	{

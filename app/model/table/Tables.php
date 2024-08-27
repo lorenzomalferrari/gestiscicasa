@@ -441,7 +441,7 @@
 		public static function getColumns(): array
 		{
 			return [
-				self::PERSON_ID,
+				self::PEOPLE_ID,
 				self::PROPERTY_ID,
 				self::ROLE_ID,
 				self::CREATION_DATE,
@@ -667,11 +667,11 @@
 	}
 
 	/**
-	 * Class representing the 'PropertyTypess' table.
+	 * Class representing the 'PropertyTypes' table.
 	 */
 	class PropertyTypesTable
 	{
-		const TABLE_NAME = 'PropertyTypess';
+		const TABLE_NAME = 'PropertyTypes';
 
 		const ID = 'id';
 		const DESCRIPTION = 'description';
@@ -680,7 +680,7 @@
 		const NOTES = 'notes';
 
 		/**
-		 * Get the list of columns for the PropertyTypess table.
+		 * Get the list of columns for the PropertyTypes table.
 		 *
 		 * @return array List of column names
 		 */
@@ -978,7 +978,7 @@
  *
  * Represents the structure and columns of the InfoProfileTypes table.
  */
-	class InfoProfileTypes
+	class InfoProfileTypesTable
 	{
 		const TABLE_NAME = 'InfoProfileTypes';
 

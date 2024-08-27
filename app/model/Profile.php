@@ -60,7 +60,7 @@
                 FROM
                     " . EnumTableNames::USERS . " u
                 INNER JOIN
-                    " . EnumTableNames::PERSON . " p ON u.id = p.idUser
+                    " . EnumTableNames::PEOPLE . " p ON u.id = p.idUser
                 WHERE
                     u.id = :userId";
 

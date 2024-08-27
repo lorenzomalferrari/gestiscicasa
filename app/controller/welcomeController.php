@@ -21,7 +21,7 @@
 
         //Gestisco l'inserimento in DB
         $insert = "INSERT INTO "
-                    . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'),EnumTableNames::PERSON)
+                    . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'),EnumTableNames::PEOPLE)
                     . " ("
                         . PersonTable::NAME . ", "
                         . PersonTable::SURNAME . ", "

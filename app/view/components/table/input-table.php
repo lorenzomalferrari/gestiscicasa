@@ -24,7 +24,7 @@
                                     $html .= '</div>';
 
                                     // Aggiungi l'input
-                                    $html .= FormatterValidator::getInputFieldsModal($field);
+                                    $html .= FormatterInputValidator::getInputFieldsModal($field);
 
                                     $html .= '<div class="invalid-feedback">';
                                     $html .= 'Please choose a ' . htmlspecialchars($label) . '.';

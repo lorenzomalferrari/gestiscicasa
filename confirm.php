@@ -2,6 +2,13 @@
     require_once('app/controller/lib/libs.php');
     $flagConfirm = TRUE; //per evitare nel destroy il redirect a LOGIN
     require_once(ROOT . 'app/controller/lib/session/_session_destroy.php');
+/*
+    // Crea un'istanza della classe Token
+    $tokenModel = new Token(CRYPTO_KEY);
+    // Crea un'istanza del TokenController
+    $tokenController = new TokenController($tokenModel);
+    $isValid = $tokenController->validateToken($_POST['token']);
+    */
     $token = $_POST['token'];
 
     // Preparazione della query per la select
@@ -14,7 +21,7 @@
     //Controllo prima che token non esista
     $query = "SELECT $params_select FROM "
         . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::USERS) . " u "
-        . " LEFT JOIN " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PERSON) . " p "
+        . " LEFT JOIN " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PEOPLE) . " p "
         . " on p." . PersonTable::ID_USER . " = u." . UsersTable::ID . " "
         . " WHERE "
         . "         u." . UsersTable::TOKEN . " = :token

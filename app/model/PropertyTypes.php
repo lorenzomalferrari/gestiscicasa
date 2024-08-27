@@ -79,7 +79,7 @@
 		}
 
 		// Function to get all property types as an array
-		public static function getPropertyTypess(): array {
+		public static function getPropertyTypes(): array {
 			return [
 				self::BUILDING,
 				self::APARTMENT,
@@ -91,8 +91,8 @@
 		}
 
 		// toString function to display all property types
-		public static function toStringPropertyTypess(): string {
-			return implode(', ', self::getPropertyTypess());
+		public static function toStringPropertyTypes(): string {
+			return implode(', ', self::getPropertyTypes());
 		}
 
 		// toString method

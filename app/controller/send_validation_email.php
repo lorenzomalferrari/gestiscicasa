@@ -1,11 +1,12 @@
 <?php declare(strict_types=1);
-    // Genera un token univoco
+
+    // Crea un token univoco
     $token = bin2hex(random_bytes(16));
 
-    // Salva il token nel database insieme all'utente (sostituisci con il tuo codice per l'inserimento dell'utente nel database)
-
     $nomeProgetto = CONFIG['site']['name'];
-    // Messaggio dell'email
+    $nomeProgettoEsteso = CONFIG['site']['name_esteso'];
+
+    // Messaggio dell'email con CSS in linea
     $message = "
         <!DOCTYPE html>
         <html lang='it'>
@@ -29,28 +30,53 @@
                         border-radius: 5px;
                         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
                     }
-                    h1 {
-                        color: #007bff;
+                    .header {
+                        background-color: #007bff;
+                        color: #ffffff;
+                        padding: 10px 20px;
+                        border-radius: 5px 5px 0 0;
                     }
-                    p {
+                    .header h1 {
+                        margin: 0;
+                        font-size: 24px;
+                    }
+                    .content p {
                         margin-bottom: 20px;
                     }
-                    a {
+                    .content a {
                         color: #007bff;
                         text-decoration: none;
                     }
-                    a:hover {
+                    .content a:hover {
                         text-decoration: underline;
+                    }
+                    .footer {
+                        margin-top: 20px;
+                        font-size: 14px;
                     }
                 </style>
             </head>
             <body>
                 <div class='container'>
-                    <h1>Convalida del profilo</h1>
-                    <p>Buongiorno,</p>
-                    <p>Le diamo il benvenuto nel nostro sistema di gestione immobiliare. Per completare la registrazione, la preghiamo di cliccare sul seguente link per convalidare il suo profilo:</p>
-                    <p><a href='http://tuosito.com/convalida_profilo.php?token=$token'>Convalida il profilo</a></p>
-                    <p>Cordiali saluti,<br>Il team di $nomeProgetto</p>
+                    <div class='header'>
+                        <h1>Conferma l'account</h1>
+                    </div>
+                    <div class='content'>
+                        <p>Buongiorno,</p>
+                        <p>
+                            Le diamo il benvenuto nel nostro sistema <strong>$nomeProgettoEsteso</strong>.
+                            <br>
+                            Per completare la registrazione, la preghiamo di cliccare sul seguente link per convalidare il suo profilo:
+                        </p>
+                        <p>
+                            <a href='http://tuosito.com/convalida_profilo.php?token=$token'>Convalida il profilo</a>
+                        </p>
+                        <p class='footer'>
+                            Cordiali saluti,
+                            <br>
+                            Il team di <strong>$nomeProgetto</strong>
+                        </p>
+                    </div>
                 </div>
             </body>
         </html>
@@ -65,10 +91,3 @@
     $to = "email_cliente@example.com";
     $subject = "Convalida del profilo";
     mail($to, $subject, $message, $headers);
-
-    //$emailLog = new EmailLog("", 2005, $data, null, null, $ipAddress, $userId, $to, $subject, $message);
-    //scrivo nel file edicato alle email
-    //$emailLog.writeToFile();
-    //inserisco la stessa voce nel database
-    //$emailLog.insertInDb();
-?>

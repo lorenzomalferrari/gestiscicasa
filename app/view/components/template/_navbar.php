@@ -133,10 +133,65 @@
                         <li><a href="#"><i class="fas fa-lock"></i>Lock screen</a></li>
                     </ul>
                     <div class="sign-btn">
-                        <a href="<?php echo "../controller/logout.php" ?>">SIGN OUT</a>
+                        <a href="javascript:void(0);" onclick="logout()">SIGN OUT</a>
                     </div>
                 </div>
             </li>
         </ul>
     </div>
 </div>
+
+<!-- Codice JavaScript -->
+<script>
+    function logout() {
+        // Controlla se l'utente ha disattivato la conferma in precedenza
+        let skipConfirmation = localStorage.getItem('skipLogoutConfirmation') === 'true';
+
+        if (skipConfirmation) {
+            // Esegui il logout immediatamente se la conferma è stata disattivata
+            executeLogout();
+        } else {
+            // Crea il messaggio di conferma con una checkbox
+            let confirmationBox = document.createElement('div');
+            confirmationBox.style.position = 'fixed';
+            confirmationBox.style.top = '50%';
+            confirmationBox.style.left = '50%';
+            confirmationBox.style.transform = 'translate(-50%, -50%)';
+            confirmationBox.style.padding = '20px';
+            confirmationBox.style.backgroundColor = 'white';
+            confirmationBox.style.border = '1px solid #ccc';
+            confirmationBox.style.zIndex = '1000';
+
+            confirmationBox.innerHTML = `
+                <p>Sei sicuro di voler effettuare il logout?</p>
+                <label>
+                    <input type="checkbox" id="skipConfirmationCheckbox">
+                    Non chiedere più conferma
+                </label>
+                <br><br>
+                <button onclick="confirmLogout(true)">Sì</button>
+                <button onclick="confirmLogout(false)">No</button>
+            `;
+
+            document.body.appendChild(confirmationBox);
+        }
+    }
+
+    function confirmLogout(confirm) {
+        if (confirm) {
+            let skipConfirmation = document.getElementById('skipConfirmationCheckbox').checked;
+            if (skipConfirmation) {
+                localStorage.setItem('skipLogoutConfirmation', 'true');
+            }
+
+            executeLogout();
+        } else {
+            document.body.removeChild(document.body.lastElementChild);
+        }
+    }
+
+    function executeLogout() {
+        //alert("Logout effettuato con successo!");
+        window.location.href = '../controller/logout.php';
+    }
+</script>

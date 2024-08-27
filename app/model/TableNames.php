@@ -20,7 +20,7 @@
         case CRUDTYPES = CrudTypesTable::TABLE_NAME;
         case EVENT = EventTable::TABLE_NAME;
         case GENDER = GenderTable::TABLE_NAME;
-        case PERSON = PersonTable::TABLE_NAME;
+        case PEOPLE = PersonTable::TABLE_NAME;
         case PERSON_PROPERTY_ROLES = PersonPropertyRolesTable::TABLE_NAME;
         case PRODUCT = ProductTable::TABLE_NAME;
         case PROPERTY = PropertyTable::TABLE_NAME;
@@ -38,7 +38,7 @@
         case LANGUAGES = LanguagesTable::TABLE_NAME;
         case SUPPORTEDLANGUAGE = SupportedLanguagesTable::TABLE_NAME;
         case TRANSLATION = TranslationsTable::TABLE_NAME;
-        case INFOPROFILETYPES = InfoProfileTypes::TABLE_NAME;
+        case INFOPROFILETYPES = InfoProfileTypesTable::TABLE_NAME;
 
         // Funzione per ottenere il caso dell'enum dal valore della tabella
         private static function getEnumCaseFromValue(string $value): ?self

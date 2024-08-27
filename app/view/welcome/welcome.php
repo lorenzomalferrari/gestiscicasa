@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
     require_once("../../controller/lib/libs.php");
     $titlePage = "Benvenuti";
-    $sesso_options = "<option value=\"scegli\">Scegli</option>";
+    $sesso_options = "<option value=\"\">Scegli</option>";
     require_once(ROOT . "app/view/welcome/setInputFields.php");
 ?>
 <!doctype html>

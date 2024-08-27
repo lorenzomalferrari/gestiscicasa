@@ -3,8 +3,9 @@
     require_once("../../controller/lib/libs.php");
     //Richiamare info da mostrare
     require_once(ROOT . "app/controller/property/getPropertyTypesList.php");
+    //da qua in poi ho $arrTypeProperties
     //Eventuale personalizzazione
-    require_once(ROOT . "app/controller/property/type/initTable.php");
+    require_once(ROOT . "app/controller/property/types/initTable.php");
 ?>
 <!doctype html>
 <html class="no-js" lang="">

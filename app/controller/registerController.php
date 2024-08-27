@@ -23,7 +23,7 @@
                 ':email' => $email
             );
 
-            $selectPerson = "SELECT COUNT(*) as count FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PERSON) . " WHERE " . PersonTable::EMAIL . " = :email";
+            $selectPerson = "SELECT COUNT(*) as count FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PEOPLE) . " WHERE " . PersonTable::EMAIL . " = :email";
             $countP = DB->select($selectPerson, $params_selectP)['count'];
 
             if($countP > 0){

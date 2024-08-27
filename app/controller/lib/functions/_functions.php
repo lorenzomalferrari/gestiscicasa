@@ -193,4 +193,30 @@
 		return implode(', ', $items);
 	}
 
+	/**
+	 * Converte il nome di una tabella in un percorso stringa.
+	 *
+	 * Questa funzione riceve il nome di una tabella, lo converte in minuscolo, e lo formatta
+	 * in un percorso che sostituisce gli underscore con le barre e aggiunge "/types/" alla fine
+	 * se il nome della tabella contiene "Types" o "Type". La parte prima di "Types" viene anche
+	 * trattata per rimuovere eventuali underscore e formattare correttamente il percorso.
+	 *
+	 * @param string $tableName Il nome della tabella da convertire.
+	 * @return string Il percorso formattato.
+	 */
+	function convertTableNameToPath(string $tableName): string
+	{
+		// Converti il nome della tabella in minuscolo
+		$lowerTableName = strtolower($tableName);
+
+		// Dividi il nome della tabella in base alla parola "types"
+		$parts = preg_split('/types/i', $lowerTableName);
+
+		// Rimuovi eventuali underscore e aggiungi una barra finale
+		$path = str_replace('_', '/', trim($parts[0], '_')) . '/types/';
+
+		// Restituisci il risultato
+		return $path;
+	}
+
 ?>
