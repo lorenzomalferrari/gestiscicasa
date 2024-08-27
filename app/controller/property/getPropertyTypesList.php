@@ -5,18 +5,27 @@
     $arrTypeProperties = array();
 
     $select = PropertyTypesTable::ID . ", "
-            . PropertyTypesTable::DESCRIPTION . ", "
-            . PropertyTypesTable::NOTES;
+        . PropertyTypesTable::DESCRIPTION . ", "
+        . PropertyTypesTable::NOTES;
+
+    // Decodifica i parametri JSON se forniti in $_GET
+    $params_select = array();
+    $where_select = "";
+
+    if (isset($id)) { //dovrei provenire da /controller/property/types/customTable.php
+        print_r("Ho id: $id e costruisco la WHERE");
+        $where_select = " WHERE " . PropertyTypesTable::ID . " = :id ";
+        $params_select = [
+            ':id' => $id
+        ];
+    }
 
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PROFILETYPES ) . " AS pt "
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PROPERTYTYPES ) . " AS pt "
+        . " $where_select "
     ;
-
-    $params_select = array(
-        /*':id' => $_SESSION[CONFIG['session']['keys']['IDUSER']],*/
-    );
 
     $results = DB->selectAll($query, $params_select);
 
