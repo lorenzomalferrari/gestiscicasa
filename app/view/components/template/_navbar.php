@@ -130,10 +130,10 @@
                     <div class="text-14 text-manatee">Graphic Design</div>
                     <ul class="settings-list">
                         <li><a href="profile.php"><i class="far fa-user"></i>View Profile</a></li>
-                        <li><a href="#"><i class="far fa-user"></i>Ticket</a></li>
+                        <li><a href="<?php echo CONFIG['helpdesk']['link'] ?>"><i class="far fa-user"></i>Apri Ticket</a></li>
                         <li><a href="#"><i class="fas fa-edit"></i>Account Setting</a></li>
-                        <li><a href="#"><i class="fas fa-question"></i>Help Center</a></li>
-                        <!--<li><a href="#"><i class="fas fa-lock"></i>Lock screen</a></li>-->
+                        <!--<li><a href="#"><i class="fas fa-question"></i>Help Center</a></li>
+                        <li><a href="#"><i class="fas fa-lock"></i>Lock screen</a></li>-->
                     </ul>
                     <div class="sign-btn">
                         <a href="javascript:void(0);" onclick="logout()">Esci</a>
