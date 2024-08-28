@@ -25,6 +25,7 @@
             </li>
         </ul>
         <ul class="navbar-nav">
+            <!--
             <li class="navbar-item dropdown nav-language">
                 <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"><img src="<?php echo PATH; ?>public/vendor/media/figure/flag.jpg" alt="">En-UK<i class="flaticon-null-16"></i></a>
                 <div class="dropdown-menu">
@@ -34,6 +35,7 @@
                     <a class="dropdown-item text-13" href="#"><img src="<?php echo PATH; ?>public/vendor/media/figure/flag_9.jpg" alt="Rus">Rus-Rs</a>
                 </div>
             </li>
+            -->
             <li class="navbar-item dropdown nav-message">
                 <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                     <i class="flaticon-null-18"></i>
@@ -128,12 +130,13 @@
                     <div class="text-14 text-manatee">Graphic Design</div>
                     <ul class="settings-list">
                         <li><a href="profile.php"><i class="far fa-user"></i>View Profile</a></li>
+                        <li><a href="#"><i class="far fa-user"></i>Ticket</a></li>
                         <li><a href="#"><i class="fas fa-edit"></i>Account Setting</a></li>
                         <li><a href="#"><i class="fas fa-question"></i>Help Center</a></li>
-                        <li><a href="#"><i class="fas fa-lock"></i>Lock screen</a></li>
+                        <!--<li><a href="#"><i class="fas fa-lock"></i>Lock screen</a></li>-->
                     </ul>
                     <div class="sign-btn">
-                        <a href="javascript:void(0);" onclick="logout()">SIGN OUT</a>
+                        <a href="javascript:void(0);" onclick="logout()">Esci</a>
                     </div>
                 </div>
             </li>
