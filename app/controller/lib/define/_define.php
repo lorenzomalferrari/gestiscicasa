@@ -132,6 +132,9 @@
 		'securityConfig' => [
 			'key' => 'vqP7WjUJCe58^tS!9YPd2TzL#HfG6@bM',
 		],
+		'helpdesk' => [
+			'link' => 'https://gestiscicasa.atlassian.net/jira/servicedesk/projects/AS/queues/custom/1',
+		],
 		'language' => [
 			'it' => 'Italiano',
 			'en' => 'English',
