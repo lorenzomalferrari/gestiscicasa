@@ -14,7 +14,7 @@
 <!-- Riga per i bottoni -->
 <div class="row mb-4">
     <div class="col-12 d-flex justify-content-start">
-        <button type="button" onclick="goBack('<?php echo $parent_path; ?>')" class="btn btn-secondary mr-2">Indietro</button>
+        <button type="button" onclick="goBack('<?php echo $parent_path_key; ?>')" class="btn btn-secondary mr-2">Indietro</button>
         <?php echo $action; ?>
     </div>
 </div>
