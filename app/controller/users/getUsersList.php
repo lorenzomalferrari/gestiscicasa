@@ -12,8 +12,6 @@
         . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::USERS ) . " AS u "
     ;
 
-    print_r($query);
-
     $params_select = array(
         /*':id' => $_SESSION[CONFIG['session']['keys']['IDUSER']],*/
     );

@@ -3,7 +3,7 @@
     getToPost();//funzione che porta tutto da GET a POST
 
     $page = $_POST['page'];
-    $parent_path_key = $_POST[''];
+    $parent_path_key = $_POST['path_key'];
     $tableName = $_POST['table'];
     $id = isset($_POST['id']) ? $_POST['id'] : "";
 
@@ -11,15 +11,20 @@
 
     $subTitle = ( $id > 0 ) ? "Modifica" : "Nuovo";
 
+    $fields = FormatterInputValidator::validateAndFormatFields($fields);
+
     //se id è compilato, devo richiamare il customTable.php del contesto che sto trattando
     //e aggiungere in fields la key value con i valori da DB
     if($id > 0){
         $relative_path = convertTableNameToPath($tableName);
-        print_r($relative_path);
-        require_once(ROOT . "app/controller/$relative_path/customTable.php");
+        $url = normalizeUrl(ROOT . "app/controller/" . $relative_path . "customTable.php");
+        require_once($url);
     }
 
-    $fields = FormatterInputValidator::validateAndFormatFields($fields);
+    //Ora che tutto è pronto, vanno salvati negli input hidden per essere passati tramite form
+    //nel caso di utilizzo con le azioni come insert, update, delete.
+    require_once(ROOT . "app/controller/hidden_input.php");
+
 ?>
 <!doctype html>
 <html class="no-js" lang="">

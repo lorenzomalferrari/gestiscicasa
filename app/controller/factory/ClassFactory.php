@@ -19,12 +19,6 @@ class ClassFactory
         $classMap = $maps['class'];
         $tableMap = $maps['table'];
 
-        // Debugging output
-        //echo "ClassMap: ";
-        //print_r($classMap);
-        //echo "TableMap: ";
-        //print_r($tableMap);
-
         $result = [];
 
         // Controlla la chiave nella mappa delle classi
@@ -107,14 +101,6 @@ class ClassFactory
                 // Recupera le classi dichiarate dopo l'inclusione
                 $declaredClassesAfter = get_declared_classes();
                 $newClasses = array_diff($declaredClassesAfter, $declaredClassesBefore);
-
-                // Debugging output
-                //echo "Declared classes before: ";
-                //print_r($declaredClassesBefore);
-                //echo "Declared classes after: ";
-                //print_r($declaredClassesAfter);
-                //echo "New classes: ";
-                //print_r($newClasses);
 
                 if (!empty($newClasses)) {
                     foreach ($newClasses as $class) {

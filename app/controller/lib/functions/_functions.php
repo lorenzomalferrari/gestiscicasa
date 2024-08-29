@@ -219,4 +219,64 @@
 		return $path;
 	}
 
+	/**
+	 * Normalize a given URL by applying several transformations:
+	 * - Trims leading and trailing spaces.
+	 * - Converts the URL to lowercase.
+	 * - Removes single quotes (').
+	 * - Replaces multiple consecutive slashes (//) with a single slash (/).
+	 * - Removes a trailing slash if the URL is not just "/".
+	 * - Removes any remaining spaces within the URL.
+	 * - Ensures the protocol (http/https) appears only once.
+	 *
+	 * @param string $url The URL to be normalized.
+	 * @return string The normalized URL.
+	 */
+	function normalizeUrl(string $url): string
+	{
+		// Rimuovi gli spazi all'inizio e alla fine dell'URL
+		$url = trim($url);
+		// Converti l'URL in minuscolo
+		$url = strtolower($url);
+		// Rimuovi eventuali apici singoli
+		$url = str_replace("'", '', $url);
+		// Sostituisci più di una barra consecutiva con una singola barra
+		$url = preg_replace('#/+#', '/', $url);
+		// Rimuovi barra finale (se non è solo "/")
+		if ($url !== '/') {
+			$url = rtrim($url, '/');
+		}
+
+		// Controllo ulteriore: Rimuovi eventuali spazi rimanenti
+		$url = str_replace(' ', '', $url);
+		// Controllo ulteriore: Rimuovi eventuali "http://" o "https://" superflui
+		$url = preg_replace('#^(https?://)+#', 'http://', $url);
+
+		return $url;
+	}
+
+	/**
+	 * Convert a table name into a key by separating words with underscores
+	 * and converting the entire string to lowercase. Specifically, if the 
+	 * table name contains 'Type' or 'Types', these will be separated from 
+	 * the preceding word with an underscore.
+	 *
+	 * @param string $tableName The name of the table to be converted into a key.
+	 * @return string The formatted key.
+	 */
+	function convertTableNameToKey(string $tableName): string
+	{
+		// Aggiungi un underscore prima di 'Type' o 'Types'
+		if (strpos($tableName, 'Type') !== false) {
+			// Sostituisci 'Type' o 'Types' con '_type' o '_types'
+			$tableName = str_replace(['Type', 'Types'], ['_type', '_types'], $tableName);
+		}
+
+		// Converti camelCase o PascalCase in snake_case
+		$tableName = preg_replace('/(?<!^)[A-Z]/', '_$0', $tableName);
+		// Converti il nome della tabella in minuscolo
+		$tableName = strtolower($tableName);
+
+		return $tableName;
+	}
 ?>

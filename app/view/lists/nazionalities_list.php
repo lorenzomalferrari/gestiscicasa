@@ -12,7 +12,6 @@
     $tableDataRecord =  [];
 
     foreach ($arrNazionalities as $nationality) {
-        //print_r($property);
         $tableDataRecord[] = [
             $nationality->getId(),
             $nationality->getName(),

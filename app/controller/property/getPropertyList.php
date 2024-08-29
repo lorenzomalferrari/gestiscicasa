@@ -22,9 +22,6 @@
         . " WHERE u." . UsersTable::ID . " = :id "*/
     ;
 
-    //print_r($query);
-    //print_r("<br>");
-
     $params_select = array(
         /*':id' => $_SESSION[CONFIG['session']['keys']['IDUSER']],*/
     );

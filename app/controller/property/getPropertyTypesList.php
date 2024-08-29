@@ -13,7 +13,6 @@
     $where_select = "";
 
     if (isset($id)) { //dovrei provenire da /controller/property/types/customTable.php
-        print_r("Ho id: $id e costruisco la WHERE");
         $where_select = " WHERE " . PropertyTypesTable::ID . " = :id ";
         $params_select = [
             ':id' => $id
