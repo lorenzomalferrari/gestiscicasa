@@ -78,7 +78,7 @@
                             <a href="<?php echo PATH . "app/view/lists/properties_list.php" ?>" class="dsy-menu-link">Elenco</a>
                         </li>
                         <li class="dsy-nav-item">
-                            <a href="<?php echo PATH . "app/view/lists/properties_type_list.php" ?>" class="dsy-menu-link">Tipi</a>
+                            <a href="<?php echo PATH . "app/view/lists/property_types_list.php" ?>" class="dsy-menu-link">Tipi</a>
                         </li>
                     </ul>
                 </li>

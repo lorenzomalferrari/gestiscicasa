@@ -1,5 +1,4 @@
 <?php declare(strict_types=1);
-
     /**
      * Aggiunge o aggiorna il numero di visite sulla path interrogata.
      * Alcune path non vengono salvate nel conteggio
@@ -16,15 +15,22 @@
         $userId = $_SESSION[CONFIG['session']['keys']['IDUSER']];
         $callerFile = $_SERVER['PHP_SELF'];
 
-        // Verifica se il percorso è nell'elenco delle path escluse
+        // Verifica se la path è nell'elenco delle path escluse
         if (in_array($callerFile, PATH_ESCLUSE)) {
             return;
         }
 
+        foreach (FOLDER_ESCLUSE as $excludedPath) {
+            if (strpos($callerFile, $excludedPath) !== false) {
+                return;
+            }
+        }
+
+        // Esegui la query di selezione
         $select =
             "SELECT " . PathVisitatedTable::COUNT
-            . " FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PATHVISITATED)
-            . " WHERE " . PathVisitatedTable::PATH. " = :path and " . PathVisitatedTable::ID_USER. " = :idUser ";
+            . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PATHVISITATED)
+            . " WHERE " . PathVisitatedTable::PATH . " = :path AND " . PathVisitatedTable::ID_USER . " = :idUser ";
 
         $params = array(
             ':path' => $callerFile,
@@ -33,18 +39,19 @@
 
         $row = DB->select($select, $params);
 
-        if( $row ){
+        if ($row) {
+            // Se esiste, aggiorna il contatore
             $update =
                 "UPDATE " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PATHVISITATED)
-                . " SET " . PathVisitatedTable::COUNT . " = ( ( $select ) + 1 )"
-                . " WHERE " . PathVisitatedTable::PATH . " = :path and " . PathVisitatedTable::ID_USER . " = :idUser ";
+                . " SET " . PathVisitatedTable::COUNT . " = " . PathVisitatedTable::COUNT . " + 1"
+                . " WHERE " . PathVisitatedTable::PATH . " = :path AND " . PathVisitatedTable::ID_USER . " = :idUser ";
             DB->update($update, $params);
-        }else{
+        } else {
             // Se non esiste, inserisci una nuova riga
             $insert =
                 "INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PATHVISITATED)
-                . " (" . PathVisitatedTable::PATH. " , " . PathVisitatedTable::COUNT . " , " . PathVisitatedTable::ID_USER. ")"
-                ." VALUES (:path, 1, :idUser)";
+                . " (" . PathVisitatedTable::PATH . " , " . PathVisitatedTable::COUNT . " , " . PathVisitatedTable::ID_USER . ")"
+                . " VALUES (:path, 1, :idUser)";
             DB->insert($insert, $params);
         }
     }

@@ -12,12 +12,14 @@
 	}
 
 	// Verifica che l'ID e il nome della tabella siano presenti nel JSON
-	if (isset($data['tableName'], $data['id'])) {
+	if (isset($data['table'], $data['id'])) {
 		$id = $data['id'];
-		$tableName = $data['tableName'];
+		$tableName = $data['table'];
 
-		// Rimuovi 'tableName' e 'id' dai dati per ottenere solo le colonne da aggiornare
-		unset($data['tableName'], $data['id']);
+		// Rimuovi 'table' e 'id' dai dati per ottenere solo le colonne da aggiornare
+		unset($data['table'], $data['id']);
+		// Rimuovo anche le chiavi get che portano le infor per ricaricare pagina post lavorazione
+		unset($data['page'], $data['path_key'], $data['input_fields']);
 
 		// Verifica che ci siano effettivamente colonne da aggiornare
 		if (empty($data)) {

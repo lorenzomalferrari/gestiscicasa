@@ -11,8 +11,14 @@
 		exit;
 	}
 
+	// Rimuovo le chiavi get che portano le infor per ricaricare pagina post lavorazione
+	unset($data['page'], $data['path_key'], $data['input_fields']);
+
 	// Verifica che i dati necessari siano presenti
-	if (isset($data['tableName'], $data['id'])) {
+	if (isset($data['table'], $data['id'])) {
+
+		//percorso di ritorno se la cancellazione avviene correttamente
+		$path = MENU_PATHS[convertTableNameToPath($data['table'])];
 
 		$params_delete = [
 			':id' => $data['id']
@@ -20,7 +26,7 @@
 
 		try {
 			// Costruzione della query di eliminazione
-			$delete_query = "DELETE FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::getEnumCaseFromName(strtoupper($data['tableName'])))
+			$delete_query = "DELETE FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::getEnumCaseFromName(strtoupper($data['table'])))
 				. " WHERE id = :id";
 
 			// Esecuzione della query di eliminazione
@@ -33,7 +39,8 @@
 				echo json_encode([
 					'success' => true,
 					'message' => 'Record deleted successfully.',
-					'rows_affected' => $delete_result
+					'rows_affected' => $delete_result,
+					'path' => $path,
 				]);
 			}
 

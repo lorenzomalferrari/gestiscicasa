@@ -212,7 +212,16 @@
 		'/app/view/pricing.php',
 		'/app/view/registration.php',
 		'/app/view/reset_psw.php',
-		'/app/view/welcome.php',
+		'/app/view/welcome/welcome.php',
+	]);
+
+	/**
+	 * File delle cartelle da escludere dal salvataggio delle path visitate in DB
+	 */
+	define('FOLDER_ESCLUSE', [
+		'app/controller/',
+		'app/model/',
+		'/app/view/components/',
 	]);
 
 	/**
@@ -228,7 +237,7 @@
 		'users' => '/app/view/lists/users_list.php',
 		'welcome' => '/app/view/welcome.php',
 		'nazionalities' => '/app/view/lists/nazionalities_list.php',
-		'properties_type' => '/app/view/lists/properties_type_list.php',
+		'property_types' => '/app/view/lists/property_types_list.php',
 	]);
 
 	/**

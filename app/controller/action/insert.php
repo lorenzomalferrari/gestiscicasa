@@ -11,8 +11,11 @@
 		exit;
 	}
 
+	// Rimuovo le chiavi get che portano le infor per ricaricare pagina post lavorazione
+	unset($data['page'], $data['path_key'], $data['input_fields']);
+
 	// Verifica che i dati necessari siano presenti
-	if (isset($data['tableName'])) {
+	if (isset($data['table'])) {
 		$params_insert = [];
 		$columns_arr = [];
 		$values_arr = [];
@@ -20,11 +23,11 @@
 
 		try {
 			// Crea un'istanza della classe relativa alla tabella
-			$instances = ClassFactory::create($data['tableName']);
+			$instances = ClassFactory::create($data['table']);
 
 			// Cicla su tutte le chiavi dell'array esclusa quella denominata tableName
 			foreach ($data as $key => $value) {
-				if ($key !== 'tableName') {
+				if ($key !== 'table') {
 					$columns_arr[] = $key;
 					$values_arr[] = ":" . $key;
 					$params_insert[":" . $key] = $value;
@@ -36,7 +39,7 @@
 			$values_insert = concatenateWithComma($values_arr);
 
 			// Crea la query SQL per l'inserimento
-			$insert = "INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::getEnumCaseFromName(strtoupper($data['tableName'])))
+			$insert = "INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::getEnumCaseFromName(strtoupper($data['table'])))
 				. " (" . $columns_insert . ") "
 				. " VALUES (" . $values_insert . ")";
 

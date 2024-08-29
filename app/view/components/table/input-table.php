@@ -6,6 +6,9 @@
                 <div class="card-body">
                     <!-- Inizio del form -->
                     <form id="dynamicForm" method="POST" action="#">
+
+                        <?php echo $hidden_inputs; ?>
+
                         <div class="form-group">
                             <?php
                             $html = "";

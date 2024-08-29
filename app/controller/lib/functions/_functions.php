@@ -219,4 +219,39 @@
 		return $path;
 	}
 
+	/**
+	 * Normalize a given URL by applying several transformations:
+	 * - Trims leading and trailing spaces.
+	 * - Converts the URL to lowercase.
+	 * - Removes single quotes (').
+	 * - Replaces multiple consecutive slashes (//) with a single slash (/).
+	 * - Removes a trailing slash if the URL is not just "/".
+	 * - Removes any remaining spaces within the URL.
+	 * - Ensures the protocol (http/https) appears only once.
+	 *
+	 * @param string $url The URL to be normalized.
+	 * @return string The normalized URL.
+	 */
+	function normalizeUrl(string $url): string
+	{
+		// Rimuovi gli spazi all'inizio e alla fine dell'URL
+		$url = trim($url);
+		// Converti l'URL in minuscolo
+		$url = strtolower($url);
+		// Rimuovi eventuali apici singoli
+		$url = str_replace("'", '', $url);
+		// Sostituisci più di una barra consecutiva con una singola barra
+		$url = preg_replace('#/+#', '/', $url);
+		// Rimuovi barra finale (se non è solo "/")
+		if ($url !== '/') {
+			$url = rtrim($url, '/');
+		}
+
+		// Controllo ulteriore: Rimuovi eventuali spazi rimanenti
+		$url = str_replace(' ', '', $url);
+		// Controllo ulteriore: Rimuovi eventuali "http://" o "https://" superflui
+		$url = preg_replace('#^(https?://)+#', 'http://', $url);
+
+		return $url;
+	}
 ?>

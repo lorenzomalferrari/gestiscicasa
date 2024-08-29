@@ -202,7 +202,11 @@ function action(action, id = null, tableName) {
     }
 
     // Aggiungi tableName ai dati dell'oggetto
-    data['tableName'] = tableName;
+    //data['tableName'] = tableName;
+
+    console.log("Azione: " + action);
+    console.log("Url: " + url);
+    console.log(data);
 
     // Usa fetch per inviare i dati via POST come JSON
     fetch(url, {
@@ -220,10 +224,23 @@ function action(action, id = null, tableName) {
             // Azione specifica per ogni file PHP
             if (action === 'delete') {
                 // Reindirizza alla pagina "lista.php"
-                window.location.href = window.location.origin + '/lista.php';
-            } else if (action === 'insert' && result.newId) {
+                window.location.href = window.location.origin + result.path;
+            } else if (action === 'insert') {
                 // Ricarica la pagina attuale passando il nuovo id come parametro GET
-                window.location.href = window.location.pathname + '?id=' + result.newId;
+                const get_params =
+                    'id=' + result.id +
+                    '&page=' + data['page'] +
+                    '&path_key=' + data['path_key'] +
+                    '&table=' + data['table'] +
+                    '&input_fields=' + data['input_fields'];
+
+                //if (isValidUrlWithParams(get_params)){
+                    let path = window.location.pathname + '?' + get_params;
+                    window.location.href = path;
+                //}
+                //else{
+                //    alert("Errore di formattazione: " + get_params);
+                //}
             } else if (action === 'update') {
                 // Ricarica la pagina attuale
                 window.location.reload();
@@ -236,23 +253,6 @@ function action(action, id = null, tableName) {
             console.error('Error:', error);
         });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function validateCheckbox(checkbox) {
     // Controlla se la checkbox è stata selezionata
@@ -280,27 +280,6 @@ function soloNumeri(str) {
     const regex = /^[0-9]+$/;
     return regex.test(str);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function checkTextInput(id, feedbackId) {
     const input = document.getElementById(id);
