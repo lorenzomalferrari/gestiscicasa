@@ -1,5 +1,27 @@
 <?php declare(strict_types=1);
     require_once("app/controller/lib/libs.php");
+    getToPost();
+
+    $id_message_key = null;
+    $msg_errore = null;
+
+    $id_user = $_SESSION[CONFIG['session']['keys']['IDUSER']];
+    if( isset($id_message_key) ){
+        $id_message_key = $_POST['id_message_key'];
+        if( $id_message_key === CONFIG['message']['key'][0] && DB->isAdmin($id_user)){
+            $currentVersion = $_POST['dbVersion'];
+            $expectedVersion = $_POST['expectedVersion'];
+            // Sostituisci i segnaposto con i valori reali
+            $msg_errore = str_replace(
+                ['{current_version}', '{expected_version}'],
+                [$currentVersion, $expectedVersion],
+                CONFIG['message']['text'][$id_message_key]
+            );
+        }else{
+            //non gestito
+        }
+    }
+
     $titlePage = "Server in Manutenzione";
     $h1 = "SERVER IN MANUTENZIONE";
     $p1 = "Al momento il servizio non è disponibile";
@@ -29,37 +51,14 @@
         <i id="maintenance-icon" class="icon"></i>
         <h1><?php echo $h1; ?></h1>
         <p><?php echo $p1; ?></p>
+        <?php echo $msg_errore; ?>
         <p><?php echo $p2; ?><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></p>
         <div class="footer">
             <?php echo $footer; ?>
         </div>
         <script>
             // Array di classi delle icone di Bootstrap Icons
-            const icons = [
-                'bi-tools',
-                'bi-gear',
-                'bi-gear-fill',
-                'bi-gear-wide',
-                'bi-gear-wide-connected',
-                'bi-wrench-adjustable',
-                'bi-database-fill-gear',
-                'bi-database-gear',
-                'bi-database-x',
-                'bi-hdd-stack',
-                'bi-database-slash',
-                'bi-code-slash',
-                'bi-code-square',
-                'bi-person-fill-exclamation',
-                'bi-person-fill-slash',
-                'bi-person-fill-x',
-                'bi-emoji-expressionless',
-                'bi-emoji-expressionless-fill',
-                'bi-emoji-neutral',
-                'bi-emoji-neutral-fill',
-                'bi-emoji-frown',
-                'bi-emoji-frown-fill'
-            ];
-
+            const icons = CONFIG['icons']['server_not_work'];
             // Seleziona una classe randomicamente dall'array
             const randomIcon = icons[Math.floor(Math.random() * icons.length)];
             // Imposta la classe selezionata all'elemento i
