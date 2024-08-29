@@ -12,7 +12,6 @@
     $tableDataRecord =  [];
 
     foreach ($arrUsers as $user) {
-        //print_r($property);
         $tableDataRecord[] = [
             $user->getId(),
             $user->getUsername(),

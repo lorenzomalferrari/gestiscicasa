@@ -8,7 +8,6 @@
     $tableDataRecord =  [];
 
     foreach ($arrProperties as $property) {
-        //print_r($property);
         $tableDataRecord[] = [
             $property->getId(),
             $property->getName(),

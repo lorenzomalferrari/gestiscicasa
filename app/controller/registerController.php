@@ -44,8 +44,7 @@
                                 . " VALUES (:username, :password, :token)";
 
                 $new_user_id = DB->insert($insert, $params_insert);
-                print_r("Nuovo utente id: " . $new_user_id);
-
+                
                 if ($new_user_id) {
                     //echo "Utente creato id: " . $new_user_id;
 

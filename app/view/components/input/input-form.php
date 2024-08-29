@@ -2,8 +2,6 @@
     require_once("../../../controller/lib/libs.php");
     getToPost();//funzione che porta tutto da GET a POST
 
-    print_r($_POST);
-
     $page = $_POST['page'];
     $parent_path_key = $_POST['path_key'];
     $tableName = $_POST['table'];
@@ -18,11 +16,8 @@
     //se id è compilato, devo richiamare il customTable.php del contesto che sto trattando
     //e aggiungere in fields la key value con i valori da DB
     if($id > 0){
-        print_r($tableName . "<br><br>");
         $relative_path = convertTableNameToPath($tableName);
-        print_r($relative_path. "<br><br>");
         $url = normalizeUrl(ROOT . "app/controller/" . $relative_path . "customTable.php");
-    print_r($url . "<br><br>");
         require_once($url);
     }
 

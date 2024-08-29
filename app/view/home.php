@@ -1,6 +1,5 @@
 <?php declare(strict_types=1);
     require_once("../controller/lib/libs.php");
-    print_r($_SESSION);
     $titlePage = "Home";
     //Gestione di tutte le variabili php da usare a video. Es. nominativo del profilo loggato
     require_once(ROOT . "app/model/dashboard/getInfoForDashboard.php");

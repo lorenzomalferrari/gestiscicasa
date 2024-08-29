@@ -254,4 +254,29 @@
 
 		return $url;
 	}
+
+	/**
+	 * Convert a table name into a key by separating words with underscores
+	 * and converting the entire string to lowercase. Specifically, if the 
+	 * table name contains 'Type' or 'Types', these will be separated from 
+	 * the preceding word with an underscore.
+	 *
+	 * @param string $tableName The name of the table to be converted into a key.
+	 * @return string The formatted key.
+	 */
+	function convertTableNameToKey(string $tableName): string
+	{
+		// Aggiungi un underscore prima di 'Type' o 'Types'
+		if (strpos($tableName, 'Type') !== false) {
+			// Sostituisci 'Type' o 'Types' con '_type' o '_types'
+			$tableName = str_replace(['Type', 'Types'], ['_type', '_types'], $tableName);
+		}
+
+		// Converti camelCase o PascalCase in snake_case
+		$tableName = preg_replace('/(?<!^)[A-Z]/', '_$0', $tableName);
+		// Converti il nome della tabella in minuscolo
+		$tableName = strtolower($tableName);
+
+		return $tableName;
+	}
 ?>
