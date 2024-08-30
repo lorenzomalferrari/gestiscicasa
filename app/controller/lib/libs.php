@@ -14,8 +14,6 @@
 
     require_once(ROOT . 'app/controller/factory/ClassFactory.php');
 
-    //creo connessione unica al DB
-    require_once(ROOT . 'app/model/Database.php');
     //verifico o creo le cartelle dei logs e del backup
     require_once(ROOT . 'app/model/file/FileManager.php');
     $fm = new FileManager();
@@ -28,6 +26,9 @@
     foreach ($paths['files'] as $file) {
         $fm->execute($file, CONFIG['log']['extension']);
     }
+
+    //creo connessione unica al DB
+    require_once(ROOT . 'app/model/Database.php');
 
     define('DB', new Database(
         CONFIG_ISTANCE->get('SERVERNAME_DB'),
