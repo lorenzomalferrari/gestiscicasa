@@ -64,10 +64,10 @@
 			$apiLogWritten = $this->logApiCall();
 
 			// Scrivi il log su file api_logs.gc
-			$fileLogWritten = $this->writeToFileApiLogs();
+			//$fileLogWritten = $this->writeToFileApiLogs();
 
 			// Ritorna true se entrambi i log sono stati scritti con successo
-			return $apiLogWritten && $fileLogWritten;
+			return $apiLogWritten;//&& $fileLogWritten;
 		}
 
 		/**
@@ -100,7 +100,7 @@
 			}
 
 			// Scrivi il log nel database e su file error_ip.gc
-			parent::writeToFile();
+			//parent::writeToFile();
 
 			// Esempio: log_to_api_monitoring_service($apiLogEntry);
 			echo "API Log Entry: $apiLogEntry\n";

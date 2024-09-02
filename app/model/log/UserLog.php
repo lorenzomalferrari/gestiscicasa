@@ -61,13 +61,13 @@
 			//}
 
 			// Scrive il log nel database e su file
-			$dbLogWritten = parent::writeLog();
+			//$dbLogWritten = parent::writeLog();
 
 			// Scrive il log su file error_user.gc
-			$fileLogWritten = $this->writeToFile();
+			//$fileLogWritten = $this->writeToFile();
 
 			// Ritorna true se entrambi i log sono stati scritti con successo
-			return $dbLogWritten && $fileLogWritten;
+			return false;//$dbLogWritten && $fileLogWritten;
 		}
 
 		/**
@@ -111,6 +111,6 @@
 
 			//$logFile = 'error_user.gc';
 			//return file_put_contents($logFile, $logEntry, FILE_APPEND | LOCK_EX) !== false;
-			return FileManager::writeToFile($this->logFile, $logEntry, true);
+			return false;//FileManager::writeToFile($this->logFile, $logEntry, true);
 		}
 	}

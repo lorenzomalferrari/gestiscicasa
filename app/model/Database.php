@@ -328,7 +328,7 @@
         {
             // Creazione dell'oggetto DatabaseLog e scrittura del log
             $log = new DatabaseLog($params_log['message'], $params_log['action'], $params_log['beforeState'], $params_log['afterState'], $params_log['user'], $this->toString());
-            $log->writeToFile();
+            //$log->writeToFile();
         }
 
         public function exec($query, $params = array())

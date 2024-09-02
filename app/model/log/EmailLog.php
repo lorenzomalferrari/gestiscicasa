@@ -100,6 +100,6 @@
                 $this->emailMessage
             );
 
-            return FileManager::writeToFile($this->logFile, $logEntry, true);
+            return "";//FileManager::writeToFile($this->logFile, $logEntry, true);
         }
     }

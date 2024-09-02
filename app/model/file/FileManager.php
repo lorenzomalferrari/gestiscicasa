@@ -12,25 +12,18 @@
          * @param string $compressionFormat Il formato di compressione (default: 'zip').
          * @param string $fileExtension L'estensione del file (default: '.lmgc').
          */
-        public function __construct(string $compressionFormat = CONFIG['log']['compression'], string $fileExtension = CONFIG['log']['extension'])
+        public function __construct(string $compressionFormat = 'zip', string $fileExtension = 'gc')
         {
             $this->compressionFormat = $compressionFormat;
             $this->fileExtension = "." . $fileExtension;
-            $this->lockFilePath = self::getLockFilePath();
+            $this->lockFilePath = $this->getLockFilePath();
         }
 
         private function getLockFilePath(): string
         {
-            // Usa la directory di lavoro (basePath) per il lock file
             return CONFIG['log']['baseFolder'] . CONFIG['log']['file_lock'];
         }
 
-        /**
-         * Crea una directory, inclusa qualsiasi directory intermedia necessaria.
-         *
-         * @param string $directoryPath Il percorso della directory da creare.
-         * @return bool True se la directory è stata creata con successo, false altrimenti.
-         */
         public function createDirectory(string $directoryPath): bool
         {
             if (!is_dir($directoryPath)) {
@@ -39,13 +32,6 @@
             return false;
         }
 
-        /**
-         * Crea un file vuoto se non esiste già.
-         * Se necessario, crea anche la directory che lo conterrà.
-         *
-         * @param string $filePath Il percorso completo del file da creare.
-         * @return bool True se il file è stato creato con successo, false altrimenti.
-         */
         public function createFile(string $filePath): bool
         {
             $directoryPath = dirname($filePath);
@@ -58,18 +44,13 @@
                 if ($handle) {
                     fclose($handle);
                     return true;
+                } else {
+                    $this->logError("Impossibile creare il file: $filePath");
                 }
             }
             return false;
         }
 
-        /**
-         * Legge il contenuto di una directory.
-         *
-         * @param string $directoryPath Il percorso della directory da leggere.
-         * @return array Un array che rappresenta il contenuto della directory.
-         * @throws \RuntimeException Se la directory non esiste o non può essere letta.
-         */
         public static function readDirectoryContents(string $directoryPath): array
         {
             $directoryPath = rtrim($directoryPath, '/') . '/';
@@ -112,13 +93,6 @@
             return $contents;
         }
 
-        /**
-         * Visualizza in modo formattato il contenuto di una directory.
-         *
-         * @param array $directoryContents L'array contenente il contenuto della directory.
-         * @param int $indentLevel Il livello di indentazione corrente (usato per la ricorsione).
-         * @return void
-         */
         public static function printDirectoryContents(array $directoryContents, int $indentLevel = 0): void
         {
             foreach ($directoryContents as $name => $info) {
@@ -130,11 +104,6 @@
             }
         }
 
-        /**
-         * Esegue il lock per evitare conflitti nelle operazioni su file e directory.
-         *
-         * @return void
-         */
         private function acquireLock(): void
         {
             while (file_exists($this->lockFilePath)) {
@@ -143,11 +112,6 @@
             file_put_contents($this->lockFilePath, "locked");
         }
 
-        /**
-         * Rilascia il lock dopo aver completato le operazioni su file e directory.
-         *
-         * @return void
-         */
         private function releaseLock(): void
         {
             if (file_exists($this->lockFilePath)) {
@@ -165,6 +129,7 @@
         public function execute(string $baseDirectoryPath, string $prefix): void
         {
             try {
+                // Lock per evitare conflitti
                 $this->acquireLock();
 
                 // Creazione del file giornaliero
@@ -207,15 +172,6 @@
             }
         }
 
-        /**
-         * Crea un archivio compresso (.zip) con i file specificati.
-         *
-         * @param string $sourceDirectoryPath La directory di origine dei file da comprimere.
-         * @param string $outputFilePath Il percorso completo del file di output compresso.
-         * @param string $pattern Un pattern per filtrare i file da includere nell'archivio.
-         * @return void
-         * @throws \RuntimeException Se la creazione dell'archivio fallisce.
-         */
         private function createCompressedArchive(string $sourceDirectoryPath, string $outputFilePath, string $pattern): void
         {
             $zip = new \ZipArchive();
@@ -231,7 +187,15 @@
 
                 $zip->close();
             } else {
+                $this->logError("Impossibile creare l'archivio compresso: $outputFilePath");
                 throw new \RuntimeException("Impossibile creare l'archivio compresso: $outputFilePath");
             }
+        }
+
+        private function logError(string $message): void
+        {
+            $logFile = CONFIG['log']['baseFolder'] . 'error.log';
+            $timestamp = date('Y-m-d H:i:s');
+            file_put_contents($logFile, "[$timestamp] $message" . PHP_EOL, FILE_APPEND);
         }
     }
