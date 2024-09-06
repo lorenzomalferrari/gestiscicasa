@@ -4,13 +4,15 @@ declare(strict_types=1);
 require_once('app/controller/lib/libs.php');
 $flagConfirm = TRUE; //per evitare nel destroy il redirect a LOGIN
 require_once(ROOT . 'app/controller/lib/session/_session_destroy.php');
+
+$titlePage = "Account Confermato";
 /*
-    // Crea un'istanza della classe Token
-    $tokenModel = new Token(CRYPTO_KEY);
-    // Crea un'istanza del TokenController
-    $tokenController = new TokenController($tokenModel);
-    $isValid = $tokenController->validateToken($_POST['token']);
-    */
+        // Crea un'istanza della classe Token
+        $tokenModel = new Token(CRYPTO_KEY);
+        // Crea un'istanza del TokenController
+        $tokenController = new TokenController($tokenModel);
+        $isValid = $tokenController->validateToken($_POST['token']);
+        */
 $token = $_POST['token'];
 
 // Preparazione della query per la select
@@ -27,12 +29,12 @@ $query = "SELECT $params_select FROM "
     . " on p." . PersonTable::ID_USER . " = u." . UsersTable::ID . " "
     . " WHERE "
     . "         u." . UsersTable::TOKEN . " = :token
-                AND
-                    (
-                            u." . UsersTable::IS_ACTIVE . " = 0
-                        OR
-                            u." . UsersTable::IS_ACTIVE . " IS NULL
-                    )";
+                    AND
+                        (
+                                u." . UsersTable::IS_ACTIVE . " = 0
+                            OR
+                                u." . UsersTable::IS_ACTIVE . " IS NULL
+                        )";
 //applicare log in select
 $row = DB->select($query, $params_where);
 
@@ -43,7 +45,7 @@ if ($row) {
         . " WHERE " . UsersTable::TOKEN . " = :token";
     //applicare log in update
     $update_id = DB->update($update, $params_where);
-    print_r("Numero di righe aggiornate: " . $update_id);
+    //print_r("Numero di righe aggiornate: " . $update_id);
 
     //ora effettuo auto-login
     //in $row ho tutte le info avendo fatto SELECT ALL
@@ -84,11 +86,7 @@ if ($row) {
                     </div>
                     <h3 class="text-body text-bold mb-1 text-22"><?php echo $titlePage; ?></h3>
                     <div class="text-manatee">
-                        <p>Account confermato!</p>
                         <p>Ora puoi chiudere questa pagina.</p>
-                        <p>Progetto: <strong><?php echo CONFIG['site']['name_esteso']; ?></strong></p>
-                        <p>Versione: <strong><?php echo CONFIG['site']['version']; ?></strong></p>
-                        <p>Sviluppatore: <strong><?php echo CONFIG['site']['autore']; ?></strong></p>
                     </div>
                     <?php require_once(ROOT . "app/view/components/template/_copyright.php"); ?>
                 </div>
