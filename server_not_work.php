@@ -2,6 +2,13 @@
     require_once("app/controller/lib/libs.php");
     getToPost();
 
+    //decripto i dati in POST
+    $crypto = new Crypto();
+    $secureData = new SecureData($crypto);
+
+    // Recupera e decripta i dati da $_POST
+    $receivedData = $secureData->getPost();
+
     $id_message_key = null;
     $msg_errore = null;
 
