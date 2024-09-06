@@ -667,36 +667,6 @@
 	}
 
 	/**
-	 * Class representing the 'PropertyTypes' table.
-	 */
-	class PropertyTypesTable
-	{
-		const TABLE_NAME = 'PropertyTypes';
-
-		const ID = 'id';
-		const DESCRIPTION = 'description';
-		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateDate';
-		const NOTES = 'notes';
-
-		/**
-		 * Get the list of columns for the PropertyTypes table.
-		 *
-		 * @return array List of column names
-		 */
-		public static function getColumns(): array
-		{
-			return [
-				self::ID,
-				self::DESCRIPTION,
-				self::CREATION_DATE,
-				self::UPDATE_DATE,
-				self::NOTES
-			];
-		}
-	}
-
-	/**
 	 * Class representing the 'VersionDB' table.
 	 */
 	class VersionDBTable
@@ -973,11 +943,11 @@
 		}
 	}
 
-/**
- * Class InfoProfileTypes
- *
- * Represents the structure and columns of the InfoProfileTypes table.
- */
+	/**
+	 * Class InfoProfileTypes
+	 *
+	 * Represents the structure and columns of the InfoProfileTypes table.
+	 */
 	class InfoProfileTypesTable
 	{
 		const TABLE_NAME = 'InfoProfileTypes';
@@ -1004,6 +974,72 @@
 				self::DESCRIPTION,
 				self::NOTES,
 				self::CREATION_DATE,
+				self::UPDATE_DATE
+			];
+		}
+	}
+
+	/**
+	 * Class PropertyTypesCategoriesTable
+	 *
+	 * This class defines the structure of the table 'lmgc_PropertyTypesCategories' with constants for columns.
+	 */
+	class PropertyTypesCategoriesTable
+	{
+		const TABLE_NAME = 'lmgc_PropertyTypesCategories';
+
+		const ID = 'id';
+		const CATEGORY = 'category';
+		const NOTES = 'notes';
+		const CREATE_DATE = 'createDate';
+		const UPDATE_DATE = 'updateDate';
+
+		/**
+		 * Get the list of columns for the PropertyTypesCategories table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
+			return [
+				self::ID,
+				self::CATEGORY,
+				self::NOTES,
+				self::CREATE_DATE,
+				self::UPDATE_DATE
+			];
+		}
+	}
+
+	/**
+	 * Class PropertyTypesTable
+	 *
+	 * This class defines the structure of the table 'lmgc_PropertyTypes' with constants for columns.
+	 */
+	class PropertyTypesTable
+	{
+		const TABLE_NAME = 'lmgc_PropertyTypes';
+
+		const ID = 'id';
+		const TYPE_NAME = 'type_name';
+		const CATEGORY_ID = 'category_id';
+		const NOTES = 'notes';
+		const CREATE_DATE = 'createDate';
+		const UPDATE_DATE = 'updateDate';
+
+		/**
+		 * Get the list of columns for the PropertyTypes table.
+		 *
+		 * @return array List of column names
+		 */
+		public static function getColumns(): array
+		{
+			return [
+				self::ID,
+				self::TYPE_NAME,
+				self::CATEGORY_ID,
+				self::NOTES,
+				self::CREATE_DATE,
 				self::UPDATE_DATE
 			];
 		}
