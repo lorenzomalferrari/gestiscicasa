@@ -12,6 +12,10 @@
     require_once(ROOT . 'app/controller/lib/log/_log.php');
     require_once(ROOT . 'app/model/exception/CustomException.php');
 
+    //require classi per la criptazione e uso sicuro dei dati
+    require_once(ROOT . "app/model/Crypto.php");
+    require_once(ROOT . "app/model/SecureData.php");
+
     require_once(ROOT . 'app/controller/factory/ClassFactory.php');
 
     //verifico o creo le cartelle dei logs e del backup
