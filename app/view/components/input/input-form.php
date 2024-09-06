@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
     require_once("../../../controller/lib/libs.php");
-    getToPost();//funzione che porta tutto da GET a POST
+    getToPost();
 
     $page = $_POST['page'];
     $parent_path_key = $_POST['path_key'];
