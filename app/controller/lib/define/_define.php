@@ -132,6 +132,9 @@
 		'securityConfig' => [
 			'key' => 'vqP7WjUJCe58^tS!9YPd2TzL#HfG6@bM',
 		],
+		'helpdesk' => [
+			'link' => 'https://gestiscicasa.atlassian.net/jira/servicedesk/projects/AS/queues/custom/1',
+		],
 		'language' => [
 			'it' => 'Italiano',
 			'en' => 'English',
@@ -139,6 +142,14 @@
 			'de' => 'Deutsch',
 			'es' => 'Español',
 			'pt' => 'Português',
+		],
+		'message' => [
+			"key" => [
+				'diff_vers',
+			],
+			"text" => [
+				'diff_vers' => "Versione del database non corrispondente. Versione attuale: {current_version}, Versione attesa: {expected_version}",
+			],
 		],
 		'log' => [
 			'baseFolder' => 'public/gc_logs/',
@@ -170,6 +181,32 @@
 			'extension' => '.gc',
 			'compression' => '.zip',
 			'file_lock' => 'filemanager.lock',
+		],
+		'icons' => [
+			'server_not_work' => [
+				'bi-tools',
+                'bi-gear',
+                'bi-gear-fill',
+                'bi-gear-wide',
+                'bi-gear-wide-connected',
+                'bi-wrench-adjustable',
+                'bi-database-fill-gear',
+                'bi-database-gear',
+                'bi-database-x',
+                'bi-hdd-stack',
+                'bi-database-slash',
+                'bi-code-slash',
+                'bi-code-square',
+                'bi-person-fill-exclamation',
+                'bi-person-fill-slash',
+                'bi-person-fill-x',
+                'bi-emoji-expressionless',
+                'bi-emoji-expressionless-fill',
+                'bi-emoji-neutral',
+                'bi-emoji-neutral-fill',
+                'bi-emoji-frown',
+                'bi-emoji-frown-fill'
+			],
 		],
 	]);
 
