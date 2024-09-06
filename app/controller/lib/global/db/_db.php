@@ -13,4 +13,3 @@
 
     // Inizializza la configurazione una volta
     define('CONFIG_ISTANCE',Config::getInstance($configArray));
-?>

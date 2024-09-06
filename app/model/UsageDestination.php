@@ -92,5 +92,3 @@
                 "Usage Destination id: {$this->id}, Name: {$this->name}, Description: {$this->description}, Notes: {$this->notes}, Creation Date: {$this->creationDate}, Update Date: {$this->updateDate}, Code: {$this->code}, Color ID: {$this->colorId}";
         }
     }
-
-?>

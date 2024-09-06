@@ -161,5 +161,3 @@
 				", Last Modified Date: " . $this->updateDate;
 		}
 	}
-
-?>

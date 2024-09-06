@@ -4,4 +4,3 @@
     if((! isset($flagConfirm)) || $flagConfirm == FALSE ) {
         redirectPath("app/view/login.php?timeout=true");
     }
-?>

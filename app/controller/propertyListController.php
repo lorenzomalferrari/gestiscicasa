@@ -5,4 +5,3 @@
 		':id' => $_SESSION[CONFIG['session']['keys']['IDUSER']],
 	);
 	//Recupero le info degli edifici sapendo utente
-?>

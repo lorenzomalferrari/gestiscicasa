@@ -10,4 +10,3 @@
 	$email = $_SESSION["email"];
 	//richiamo la grafica della home
 	require_once(ROOT . "app/view/inex.php");
-?>

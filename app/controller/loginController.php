@@ -52,4 +52,3 @@
 			redirectPath("app/view/login.php");
 		}
 	}
-?>
