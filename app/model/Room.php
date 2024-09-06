@@ -134,4 +134,3 @@
 				", RoomTypes Id: " .$this->idRoomTypes ;
 		}
 	}
-?>

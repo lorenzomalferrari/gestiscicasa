@@ -797,4 +797,3 @@
 			"model" => '<progress id="" class="" value="" max="" onclick=""></progress>'
 		]
 	]);
-?>

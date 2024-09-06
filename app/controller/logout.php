@@ -4,4 +4,3 @@
     require_once(ROOT . "app/controller/lib/session/_session_destroy.php");
     // Reindirizza l'utente alla pagina di accesso o ad un'altra pagina
     redirectPath("app/view/login.php");
-?>

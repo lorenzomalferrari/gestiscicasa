@@ -61,4 +61,3 @@
 				"Room Type id: {$this->id}, Name: {$this->name}, Description: {$this->description}, Notes: {$this->note}";
 		}
 	}
-?>

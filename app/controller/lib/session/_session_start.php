@@ -14,4 +14,3 @@
     }
 
     $_SESSION[CONFIG['session']['keys']['LAST_ACTIVITY']] = time();
-?>

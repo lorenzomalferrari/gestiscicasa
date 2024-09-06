@@ -94,4 +94,3 @@
 				", Update Data: " . $this->updateDate;
 		}
 	}
-?>

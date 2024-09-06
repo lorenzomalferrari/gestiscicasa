@@ -114,4 +114,3 @@ class Product {
 		", Update Data: " . $this->updateDate;
 	}
 }
-?>

@@ -21,4 +21,3 @@
 			return implode(', ', self::getRoles());
 		}
 	}
-?>

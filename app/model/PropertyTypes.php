@@ -105,4 +105,3 @@
 				", Notes: " . $this->notes;
 		}
 	}
-?>

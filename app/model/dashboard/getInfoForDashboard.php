@@ -26,4 +26,3 @@
 	];
 
 	//FileManager::createDirectories($directories, $filesToCreate);
-?>

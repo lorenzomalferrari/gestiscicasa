@@ -78,5 +78,3 @@
 			return "ID: {$this->id}, Name: {$this->name}, Hex Code: {$this->hexCode}, RGB Code: {$this->rgbCode}, RGBA Code: {$this->rgbaCode}, HSL Code: {$this->hslCode}, Note: {$this->note}";
 		}
 	}
-
-?>

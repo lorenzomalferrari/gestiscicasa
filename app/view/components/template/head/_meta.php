@@ -1,6 +1,3 @@
-<?php declare(strict_types=1);
-    //require_once(ROOT . "app/controller/lib/libs.php");
-?>
 <!-- Meta Data -->
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">

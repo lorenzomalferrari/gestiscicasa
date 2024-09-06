@@ -3,4 +3,3 @@
     $nomeGestionale = CONFIG['site']['name'];
     $email = CONFIG['site']['email'];
     $telefono = CONFIG['site']['telefono'];
-?>

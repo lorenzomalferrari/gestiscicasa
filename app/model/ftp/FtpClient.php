@@ -37,4 +37,3 @@
             ftp_close($this->connection);
         }
     }
-?>

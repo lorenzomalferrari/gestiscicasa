@@ -81,5 +81,3 @@
 				", Update Date: " . $this->updateDate;
 		}
 	}
-
-?>
