@@ -131,6 +131,7 @@
 		],
 		'securityConfig' => [
 			'key' => 'vqP7WjUJCe58^tS!9YPd2TzL#HfG6@bM',
+			'cipher' => 'aes-256-cbc',
 		],
 		'helpdesk' => [
 			'link' => 'https://gestiscicasa.atlassian.net/jira/servicedesk/projects/AS/queues/custom/1',
