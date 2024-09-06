@@ -323,18 +323,18 @@
 			}
 		}
 
-		/**
-		 * Funzione privata per eseguire il log delle operazioni CRUD.
-		 *
-		 * @param array $params_log Parametri del log.
-		 * @return void
-		 */
-		private function executeLog($params_log = array()): void
-		{
-			// Creazione dell'oggetto DatabaseLog e scrittura del log
-			$log = new DatabaseLog($params_log['message'], $params_log['action'], $params_log['beforeState'], $params_log['afterState'], $params_log['user'], $this->toString());
-			$log->writeToFile();
-		}
+        /**
+         * Funzione privata per eseguire il log delle operazioni CRUD.
+         *
+         * @param array $params_log Parametri del log.
+         * @return void
+         */
+        private function executeLog($params_log = array()): void
+        {
+            // Creazione dell'oggetto DatabaseLog e scrittura del log
+            $log = new DatabaseLog($params_log['message'], $params_log['action'], $params_log['beforeState'], $params_log['afterState'], $params_log['user'], $this->toString());
+            //$log->writeToFile();
+        }
 
 		public function exec($query, $params = array())
 		{

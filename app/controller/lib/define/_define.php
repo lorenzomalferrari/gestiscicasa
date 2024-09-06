@@ -152,7 +152,7 @@
 			],
 		],
 		'log' => [
-			'baseFolder' => 'gc_logs',
+			'baseFolder' => 'public/gc_logs/',
 			'subFolder' => [
 				0 => 'backup',
 				1 => 'logs',
@@ -162,11 +162,11 @@
 				1 => 'logs',
 			],
 			'prefixFile' => [
-				0 => 'day_',
-				1 => 'week_',
-				2 => 'month_',
-				3 => 'semester_',
-				4 => 'year_',
+				0 => '_day_',
+				1 => '_week_',
+				2 => '_month_',
+				3 => '_semester_',
+				4 => '_year_',
 			],
 			'nome' => [
 				'file' => 'file',
@@ -179,6 +179,8 @@
 				'email' => 'email',
 			],
 			'extension' => '.gc',
+			'compression' => '.zip',
+			'file_lock' => 'filemanager.lock',
 		],
 		'icons' => [
 			'server_not_work' => [

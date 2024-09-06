@@ -181,6 +181,6 @@
 
 			// Scrivi l'errore nel file di log
 			$this->data = $this->dateTime . ": " . json_encode($this->customMessage, JSON_PRETTY_PRINT) . PHP_EOL;
-			FileManager::writeToFile($this->fileName, $this->data, true);
+			//FileManager::writeToFile($this->fileName, $this->data, true);
 		}
 	}

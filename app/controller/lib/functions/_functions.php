@@ -257,8 +257,8 @@
 
 	/**
 	 * Convert a table name into a key by separating words with underscores
-	 * and converting the entire string to lowercase. Specifically, if the 
-	 * table name contains 'Type' or 'Types', these will be separated from 
+	 * and converting the entire string to lowercase. Specifically, if the
+	 * table name contains 'Type' or 'Types', these will be separated from
 	 * the preceding word with an underscore.
 	 *
 	 * @param string $tableName The name of the table to be converted into a key.

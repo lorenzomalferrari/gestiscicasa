@@ -14,10 +14,21 @@
 
     require_once(ROOT . 'app/controller/factory/ClassFactory.php');
 
+    //verifico o creo le cartelle dei logs e del backup
+    require_once(ROOT . 'app/model/file/FileManager.php');
+    $fm = new FileManager();
+    $paths = PathAndFilesLog::getAllPaths();
+    // Esegui la creazione di directory e file tramite execute
+    foreach ($paths['directories'] as $directory) {
+        $fm->execute($directory, CONFIG['log']['extension']);
+    }
+
+    foreach ($paths['files'] as $file) {
+        $fm->execute($file, CONFIG['log']['extension']);
+    }
+
     //creo connessione unica al DB
     require_once(ROOT . 'app/model/Database.php');
-    //verifico o creo le cartelle dei logs
-    require_once(ROOT . 'app/controller/lib/file/create_path_and_file.php');
 
     define('DB', new Database(
         CONFIG_ISTANCE->get('SERVERNAME_DB'),

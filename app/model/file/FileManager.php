@@ -1,97 +1,201 @@
 <?php declare(strict_types=1);
 
-    /**
-     * Class FileManager
-     *
-     * Classe per la gestione della scrittura e lettura da file.
-     */
     class FileManager
     {
-        /**
-         * Scrive dei dati in un file.
-         *
-         * @param string $filename Nome del file in cui scrivere i dati.
-         * @param string $data Dati da scrivere nel file.
-         * @param bool $append True se si desidera aggiungere i dati al file esistente, False per sovrascrivere il file.
-         * @return bool True se la scrittura è avvenuta con successo, False altrimenti.
-         */
-        public static function writeToFile(string $filename, string $data, bool $append = false): bool
-        {
-            $filepath = ROOT . $filename;
+        private string $compressionFormat;
+        private string $fileExtension;
+        private string $lockFilePath;
 
-            // Controlla se il file esiste prima di tentare di scrivere
-            if (!file_exists($filepath)) {
-                error_log("Errore: Il file {$filepath} non esiste.");
-                return false;
+        /**
+         * Costruttore della classe FileManager.
+         *
+         * @param string $compressionFormat Il formato di compressione (default: 'zip').
+         * @param string $fileExtension L'estensione del file (default: '.lmgc').
+         */
+        public function __construct(string $compressionFormat = 'zip', string $fileExtension = 'gc')
+        {
+            $this->compressionFormat = $compressionFormat;
+            $this->fileExtension = "." . $fileExtension;
+            $this->lockFilePath = $this->getLockFilePath();
+        }
+
+        private function getLockFilePath(): string
+        {
+            return CONFIG['log']['baseFolder'] . CONFIG['log']['file_lock'];
+        }
+
+        public function createDirectory(string $directoryPath): bool
+        {
+            if (!is_dir($directoryPath)) {
+                return mkdir($directoryPath, 0777, true);
+            }
+            return false;
+        }
+
+        public function createFile(string $filePath): bool
+        {
+            $directoryPath = dirname($filePath);
+            if (!is_dir($directoryPath)) {
+                $this->createDirectory($directoryPath);
             }
 
-            $flags = $append ? FILE_APPEND | LOCK_EX : LOCK_EX;
-            return file_put_contents($filepath, $data, $flags) !== false;
+            if (!file_exists($filePath)) {
+                $handle = fopen($filePath, 'w');
+                if ($handle) {
+                    fclose($handle);
+                    return true;
+                } else {
+                    $this->logError("Impossibile creare il file: $filePath");
+                }
+            }
+            return false;
+        }
+
+        public static function readDirectoryContents(string $directoryPath): array
+        {
+            $directoryPath = rtrim($directoryPath, '/') . '/';
+
+            if (!is_dir($directoryPath)) {
+                throw new \RuntimeException("La directory specificata non esiste: $directoryPath");
+            }
+
+            $contents = [];
+            $dirHandle = opendir($directoryPath);
+
+            if ($dirHandle === false) {
+                throw new \RuntimeException("Impossibile aprire la directory: $directoryPath");
+            }
+
+            while (($item = readdir($dirHandle)) !== false) {
+                if ($item === '.' || $item === '..') {
+                    continue;
+                }
+
+                $fullPath = $directoryPath . $item;
+
+                if (is_dir($fullPath)) {
+                    $contents[$item] = [
+                        'type' => 'directory',
+                        'path' => $fullPath,
+                        'contents' => self::readDirectoryContents($fullPath)
+                    ];
+                } else {
+                    $contents[$item] = [
+                        'type' => 'file',
+                        'path' => $fullPath,
+                        'size' => filesize($fullPath),
+                        'last_modified' => filemtime($fullPath)
+                    ];
+                }
+            }
+
+            closedir($dirHandle);
+            return $contents;
+        }
+
+        public static function printDirectoryContents(array $directoryContents, int $indentLevel = 0): void
+        {
+            foreach ($directoryContents as $name => $info) {
+                echo str_repeat(' ', $indentLevel * 4) . $name . PHP_EOL;
+
+                if ($info['type'] === 'directory' && !empty($info['contents'])) {
+                    self::printDirectoryContents($info['contents'], $indentLevel + 1);
+                }
+            }
+        }
+
+        private function acquireLock(): void
+        {
+            while (file_exists($this->lockFilePath)) {
+                usleep(500000); // Attende 0.5 secondi prima di riprovare
+            }
+            file_put_contents($this->lockFilePath, "locked");
+        }
+
+        private function releaseLock(): void
+        {
+            if (file_exists($this->lockFilePath)) {
+                unlink($this->lockFilePath);
+            }
         }
 
         /**
-         * Legge i dati da un file.
+         * Funzione che esegue l'operazione principale e gestisce la logica di creazione file e cartelle.
          *
-         * @param string $filename Nome del file da cui leggere i dati.
-         * @return string|false Contenuto del file letto, oppure False in caso di errore.
+         * @param string $baseDirectoryPath Il percorso della directory di base.
+         * @param string $prefix Il prefisso per il nome del file.
+         * @return void
          */
-        public static function readFromFile(string $filename)
-        {
-            $filepath = ROOT . $filename;
-
-            // Controlla se il file esiste ed è leggibile prima di tentare di leggere
-            if (file_exists($filepath) && is_readable($filepath)) {
-                // Converte i caratteri di nuova linea in <br> per HTML
-                return nl2br(file_get_contents($filepath));
-            } else {
-                error_log("Errore: Il file {$filepath} non esiste o non è leggibile.");
-                return false;
-            }
-        }
-
-
-        /**
-         * Crea le cartelle e i file di log specificati nella configurazione.
-         *
-         * La funzione accetta due array di configurazione che specificano i percorsi di base, i nomi delle cartelle
-         * e le estensioni dei file di log. Per ogni elemento della configurazione, la funzione verifica se le
-         * cartelle esistono e, in caso contrario, le crea. Analogamente, crea i file di log se non esistono già.
-         *
-         * @param array $directories Configurazione che include il percorso di base, i nomi delle cartelle.
-         * @param array $filesToCreate Configurazione che include il percorso di base, i nomi dei file e le estensioni dei file.
-         *
-         * @throws CustomException Genera un'eccezione personalizzata in caso di errore.
-         */
-        public static function createDirectories(array $directories, array $filesToCreate): void
+        public function execute(string $baseDirectoryPath, string $prefix): void
         {
             try {
-                foreach ($directories as $dir) {
-                    if (!file_exists(ROOT . $dir) || !is_dir(ROOT . $dir)) {
-                        if (!mkdir(ROOT . $dir, 0755, true)) {
-                            print_r("-> ERRORE: Impossibile creare la cartella " . ROOT . $dir);
-                        } else {
-                            // Creo log
-                            //print_r("---->" .ROOT . $dir);
-                            //$fileLog = new FileLog("", 100, "", null, null, null);
-                            //$fileLog->writeToFile();
-                        }
+                // Lock per evitare conflitti
+                $this->acquireLock();
+
+                // Creazione del file giornaliero
+                $today = date('Y-m-d');
+                $dailyFilePath = $baseDirectoryPath . $prefix . CONFIG['log'][0] . $today . $this->fileExtension;
+                $this->createFile($dailyFilePath);
+
+                // Gestione settimanale
+                if (date('N') === '7' || date('N') === '6') {
+                    $startOfWeek = date('Y-m-d', strtotime('last Monday'));
+                    $endOfWeek = date('Y-m-d', strtotime('last Sunday'));
+                    $weeklyDirectoryPath = $baseDirectoryPath . $prefix . CONFIG['log'][1] . $startOfWeek . '_to_' . $endOfWeek . '/';
+                    if ($this->createDirectory($weeklyDirectoryPath)) {
+                        $this->createFile($weeklyDirectoryPath . $prefix . CONFIG['log'][0] . $startOfWeek . $this->fileExtension);
                     }
                 }
 
-                foreach ($filesToCreate as $file) {
-                    if (!file_exists(ROOT . $file)) {
-                        if (!touch(ROOT . $file)) {
-                            print_r("-> ERRORE: Impossibile creare il file " . ROOT . $file);
-                        } else {
-                            // Creo log
-                            //print_r("-------->" . ROOT . $dir);
-                            //$fileLog = new FileLog("", 102, "", null, null, null);
-                            //$fileLog->writeToFile();
-                        }
+                // Gestione mensile
+                if (date('j') === '1') {
+                    $lastMonth = date('Y-m', strtotime('first day of last month'));
+                    $monthlyDirectoryPath = $baseDirectoryPath . 'zip/' . $prefix . CONFIG['log'][2] . $lastMonth . $this->compressionFormat;
+                    $this->createCompressedArchive($baseDirectoryPath, $monthlyDirectoryPath, $prefix . CONFIG['log'][1]);
+                }
+
+                // Gestione semestrale
+                if (date('n') === '7' || date('n') === '1') {
+                    $semester = (date('n') <= 6) ? 'first' : 'second';
+                    $semesterDirectoryPath = $baseDirectoryPath . 'zip/' . $prefix . CONFIG['log'][3] . $semester . $this->compressionFormat;
+                    $this->createCompressedArchive($baseDirectoryPath . 'zip/', $semesterDirectoryPath, $prefix . CONFIG['log'][2]);
+                }
+
+                // Gestione annuale
+                if (date('n') === '1' && date('j') === '1') {
+                    $lastYear = date('Y', strtotime('last year'));
+                    $yearDirectoryPath = $baseDirectoryPath . 'zip/' . $prefix . CONFIG['log'][4] . $lastYear . $this->compressionFormat;
+                    $this->createCompressedArchive($baseDirectoryPath . 'zip/', $yearDirectoryPath, $prefix . CONFIG['log'][3]);
+                }
+            } finally {
+                $this->releaseLock();
+            }
+        }
+
+        private function createCompressedArchive(string $sourceDirectoryPath, string $outputFilePath, string $pattern): void
+        {
+            $zip = new \ZipArchive();
+            if ($zip->open($outputFilePath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE) === true) {
+                $files = scandir($sourceDirectoryPath);
+
+                foreach ($files as $file) {
+                    if ($file !== '.' && $file !== '..' && strpos($file, $pattern) === 0) {
+                        $filePath = $sourceDirectoryPath . $file;
+                        $zip->addFile($filePath, $file);
                     }
                 }
-            } catch (Throwable $e) {
-                throw new CustomException($e->getMessage(), $e->getCode(), $e);
+
+                $zip->close();
+            } else {
+                $this->logError("Impossibile creare l'archivio compresso: $outputFilePath");
+                throw new \RuntimeException("Impossibile creare l'archivio compresso: $outputFilePath");
             }
+        }
+
+        private function logError(string $message): void
+        {
+            $logFile = CONFIG['log']['baseFolder'] . 'error.log';
+            $timestamp = date('Y-m-d H:i:s');
+            file_put_contents($logFile, "[$timestamp] $message" . PHP_EOL, FILE_APPEND);
         }
     }

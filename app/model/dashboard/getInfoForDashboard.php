@@ -21,9 +21,9 @@
 
 	$filesToCreate = [
 		//creo i files per la cartella
-		PathAndFilesLog::FOLDER_USER . "/" . $_SESSION[CONFIG['session']['keys']['IDUSER']] . "/" . YEARNOW . "_" . MONTH . "_" . DAY . "_error_log." . CONFIG['log']['extension'],
-		PathAndFilesLog::FOLDER_USER . "/" . $_SESSION[CONFIG['session']['keys']['IDUSER']] . "/" . YEARNOW . "_" . MONTH . "_" . DAY . "_info_log." . CONFIG['log']['extension'],
+		PathAndFilesLog::FOLDER_USER . "/" . $_SESSION[CONFIG['session']['keys']['IDUSER']] . "/" . YEARNOW . "_" . MONTH . "_" . DAY . "_error_log" . CONFIG['log']['extension'],
+		PathAndFilesLog::FOLDER_USER . "/" . $_SESSION[CONFIG['session']['keys']['IDUSER']] . "/" . YEARNOW . "_" . MONTH . "_" . DAY . "_info_log" . CONFIG['log']['extension'],
 	];
 
-	FileManager::createDirectories($directories, $filesToCreate);
+	//FileManager::createDirectories($directories, $filesToCreate);
 ?>
