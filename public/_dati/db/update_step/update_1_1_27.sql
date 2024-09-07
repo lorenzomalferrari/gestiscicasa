@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS lmgc_Cities (
     isCapital BOOLEAN DEFAULT FALSE, -- Indica se la città è la capitale
     FOREIGN KEY (country_id) REFERENCES lmgc_Countries(id)
 );
-
+/*
 -- AFRICA
 
 -- Inserimento capitali africane
@@ -116,3 +116,4 @@ INSERT INTO lmgc_Cities (name, code, notes, country_id, latitude, longitude, pop
 ('Lusaka', 'LUN', 'Capitale dello Zambia', 49, -15.3875, 28.3228, 2200000, TRUE),
 -- Zimbabwe
 ('Harare', 'HRE', 'Capitale dello Zimbabwe', 50, -17.8292, 31.0522, 1560000, TRUE);
+*/

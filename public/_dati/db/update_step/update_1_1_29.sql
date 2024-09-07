@@ -1,3 +1,4 @@
+/*
 -- EUROPA
 
 INSERT INTO lmgc_Capitals (name, country_id, population, latitude, longitude, description) VALUES
@@ -46,3 +47,4 @@ INSERT INTO lmgc_Capitals (name, country_id, population, latitude, longitude, de
 ('Ankara', 137, 5533120, 39.9334, 32.8597, 'La capitale della Turchia, situata nel cuore del paese.'),
 ('Kiev', 138, 2968000, 50.4501, 30.5234, 'La capitale dell\'Ucraina, nota per la sua storia e cultura.'),
 ('Città del Vaticano', 139, 800, 41.9029, 12.4534, 'La capitale del Vaticano, il più piccolo stato indipendente al mondo.');
+*/

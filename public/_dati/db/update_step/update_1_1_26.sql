@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS lmgc_CountriesLanguages (
     CONSTRAINT fk_country FOREIGN KEY (country_id) REFERENCES lmgc_Countries(id) ON DELETE CASCADE,
     CONSTRAINT fk_language FOREIGN KEY (language_id) REFERENCES lmgc_Languages(id) ON DELETE CASCADE
 );
-
+/*
 INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
 ('Algeria', 'DZ', 'DZ', 'DZA', 12, 2589581, 1, 2381741.00, 40400000, 1, 'Il paese più grande dell\'Africa per superficie.'),
 ('Angola', 'AO', 'AO', 'AGO', 24, 3351879, 1, 1246700.00, 25868000, 2, 'Conosciuto per le sue risorse minerarie.'),
@@ -75,7 +75,7 @@ INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geonam
 ('Tunisia', 'TN', 'TN', 'TUN', 788, 246447, 1, 163610.00, 11580000, 47, 'Famosa per le sue spiagge e la storia.'),
 ('Uganda', 'UG', 'UG', 'UGA', 800, 2260483, 1, 241550.00, 48870000, 48, 'Conosciuta per il lago Victoria e i parchi nazionali.'),
 ('Zambia', 'ZM', 'ZM', 'ZMB', 894, 893506, 1, 752612.00, 20350000, 49, 'Conosciuta per il fiume Zambezi e le cascate Vittoria.'),
-('Zimbabwe', 'ZW', 'ZW', 'ZWE', 716, 878675, 1, 390757.00, 15330000, 50, 'Famosa per le sue riserve naturali e i parchi.'),
+('Zimbabwe', 'ZW', 'ZW', 'ZWE', 716, 878675, 1, 390757.00, 15330000, 50, 'Famosa per le sue riserve naturali e i parchi.');
 
 
 INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
@@ -122,7 +122,7 @@ INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geonam
 ('Emirati Arabi Uniti', 'AE', 'AE', 'ARE', 784, 292207, 3, 83600.00, 9030000, 41, 'Famoso per le sue città moderne e l\'economia petrolifera.'),
 ('Uzbekistan', 'UZ', 'UZ', 'UZB', 860, 1519064, 3, 448978.00, 34850000, 42, 'Conosciuto per la sua storia culturale e le città storiche.'),
 ('Vietnam', 'VN', 'VN', 'VNM', 704, 1562822, 3, 331210.00, 97300000, 43, 'Famoso per la sua storia e le bellezze naturali.'),
-('Yemen', 'YE', 'YE', 'YEM', 887, 695666, 3, 527968.00, 29700000, 44, 'Conosciuto per la sua storia antica e le risorse naturali.'),
+('Yemen', 'YE', 'YE', 'YEM', 887, 695666, 3, 527968.00, 29700000, 44, 'Conosciuto per la sua storia antica e le risorse naturali.');
 
 
 INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
@@ -170,7 +170,7 @@ INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geonam
 ('Svizzera', 'CH', 'CH', 'CHE', 756, 2657896, 4, 41285.00, 8687062, 42, 'Famosa per le sue montagne e la qualità della vita.'),
 ('Turchia', 'TR', 'TR', 'TUR', 792, 745037, 4, 783562.00, 86000000, 43, 'Un paese che si estende tra Europa e Asia.'),
 ('Ucraina', 'UA', 'UA', 'UKR', 804, 690437, 4, 603550.00, 43900000, 44, 'Famosa per la sua storia e le sue città storiche.'),
-('Vaticano', 'VA', 'VA', 'VAT', 336, 298832, 4, 0.49, 800, 45, 'Il più piccolo stato indipendente al mondo.'),
+('Vaticano', 'VA', 'VA', 'VAT', 336, 298832, 4, 0.49, 800, 45, 'Il più piccolo stato indipendente al mondo.');
 
 INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
 ('Antigua e Barbuda', 'AG', 'AG', 'ATG', 28, 3578096, 5, 442.00, 98000, 1, 'Un piccolo arcipelago nei Caraibi.'),
@@ -195,7 +195,7 @@ INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geonam
 ('Saint Lucia', 'LC', 'LC', 'LCA', 662, 3582500, 5, 616.00, 200000, 20, 'Conosciuta per le sue bellezze naturali e la cultura.'),
 ('Saint Vincent e Grenadine', 'VC', 'VC', 'VCT', 670, 3577718, 5, 389.00, 110000, 21, 'Un’isola con paesaggi naturali e cultura.'),
 ('Trinidad e Tobago', 'TT', 'TT', 'TTO', 780, 3576902, 5, 5128.00, 1400000, 22, 'Famoso per la sua musica e cultura.'),
-('USA', 'US', 'US', 'USA', 840, 6252001, 5, 9372610.00, 331000000, 23, 'Il paese più potente del mondo con una grande diversità.'),
+('USA', 'US', 'US', 'USA', 840, 6252001, 5, 9372610.00, 331000000, 23, 'Il paese più potente del mondo con una grande diversità.');
 
 INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
 ('Australia', 'AU', 'AU', 'AUS', 36, 2077456, 6, 7692024.00, 25600000, 1, 'Il paese più grande dell’Oceania, famoso per la sua fauna unica.'),
@@ -209,7 +209,7 @@ INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geonam
 ('Samoa', 'WS', 'WS', 'WSM', 882, 4033988, 6, 2842.00, 200000, 9, 'Famosa per la sua cultura polinesiana e paesaggi naturali.'),
 ('Tonga', 'TO', 'TO', 'TON', 776, 4032280, 6, 748.00, 100000, 10, 'Un’isola con una cultura polinesiana unica.'),
 ('Tuvalu', 'TV', 'TV', 'TUV', 798, 2110295, 6, 26.00, 12000, 11, 'Un paese insulare con una bassa elevazione.'),
-('Vanuatu', 'VU', 'VU', 'VUT', 548, 2135506, 6, 12200.00, 300000, 12, 'Famoso per le sue isole e la cultura melanesiana.'),
+('Vanuatu', 'VU', 'VU', 'VUT', 548, 2135506, 6, 12200.00, 300000, 12, 'Famoso per le sue isole e la cultura melanesiana.');
 
 INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
 ('Argentina', 'AR', 'AR', 'ARG', 032, 3865483, 7, 2780400.00, 45195777, 1, 'Conosciuta per la sua cultura del tango e paesaggi variegati.'),
@@ -223,4 +223,5 @@ INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geonam
 ('Perù', 'PE', 'PE', 'PER', 604, 3932488, 7, 1285216.00, 35000000, 9, 'Conosciuto per le rovine di Machu Picchu e la cultura Inca.'),
 ('Suriname', 'SR', 'SR', 'SUR', 740, 3385676, 7, 163820.00, 600000, 10, 'Famoso per le sue foreste pluviali e la diversità culturale.'),
 ('Uruguay', 'UY', 'UY', 'URY', 858, 3439705, 7, 176215.00, 3500000, 11, 'Conosciuto per le sue spiagge e la qualità della vita.'),
-('Venezuela', 'VE', 'VE', 'VEN', 862, 3629648, 7, 912050.00, 28000000, 12, 'Famoso per le sue riserve di petrolio e la bellezza naturale.'),
+('Venezuela', 'VE', 'VE', 'VEN', 862, 3629648, 7, 912050.00, 28000000, 12, 'Famoso per le sue riserve di petrolio e la bellezza naturale.');
+*/

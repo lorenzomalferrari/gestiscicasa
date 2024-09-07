@@ -1,4 +1,4 @@
--- SUD AMERICA
+/*-- SUD AMERICA
 
 INSERT INTO lmgc_Capitals (name, country_id, population, latitude, longitude, description) VALUES
 ('Buenos Aires', 175, 45195777, -34.6037, -58.3816, 'La capitale dell\'Argentina, nota per la sua architettura e il tango.'),
@@ -14,3 +14,4 @@ INSERT INTO lmgc_Capitals (name, country_id, population, latitude, longitude, de
 ('Paramaribo', 184, 600000, 5.8694, -55.1672, 'La capitale del Suriname, situata lungo il fiume Suriname.'),
 ('Montevideo', 185, 3500000, -34.9036, -56.1882, 'La capitale dell\'Uruguay, situata sulla costa sud-orientale del paese.'),
 ('Caracas', 186, 28000000, 10.4910, -66.8983, 'La capitale del Venezuela, situata nella valle di Caracas.');
+*/

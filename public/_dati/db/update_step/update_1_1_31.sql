@@ -1,4 +1,4 @@
--- OCEANIA
+/*-- OCEANIA
 
 INSERT INTO lmgc_Capitals (name, country_id, population, latitude, longitude, description) VALUES
 ('Canberra', 163, 25600000, -35.2809, 149.1300, 'La capitale dell\'Australia, situata nel Territorio della Capitale Australiana.'),
@@ -13,3 +13,4 @@ INSERT INTO lmgc_Capitals (name, country_id, population, latitude, longitude, de
 ('Nuku\'alofa', 172, 100000, -21.1384, -175.2043, 'La capitale di Tonga, situata sulla costa nord-orientale dell\'isola di Tongatapu.'),
 ('Funafuti', 173, 12000, -7.1095, 179.1940, 'La capitale di Tuvalu, situata sull\'atollo di Funafuti.'),
 ('Port Vila', 174, 300000, -17.7333, 168.3272, 'La capitale di Vanuatu, situata sulla costa sud-orientale dell\'isola di Efate.');
+*/
