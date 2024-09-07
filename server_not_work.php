@@ -1,23 +1,27 @@
 <?php declare(strict_types=1);
     require_once("app/controller/lib/libs.php");
-    getToPost();
 
-    //decripto i dati in POST
     $crypto = new Crypto();
     $secureData = new SecureData($crypto);
 
-    // Recupera e decripta i dati da $_POST
-    $receivedData = $secureData->getPost();
+    // Recupera i parametri criptati dalla query string
+    $encryptedParams = $_GET;
+
+    // Decripta i parametri
+    $decryptedParams = [];
+    foreach ($encryptedParams as $key => $encryptedValue) {
+        $decryptedParams[$key] = $secureData->decryptData($encryptedValue);
+    }
 
     $id_message_key = null;
     $msg_errore = null;
 
     $id_user = $_SESSION[CONFIG['session']['keys']['IDUSER']];
     if( isset($id_message_key) ){
-        $id_message_key = $_POST['id_message_key'];
+        $id_message_key = $decryptedParams['id_message_key'];
         if( $id_message_key === CONFIG['message']['key'][0] && DB->isAdmin($id_user)){
-            $currentVersion = $_POST['dbVersion'];
-            $expectedVersion = $_POST['expectedVersion'];
+            $currentVersion = $decryptedParams['dbVersion'];
+            $expectedVersion = $decryptedParams['expectedVersion'];
             // Sostituisci i segnaposto con i valori reali
             $msg_errore = str_replace(
                 ['{current_version}', '{expected_version}'],
