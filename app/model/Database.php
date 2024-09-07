@@ -300,12 +300,28 @@
 					$expectedVersion = CONFIG['db']['server'][getEnvironmentKey()]['version'];
 
 					if ($dbVersion !== $expectedVersion) {
-						//$message = "Versione del database non corrispondente. Versione attuale: $dbVersion, Versione attesa: $expectedVersion";
-						//throw new CustomException($message);
-						//l'errore va convertito nel fatto che si salvi su file
-						//redirect alla pagina di manutenzione con messaggio custom
-						$id_message_key = CONFIG['message']['key'][0];
-						redirectPath("server_not_work.php?id_message=$id_message_key&dbVersion=$dbVersion&expectedVersion=$expectedVersion");
+						$crypto = new Crypto();
+						$secureData = new SecureData($crypto);
+
+						// Parametri da criptare
+						$params = [
+							'id_message' => CONFIG['message']['key'][0],
+							'dbVersion' => $dbVersion,
+							'expectedVersion' => $expectedVersion
+						];
+
+						// Cripta i parametri
+						$encryptedParams = [];
+						foreach ($params as $key => $value) {
+							$encryptedParams[$key] = $secureData->encryptData($value);
+						}
+
+						// Costruisci la query string criptata
+						$queryString = http_build_query($encryptedParams);
+						$url = "server_not_work.php?" . $queryString;
+
+						// Passo alla prossima pagina
+						redirectPath($url);
 					}
 				} else {
 					throw new CustomException("Impossibile recuperare la versione del database.");
@@ -353,6 +369,7 @@
 				$this->executeLog($params_log);
 				return $stmt->rowCount();
 			} catch (PDOException $e) {
+				print_r($query);
 				throw new CustomException("Errore durante l'esecuzione della query exec", CustomException::PDO_EXCEPTION, $e);
 			}
 		}
