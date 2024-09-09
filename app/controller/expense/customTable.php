@@ -1,32 +1,27 @@
 <?php declare(strict_types=1);
     $backgroundTable = "";
 
-    $titlePage = "Proprietà";
-    $tableName = PropertyTable::TABLE_NAME;
+    $titlePage = "Spese";
+    $tableName = ExpenseTable::TABLE_NAME;
 
-    $tableDataHeader = PropertyTable::getColumns();
+    $tableDataHeader = ExpenseTable::getColumns();
     $tableDataRecord =  [];
 
-    foreach ($arrProperties as $property) {
+    foreach ($arrObj as $obj) {
         $tableDataRecord[] = [
-            $property->getId(),
-            $property->getName(),
-            $property->getDescription(),
-            $property->getPrice(),
-            $property->getAddress(),
-            $property->getIdCity(),
-            $property->getIdState(),
-            $property->getIdPropertyTypes(),
-            $property->isActive(),
-            $property->getNotes(),
-            $property->getCreationDate(),
-            $property->getupdateDate(),
+            $obj->getId(),
+            $obj->getExpenseTypeId(),
+            $obj->getAmount(),
+            $obj->getExpenseDate(),
+            $obj->getNote(),
+            $obj->getPropertyId(),
+            $obj->getColore(),
         ];
     }
 
     $fields = [
         "head" => [
-            "title" => "Titolo Pagina"
+            "title" => "$titlePage"
         ],
         "body" => [
             "buttons" => [
@@ -37,46 +32,10 @@
             ],
             "rows" => [
                 [
-                    [
-                        "label" => "Nome",
-                        "type" => "text",
-                        "attributes" => [
-                            "id" => "",
-                            "name" => "nome",
-                            "class" => "form-control",
-                            "placeholder" => "Inserisci il tuo nome",
-                            "required" => "required",
-                            "maxlength" => "100"
-                        ],
-                        "col" => 6
-                    ],
-                    [
-                        "label" => "Cognome",
-                        "type" => "text",
-                        "attributes" => [
-                            "id" => "",
-                            "class" => "form-control",
-                            "name" => "cognome",
-                            "placeholder" => "Inserisci il tuo cognome",
-                            "required" => "required",
-                            "maxlength" => "100"
-                        ],
-                        "col" => 6
-                    ]
+                    //riga 1
                 ],
                 [
-                    [
-                        "label" => "Indirizzo",
-                        "type" => "text",
-                        "attributes" => [
-                            "id" => "",
-                            "class" => "form-control",
-                            "name" => "indirizzo",
-                            "placeholder" => "Inserisci il tuo indirizzo",
-                            "required" => "required",
-                            "maxlength" => "100"
-                        ],
-                    ],
+                    //riga 2
                 ]
             ]
         ]
