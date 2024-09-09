@@ -489,7 +489,7 @@
 	/**
 	 * Class representing the 'Rooms' table.
 	 */
-	class RoomsTable
+	class RoomTable
 	{
 		const TABLE_NAME = 'Rooms';
 
@@ -954,7 +954,7 @@
 	 */
 	class PropertyTypesCategoriesTable
 	{
-		const TABLE_NAME = 'lmgc_PropertyTypesCategories';
+		const TABLE_NAME = 'PropertyTypesCategories';
 
 		const ID = 'id';
 		const CATEGORY = 'category';
@@ -986,7 +986,7 @@
 	 */
 	class PropertyTypesTable
 	{
-		const TABLE_NAME = 'lmgc_PropertyTypes';
+		const TABLE_NAME = 'PropertyTypes';
 
 		const ID = 'id';
 		const TYPE_NAME = 'type_name';
@@ -1020,6 +1020,8 @@
 	 */
 	class RoomTypesTable
 	{
+		const TABLE_NAME = 'RoomTypes';
+
 		// Costanti che rappresentano i nomi delle colonne della tabella lmgc_RoomTypes
 		public const ID = 'id';
 		public const CODICE = 'codice';
