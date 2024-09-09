@@ -27,7 +27,7 @@
         case PROPERTYTYPES = PropertyTypesTable::TABLE_NAME;
         case ROLE = RolesTable::TABLE_NAME;
         case ROOM = RoomsTable::TABLE_NAME;
-        case ROOMTYPES = RoomTypessTable::TABLE_NAME;
+        case ROOMTYPES = RoomTypesTable::TABLE_NAME;
         case USAGEDESTINATIONS = UsageDestinationsTable::TABLE_NAME;
         case USERS = UsersTable::TABLE_NAME;
         case USERSPROPERTY = UsersPropertyTable::TABLE_NAME;

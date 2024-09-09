@@ -184,7 +184,7 @@
 			'file_lock' => 'filemanager.lock',
 		],
 		'icons' => [
-			'server_not_work' => [
+			'crm_not_working' => [
 				'bi-tools',
                 'bi-gear',
                 'bi-gear-fill',
