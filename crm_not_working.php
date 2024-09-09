@@ -66,7 +66,7 @@ $email = CONFIG['site']['email_aziendale'];
     <?php require_once(ROOT . "app/view/components/template/_script.php"); ?>
     <script>
         // Array di classi delle icone di Bootstrap Icons
-        const icons = CONFIG['icons']['server_not_work'];
+        const icons = CONFIG['icons']['crm_not_working'];
         // Seleziona una classe randomicamente dall'array
         const randomIcon = icons[Math.floor(Math.random() * icons.length)];
         // Imposta la classe selezionata all'elemento i
