@@ -1,4 +1,4 @@
--- NORD AMERICA
+/*-- NORD AMERICA
 
 INSERT INTO lmgc_Capitals (name, country_id, population, latitude, longitude, description) VALUES
 ('Saint John\'s', 140, 98000, 17.1172, -61.8450, 'La capitale di Antigua e Barbuda, situata sull\'isola di Antigua.'),
@@ -24,3 +24,4 @@ INSERT INTO lmgc_Capitals (name, country_id, population, latitude, longitude, de
 ('Kingstown', 160, 110000, 13.1591, -61.2248, 'La capitale di Saint Vincent e Grenadine, situata sulla costa occidentale.'),
 ('Port of Spain', 161, 1400000, 10.6504, -61.5206, 'La capitale di Trinidad e Tobago, situata sulla costa nord-orientale dell\'isola.'),
 ('Washington D.C.', 162, 331000000, 38.8951, -77.0369, 'La capitale degli Stati Uniti, sede del governo federale e di numerosi monumenti.');
+*/

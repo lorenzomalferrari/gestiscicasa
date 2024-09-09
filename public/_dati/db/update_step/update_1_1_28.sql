@@ -1,3 +1,4 @@
+/*
 -- ASIA
 
 -- Inserimento capitali asiatiche
@@ -91,3 +92,4 @@ INSERT INTO lmgc_Cities (name, code, notes, country_id, latitude, longitude, pop
 ('Hanoi', 'HAN', 'Capitale del Vietnam', 93, 21.0285, 105.8542, 8000000, TRUE),
 -- Yemen
 ('Sana\'a', 'SAH', 'Capitale dello Yemen', 94, 15.3694, 44.1910, 2700000, TRUE);
+*/

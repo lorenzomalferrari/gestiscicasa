@@ -57,13 +57,13 @@
 			}
 
 			// Scrivi il log nel database e su file
-			$dbLogWritten = parent::writeToFile();
+			//$dbLogWritten = parent::writeToFile();
 
 			// Scrivi il log su file error_ip.gc
-			$fileLogWritten = $this->writeToFile();
+			//$fileLogWritten = $this->writeToFile();
 
 			// Ritorna true se entrambi i log sono stati scritti con successo
-			return $dbLogWritten && $fileLogWritten;
+			return false;//$dbLogWritten && $fileLogWritten;
 		}
 
 		/**
@@ -91,7 +91,7 @@
 
 			// Scrivi il log nel database e su file error_ip.gc
 			//parent::writeToFile();
-			$this->writeToFile();
+			//$this->writeToFile();
 
 			// Esempio: trigger_error($errorMessage, E_USER_WARNING);
 			echo "Errore generato: $errorMessage\n";
@@ -118,6 +118,6 @@
 
 			//$logFile = 'error_ip.gc';
 			//return file_put_contents($logFile, $logEntry, FILE_APPEND | LOCK_EX) !== false;
-			return FileManager::writeToFile($this->logFile, $logEntry, true);
+			return false;//FileManager::writeToFile($this->logFile, $logEntry, true);
 		}
 	}

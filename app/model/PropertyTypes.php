@@ -1,108 +1,75 @@
-<?php declare(strict_types=1);
-	/**
-	 * Classe che rappresenta i Tipi di Proprietà
-	 */
-	class PropertyTypes {
+<?php
 
-		// Instance variables
-		private int $id;
-		private string $description;
-		private string $creationDate;
-		private string $lastModifiedDate;
-		private string $notes;
+    /**
+     * Class PropertyTypes
+     *
+     * This class represents the entity of the table 'lmgc_PropertyTypes'.
+     */
+    class PropertyTypes
+    {
+        private int $id;
+        private string $typeName;
+        private int $categoryId;
+        private ?string $notes;
+        private string $createDate;
+        private string $updateDate;
 
-		public const BUILDING = 0; //Building
-		public const APARTMENT = 1; //Apartment
-		public const OFFICE = 2; //Office
-		public const VILLA = 3; //Villa
-		public const WAREHOUSE = 4; //Warehouse
-		public const LAND = 5; //Land
+        /**
+         * Constructor for PropertyTypes.
+         *
+         * @param int $id
+         * @param string $typeName
+         * @param int $categoryId
+         * @param string|null $notes
+         * @param string $createDate
+         * @param string $updateDate
+         */
+        public function __construct(int $id, string $typeName, int $categoryId, ?string $notes, string $createDate, string $updateDate)
+        {
+            $this->id = $id;
+            $this->typeName = $typeName;
+            $this->categoryId = $categoryId;
+            $this->notes = $notes;
+            $this->createDate = $createDate;
+            $this->updateDate = $updateDate;
+        }
 
-		// Constructor
-		/*public function __construct(
-			int $id,
-			string $description,
-			string $creationDate,
-			string $lastModifiedDate=null,
-			string $notes=null
-		) {
-			$this->id = $id;
-			$this->description = $description;
-			$this->creationDate = $creationDate;
-			$this->lastModifiedDate = $lastModifiedDate;
-			$this->notes = $notes;
-		}*/
+        // Getter and setter methods
+        public function getId(): int
+        {
+            return $this->id;
+        }
+        public function getTypeName(): string
+        {
+            return $this->typeName;
+        }
+        public function getCategoryId(): int
+        {
+            return $this->categoryId;
+        }
+        public function getNotes(): ?string
+        {
+            return $this->notes;
+        }
+        public function getCreateDate(): string
+        {
+            return $this->createDate;
+        }
+        public function getUpdateDate(): string
+        {
+            return $this->updateDate;
+        }
 
-		public function __construct() {
-			$this->id = 0;
-			$this->description = "";
-			$this->creationDate = "";
-			$this->lastModifiedDate = "";
-			$this->notes = "";
-		}
-
-		// Getter and setter methods for 'id'
-		public function getId(): int {
-			return $this->id;
-		}
-
-		public function setId(int $id): void {
-			$this->id = $id;
-		}
-
-		// Getter and setter methods for 'description'
-		public function getDescription(): string {
-			return $this->description;
-		}
-
-		public function setDescription(string $description): void {
-			$this->description = $description;
-		}
-
-		// Getter and setter methods for 'creationDate'
-		public function getCreationDate(): string {
-			return $this->creationDate;
-		}
-
-		// Getter and setter methods for 'lastModifiedDate'
-		public function getLastModifiedDate(): string {
-			return $this->lastModifiedDate;
-		}
-
-		// Getter and setter methods for 'notes'
-		public function getNotes(): string {
-			return $this->notes;
-		}
-
-		public function setNotes(string $notes): void {
-			$this->notes = $notes;
-		}
-
-		// Function to get all property types as an array
-		public static function getPropertyTypes(): array {
-			return [
-				self::BUILDING,
-				self::APARTMENT,
-				self::OFFICE,
-				self::VILLA,
-				self::WAREHOUSE,
-				self::LAND,
-			];
-		}
-
-		// toString function to display all property types
-		public static function toStringPropertyTypes(): string {
-			return implode(', ', self::getPropertyTypes());
-		}
-
-		// toString method
-		public function toString(): string {
-			return
-				"ID: " . $this->id .
-				", Description: " . $this->description .
-				", Creation Date: " . $this->creationDate .
-				", Last Modified Date: " . $this->lastModifiedDate .
-				", Notes: " . $this->notes;
-		}
-	}
-?>
+        public function setTypeName(string $typeName): void
+        {
+            $this->typeName = $typeName;
+        }
+        public function setCategoryId(int $categoryId): void
+        {
+            $this->categoryId = $categoryId;
+        }
+        public function setNotes(?string $notes): void
+        {
+            $this->notes = $notes;
+        }
+    }
