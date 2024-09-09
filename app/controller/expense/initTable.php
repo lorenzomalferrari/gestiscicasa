@@ -2,7 +2,7 @@
     $backgroundTable = "";
 
     $titlePage = "Spese";
-    $tableName = Expense::TABLE_NAME;
+    $tableName = ExpenseTable::TABLE_NAME;
 
     $tableDataHeader = ExpenseTable::getColumns();
     $tableDataRecord =  [];
