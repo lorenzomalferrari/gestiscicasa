@@ -1,4 +1,4 @@
-CREATE TABLE lmgc_Expenses (
+CREATE TABLE lmgc_Expense (
     id INT AUTO_INCREMENT PRIMARY KEY,
     expense_type_id INT NOT NULL, -- Riferimento al tipo di spesa
     amount DECIMAL(10, 2) NOT NULL, -- Importo della spesa
