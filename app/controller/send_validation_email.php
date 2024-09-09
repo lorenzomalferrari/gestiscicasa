@@ -8,7 +8,7 @@
 
     // Messaggio dell'email con CSS in linea
     $message = "
-        <!DOCTYPE html>
+        <!doctype html>
         <html lang='it'>
             <head>
                 <meta charset='UTF-8'>

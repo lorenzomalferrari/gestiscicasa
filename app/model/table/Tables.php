@@ -487,38 +487,6 @@
 	}
 
 	/**
-	 * Class representing the 'RoomTypess' table.
-	 */
-	class RoomTypessTable
-	{
-		const TABLE_NAME = 'RoomTypess';
-
-		const ID = 'id';
-		const NAME = 'name';
-		const DESCRIPTION = 'description';
-		const NOTE = 'note';
-		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateDate';
-
-		/**
-		 * Get the list of columns for the RoomTypess table.
-		 *
-		 * @return array List of column names
-		 */
-		public static function getColumns(): array
-		{
-			return [
-				self::ID,
-				self::NAME,
-				self::DESCRIPTION,
-				self::NOTE,
-				self::CREATION_DATE,
-				self::UPDATE_DATE
-			];
-		}
-	}
-
-	/**
 	 * Class representing the 'Rooms' table.
 	 */
 	class RoomsTable
@@ -1039,6 +1007,41 @@
 				self::TYPE_NAME,
 				self::CATEGORY_ID,
 				self::NOTES,
+				self::CREATE_DATE,
+				self::UPDATE_DATE
+			];
+		}
+	}
+
+	/**
+	 * Classe RoomTypesTable
+	 *
+	 * Rappresenta la tabella 'lmgc_RoomTypes' con le colonne come costanti.
+	 */
+	class RoomTypesTable
+	{
+		// Costanti che rappresentano i nomi delle colonne della tabella lmgc_RoomTypes
+		public const ID = 'id';
+		public const CODICE = 'codice';
+		public const NOME = 'nome';
+		public const COLORE = 'colore';
+		public const NOTE = 'note';
+		public const CREATE_DATE = 'createDate';
+		public const UPDATE_DATE = 'updateDate';
+
+		/**
+		 * Restituisce tutte le colonne della tabella lmgc_RoomTypes.
+		 *
+		 * @return array Le colonne della tabella.
+		 */
+		public static function getColumns(): array
+		{
+			return [
+				self::ID,
+				self::CODICE,
+				self::NOME,
+				self::COLORE,
+				self::NOTE,
 				self::CREATE_DATE,
 				self::UPDATE_DATE
 			];

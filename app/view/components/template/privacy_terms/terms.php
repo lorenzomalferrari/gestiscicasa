@@ -1,7 +1,7 @@
 <?php
     require_once("_getInfo.php");
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 
     <head>
