@@ -318,7 +318,7 @@
 
 						// Costruisci la query string criptata
 						$queryString = http_build_query($encryptedParams);
-						$url = "server_not_work.php?" . $queryString;
+						$url = "crm_not_working.php?" . $queryString;
 
 						// Passo alla prossima pagina
 						redirectPath($url);
