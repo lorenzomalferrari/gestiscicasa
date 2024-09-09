@@ -48,20 +48,37 @@
 	</head>
 
 	<body>
-		<!-- Icona di manutenzione -->
-		<i id="maintenance-icon" class="icon"></i>
-		<h1><?php echo $h1; ?></h1>
-		<p><?php echo $p1; ?></p>
-		<?php echo $msg_errore; ?>
-		<p>
-			<?php echo $p2; ?>
-			<strong><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></strong>
-		</p>
-		<!--=====================================-->
-		<!--=       	Footer Start     		=-->
-		<!--=====================================-->
-		<?php require_once(ROOT . "app/view/components/template/_footer.php"); ?>
-		<?php require_once(ROOT . "app/view/components/template/_script.php"); ?>
+		<!-- Page Loader Start -->
+        <?php
+            //require_once(ROOT . "app/view/components/template/_preloader.php");
+        ?>
+        <!-- Page Loader End -->
+        <a href="#main-wrapper" data-type="section-switch" class="scrollup">
+            <i class="fas fa-angle-double-up"></i>
+        </a>
+		<div id="main-wrapper" class="dsy-main-wrapper">
+            <div class="dsy-page">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="item-logo">
+							<i id="maintenance-icon" class="icon"></i>
+                        </div>
+                        <h1><?php echo $h1; ?></h1>
+                        <div class="text-manatee">
+							<p><?php echo $p1; ?></p>
+							<?php echo $msg_errore; ?>
+							<p>
+								<?php echo $p2; ?>
+								<strong><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></strong>
+							</p>
+                        </div>
+                        <?php require_once(ROOT . "app/view/welcome/welcome-form.php"); ?>
+                        <?php require_once(ROOT . "app/view/components/template/_copyright.php"); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php require_once(ROOT . "app/view/components/template/_script.php"); ?>
 		<script>
 			// Array di classi delle icone di Bootstrap Icons
 			const icons = CONFIG['icons']['crm_not_working'];
