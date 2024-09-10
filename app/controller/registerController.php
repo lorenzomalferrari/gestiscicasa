@@ -67,7 +67,7 @@
                 } else {
                     echo "Utente non creato";
                     //TODO: Salvare un log con Utente non creato
-                    redirectPath("server_not_work.php");
+                    redirectPath("crm_not_working.php");
                 }
             }
         }

@@ -27,7 +27,7 @@
         case PROPERTYTYPES = PropertyTypesTable::TABLE_NAME;
         case ROLE = RolesTable::TABLE_NAME;
         case ROOM = RoomsTable::TABLE_NAME;
-        case ROOMTYPES = RoomTypessTable::TABLE_NAME;
+        case ROOMTYPES = RoomTypesTable::TABLE_NAME;
         case USAGEDESTINATIONS = UsageDestinationsTable::TABLE_NAME;
         case USERS = UsersTable::TABLE_NAME;
         case USERSPROPERTY = UsersPropertyTable::TABLE_NAME;
@@ -39,6 +39,8 @@
         case SUPPORTEDLANGUAGE = SupportedLanguagesTable::TABLE_NAME;
         case TRANSLATION = TranslationsTable::TABLE_NAME;
         case INFOPROFILETYPES = InfoProfileTypesTable::TABLE_NAME;
+        case EXPENSE = ExpenseTable::TABLE_NAME;
+        case EXPENSETYPES = ExpenseTypesTable::TABLE_NAME;
 
         // Funzione per ottenere il caso dell'enum dal valore della tabella
         private static function getEnumCaseFromValue(string $value): ?self

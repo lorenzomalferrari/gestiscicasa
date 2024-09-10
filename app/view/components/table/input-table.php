@@ -44,5 +44,5 @@
             </div>
         </div>
     </div>
-    <?php require(ROOT . "app/view/components/table/buttons/buttons_list.php"); ?>
+    <!-- <?php //require(ROOT . "app/view/components/table/buttons/buttons_list.php"); ?> -->
 </div>
