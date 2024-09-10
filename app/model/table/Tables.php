@@ -31,7 +31,5 @@
 	require_once("list/PropertyTypesCategoriesTable.php");
 	require_once("list/PropertyTypesTable.php");
 	require_once("list/RoomsTable.php");
-	require_once("list/RoomsTable.php");
-	require_once("list/RoomsTable.php");
-	require_once("list/RoomsTable.php");
-	require_once("list/RoomsTable.php");
+	require_once("list/ExpenseTable.php");
+	require_once("list/ExpenseTypesTable.php");
