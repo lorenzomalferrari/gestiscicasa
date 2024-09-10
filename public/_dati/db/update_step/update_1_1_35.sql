@@ -44,5 +44,3 @@ INSERT INTO lmgc_ExpenseTypes (code, name, description) VALUES
 ('TR', 'Trasporti', 'Spese per trasporti e logistica'),
 ('GE', 'Spese di gestione', 'Spese per la gestione dell\'immobile'),
 ('CB', 'Commissioni bancarie', 'Spese per commissioni bancarie e di transazione');
-
-
