@@ -2,7 +2,7 @@
 
 ## Diagramma
 
-Vedere file: 
+Vedere file: https://miro.com/welcomeonboard/aWVDWHcxRDdsclpWQ0V5ckZzeFcwaE05ZTE1a0pFUVQ3WDlzaHlIR2swdmwxOG5zRm1FZ2tpTkpOcE90bUhXb3wzNDU4NzY0NTk2NjcxNjY2NjAzfDI=?share_link_id=898490263105
 
 ## Regole
 
