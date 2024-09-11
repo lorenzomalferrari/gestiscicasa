@@ -1,40 +1,42 @@
-<?php declare(strict_types=1);
-	$flag_api = true;
-	require_once("app/controller/lib/libs.php");
+<?php
 
-	$crypto = new Crypto();
-	$secureData = new SecureData($crypto);
+declare(strict_types=1);
+$flag_api = true;
+require_once("app/controller/lib/libs.php");
 
-	$encryptedParams = $_GET;
+$crypto = new Crypto();
+$secureData = new SecureData($crypto);
 
-	$decryptedParams = [];
-	foreach ($encryptedParams as $key => $encryptedValue) {
-		$decryptedParams[$key] = $secureData->decryptData($encryptedValue);
+$encryptedParams = $_GET;
+
+$decryptedParams = [];
+foreach ($encryptedParams as $key => $encryptedValue) {
+	$decryptedParams[$key] = $secureData->decryptData($encryptedValue);
+}
+
+$msg_errore = "";
+
+if (isset($decryptedParams['id_message'])) {
+	$id_message = $decryptedParams['id_message'];
+	if ($id_message === CONFIG['message']['key'][0]) {
+		$currentVersion = $decryptedParams['dbVersion'];
+		$expectedVersion = $decryptedParams['expectedVersion'];
+		// Sostituisci i segnaposto con i valori reali
+		$msg_errore = str_replace(
+			['{current_version}', '{expected_version}'],
+			[$currentVersion, $expectedVersion],
+			CONFIG['message']['text'][$id_message]
+		);
+	} else {
+		//non gestito
 	}
+}
 
-	$msg_errore = "";
-
-	if (isset($decryptedParams['id_message'])) {
-		$id_message = $decryptedParams['id_message'];
-		if ($id_message === CONFIG['message']['key'][0]) {
-			$currentVersion = $decryptedParams['dbVersion'];
-			$expectedVersion = $decryptedParams['expectedVersion'];
-			// Sostituisci i segnaposto con i valori reali
-			$msg_errore = str_replace(
-				['{current_version}', '{expected_version}'],
-				[$currentVersion, $expectedVersion],
-				CONFIG['message']['text'][$id_message]
-			);
-		} else {
-			//non gestito
-		}
-	}
-
-	$titlePage = "Server in Manutenzione";
-	$h1 = "SERVER IN MANUTENZIONE";
-	$p1 = "Al momento il servizio non è disponibile.";
-	$p2 = "Per maggiori informazioni, potete scrivere a ";
-	$email = CONFIG['site']['email_aziendale'];
+$titlePage = "Server in Manutenzione";
+$h1 = "SERVER IN MANUTENZIONE";
+$p1 = "Al momento il servizio non è disponibile.";
+$p2 = "Per maggiori informazioni, potete scrivere a ";
+$email = CONFIG['site']['email_aziendale'];
 ?>
 <!doctype html>
 <html class="no-js" lang="">
