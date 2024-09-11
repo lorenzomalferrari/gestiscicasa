@@ -31,6 +31,14 @@
 		'db' => [
 			'tablePrefix' => 'lmgc_',
 			'server' => [
+				'locale' => [
+					'version' => '1.1.34',
+					'host' => '81.31.158.38',
+					'port' => '3306',
+					'username' => 'uij8aoin_gestiscicasa',
+					'password' => '7hnv8MKFDJ7DBnvsXqH5',
+					'database' => 'uij8aoin_gestiscicasa',
+				],
 				'test' => [
 					'version' => '1.1.34',
 					'host' => '81.31.158.38',
@@ -60,10 +68,24 @@
 			],
 		],
 		'ftp' => [
-			'server' => '81.31.158.38',
-			'username' => 'uij8aoin',
-			'password' => 'pIBqik90',
-			'directory' => 'public_ftp/gc/',
+			'localhost' => [
+				'server' => '81.31.158.38',
+				'username' => 'uij8aoin',
+				'password' => 'pIBqik90',
+				'directory' => 'public_ftp/gc/',
+			],
+			'gestiscicasa.lorenzomalferrari' => [
+				'server' => '81.31.158.38',
+				'username' => 'uij8aoin',
+				'password' => 'pIBqik90',
+				'directory' => 'public_ftp/gc/',
+			],
+			'gestiscicasa' => [
+				'server' => '81.31.158.38',
+				'username' => 'uij8aoin',
+				'password' => 'pIBqik90',
+				'directory' => 'public_ftp/gc/',
+			],
 		],
 		'api' => [
 			'super_admin' => [
