@@ -5,28 +5,25 @@
 	$crypto = new Crypto();
 	$secureData = new SecureData($crypto);
 
-	// Recupera i parametri criptati dalla query string
 	$encryptedParams = $_GET;
 
-	// Decripta i parametri
 	$decryptedParams = [];
 	foreach ($encryptedParams as $key => $encryptedValue) {
 		$decryptedParams[$key] = $secureData->decryptData($encryptedValue);
 	}
 
-	$id_message_key = null;
-	$msg_errore = null;
+	$msg_errore = "";
 
-	if (isset($id_message_key)) {
-		$id_message_key = $decryptedParams['id_message_key'];
-		if ($id_message_key === CONFIG['message']['key'][0]) {
+	if (isset($decryptedParams['id_message'])) {
+		$id_message = $decryptedParams['id_message'];
+		if ($id_message === CONFIG['message']['key'][0]) {
 			$currentVersion = $decryptedParams['dbVersion'];
 			$expectedVersion = $decryptedParams['expectedVersion'];
 			// Sostituisci i segnaposto con i valori reali
 			$msg_errore = str_replace(
 				['{current_version}', '{expected_version}'],
 				[$currentVersion, $expectedVersion],
-				CONFIG['message']['text'][$id_message_key]
+				CONFIG['message']['text'][$id_message]
 			);
 		} else {
 			//non gestito
@@ -49,7 +46,7 @@
 <body>
 	<!-- Page Loader Start -->
 	<?php
-		//require_once(ROOT . "app/view/components/template/_preloader.php");
+	//require_once(ROOT . "app/view/components/template/_preloader.php");
 	?>
 	<!-- Page Loader End -->
 	<a href="#main-wrapper" data-type="section-switch" class="scrollup">
@@ -65,13 +62,12 @@
 					<h1><?php echo $h1; ?></h1>
 					<div class="text-manatee">
 						<p><?php echo $p1; ?></p>
-						<?php echo $msg_errore; ?>
+						<p><?php echo $msg_errore; ?></p>
 						<p>
 							<?php echo $p2; ?>
 							<strong><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></strong>
 						</p>
 					</div>
-					<?php require_once(ROOT . "app/view/welcome/welcome-form.php"); ?>
 					<?php require_once(ROOT . "app/view/components/template/_copyright.php"); ?>
 				</div>
 			</div>
@@ -80,7 +76,7 @@
 	<?php require_once(ROOT . "app/view/components/template/_script.php"); ?>
 	<script>
 		// Array di classi delle icone di Bootstrap Icons
-		const icons = CONFIG['icons']['crm_not_working'];
+		const icons = <?php echo json_encode(CONFIG['icons']['crm_not_working']); ?>
 		// Seleziona una classe randomicamente dall'array
 		const randomIcon = icons[Math.floor(Math.random() * icons.length)];
 		// Imposta la classe selezionata all'elemento i
