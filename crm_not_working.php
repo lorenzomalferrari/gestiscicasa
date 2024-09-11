@@ -54,7 +54,7 @@
 	</a>
 	<div id="main-wrapper" class="dsy-main-wrapper">
 		<div class="dsy-page">
-			<div class="card">
+			<div class="card login-form register-form">
 				<div class="card-body">
 					<div class="item-logo">
 						<i id="maintenance-icon" class="icon"></i>
