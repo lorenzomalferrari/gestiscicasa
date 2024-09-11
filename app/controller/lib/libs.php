@@ -34,12 +34,7 @@
     //creo connessione unica al DB
     require_once(ROOT . 'app/model/Database.php');
 
-    define('DB', new Database(
-        CONFIG_ISTANCE->get('SERVERNAME_DB'),
-        CONFIG_ISTANCE->get('USERNAME_DB'),
-        CONFIG_ISTANCE->get('PASSWORD_DB'),
-        CONFIG_ISTANCE->get('DBNAME')
-    ));
+    define('DB', new Database());
 
     if ( !isset($flag_api) ) { $flag_api = false; }
     if( !$flag_api ) {
