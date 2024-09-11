@@ -149,7 +149,7 @@
 				'diff_vers',
 			],
 			"text" => [
-				'diff_vers' => "Versione del database non corrispondente. Versione attuale: {current_version}, Versione attesa: {expected_version}",
+				'diff_vers' => "Versione del database non corrispondente. Versione attuale: {current_version}. Versione attesa: {expected_version}",
 			],
 		],
 		'log' => [
