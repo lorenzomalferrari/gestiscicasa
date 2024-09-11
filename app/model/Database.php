@@ -13,19 +13,14 @@
 		private $conn;
 
 		/**
-		 * Costruttore della classe Database.
-		 *
-		 * @param string $host Host del database.
-		 * @param string $username Username del database.
-		 * @param string $password Password del database.
-		 * @param string $database Nome del database.
+		 * Costruttore della classe Database
 		 */
-		public function __construct($host, $username, $password, $database)
+		public function __construct()
 		{
-			$this->host = $host;
-			$this->username = $username;
-			$this->password = $password;
-			$this->database = $database;
+			$this->host = CONFIG_ISTANCE->get('SERVERNAME_DB');
+			$this->username = CONFIG_ISTANCE->get('USERNAME_DB');
+			$this->password = CONFIG_ISTANCE->get('PASSWORD_DB');
+			$this->database = CONFIG_ISTANCE->get('DBNAME');
 
 			try {
 				$this->conn = new PDO("mysql:host={$this->host};dbname={$this->database}", $this->username, $this->password);
