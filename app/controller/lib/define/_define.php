@@ -31,6 +31,14 @@
 		'db' => [
 			'tablePrefix' => 'lmgc_',
 			'server' => [
+				'locale' => [
+					'version' => '1.1.34',
+					'host' => '81.31.158.38',
+					'port' => '3306',
+					'username' => 'uij8aoin_gestiscicasa',
+					'password' => '7hnv8MKFDJ7DBnvsXqH5',
+					'database' => 'uij8aoin_gestiscicasa',
+				],
 				'test' => [
 					'version' => '1.1.34',
 					'host' => '81.31.158.38',
@@ -60,10 +68,24 @@
 			],
 		],
 		'ftp' => [
-			'server' => '81.31.158.38',
-			'username' => 'uij8aoin',
-			'password' => 'pIBqik90',
-			'directory' => 'public_ftp/gc/',
+			'localhost' => [
+				'server' => '81.31.158.38',
+				'username' => 'uij8aoin',
+				'password' => 'pIBqik90',
+				'directory' => 'public_ftp/gc/',
+			],
+			'gestiscicasa.lorenzomalferrari' => [
+				'server' => '81.31.158.38',
+				'username' => 'uij8aoin',
+				'password' => 'pIBqik90',
+				'directory' => 'public_ftp/gc/',
+			],
+			'gestiscicasa' => [
+				'server' => '81.31.158.38',
+				'username' => 'uij8aoin',
+				'password' => 'pIBqik90',
+				'directory' => 'public_ftp/gc/',
+			],
 		],
 		'api' => [
 			'super_admin' => [
@@ -246,7 +268,7 @@
 	define('PATH_ESCLUSE', [
 		'/index.php',
 		'/confirm.php',
-		'/server_in_manutenzione.php',
+		'/crm_not_working.php',
 		'/app/view/login.php',
 		'/app/view/home.php',
 		'/app/view/pricing.php',
@@ -271,12 +293,12 @@
 		'home' => '/app/view/home.php',
 		'login' => '/app/view/login.php',
 		'pricing' => '/app/view/pricing.php',
-		'properties' => '/app/view/lists/properties_list.php',
 		'registration' => '/app/view/registration.php',
 		'reset_psw' => '/app/view/reset_psw.php',
 		'users' => '/app/view/lists/users_list.php',
 		'welcome' => '/app/view/welcome.php',
 		'nazionalities' => '/app/view/lists/nazionalities_list.php',
+		'properties' => '/app/view/lists/properties_list.php',
 		'property_types' => '/app/view/lists/property_types_list.php',
 	]);
 
