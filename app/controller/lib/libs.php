@@ -1,4 +1,7 @@
 <?php declare(strict_types=1);
+
+use YourNamespace\FileManager;
+
     require_once("define/_define.php");
     require_once(ROOT . "app/controller/lib/functions/_functions.php");
     require_once(ROOT . "app/controller/lib/global/_global.php");
@@ -20,15 +23,15 @@
 
     //verifico o creo le cartelle dei logs e del backup
     /*require_once(ROOT . 'app/model/file/FileManager.php');
-    $fm = new FileManager();
+    define('FM', new FileManager());
     $paths = PathAndFilesLog::getAllPaths();
     // Esegui la creazione di directory e file tramite execute
     foreach ($paths['directories'] as $directory) {
-        $fm->execute($directory, CONFIG['log']['extension']);
+        FM->execute($directory, CONFIG['log']['extension']);
     }
 
     foreach ($paths['files'] as $file) {
-        $fm->execute($file, CONFIG['log']['extension']);
+        FM->execute($file, CONFIG['log']['extension']);
     }
     */
     //creo connessione unica al DB

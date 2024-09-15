@@ -1,7 +1,7 @@
-CREATE TABLE IF NOT EXISTS lmgc_Property (
+CREATE TABLE IF NOT EXISTS lmgc_Properties (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    description TEXT,
+    note TEXT,
     price FLOAT NOT NULL,
     address VARCHAR(255) NOT NULL,
     IdCity INT NOT NULL,

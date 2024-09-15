@@ -25,3 +25,7 @@ Notifiche: Ricevi notifiche via email e WhatsApp quando la quantità di un prodo
 ### Gestione degli Utenti
 Ruoli degli Utenti: Assegna diversi ruoli agli utenti, come proprietario della proprietà, amministratore, lettore di informazioni, ecc.
 Permessi Personalizzati: Configura i permessi di accesso in base al ruolo dell'utente.
+
+# Per gli sviluppatori
+
+Per vedere le regole da rispettare nello sviluppo del progetto, leggersi il documento ###regole_da_seguire.lm

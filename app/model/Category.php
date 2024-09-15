@@ -1,96 +1,94 @@
 <?php declare(strict_types=1);
+
 	/**
-	 * Classe che rappresenta la Categoria dei Prodotti presenti nel gestionale
+	 * Class Category
+	 *
+	 * This class represents a record from the lmgc_Categories table.
 	 */
-	class Category {
-		// Constants
-		public const DEFAULT_CATEGORY_NAME = "Uncategorized";
-
-		// Instance variables
+	class Category
+	{
+		/**
+		 * @var int The ID of the category (primary key).
+		 */
 		private int $id;
+
+		/**
+		 * @var int The ID of the category type.
+		 */
+		private int $categoryTypeId;
+
+		/**
+		 * @var string|null The unique code for the category (can be null).
+		 */
+		private ?string $code;
+
+		/**
+		 * @var string The name of the category.
+		 */
 		private string $name;
-		private string $description;
-		private string $notes;
-		private string $creationDate;
-		private string $updateDate;
-		private int $IdColor;
 
-		// Constructor
-		public function __construct(int $id, string $name, string $description, string $notes=null, string $creationDate, string $updateDate, int $IdColor=null) {
+		/**
+		 * @var string|null Additional notes about the category.
+		 */
+		private ?string $note;
+
+		/**
+		 * @var DateTime The creation date of the category.
+		 */
+		private DateTime $createDate;
+
+		/**
+		 * @var DateTime The last update date of the category.
+		 */
+		private DateTime $updateDate;
+
+		/**
+		 * Category constructor.
+		 *
+		 * @param int $id
+		 * @param int $categoryTypeId
+		 * @param string|null $code
+		 * @param string $name
+		 * @param string|null $note
+		 * @param DateTime|null $createDate
+		 * @param DateTime|null $updateDate
+		 */
+		public function __construct(
+			int $id = -1,
+			int $categoryTypeId = 0,
+			?string $code = null,
+			string $name = 'Unnamed Category',
+			?string $note = null,
+			?DateTime $createDate = null,
+			?DateTime $updateDate = null
+		) {
 			$this->id = $id;
+			$this->categoryTypeId = $categoryTypeId;
+			$this->code = $code;
 			$this->name = $name;
-			$this->description = $description;
-			$this->notes = $notes;
-			$this->creationDate = $creationDate;
-			$this->updateDate = $updateDate;
-			$this->IdColor = $IdColor;
+			$this->note = $note;
+			$this->createDate = $createDate ?? new DateTime();
+			$this->updateDate = $updateDate ?? new DateTime();
 		}
 
-		// Getter and setter methods for 'id'
-		public function getId(): int {
-			return $this->id;
-		}
+		// Getters and setters ...
 
-		public function setId(int $id): void {
-			$this->id = $id;
-		}
-
-		// Getter and setter methods for 'name'
-		public function getName(): string {
-			return $this->name;
-		}
-
-		public function setName(string $name): void {
-			$this->name = $name;
-		}
-
-		// Getter and setter methods for 'description'
-		public function getDescription(): string {
-			return $this->description;
-		}
-
-		public function setDescription(string $description): void {
-			$this->description = $description;
-		}
-
-		// Getter and setter methods for 'notes'
-		public function getNotes(): string {
-			return $this->notes;
-		}
-
-		public function setNotes(string $notes): void {
-			$this->notes = $notes;
-		}
-
-		// Getter and setter methods for 'creationDate'
-		public function getCreationDate(): string {
-			return $this->creationDate;
-		}
-
-		// Getter and setter methods for 'updateDate'
-		public function getUpdateDate(): string {
-			return $this->updateDate;
-		}
-
-		// Getter and setter methods for 'IdColor'
-		public function getIdColor(): int {
-			return $this->IdColor;
-		}
-
-		public function setIdColor(int $IdColor): void {
-			$this->IdColor = $IdColor;
-		}
-
-		// toString method
-		public function toString(): string {
-			return
-				"Category ID: " . $this->id .
-				", Name: " . $this->name .
-				", Description: " . $this->description .
-				", Notes: " . $this->notes .
-				", Creation Date: " . $this->creationDate .
-				", Update Date: " . $this->updateDate .
-				", Color ID: " . $this->IdColor;
+		/**
+		 * Return the string representation of the category.
+		 *
+		 * @return string
+		 */
+		public function __toString(): string
+		{
+			return sprintf(
+				"Category(ID: %d, CategoryTypeID: %d, Code: %s, Name: %s, Note: %s, Create Date: %s, Update Date: %s)",
+				$this->id,
+				$this->categoryTypeId,
+				$this->code ?? 'null',
+				$this->name,
+				$this->note ?? 'null',
+				$this->createDate->format('Y-m-d H:i:s'),
+				$this->updateDate->format('Y-m-d H:i:s')
+			);
 		}
 	}
-?>

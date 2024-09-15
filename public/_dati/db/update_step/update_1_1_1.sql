@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS lmgc_UsersProperty (
+CREATE TABLE IF NOT EXISTS lmgc_PeopleProperty (
     idPerson INT,
     idProperty INT,
     idRole INT,

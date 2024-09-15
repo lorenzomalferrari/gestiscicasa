@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS lmgc_Product (
+CREATE TABLE IF NOT EXISTS lmgc_Products (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,

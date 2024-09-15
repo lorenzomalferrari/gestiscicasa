@@ -1,6 +1,6 @@
 <div class="copyright-text">
     © <?php echo YEARNOW; ?>
-    <span><?php echo CONFIG['site']['name']; ?></span>
-    - Autore: <span><?php echo CONFIG['site']['autore']; ?></span>
-    - Versione: <span><?php echo CONFIG['site']['version']; ?></span>
+    <span><strong><?php echo CONFIG['site']['name']; ?></strong></span>
+    - Autore: <span><strong><?php echo CONFIG['site']['autore']; ?></strong></span>
+    - Versione: <span><strong><?php echo CONFIG['site']['version']; ?></strong></span>
 </div>
