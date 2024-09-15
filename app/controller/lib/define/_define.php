@@ -132,21 +132,6 @@
 				'inactivityLimit' => '900', // solitamente uguale a gc_maxlifetime
 			],
 		],
-		'token' => [
-			'positions' => [
-				'' => '',
-				'' => '',
-				'' => '',
-				'' => '',
-				'' => '',
-				'' => '',
-			],
-			'settings' => [
-				'gc_maxlifetime' => '900', // 15 minuti
-				'cookie_lifetime' => '0',
-				'inactivityLimit' => '900', // solitamente uguale a gc_maxlifetime
-			],
-		],
 		'serverConfig' => [
 			'ip' => '127.0.0.1',
 			'port' => '8080'
@@ -254,10 +239,6 @@
 	 * definizioni relative al tempo come giorno, mese, anno, time()
 	 */
 	require_once('sub_define/time/_time.php');
-	/**
-	 * definizione del token CUSTOM
-	 */
-	require_once('sub_define/token/_token.php');
 
 	/**
 	 * Percorsi da escludere dal salvataggio delle path visitate in DB
@@ -284,3 +265,8 @@
 	 * TO DO: Controllare che venga attivata una CUSTOM EXCEPTION dedicata
 	 */
 	require_once('input_type/_input_type.php');
+
+	/**
+	 * definizione del token CUSTOM
+	 */
+	require_once('sub_define/token/_token.php');
