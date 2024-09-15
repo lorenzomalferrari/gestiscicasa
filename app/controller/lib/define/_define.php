@@ -22,7 +22,7 @@
 			'autore' => 'Lorenzo Malferrari',
 			'telefono' => '+39 3519325656',
 			'azienda' => 'LM Servizi e Consulenze IT',
-			'version' => '0.0.1',
+			'version' => '1.1.7',
 		],
 		'db' => [
 			'tablePrefix' => 'lmgc_',
