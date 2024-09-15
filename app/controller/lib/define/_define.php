@@ -237,6 +237,9 @@
 		],
 	]);
 
+	//aggiunte le tipologie di hash
+	require_once('sub_define/hash/_hash.php');
+
 	//definizioni provenienti da _SERVER
 	require_once('sub_define/server/_server.php');
 
