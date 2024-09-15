@@ -8,7 +8,7 @@
         'TABLEPREFIX' => CONFIG['db']['tablePrefix'],
         'VERSTIME' => VERSTIME,
         'YEARNOW' => YEARNOW,
-        'UNIQ_TOKEN' => UNIQ_TOKEN,
+        'UNIQ_TOKEN' => UNIQ_TOKEN_V2,
     ];
 
     // Inizializza la configurazione una volta

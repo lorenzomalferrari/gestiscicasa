@@ -22,7 +22,7 @@
         public static function generate(): string
         {
             //An array containing 'params' and 'config' for token generation.
-            $data = UNIQ_TOKEN_v2;
+            $data = TOKEN_PARAMS;
             // Validate and extract parameters
             if (!isset($data['params']) || !isset($data['config'])) {
                 throw new Exception('Missing parameters or configuration.');

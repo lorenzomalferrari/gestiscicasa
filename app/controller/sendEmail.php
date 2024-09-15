@@ -23,7 +23,7 @@
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
     // Link di conferma (da generare effettivamente)
-    $confirmation_link = PATH . CONFIG['email']['smtp']['confirm'] . '?token=' . UNIQ_TOKEN;
+    $confirmation_link = PATH . CONFIG['email']['smtp']['confirm'] . '?token=' . UNIQ_TOKEN_V2;
 
     // Nome dell'azienda
     $company_name = CONFIG['site']['name'];

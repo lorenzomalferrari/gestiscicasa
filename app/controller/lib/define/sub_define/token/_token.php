@@ -5,7 +5,7 @@
     */
     define('UNIQ_TOKEN', uniqid());
 
-    define('UNIQ_TOKEN_v2', [
+    define('TOKEN_PARAMS', [
         'params' => [
             CONFIG['site']['name'],
             CONFIG['site']['version'],

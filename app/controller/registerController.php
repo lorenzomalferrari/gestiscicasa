@@ -35,7 +35,7 @@
                 $params_insert = array(
                     ':username' => $username,
                     ':password' => password_hash($password, PASSWORD_DEFAULT),
-                    ':token' => UNIQ_TOKEN
+                    ':token' => UNIQ_TOKEN_V2
                 );
 
                 //Gestisco l'inserimento in DB
@@ -44,7 +44,7 @@
                                 . " VALUES (:username, :password, :token)";
 
                 $new_user_id = DB->insert($insert, $params_insert);
-                
+
                 if ($new_user_id) {
                     //echo "Utente creato id: " . $new_user_id;
 

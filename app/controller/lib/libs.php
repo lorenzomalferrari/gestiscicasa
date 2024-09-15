@@ -9,6 +9,16 @@ use YourNamespace\FileManager;
     require_once(ROOT . 'app/model/log/PathAndFilesLog.php');
     require_once(ROOT . "app/model/table/Tables.php");
     require_once(ROOT . 'app/model/TableNames.php');
+
+    require_once(ROOT . 'app/model/token/TokenGenerator.php');
+
+    try {
+    define('UNIQ_TOKEN_V2', TokenGenerator::generate() );
+        echo "Generated Token: $token\n";
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage() . "\n";
+    }
+
     require_once(ROOT . 'app/model/file/FileManager.php');
     require_once(ROOT . 'app/controller/formatter_validator/JSonValidator.php');
     require_once(ROOT . 'app/controller/formatter_validator/FormatterInputValidator.php');
