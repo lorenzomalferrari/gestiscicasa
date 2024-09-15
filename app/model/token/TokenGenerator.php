@@ -16,12 +16,13 @@
         /**
          * Generates a token based on dynamic values and configuration.
          *
-         * @param array $data An array containing 'params' and 'config' for token generation.
          * @return string The generated token.
          * @throws Exception If there are issues with the parameters or configuration.
          */
-        public static function generate(array $data): string
+        public static function generate(): string
         {
+            //An array containing 'params' and 'config' for token generation.
+            $data = UNIQ_TOKEN_v2;
             // Validate and extract parameters
             if (!isset($data['params']) || !isset($data['config'])) {
                 throw new Exception('Missing parameters or configuration.');
