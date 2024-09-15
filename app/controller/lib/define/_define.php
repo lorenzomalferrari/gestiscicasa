@@ -36,7 +36,7 @@
 					'database' => 'uij8aoin_gestiscicasa',
 				],
 				'test' => [
-					'version' => '1.1.34',
+					'version' => '2.0.1',
 					'host' => '81.31.158.38',
 					'port' => '3306',
 					'username' => 'uij8aoin_gestiscicasa',
@@ -44,7 +44,7 @@
 					'database' => 'uij8aoin_gestiscicasa',
 				],
 				'produzione' => [
-					'version' => '0.0.1',
+					'version' => '2.0.1',
 					'host' => '127.0.0.1',
 					'port' => '3306',
 					'username' => 'uij8aoin_gestiscicasa',

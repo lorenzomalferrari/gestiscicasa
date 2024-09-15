@@ -14,18 +14,13 @@
 
 		/**
 		 * Costruttore della classe Database.
-		 *
-		 * @param string $host Host del database.
-		 * @param string $username Username del database.
-		 * @param string $password Password del database.
-		 * @param string $database Nome del database.
 		 */
-		public function __construct($host, $username, $password, $database)
+		public function __construct()
 		{
-			$this->host = $host;
-			$this->username = $username;
-			$this->password = $password;
-			$this->database = $database;
+			$this->host = CONFIG_ISTANCE->get('SERVERNAME_DB');
+			$this->username = CONFIG_ISTANCE->get('USERNAME_DB');
+			$this->password = CONFIG_ISTANCE->get('PASSWORD_DB');
+			$this->database = CONFIG_ISTANCE->get('DBNAME');
 
 			try {
 				$this->conn = new PDO("mysql:host={$this->host};dbname={$this->database}", $this->username, $this->password);
@@ -47,25 +42,38 @@
 		}
 
 		/**
-		 * Conferma una transazione.
+		 * Conferma una transazione e chiude la connessione.
 		 *
 		 * @return void
 		 */
 		public function commit(): void
 		{
-			$this->conn->commit();
+			try {
+				$this->conn->commit();
+			} catch (PDOException $e) {
+				throw new CustomException("Errore durante la conferma della transazione", CustomException::PDO_EXCEPTION, $e);
+			} finally {
+				$this->closeConnection();
+			}
 		}
 
 		/**
-		 * Annulla una transazione.
+		 * Annulla una transazione e chiude la connessione.
 		 * In caso di errori, non vengono applicate le operazioni
 		 *
 		 * @return void
 		 */
 		public function rollBack(): void
 		{
-			$this->conn->rollBack();
+			try {
+				$this->conn->rollBack();
+			} catch (PDOException $e) {
+				throw new CustomException("Errore durante l'annullamento della transazione", CustomException::PDO_EXCEPTION, $e);
+			} finally {
+				$this->closeConnection();
+			}
 		}
+
 
 		/**
 		 * Esegue una query di selezione sul database e restituisce la prima riga come array associativo.
@@ -76,7 +84,9 @@
 		 */
 		public function select($query, $params = array()): array
 		{
+			$result = [];
 			try {
+				$this->beginTransaction();
 				$stmt = $this->conn->prepare($query);
 				$stmt->execute($params);
 
@@ -90,10 +100,13 @@
 				];
 
 				$this->executeLog($params_log);
-				return $stmt->fetch(PDO::FETCH_ASSOC) ?: [];
+				$result = $stmt->fetch(PDO::FETCH_ASSOC) ?: [];
+				$this->commit();
 			} catch (PDOException $e) {
+				$this->rollBack();
 				throw new CustomException("Errore durante l'esecuzione della query select", CustomException::PDO_EXCEPTION, $e);
 			}
+			return $result;
 		}
 
 		/**
@@ -105,7 +118,9 @@
 		 */
 		public function selectAll($query, $params = array()): array
 		{
+			$result = [];
 			try {
+				$this->beginTransaction();
 				$stmt = $this->conn->prepare($query);
 				$stmt->execute($params);
 
@@ -119,10 +134,13 @@
 				];
 
 				$this->executeLog($params_log);
-				return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
+				$result = $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
+				$this->commit();
 			} catch (PDOException $e) {
+				$this->rollBack();
 				throw new CustomException("Errore durante l'esecuzione della query selectAll", CustomException::PDO_EXCEPTION, $e);
 			}
+			return $result;
 		}
 
 		/**
@@ -134,7 +152,9 @@
 		 */
 		public function update($query, $params = array())
 		{
+			$rowsAffected = false;
 			try {
+				$this->beginTransaction();
 				$stmt = $this->conn->prepare($query);
 				$stmt->execute($params);
 
@@ -148,10 +168,13 @@
 				];
 
 				$this->executeLog($params_log);
-				return $stmt->rowCount();
+				$rowsAffected = $stmt->rowCount();
+				$this->commit();
 			} catch (PDOException $e) {
+				$this->rollBack();
 				throw new CustomException("Errore durante l'esecuzione della query update", CustomException::PDO_EXCEPTION, $e);
 			}
+			return $rowsAffected;
 		}
 
 		/**
@@ -163,10 +186,12 @@
 		 */
 		public function insert($query, $params = array())
 		{
+			$newId = false;
 			try {
+				$this->beginTransaction();
 				$stmt = $this->conn->prepare($query);
 				$stmt->execute($params);
-				$new_id = $this->conn->lastInsertId();
+				$newId = $this->conn->lastInsertId();
 
 				// Log dell'inserimento al database
 				$params_log = [
@@ -178,10 +203,12 @@
 				];
 
 				$this->executeLog($params_log);
-				return $new_id;
+				$this->commit();
 			} catch (PDOException $e) {
+				$this->rollBack();
 				throw new CustomException("Errore durante l'esecuzione della query insert", CustomException::PDO_EXCEPTION, $e);
 			}
+			return $newId;
 		}
 
 		/**
@@ -193,7 +220,9 @@
 		 */
 		public function delete($query, $params = array())
 		{
+			$rowsAffected = false;
 			try {
+				$this->beginTransaction();
 				$stmt = $this->conn->prepare($query);
 				$stmt->execute($params);
 
@@ -207,10 +236,13 @@
 				];
 
 				$this->executeLog($params_log);
-				return $stmt->rowCount();
+				$rowsAffected = $stmt->rowCount();
+				$this->commit();
 			} catch (PDOException $e) {
+				$this->rollBack();
 				throw new CustomException("Errore durante l'esecuzione della query delete", CustomException::PDO_EXCEPTION, $e);
 			}
+			return $rowsAffected;
 		}
 
 		/**
@@ -218,15 +250,19 @@
 		 *
 		 * @param string $query La query SQL da eseguire.
 		 * @param array $params (Opzionale) Parametri da associare alla query.
-		 * @return int|false Restituisce l'ID dell'ultima riga inserita, o false in caso di errore.
+		 * @return void
 		 */
 		public function insertLogs($query, $params = array())
 		{
+			$newId = false;
 			try {
+				$this->beginTransaction();
 				$stmt = $this->conn->prepare($query);
 				$stmt->execute($params);
-				return $this->conn->lastInsertId();
+				$this->conn->lastInsertId();
+				$this->commit();
 			} catch (PDOException $e) {
+				$this->rollBack();
 				throw new CustomException("Errore durante l'esecuzione della query insertLogs", CustomException::PDO_EXCEPTION, $e);
 			}
 		}
@@ -237,8 +273,7 @@
 		public function insertDatabaseVersion($version): void
 		{
 			try {
-				// Inizia la transazione
-				DB->beginTransaction();
+				$this->beginTransaction();
 
 				$params = [
 					':v' => $version,
@@ -263,7 +298,7 @@
 
 		/**
 		 * Restituisce la versione del Database salvata
-		 * @return mixed Numero della versione. In caso contrario stringa vuota
+		 * @return mixed Numero della versione. In caso contrario valore nullo
 		 */
 		public function getDatabaseVersion(): mixed
 		{
@@ -296,6 +331,9 @@
 
 				$dbVersion = DB->getDatabaseVersion();
 
+				// Conferma la transazione
+				DB->commit();
+
 				if (!empty($dbVersion)) {
 					$expectedVersion = CONFIG['db']['server'][getEnvironmentKey()]['version'];
 
@@ -327,8 +365,6 @@
 					throw new CustomException("Impossibile recuperare la versione del database.");
 				}
 
-				// Conferma la transazione
-				DB->commit();
 			} catch (PDOException | CustomException $e) {
 				// Annulla la transazione in caso di errore
 				DB->rollBack();
@@ -339,7 +375,15 @@
 			}
 		}
 
-        /**
+		/**
+		 * Chiude la connessione al database.
+		 */
+		public function closeConnection(): void
+		{
+			$this->conn = null;
+		}
+
+		/**
          * Funzione privata per eseguire il log delle operazioni CRUD.
          *
          * @param array $params_log Parametri del log.
@@ -348,10 +392,17 @@
         private function executeLog($params_log = array()): void
         {
             // Creazione dell'oggetto DatabaseLog e scrittura del log
-            $log = new DatabaseLog($params_log['message'], $params_log['action'], $params_log['beforeState'], $params_log['afterState'], $params_log['user'], $this->toString());
+            //$log = new DatabaseLog($params_log['message'], $params_log['action'], $params_log['beforeState'], $params_log['afterState'], $params_log['user'], $this->toString());
             //$log->writeToFile();
         }
 
+		/**
+		 * Consente l'esecuzione direttamente della query passata, con eventuali parametri
+		 * Funzione sviluppata per usarla in model/api ma che potrebbe essere usata in altri contesti
+		 * TO DO: Se si vuole usare in altri contesti, serve passare un terzo parametro per classificare il tipo di azione
+		 * vedere CONFIG -> DB -> CrudTypes
+		 * altre azioni con consentite
+		 */
 		public function exec($query, $params = array())
 		{
 			try {
@@ -372,22 +423,6 @@
 				print_r($query);
 				throw new CustomException("Errore durante l'esecuzione della query exec", CustomException::PDO_EXCEPTION, $e);
 			}
-		}
-
-		/**
-		 * Metodo magico per ottenere una rappresentazione testuale dell'oggetto Database.
-		 *
-		 * @return string Rappresentazione testuale dell'oggetto Database.
-		 */
-		public function toString(): string
-		{
-			return sprintf(
-				"Database [host: %s, username: %s, password: %s, database: %s]",
-				$this->host,
-				$this->username,
-				password_hash($this->password, PASSWORD_DEFAULT),
-				$this->database
-			);
 		}
 
 		/**
@@ -418,4 +453,21 @@
 
 			return $isAdmin;
 		}
+
+		/**
+		 * Metodo magico per ottenere una rappresentazione testuale dell'oggetto Database.
+		 *
+		 * @return string Rappresentazione testuale dell'oggetto Database.
+		 */
+		public function toString(): string
+		{
+			return sprintf(
+				"Database [host: %s, username: %s, password: %s, database: %s]",
+				$this->host,
+				$this->username,
+				password_hash($this->password, PASSWORD_DEFAULT),
+				$this->database
+			);
+		}
 	}
+
