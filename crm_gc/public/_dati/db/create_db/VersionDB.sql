@@ -8,5 +8,5 @@ CREATE TABLE IF NOT EXISTS lmgc_VersionDB (
     UNIQUE KEY unique_versione_nome_vers_estesa (versione, nome_vers_estesa)
 );
 
-INSERT INTO lmgc_VersionDB (versione, nome_vers_estesa)
-VALUES ('0.0.1', '0.0.1');
+INSERT INTO lmgc_VersionDB (versione, nome_vers_estesa, note)
+VALUES ('0.0.1', '0.0.1','base di partenza');

@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS lmgc_Rooms (
     idRoomTypes INT,
     FOREIGN KEY (idUsageDestination) REFERENCES lmgc_UsageDestinations(id),
     FOREIGN KEY (idColor) REFERENCES lmgc_Colors(id),
-    FOREIGN KEY (idProperty) REFERENCES lmgc_Property(id),
+    FOREIGN KEY (idProperty) REFERENCES lmgc_Properties(id),
     FOREIGN KEY (idRoomTypes) REFERENCES lmgc_RoomTypess(id)
 );
 

@@ -1,4 +1,5 @@
-CREATE TABLE lmgc_RoomTypes (
+-- Creazione della tabella lmgc_RoomTypes
+CREATE TABLE IF NOT EXISTS lmgc_RoomTypes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     codice CHAR(2) NOT NULL UNIQUE,
     nome VARCHAR(255) NOT NULL,
@@ -7,25 +8,26 @@ CREATE TABLE lmgc_RoomTypes (
     createDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updateDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CONSTRAINT chk_colore CHECK (colore REGEXP '^#[0-9A-Fa-f]{6}$')
-)
+);
 
-INSET INTO lmgc_RoomTypes (codice, nome, note)
-VALUES
-    ('CA','Camera',NULL),
-    ('SA','Sala',NULL),
-    ('CU','Cucina',NULL),
-    ('BA','Bagno',NULL),
-    ('BL','Balcone',NULL),
-    ('CN','Cantina',NULL),
-    ('GA','Garage',NULL),
-    ('PI','Piscina',NULL),
-    ('GI','Giardino',NULL),
-    ('PA','Parcheggio',NULL),
-    ('AG','Area agricola',NULL),
-    ('ZE','Zona edificabile',NULL),
-    ('ST','Stanza','stanza generica'),
+-- Inserimento dei dati nella tabella lmgc_RoomTypes
+INSERT INTO lmgc_RoomTypes (codice, nome, note) VALUES
+('CA','Camera',NULL),
+('SA','Sala',NULL),
+('CU','Cucina',NULL),
+('BA','Bagno',NULL),
+('BL','Balcone',NULL),
+('CN','Cantina',NULL),
+('GA','Garage',NULL),
+('PI','Piscina',NULL),
+('GI','Giardino',NULL),
+('PA','Parcheggio',NULL),
+('AG','Area agricola',NULL),
+('ZE','Zona edificabile',NULL),
+('ST','Stanza','stanza generica');
 
-CREATE TABLE lmgc_Rooms (
+-- Creazione della tabella lmgc_Rooms
+CREATE TABLE IF NOT EXISTS lmgc_Rooms (
     id INT AUTO_INCREMENT PRIMARY KEY,
     property_id INT NOT NULL,
     room_type_id INT NOT NULL,

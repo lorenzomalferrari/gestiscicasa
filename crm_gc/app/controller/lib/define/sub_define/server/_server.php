@@ -8,7 +8,7 @@
     //echo "<br>EMAIL_SERVER_ADMIN_" . EMAIL_SERVER_ADMIN;
     define("DOMINIO", $_SERVER["SERVER_NAME"]); //es. gestiscicasa.it
     //echo "<br>DOMINIO:" . DOMINIO;
-    define("ROOT", $_SERVER["DOCUMENT_ROOT"] . "/");
+    define("ROOT", $_SERVER["DOCUMENT_ROOT"] . "/" . CONFIG['site']['main_path'] . "/");
     //echo "<br>ROOT:" . ROOT;
-    define("PATH", PROTOCOL . "://" . DOMINIO . "/");
+    define("PATH", PROTOCOL . "://" . DOMINIO . "/" . CONFIG['site']['main_path'] . "/");
     //echo "<br>PATH:" . PATH;

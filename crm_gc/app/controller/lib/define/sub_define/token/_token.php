@@ -25,7 +25,7 @@
         ],
         'config' => [
             'length' => random_int(64, 512), // Lunghezza desiderata del token
-            'algorithm' => HASH_ALGORITHMS['sha512']['sha512'], // Algoritmo di hashing da utilizzare
+            'algorithm' => HASH_ALGORITHMS['sha512']['value'], // Algoritmo di hashing da utilizzare
             'splitLength' => 4, // Lunghezza dei pezzi in cui suddividere ciascun valore
             'randomPartLength' => random_int(128, 256) // Lunghezza della parte casuale in byte (default è 16 se non specificato)
         ],

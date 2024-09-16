@@ -1,50 +1,16 @@
-CREATE TABLE IF NOT EXISTS lmgc_CrudTypes (
-  `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `nome` VARCHAR(255),
-  `azione` ENUM('CREATE', 'READ', 'UPDATE', 'DELETE'),
-  `valore` DECIMAL(10, 2),
-  `data_creazione` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `data_aggiornamento` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `note` TEXT,
-  UNIQUE KEY `unique_action_name_value_note` (`azione`, `nome`, `valore`, `note`)
+-- Creazione della tabella lmgc_CrudTypes
+CREATE TABLE lmgc_CrudTypes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    code VARCHAR(10) UNIQUE NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    note TEXT,
+    createDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updateDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-INSERT INTO lmgc_CrudTypes (nome, azione, valore, note)
-VALUES ('INSERT', 'CREATE', 1, 'Inserimento della nuova voce')
-ON DUPLICATE KEY UPDATE
-timestamp = VALUES(timestamp),
-message = VALUES(message),
-action = VALUES(action),
-before_state = VALUES(before_state),
-after_state = VALUES(after_state),
-user_id = VALUES(user_id);
-
-INSERT INTO lmgc_CrudTypes (nome, azione, valore, note)
-VALUES ('SELECT', 'READ', 2, 'Lettura del record')
-ON DUPLICATE KEY UPDATE
-timestamp = VALUES(timestamp),
-message = VALUES(message),
-action = VALUES(action),
-before_state = VALUES(before_state),
-after_state = VALUES(after_state),
-user_id = VALUES(user_id);
-
-INSERT INTO lmgc_CrudTypes (nome, azione, valore, note)
-VALUES ('UPDATE', 'UPDATE', 3, 'Aggiornamento del record')
-ON DUPLICATE KEY UPDATE
-timestamp = VALUES(timestamp),
-message = VALUES(message),
-action = VALUES(action),
-before_state = VALUES(before_state),
-after_state = VALUES(after_state),
-user_id = VALUES(user_id);
-
-INSERT INTO lmgc_CrudTypes (nome, azione, valore, note)
-VALUES ('DELETE', 'DELETE', 4, 'Azione di cancellazione')
-ON DUPLICATE KEY UPDATE
-timestamp = VALUES(timestamp),
-message = VALUES(message),
-action = VALUES(action),
-before_state = VALUES(before_state),
-after_state = VALUES(after_state),
-user_id = VALUES(user_id);
+-- Inserimento dei dati nella tabella lmgc_CrudTypes
+INSERT INTO lmgc_CrudTypes (code, name, note) VALUES
+('C', 'CREATE', 'This operation is used to create new records in the system.'),
+('R', 'READ', 'This operation is used to retrieve or read records from the system.'),
+('U', 'UPDATE', 'This operation is used to modify existing records in the system.'),
+('D', 'DELETE', 'This operation is used to remove records from the system.');

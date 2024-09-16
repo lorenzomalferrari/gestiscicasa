@@ -38,7 +38,17 @@
 		 */
 		public function beginTransaction(): void
 		{
-			$this->conn->beginTransaction();
+			/*try {
+				if ($this->conn !== null && !$this->conn->inTransaction()) {
+					$this->conn->beginTransaction();
+				}
+			} catch (PDOException $e) {
+				throw new CustomException(
+					"Errore durante l'inizio della transazione",
+					CustomException::PDO_EXCEPTION,
+					$e
+				);
+			}*/
 		}
 
 		/**
@@ -48,14 +58,17 @@
 		 */
 		public function commit(): void
 		{
-			try {
-				$this->conn->commit();
+			/*try {
+				if ($this->conn !== null && $this->conn->inTransaction()) {
+					$this->conn->commit();
+				}
 			} catch (PDOException $e) {
 				throw new CustomException("Errore durante la conferma della transazione", CustomException::PDO_EXCEPTION, $e);
 			} finally {
 				$this->closeConnection();
-			}
+			}*/
 		}
+
 
 		/**
 		 * Annulla una transazione e chiude la connessione.
@@ -65,15 +78,20 @@
 		 */
 		public function rollBack(): void
 		{
-			try {
-				$this->conn->rollBack();
+			/*try {
+				if ($this->conn !== null && $this->conn->inTransaction()) {
+					$this->conn->rollBack();
+				}
 			} catch (PDOException $e) {
-				throw new CustomException("Errore durante l'annullamento della transazione", CustomException::PDO_EXCEPTION, $e);
+				throw new CustomException(
+					"Errore durante l'annullamento della transazione",
+					CustomException::PDO_EXCEPTION,
+					$e
+				);
 			} finally {
 				$this->closeConnection();
-			}
+			}*/
 		}
-
 
 		/**
 		 * Esegue una query di selezione sul database e restituisce la prima riga come array associativo.
@@ -259,12 +277,14 @@
 				$this->beginTransaction();
 				$stmt = $this->conn->prepare($query);
 				$stmt->execute($params);
-				$this->conn->lastInsertId();
+
+				$newId = $this->conn->lastInsertId();
 				$this->commit();
 			} catch (PDOException $e) {
 				$this->rollBack();
 				throw new CustomException("Errore durante l'esecuzione della query insertLogs", CustomException::PDO_EXCEPTION, $e);
 			}
+			return $newId;
 		}
 
 		/**
@@ -330,9 +350,7 @@
 				DB->beginTransaction();
 
 				$dbVersion = DB->getDatabaseVersion();
-
-				// Conferma la transazione
-				DB->commit();
+				//print_r("dbVersion: " . $dbVersion);
 
 				if (!empty($dbVersion)) {
 					$expectedVersion = CONFIG['db']['server'][getEnvironmentKey()]['version'];
@@ -358,6 +376,9 @@
 						$queryString = http_build_query($encryptedParams);
 						$url = "crm_not_working.php?" . $queryString;
 
+						// Conferma la transazione
+						DB->commit();
+
 						// Passo alla prossima pagina
 						redirectPath($url);
 					}
@@ -380,7 +401,7 @@
 		 */
 		public function closeConnection(): void
 		{
-			$this->conn = null;
+			//$this->conn = null;
 		}
 
 		/**
@@ -406,6 +427,7 @@
 		public function exec($query, $params = array())
 		{
 			try {
+				$this->beginTransaction();
 				$stmt = $this->conn->prepare($query);
 				$stmt->execute($params);
 
@@ -418,9 +440,11 @@
 				];
 
 				$this->executeLog($params_log);
+				$this->commit();
 				return $stmt->rowCount();
 			} catch (PDOException $e) {
-				print_r($query);
+				//print_r($query);
+				$this->rollBack();
 				throw new CustomException("Errore durante l'esecuzione della query exec", CustomException::PDO_EXCEPTION, $e);
 			}
 		}
@@ -470,4 +494,3 @@
 			);
 		}
 	}
-

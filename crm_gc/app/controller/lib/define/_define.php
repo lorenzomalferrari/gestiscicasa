@@ -23,12 +23,13 @@
 			'telefono' => '+39 3519325656',
 			'azienda' => 'LM Servizi e Consulenze IT',
 			'version' => '1.1.7',
+			'main_path' => 'crm_gc'
 		],
 		'db' => [
 			'tablePrefix' => 'lmgc_',
 			'server' => [
 				'locale' => [
-					'version' => '1.1.34',
+					'version' => '1.1.37',
 					'host' => '81.31.158.38',
 					'port' => '3306',
 					'username' => 'uij8aoin_gestiscicasa',
@@ -36,7 +37,7 @@
 					'database' => 'uij8aoin_gestiscicasa',
 				],
 				'test' => [
-					'version' => '2.0.1',
+					'version' => '1.1.37',
 					'host' => '81.31.158.38',
 					'port' => '3306',
 					'username' => 'uij8aoin_gestiscicasa',
@@ -44,7 +45,7 @@
 					'database' => 'uij8aoin_gestiscicasa',
 				],
 				'produzione' => [
-					'version' => '2.0.1',
+					'version' => '1.1.37',
 					'host' => '127.0.0.1',
 					'port' => '3306',
 					'username' => 'uij8aoin_gestiscicasa',
@@ -264,7 +265,7 @@
 	 * Se la voce non presente nella definizione, non può essere usata.
 	 * TO DO: Controllare che venga attivata una CUSTOM EXCEPTION dedicata
 	 */
-	require_once('input_type/_input_type.php');
+	require_once('sub_define/input_type/_input_type.php');
 
 	/**
 	 * definizione del token CUSTOM
