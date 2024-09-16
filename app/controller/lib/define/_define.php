@@ -229,12 +229,12 @@
 	require_once('sub_define/server/_server.php');
 
 	// DA MIGLIORARE ASSOLUTAMENTE, non per la revisione attuale
-	define(
+	/*define(
 		'CRYPTO_KEY',
 		CONFIG['db']['tablePrefix'] .
 			CONFIG['securityConfig']['key']
 	); //es. lmgc_1e2wfvdfyku65yt4efbntmyj
-
+	*/
 	/**
 	 * definizioni relative al tempo come giorno, mese, anno, time()
 	 */
