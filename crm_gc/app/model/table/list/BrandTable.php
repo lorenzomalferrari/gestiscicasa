@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'Brands' table.
+	 * Class representing the 'Brand' table.
 	 */
 	class BrandTable
 	{
-		const TABLE_NAME = 'Brands';
+		const TABLE_NAME = 'Brand';
 
 		const ID = 'id';
 		const NAME = 'name';
@@ -17,7 +17,7 @@
 		const UPDATE_DATE = 'updateDate';
 
 		/**
-		 * Get the list of columns for the Brands table.
+		 * Get the list of columns for the Brand table.
 		 *
 		 * @return array List of column names
 		 */
