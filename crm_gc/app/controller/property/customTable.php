@@ -7,20 +7,20 @@
     $tableDataHeader = PropertyTable::getColumns();
     $tableDataRecord =  [];
 
-    foreach ($arrProperties as $property) {
+    foreach ($arrObj as $obj) {
         $tableDataRecord[] = [
-            $property->getId(),
-            $property->getName(),
-            $property->getDescription(),
-            $property->getPrice(),
-            $property->getAddress(),
-            $property->getIdCity(),
-            $property->getIdState(),
-            $property->getIdPropertyTypes(),
-            $property->isActive(),
-            $property->getNotes(),
-            $property->getCreationDate(),
-            $property->getupdateDate(),
+            $obj->getId(),
+            $obj->getName(),
+            $obj->getDescription(),
+            $obj->getPrice(),
+            $obj->getAddress(),
+            $obj->getIdCity(),
+            $obj->getIdState(),
+            $obj->getIdPropertyTypes(),
+            $obj->isActive(),
+            $obj->getNotes(),
+            $obj->getCreationDate(),
+            $obj->getupdateDate(),
         ];
     }
 

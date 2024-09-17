@@ -1,27 +1,29 @@
 <?php declare(strict_types=1);
     $backgroundTable = "";
 
-    $titlePage = "Proprietà";
+    $titlePage = "Elenco Proprietà";
     $tableName = PropertyTable::TABLE_NAME;
+
+    $parent_path_key = PATH . MENU_PATHS['properties'];
 
     $tableDataHeader = PropertyTable::getColumns();
     $tableDataRecord =  [];
 
-    foreach ($arrProperties as $property) {
+    foreach ($arrObj as $bj) {
         //print_r($property);
         $tableDataRecord[] = [
-            $property->getId(),
-            $property->getName(),
-            $property->getDescription(),
-            $property->getPrice(),
-            $property->getAddress(),
-            $property->getIdCity(),
-            $property->getIdState(),
-            $property->getIdPropertyTypes(),
-            $property->isActive(),
-            $property->getNotes(),
-            $property->getCreationDate(),
-            $property->getupdateDate(),
+            $obj->getId(),
+            $obj->getName(),
+            $obj->getDescription(),
+            $obj->getPrice(),
+            $obj->getAddress(),
+            $obj->getIdCity(),
+            $obj->getIdState(),
+            $obj->getIdPropertyTypes(),
+            $obj->isActive(),
+            $obj->getNotes(),
+            $obj->getCreationDate(),
+            $obj->getupdateDate(),
         ];
     }
 

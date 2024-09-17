@@ -2,7 +2,7 @@
     require_once(ROOT . 'app/model/TableNames.php');
     require_once(ROOT . "app/model/Property.php");
 
-    $arrProperties = array();
+    $arrObj = array();
 
     $select = "*";
 
@@ -22,14 +22,12 @@
         . " WHERE u." . UsersTable::ID . " = :id "*/
     ;
 
-    $params_select = array(
-        /*':id' => $_SESSION[CONFIG['session']['keys']['IDUSER']],*/
-    );
+    $params_select = [];
 
     $results = DB->selectAll($query, $params_select);
 
     foreach ($results as $r) {
-        $arrProperties[] = new Property(
+        $arrObj[] = new Property(
             $r[PropertyTable::ID],
             $r[PropertyTable::NAME],
             $r[PropertyTable::DESCRIPTION],

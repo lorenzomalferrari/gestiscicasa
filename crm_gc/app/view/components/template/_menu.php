@@ -100,6 +100,14 @@
                     </ul>
                 </li>
                 <li class="dsy-menu-item">
+                    <a href="<?php echo PATH . "app/view/lists/brand_list.php" ?>" class="dsy-menu-link">
+                        <span class="dsy-menu-link-icon">
+                            <i class="flaticon-null-3"></i>
+                        </span>
+                        <span class="dsy-menu-link-text">Brand</span>
+                    </a>
+                </li>
+                <li class="dsy-menu-item">
                     <a href="<?php echo PATH . "app/view/lists/users_list.php" ?>" class="dsy-menu-link">
                         <span class="dsy-menu-link-icon">
                             <i class="flaticon-null-3"></i>

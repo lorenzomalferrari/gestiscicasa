@@ -27,11 +27,13 @@
                     }
                 ?>
             </tbody>
+            <!--
             <tfoot>
                 <?php
                     require(ROOT . "app/view/components/table/data/header.php");
                 ?>
             </tfoot>
+            -->
         </table>
     </div>
 </div>

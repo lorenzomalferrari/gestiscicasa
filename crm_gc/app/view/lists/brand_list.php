@@ -1,18 +1,19 @@
 <?php declare(strict_types=1);
     require_once("../../controller/lib/libs.php");
     //Richiamare info da mostrare
-    require_once(ROOT . "app/controller/property/getPropertyList.php");
+    require_once(ROOT . "app/controller/brand/getBrandList.php");
     //Eventuale personalizzazione
-    require_once(ROOT . "app/controller/property/initTable.php");
+    require_once(ROOT . "app/controller/brand/initTable.php");
 ?>
 <!doctype html>
 <html class="no-js" lang="">
 <head>
-    <?php require_once(ROOT . "app/view/components/template/_head.php"); ?>
+    <?php require_once(ROOT . 'app/view/components/template/_head.php'); ?>
 </head>
 <body>
     <!-- Page Loader Start -->
-    <?php //require_once(ROOT . "app/view/components/template/_preloader.php");
+    <?php
+    //require_once(ROOT . "app/view/components/template/_preloader.php");
     ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">
@@ -30,6 +31,7 @@
                     <?php require_once(ROOT . "app/view/components/template/_navbar.php"); ?>
                     <!-- Fine intestazione -->
                 </header>
+
                 <!--=====================================-->
                 <!--=         Breadcrumb Start          =-->
                 <!--=====================================-->
@@ -45,10 +47,10 @@
                                 <div class="breadcrumbs-area text-sm-right">
                                     <ul>
                                         <li>
-                                            <a href="#">Elenco</a>
+                                            <a href="#"><?php echo $titlePage; ?></a>
                                         </li>
                                         <li>
-                                            <a href="#"><?php echo $titlePage; ?></a>
+                                            <a href="#">Elenco</a>
                                         </li>
                                         <!--<li>Data Table</li>-->
                                     </ul>
