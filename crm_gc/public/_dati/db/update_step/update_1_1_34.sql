@@ -1,3 +1,5 @@
+DELETE FROM lmgc_PropertyTypes;
+
 -- Tabella delle categorie dei tipi di proprietà
 CREATE TABLE IF NOT EXISTS lmgc_PropertyTypesCategories (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -10,7 +12,7 @@ CREATE TABLE IF NOT EXISTS lmgc_PropertyTypesCategories (
 -- Tabella dei tipi di proprietà
 CREATE TABLE IF NOT EXISTS lmgc_PropertyTypes (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    type_name VARCHAR(50) NOT NULL,
+    name VARCHAR(50) NOT NULL,
     category_id INT,
     notes TEXT,
     createDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -26,7 +28,7 @@ INSERT INTO lmgc_PropertyTypesCategories (category) VALUES
     ('tourist'),
     ('land');
 
-INSERT INTO lmgc_PropertyTypes (type_name, category_id, notes)
+INSERT INTO lmgc_PropertyTypes (name, category_id, notes)
 VALUES
     ('apartment', 1, NULL),
     ('villa', 1, NULL),
