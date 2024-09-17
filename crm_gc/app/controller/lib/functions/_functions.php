@@ -209,11 +209,16 @@
 		// Converti il nome della tabella in minuscolo
 		$lowerTableName = strtolower($tableName);
 
-		// Dividi il nome della tabella in base alla parola "types"
-		$parts = preg_split('/types/i', $lowerTableName);
-
-		// Rimuovi eventuali underscore e aggiungi una barra finale
-		$path = str_replace('_', '/', trim($parts[0], '_')) . '/types/';
+		// Controlla se la parola 'types' è presente nel nome della tabella
+		if (stripos($lowerTableName, 'types') !== false) {
+			// Dividi il nome della tabella in base alla parola "types"
+			$parts = preg_split('/types/i', $lowerTableName);
+			// Rimuovi eventuali underscore e aggiungi '/types/' alla fine
+			$path = str_replace('_', '/', trim($parts[0], '_')) . '/types/';
+		} else {
+			// Rimuovi eventuali underscore e aggiungi una barra finale
+			$path = str_replace('_', '/', $lowerTableName) . '/';
+		}
 
 		// Restituisci il risultato
 		return $path;
