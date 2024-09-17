@@ -160,6 +160,12 @@
 
 <!-- Codice JavaScript -->
 <script>
+
+	/**
+	 * Gestisce il processo di logout dell'utente.
+	 * Se l'utente ha precedentemente scelto di non ricevere conferme, esegue il logout immediatamente.
+	 * Altrimenti, mostra una finestra di conferma con un'opzione per disattivare la conferma in futuro.
+	 */
 	function logout() {
 		// Controlla se l'utente ha disattivato la conferma in precedenza
 		let skipConfirmation = localStorage.getItem('skipLogoutConfirmation') === 'true';
@@ -180,23 +186,30 @@
 			confirmationBox.style.zIndex = '1000';
 
 			confirmationBox.innerHTML = `
-				<p>
-					Sei sicuro di voler effettuare il logout?
-				</p>
-				<label>
-					<input type="checkbox" id="skipConfirmationCheckbox">
-					Non chiedere più conferma
-				</label>
-				<br>
-				<br>
-				<button onclick="confirmLogout(true)">Sì</button>
-				<button onclick="confirmLogout(false)">No</button>
-			`;
+            <p>
+                Sei sicuro di voler effettuare il logout?
+            </p>
+            <label>
+                <input type="checkbox" id="skipConfirmationCheckbox">
+                Non chiedere più conferma
+            </label>
+            <br>
+            <br>
+            <button onclick="confirmLogout(true)">Sì</button>
+            <button onclick="confirmLogout(false)">No</button>
+        `;
 
 			document.body.appendChild(confirmationBox);
 		}
 	}
 
+	/**
+	 * Conferma o annulla il logout basato sulla scelta dell'utente.
+	 * Se confermato, verifica se l'utente ha selezionato di saltare la conferma in futuro e quindi esegue il logout.
+	 * Se annullato, rimuove il messaggio di conferma dalla pagina.
+	 *
+	 * @param {boolean} confirm - Indica se l'utente ha confermato (true) o annullato (false) il logout.
+	 */
 	function confirmLogout(confirm) {
 		if (confirm) {
 			let skipConfirmation = document.getElementById('skipConfirmationCheckbox').checked;
@@ -209,8 +222,13 @@
 		}
 	}
 
+	/**
+	 * Esegue il logout dell'utente reindirizzando la pagina al file di logout.
+	 * Questa funzione dovrebbe contenere il codice per gestire la logica di logout lato server.
+	 */
 	function executeLogout() {
 		//alert("Logout effettuato con successo!");
 		window.location.href = '../controller/logout.php';
 	}
+
 </script>
