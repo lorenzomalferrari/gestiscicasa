@@ -53,7 +53,7 @@ brand_id INT, -- Riferimento al marchio associato con l'abbonamento (opzionale)
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Data e ora di creazione
 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- Data e ora dell'ultimo aggiornamento
 FOREIGN KEY (payment_frequency_id) REFERENCES lmgc_PaymentFrequencies(id), -- Chiave esterna per la frequenza di pagamento
-FOREIGN KEY (brand_id) REFERENCES lmgc_Brands(id) -- Chiave esterna per il marchio
+FOREIGN KEY (brand_id) REFERENCES lmgc_Brand(id) -- Chiave esterna per il marchio
 );
 
 CREATE TABLE IF NOT EXISTS lmgc_SubscriptionStatuses (
