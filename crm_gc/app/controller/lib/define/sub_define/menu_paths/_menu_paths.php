@@ -14,4 +14,5 @@
 		'nazionalities' => '/app/view/lists/nazionalities_list.php',
 		'properties' => '/app/view/lists/properties_list.php',
 		'property_types' => '/app/view/lists/property_types_list.php',
+		'brand' => '/app/view/lists/brand_list.php',
 	]);
