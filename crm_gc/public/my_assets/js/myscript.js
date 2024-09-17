@@ -175,7 +175,7 @@ function goBack(path) {
 
 
 function action(action, id = null, tableName) {
-    let url = window.location.origin + '/';
+    let url = window.location.origin + '/crm_gc/';
 
     // Crea FormData dal form
     const formElement = document.getElementById('dynamicForm');
@@ -224,7 +224,7 @@ function action(action, id = null, tableName) {
             // Azione specifica per ogni file PHP
             if (action === 'delete') {
                 // Reindirizza alla pagina "lista.php"
-                window.location.href = window.location.origin + result.path;
+                window.location.href = window.location.origin + '/crm_gc/'+ result.path;
             } else if (action === 'insert') {
                 // Ricarica la pagina attuale passando il nuovo id come parametro GET
                 const get_params =
@@ -385,10 +385,10 @@ async function checkConfirmUser() {
     console.log("checkConfirmUser");
     const idUser = document.getElementById("IDUSER").value;
     console.log("idUser" + idUser);
-    console.log(window.location.origin + '/app/controller/users/checkUserStatus.php');
+    console.log(window.location.origin + '/crm_gc/app/controller/users/checkUserStatus.php');
 
     try {
-        const response = await fetch(window.location.origin + '/app/controller/users/checkUserStatus.php', {
+        const response = await fetch(window.location.origin + '/crm_gc/app/controller/users/checkUserStatus.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'  // Imposta l'intestazione per JSON
@@ -426,10 +426,10 @@ async function checkIsUse(params, value) {
     console.log("checkIsUse");
     console.log("params: " + params);
     console.log("value: " + value);
-    console.log(window.location.origin + '/app/controller/users/checkIsUse.php');
+    console.log(window.location.origin + '/crm_gc/app/controller/users/checkIsUse.php');
 
     try {
-        const response = await fetch(window.location.origin + '/app/controller/users/checkIsUse.php', {
+        const response = await fetch(window.location.origin + '/crm_gc//app/controller/users/checkIsUse.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'  // Imposta l'intestazione per JSON
