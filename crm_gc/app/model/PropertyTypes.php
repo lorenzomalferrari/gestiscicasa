@@ -8,7 +8,7 @@
     class PropertyTypes
     {
         private int $id;
-        private string $typeName;
+        private string $name;
         private int $categoryId;
         private ?string $notes;
         private string $createDate;
@@ -18,16 +18,16 @@
          * Constructor for PropertyTypes.
          *
          * @param int $id
-         * @param string $typeName
+         * @param string $name
          * @param int $categoryId
          * @param string|null $notes
          * @param string $createDate
          * @param string $updateDate
          */
-        public function __construct(int $id, string $typeName, int $categoryId, ?string $notes, string $createDate, string $updateDate)
+        public function __construct(int $id, string $name, int $categoryId, ?string $notes, string $createDate, string $updateDate)
         {
             $this->id = $id;
-            $this->typeName = $typeName;
+            $this->name = $name;
             $this->categoryId = $categoryId;
             $this->notes = $notes;
             $this->createDate = $createDate;
@@ -39,9 +39,9 @@
         {
             return $this->id;
         }
-        public function getTypeName(): string
+        public function getName(): string
         {
-            return $this->typeName;
+            return $this->name;
         }
         public function getCategoryId(): int
         {
@@ -60,9 +60,9 @@
             return $this->updateDate;
         }
 
-        public function setTypeName(string $typeName): void
+        public function setName(string $name): void
         {
-            $this->typeName = $typeName;
+            $this->name = $name;
         }
         public function setCategoryId(int $categoryId): void
         {

@@ -7,10 +7,10 @@
 	 */
 	class PropertyTypesTable
 	{
-		const TABLE_NAME = 'lmgc_PropertyTypes';
+		const TABLE_NAME = 'PropertyTypes';
 
 		const ID = 'id';
-		const TYPE_NAME = 'type_name';
+		const NAME = 'name';
 		const CATEGORY_ID = 'category_id';
 		const NOTES = 'notes';
 		const CREATE_DATE = 'createDate';
@@ -25,7 +25,7 @@
 		{
 			return [
 				self::ID,
-				self::TYPE_NAME,
+				self::NAME,
 				self::CATEGORY_ID,
 				self::NOTES,
 				self::CREATE_DATE,

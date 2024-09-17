@@ -2,14 +2,14 @@
     require_once(ROOT . 'app/model/TableNames.php');
     require_once(ROOT . "app/model/PropertyTypes.php");
 
-    $arrTypeProperties = array();
+    $arrObj = array();
 
     $select = PropertyTypesTable::ID . ", "
-        . PropertyTypesTable::DESCRIPTION . ", "
+        . PropertyTypesTable::NAME . ", "
         . PropertyTypesTable::NOTES;
 
     // Decodifica i parametri JSON se forniti in $_GET
-    $params_select = array();
+    $params_select = [];
     $where_select = "";
 
     if (isset($id)) { //dovrei provenire da /controller/property/types/customTable.php
@@ -32,7 +32,7 @@
         $PropertyTypes = new PropertyTypes();
         //set
         $PropertyTypes->setId($r[PropertyTypesTable::ID]);
-        $PropertyTypes->setDescription($r[PropertyTypesTable::DESCRIPTION]);
+        $PropertyTypes->setName($r[PropertyTypesTable::NAME]);
         $PropertyTypes->setNotes($r[PropertyTypesTable::NOTES]);
-        $arrTypeProperties[] = $PropertyTypes;
+        $arrObj[] = $PropertyTypes;
     }
