@@ -7,7 +7,7 @@
 	 */
 	class PropertyTypesCategoriesTable
 	{
-		const TABLE_NAME = 'lmgc_PropertyTypesCategories';
+		const TABLE_NAME = 'PropertyTypesCategories';
 
 		const ID = 'id';
 		const CATEGORY = 'category';
