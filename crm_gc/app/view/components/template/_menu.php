@@ -2,10 +2,10 @@
     <div class="dsy-aside-brand">
         <div class="dsy-brand-logo">
             <a href="<?php echo PATH . "index.php"; ?>" class="main-logo">
-                <img src="../../public/vendor/media/main-logo.png" alt="logo">
+                <img src="<?php echo PATH . "public/vendor/media/main-logo.png"; ?>" alt="logo">
             </a>
             <a href="<?php echo PATH . "index.php"; ?>" class="logo-icon">
-                <img src="../../public/vendor/media/favicon.png" alt="logo">
+                <img src="<?php echo PATH . "public/vendor/media/favicon.png"; ?>" alt="logo">
             </a>
         </div>
         <div class="nav-toggle-btn d-lg-none">

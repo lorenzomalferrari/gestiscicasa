@@ -4,11 +4,9 @@
 ?>
 <!doctype html>
 <html class="no-js" lang="">
-
 <head>
     <?php require_once(ROOT . 'app/view/components/template/_head.php'); ?>
 </head>
-
 <body>
     <!-- Page Loader Start -->
     <?php //require_once(ROOT . "app/view/components/template/_preloader.php");
@@ -22,7 +20,7 @@
             <div class="card login-form">
                 <div class="card-body">
                     <div class="item-logo">
-                        <a href="index.php"><img src="../../public/vendor/media/logo-large.png" alt="<?php echo CONFIG['site']['name']; ?>"></a>
+                        <a href="index.php"><img src="<?php echo PATH . "public/vendor/media/logo-large.png" ?>" alt="<?php echo CONFIG['site']['name']; ?>"></a>
                     </div>
                     <h3 class="text-body text-bold mb-1"><?php echo $titlePage; ?></h3>
                     <div class="text-manatee">Accedi a <strong><?php echo CONFIG['site']['name']; ?></strong>
@@ -76,5 +74,4 @@
     </div>
     <?php require_once(ROOT . "app/view/components/template/_script.php"); ?>
 </body>
-
 </html>
