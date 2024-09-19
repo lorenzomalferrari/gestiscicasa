@@ -29,10 +29,6 @@
                         <div class="text-manatee">
                             Benvenuto in <strong><?php echo CONFIG['site']['name']; ?></strong>
                             <br>
-                            <!--
-                            Questo progetto nasce privato per gestire le mie esigenze in casa e visto che potrebbero
-                            essere le esigenze di tutti l'ho voluto potenziare e rendere disponibile a tutti!!
-                            -->
                             <br>
                             Prima di continuare abbiamo bisogno di qualche altro dato.
                             <br>
