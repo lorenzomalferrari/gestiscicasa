@@ -3,11 +3,11 @@
 	/**
 	 * Class PropertyTypesCategoriesTable
 	 *
-	 * This class defines the structure of the table 'lmgc_PropertyTypesCategories' with constants for columns.
+	 * This class defines the structure of the table 'PropertyTypesCategories' with constants for columns.
 	 */
 	class PropertyTypesCategoriesTable
 	{
-		const TABLE_NAME = 'lmgc_PropertyTypesCategories';
+		const TABLE_NAME = 'PropertyTypesCategories';
 
 		const ID = 'id';
 		const CATEGORY = 'category';

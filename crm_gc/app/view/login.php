@@ -32,7 +32,7 @@
                             unset($_SESSION['login_error']);
                         }
                     ?>
-                    <form id="login_form" action="<?php echo ROOT . "app/controller/loginController.php"; ?>" method="post">
+                    <form id="login_form" action="<?php echo PATH . "app/controller/loginController.php"; ?>" method="post">
                         <div class=" form-group">
                             <div class="input-label">
                                 <label>Username o email</label>

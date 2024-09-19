@@ -3,7 +3,7 @@
     require_once("../../controller/lib/libs.php");
     //Richiamare info da mostrare
     require_once(ROOT . "app/controller/property/getPropertyTypesList.php");
-    //da qua in poi ho $arrTypeProperties
+    //da qua in poi ho $arrObj
     //Eventuale personalizzazione
     require_once(ROOT . "app/controller/property/types/initTable.php");
 ?>
@@ -42,9 +42,11 @@
                     <div class="container-fluid">
                         <div class="row align-items-center">
                             <div class="col-sm-4 col-12">
+                                <!--
                                 <div class="breadcrumbs-area">
-                                    <h1><?php echo $titlePage; ?></h1>
+                                    <h1><?php //echo $titlePage; ?></h1>
                                 </div>
+                                -->
                             </div>
                             <div class="col-sm-8 col-12">
                                 <div class="breadcrumbs-area text-sm-right">

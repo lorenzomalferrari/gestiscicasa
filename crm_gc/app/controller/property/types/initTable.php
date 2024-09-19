@@ -6,19 +6,19 @@
 
     $parent_path_key = PATH . MENU_PATHS['property_types'];
 
-    $tableDataHeader = /*PropertyTypesTable::getColumns()*/[
+    $tableDataHeader = [
         PropertyTypesTable::ID,
-        PropertyTypesTable::DESCRIPTION,
+        PropertyTypesTable::NAME,
         PropertyTypesTable::NOTES
     ];
 
     $tableDataRecord =  [];
 
-    foreach ($arrTypeProperties as $typeProperty) {
+    foreach ($arrObj as $obj) {
         $tableDataRecord[] = [
-            $typeProperty->getId(),
-            $typeProperty->getDescription(),
-            $typeProperty->getNotes(),
+            $obj->getId(),
+            $obj->getDescription(),
+            $obj->getNotes(),
         ];
     }
 
@@ -40,7 +40,7 @@
                         "type" => "text",
                         "attributes" => [
                             "id" => "",
-                            "name" => PropertyTypesTable::DESCRIPTION,
+                            "name" => PropertyTypesTable::NAME,
                             "class" => "form-control",
                             "placeholder" => "Tipo proprietà",
                             "required" => "required",

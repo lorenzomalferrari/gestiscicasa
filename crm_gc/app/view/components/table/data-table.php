@@ -1,5 +1,5 @@
 <div class="card-body">
-    <h3 class="text-body text-center text-md-left text-22 text-bold mb-4"><?php echo $tableName; ?></h3>
+    <h3 class="text-body text-center text-md-left text-22 text-bold mb-4"><?php echo $titlePage; ?></h3>
     <div class="table-responsive">
         <table id="data-table" class="table table-bordered">
             <thead>

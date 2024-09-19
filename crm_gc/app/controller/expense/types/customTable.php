@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
     require_once(ROOT . "app/controller/property/getPropertyTypesList.php");
 
-    $propertyType = $arrTypeProperties[0];
+    $propertyType = $arrObj[0];
     $value_input_1 = $propertyType->getDescription();
     $value_input_2 = $propertyType->getNotes();
 

@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-
+/*
     // Classe base per gli errori HTTP
     class HttpErrorCodes
     {
@@ -188,12 +188,4 @@
         use TransactionErrorCodes, IntegrationErrorCodes, PerformanceErrorCodes, SecurityErrorCodes;
         use ModuleErrorCodes, ApplicationLogicErrorCodes;
     }
-
-    /*
-    // Esempio di utilizzo
-    echo ErrorCodes::NOT_FOUND; // 404
-    echo ErrorCodes::INVALID_PASSWORD; // ERR_INVALID_PASSWORD
-    echo ErrorCodes::IMAGE_TOO_LARGE; // IMAGE_TOO_LARGE
-    echo ErrorCodes::CSV_FORMAT_ERROR; // CSV_FORMAT_ERROR
-    echo ErrorCodes::NETWORK_UNREACHABLE; // NETWORK_UNREACHABLE
-    */
+*/

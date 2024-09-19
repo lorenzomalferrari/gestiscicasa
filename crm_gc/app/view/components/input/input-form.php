@@ -2,7 +2,7 @@
     require_once("../../../controller/lib/libs.php");
     getToPost();
 
-    $page = $_POST['page'];
+    $titlePage = $_POST['page'];
     $parent_path_key = $_POST['path_key'];
     $tableName = $_POST['table'];
     $id = isset($_POST['id']) ? $_POST['id'] : "";
@@ -61,14 +61,14 @@
                             <div class="row align-items-center">
                                 <div class="col-sm-4 col-12">
                                     <div class="breadcrumbs-area">
-                                        <h1><?php echo $page; ?></h1>
+                                        <h1><?php echo $titlePage; ?></h1>
                                     </div>
                                 </div>
                                 <div class="col-sm-8 col-12">
                                     <div class="breadcrumbs-area text-sm-right">
                                         <ul>
                                             <li>
-                                                <a href="#"><?php echo $page; ?></a>
+                                                <a href="#"><?php echo $titlePage; ?></a>
                                             </li>
                                             <li>
                                                 <a href="#"><?php echo $subTitle; ?></a>
