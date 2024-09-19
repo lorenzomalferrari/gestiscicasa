@@ -227,8 +227,7 @@
 	 * Questa funzione dovrebbe contenere il codice per gestire la logica di logout lato server.
 	 */
 	function executeLogout() {
-		//alert("Logout effettuato con successo!");
-		window.location.href = '../controller/logout.php';
+		window.location.href = '<?php echo PATH . "app/controller/logout.php"; ?>';
 	}
 
 </script>
