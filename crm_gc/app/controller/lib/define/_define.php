@@ -29,7 +29,7 @@
 			'tablePrefix' => 'lmgc_',
 			'server' => [
 				'locale' => [
-					'version' => '1.1.37',
+					'version' => '1.1.34',
 					'host' => '81.31.158.38',
 					'port' => '3306',
 					'username' => 'uij8aoin_gestiscicasa',
@@ -37,7 +37,7 @@
 					'database' => 'uij8aoin_gestiscicasa',
 				],
 				'test' => [
-					'version' => '1.1.37',
+					'version' => '1.1.34',
 					'host' => '81.31.158.38',
 					'port' => '3306',
 					'username' => 'uij8aoin_gestiscicasa',
@@ -45,7 +45,7 @@
 					'database' => 'uij8aoin_gestiscicasa',
 				],
 				'produzione' => [
-					'version' => '1.1.37',
+					'version' => '1.1.34',
 					'host' => '127.0.0.1',
 					'port' => '3306',
 					'username' => 'uij8aoin_gestiscicasa',
