@@ -1,4 +1,4 @@
-DELIMITER //
+/*DELIMITER //
 
 CREATE PROCEDURE CleanupInactiveUsersAndOrphanedPeople()
 BEGIN
@@ -37,3 +37,4 @@ SHOW VARIABLES LIKE 'event_scheduler';
 
 -- Abilita il programmatore di eventi se non è abilitato
 SET GLOBAL event_scheduler = ON;
+*/

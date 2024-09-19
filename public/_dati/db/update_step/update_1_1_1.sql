@@ -4,6 +4,6 @@ CREATE TABLE IF NOT EXISTS lmgc_PeopleProperty (
     idRole INT,
     PRIMARY KEY (idPerson, idProperty),
     FOREIGN KEY (idPerson) REFERENCES lmgc_People(id),
-    FOREIGN KEY (idProperty) REFERENCES lmgc_Property(id),
+    FOREIGN KEY (idProperty) REFERENCES lmgc_Properties(id),
     FOREIGN KEY (idRole) REFERENCES lmgc_Roles(id)
 );
