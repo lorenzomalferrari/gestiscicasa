@@ -4,7 +4,7 @@
     $titlePage = "Elenco Brand";
     $tableName = BrandTable::TABLE_NAME;
 
-    $parent_path_key = PATH . MENU_PATHS['brand'];
+    $parent_path_key = PATH . MENU_PATHS['brand']['path'];
 
     $tableDataHeader = BrandTable::getColumns();
     $tableDataRecord =  [];
