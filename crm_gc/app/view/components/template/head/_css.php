@@ -11,5 +11,7 @@
 <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/dependencies/quill/quill.snow.css" type="text/css">
 <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/dependencies/datatables/css/jquery.dataTables.min.css" type="text/css">
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
 <!-- Custom CSS -->
 <link rel="stylesheet" href="<?php echo PATH; ?>public/vendor/assets/css/app.css" type="text/css">
