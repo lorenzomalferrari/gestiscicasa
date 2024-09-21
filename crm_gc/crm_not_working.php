@@ -43,7 +43,6 @@ $email = CONFIG['site']['email_aziendale'];
 
 <head>
 	<?php require_once(ROOT . 'app/view/components/template/_head.php'); ?>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
 <body>
