@@ -169,7 +169,7 @@
 	function getMenuNameByPath($path)
 	{
 		foreach (MENU_PATHS as $key => $value) {
-			if ($value === $path) {
+			if ($value['path'] === $path) {
 				return $key;
 			}
 		}
