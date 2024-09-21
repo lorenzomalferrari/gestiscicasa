@@ -4,7 +4,7 @@
     $titlePage = "Elenco Proprietà";
     $tableName = PropertyTable::TABLE_NAME;
 
-    $parent_path_key = PATH . MENU_PATHS['properties'];
+    $parent_path_key = PATH . MENU_PATHS['properties']['path'];
 
     $tableDataHeader = PropertyTable::getColumns();
     $tableDataRecord =  [];

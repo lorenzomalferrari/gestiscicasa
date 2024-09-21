@@ -18,7 +18,7 @@
 	if (isset($data['table'], $data['id'])) {
 
 		//percorso di ritorno se la cancellazione avviene correttamente
-		$path = MENU_PATHS[convertTableNameToKey($data['table'])];
+		$path = MENU_PATHS[convertTableNameToKey($data['table'])]['path'];
 
 		$params_delete = [
 			':id' => $data['id']
