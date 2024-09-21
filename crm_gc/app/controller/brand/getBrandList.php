@@ -1,9 +1,8 @@
 <?php declare(strict_types=1);
-print_r("BRAND 2 - Lorenzo");
     require_once(ROOT . 'app/model/TableNames.php');
     require_once(ROOT . "app/model/Brand.php");
 
-    $arrObj = array();
+    $arrObj = [];
 
     $select = "*";
 
@@ -29,5 +28,3 @@ print_r("BRAND 2 - Lorenzo");
             $r[BrandTable::UPDATE_DATE],
         );
     }
-
-print_r("BRAND 3 - Lorenzo");
