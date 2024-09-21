@@ -7,9 +7,11 @@
 ?>
 <!doctype html>
 <html class="no-js" lang="">
+
 <head>
     <?php require_once(ROOT . 'app/view/components/template/_head.php'); ?>
 </head>
+
 <body>
     <!-- Page Loader Start -->
     <?php
@@ -62,7 +64,7 @@
                 <!--=====================================-->
                 <!--=         	Table Area Start        =-->
                 <!--=====================================-->
-                <div class="container-fluid">
+                <div class="container">
                     <div class="card component-table">
                         <?php require_once(ROOT . "app/view/components/table/data-table.php"); ?>
                     </div>
@@ -76,4 +78,5 @@
     </div>
     <?php require_once(ROOT . "app/view/components/template/_script.php"); ?>
 </body>
+
 </html>

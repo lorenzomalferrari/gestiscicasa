@@ -1,5 +1,7 @@
 <div class="card-body">
-    <h3 class="text-body text-center text-md-left text-22 text-bold mb-4"><?php echo $titlePage; ?></h3>
+    <!--
+    <h3 class="text-body text-center text-md-left text-22 text-bold mb-4"><?php //echo $titlePage; ?></h3>
+    -->
     <div class="table-responsive">
         <table id="data-table" class="table table-bordered">
             <thead>
@@ -19,7 +21,9 @@
                             . "&table=" . $tableName
                             . "&input_fields=" . $input_fields
                             . "&id=" . $id
-                            . "\" title=\"Modifica\">Modifica</a></td>";
+                            . "\" title=\"Modifica\">"
+                            . "<i class=\"icon bi bi-pencil\"></i>"
+                            . "</a></td>";
                         for ($j = 0; $j < count($tableDataRecord[$i]); $j++) {
                             echo "<td>" . htmlspecialchars($tableDataRecord[$i][$j]) . "</td>";
                         }
@@ -30,7 +34,7 @@
             <!--
             <tfoot>
                 <?php
-                    require(ROOT . "app/view/components/table/data/header.php");
+                    //require(ROOT . "app/view/components/table/data/header.php");
                 ?>
             </tfoot>
             -->
