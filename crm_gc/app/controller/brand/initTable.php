@@ -2,9 +2,10 @@
     $backgroundTable = "";
 
     $titlePage = "Elenco Brand";
-    $tableName = BrandTable::TABLE_NAME;
+    const TABLE_NAME = BrandTable::TABLE_NAME;
+    const PARENT = "";
 
-    $parent_path_key = PATH . MENU_PATHS['brand']['path'];
+    const PARENT_PATH_KEY = PATH . MENU_PATHS['brand']['path'];
 
     $tableDataHeader = BrandTable::getColumns();
     $tableDataRecord =  [];
@@ -23,7 +24,7 @@
         ];
     }
 
-    $breadcrumb_list = [
+    const BREADCRUMB_LIST = [
         'Elenco',
         'Brand'
     ];

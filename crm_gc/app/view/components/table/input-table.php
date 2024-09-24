@@ -12,7 +12,7 @@
                         <div class="form-group">
                             <?php
                             $html = "";
-                            foreach ($fields['body']['rows'] as $row) {
+                            foreach (FIELDS['body']['rows'] as $row) {
                                 $html .= '<div class="row">';
                                 foreach ($row as $field) {
                                     $label = $field['label'];

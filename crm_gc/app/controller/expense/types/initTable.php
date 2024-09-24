@@ -4,7 +4,7 @@
     $tableName = PropertyTypesTable::TABLE_NAME;
     $titlePage = "Tipo Proprietà";
 
-    $parent_path_key = PATH . MENU_PATHS['property_types']['path'];
+    const PARENT_PATH_KEY = PATH . MENU_PATHS['property_types']['path'];
 
     $tableDataHeader = [
         PropertyTypesTable::ID,
@@ -22,7 +22,7 @@
         ];
     }
 
-    $fields = [
+    const FIELDS = [
         "head" => [
             "title" => $titlePage
         ],

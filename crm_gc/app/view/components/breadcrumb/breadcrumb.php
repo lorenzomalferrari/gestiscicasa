@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
     $li = "";
-    foreach($breadcrumb_list as $key => $value){
+    foreach(BREADCRUMB_LIST as $key => $value){
         $li .= <<<li
             <li>
                 <a href="#">$value</a>

@@ -14,15 +14,15 @@
     $msg_errore = "";
 
     $titlePage = $decryptedParams[INPUT_TYPE['edit_key']['page']];
-    $parent_path_key = $decryptedParams[INPUT_TYPE['edit_key']['parent_path_key']];
+    const PARENT_PATH_KEY = $decryptedParams[INPUT_TYPE['edit_key']['parent_path_key']];
     $parent_value = $decryptedParams[INPUT_TYPE['edit_key']['parent']];
     $tableName = $decryptedParams[INPUT_TYPE['edit_key']['tableName']];
-    $fields = json_decode(urldecode($decryptedParams[INPUT_TYPE['edit_key']['input_fields']]), true);
+    FIELDS = json_decode(urldecode($decryptedParams[INPUT_TYPE['edit_key']['input_fields']]), true);
     $id = $decryptedParams[INPUT_TYPE['edit_key']['id']];
 
     $subTitle = ( $id > 0 ) ? "Modifica" : "Nuovo";
 
-    $fields = FormatterInputValidator::validateAndFormatFields($fields);
+    FIELDS = FormatterInputValidator::validateAndFormatFields(FIELDS);
 
     //se id è compilato, devo richiamare il customTable.php del contesto che sto trattando
     //e aggiungere in fields la key value con i valori da DB

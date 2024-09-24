@@ -7,7 +7,7 @@
             <thead>
                 <?php
                     // Converti l'array in JSON
-                    $input_fields = urlencode(json_encode($fields, JSON_PRETTY_PRINT));
+                    $input_fields = urlencode(json_encode(FIELDS, JSON_PRETTY_PRINT));
                     require(ROOT . "app/view/components/table/data/header.php"); ?>
             </thead>
             <tbody>
@@ -22,11 +22,11 @@
                         // Parametri da criptare
                         $params = [
                             'page' => $titlePage,
-                            'parent_path_key' => $parent_path_key,
-                            'parent' => $parent_value,
+                            'parent_path_key' => PARENT_PATH_KEY,
+                            'parent' => $parent,
                             'tableName' => $tableName,
                             'input_fields' => $input_fields,
-                            'breadcrumb_list' => $breadcrumb_list,
+                            'breadcrumb_list' => BREADCRUMB_LIST,
                             'id' => $id,
                             'icon' => 'bi-pencil',
                         ];

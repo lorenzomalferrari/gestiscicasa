@@ -4,7 +4,7 @@
     $tableName = PropertyTypesTable::TABLE_NAME;
     $titlePage = "Tipi Proprietà";
 
-    $parent_path_key = PATH . MENU_PATHS['property_types']['path'];
+    const PARENT_PATH_KEY = PATH . MENU_PATHS['property_types']['path'];
 
     $tableDataHeader = [
         PropertyTypesTable::ID,
@@ -22,7 +22,7 @@
         ];
     }
 
-    $breadcrumb_list = [
+    const BREADCRUMB_LIST = [
         'Elenco',
         'Proprietà',
         'Tipi'
@@ -35,7 +35,7 @@
         require_once(ROOT . 'app/controller/property/types/arr_fields.php');
 
 
-    $fields = [
+    const FIELDS = [
         "head" => [
             "title" => $titlePage
         ],

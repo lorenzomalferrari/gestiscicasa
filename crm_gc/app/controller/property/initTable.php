@@ -2,9 +2,10 @@
     $backgroundTable = "";
 
     $titlePage = "Elenco Proprietà";
-    $tableName = PropertyTable::TABLE_NAME;
+    const TABLE_NAME = PropertyTable::TABLE_NAME;
+    const PARENT_ENTITY = "";
 
-    $parent_path_key = PATH . MENU_PATHS['properties']['path'];
+    const PARENT_PATH_KEY = PATH . MENU_PATHS['properties']['path'];
 
     $tableDataHeader = PropertyTable::getColumns();
     $tableDataRecord =  [];
@@ -27,7 +28,7 @@
         ];
     }
 
-    $breadcrumb_list = [
+    const BREADCRUMB_LIST = [
         'Elenco',
         'Proprietà'
     ];
