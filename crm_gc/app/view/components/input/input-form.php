@@ -14,7 +14,7 @@
     $msg_errore = "";
 
     $titlePage = $decryptedParams[INPUT_TYPE['edit_key']['page']];
-    const PARENT_PATH_KEY = $decryptedParams[INPUT_TYPE['edit_key']['parent_path_key']];
+    $parent_path_key = $decryptedParams[INPUT_TYPE['edit_key']['parent_path_key']];
     $parent_value = $decryptedParams[INPUT_TYPE['edit_key']['parent']];
     $tableName = $decryptedParams[INPUT_TYPE['edit_key']['tableName']];
     $fields = json_decode(urldecode($decryptedParams[INPUT_TYPE['edit_key']['input_fields']]), true);

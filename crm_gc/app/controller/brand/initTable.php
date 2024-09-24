@@ -5,7 +5,7 @@
     const TABLE_NAME = BrandTable::TABLE_NAME;
     const PARENT = "";
 
-    const PARENT_PATH_KEY = PATH . MENU_PATHS['brand']['path'];
+    $parent_path_key = PATH . MENU_PATHS['brand']['path'];
 
     $tableDataHeader = BrandTable::getColumns();
     $tableDataRecord =  [];
@@ -24,7 +24,7 @@
         ];
     }
 
-    const BREADCRUMB_LIST = [
+    $breadcrumb_list = [
         'Elenco',
         'Brand'
     ];

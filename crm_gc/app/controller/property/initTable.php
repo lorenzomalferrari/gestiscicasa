@@ -5,7 +5,7 @@
     const TABLE_NAME = PropertyTable::TABLE_NAME;
     const PARENT_ENTITY = "";
 
-    const PARENT_PATH_KEY = PATH . MENU_PATHS['properties']['path'];
+    $parent_path_key = PATH . MENU_PATHS['properties']['path'];
 
     $tableDataHeader = PropertyTable::getColumns();
     $tableDataRecord =  [];
@@ -28,7 +28,7 @@
         ];
     }
 
-    const BREADCRUMB_LIST = [
+    $breadcrumb_list = [
         'Elenco',
         'Proprietà'
     ];

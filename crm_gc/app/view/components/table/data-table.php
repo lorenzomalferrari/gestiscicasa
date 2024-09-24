@@ -22,11 +22,11 @@
                         // Parametri da criptare
                         $params = [
                             'page' => $titlePage,
-                            'parent_path_key' => PARENT_PATH_KEY,
+                            'parent_path_key' => $parent_path_key,
                             'parent' => $parent,
                             'tableName' => $tableName,
                             'input_fields' => $input_fields,
-                            'breadcrumb_list' => BREADCRUMB_LIST,
+                            'breadcrumb_list' => $breadcrumb_list,
                             'id' => $id,
                             'icon' => 'bi-pencil',
                         ];
