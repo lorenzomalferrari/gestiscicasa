@@ -1,13 +1,24 @@
 <?php declare(strict_types=1);
     require_once("../../../controller/lib/libs.php");
-    getToPost();
 
-    $titlePage = $_POST['page'];
-    $parent_path_key = $_POST['path_key'];
-    $tableName = $_POST['table'];
-    $id = isset($_POST['id']) ? $_POST['id'] : "";
+    $crypto = new Crypto();
+    $secureData = new SecureData($crypto);
 
-    $fields = json_decode(urldecode($_POST['input_fields']), true);
+    $encryptedParams = $_GET;
+
+    $decryptedParams = [];
+    foreach ($encryptedParams as $key => $encryptedValue) {
+        $decryptedParams[$secureData->decryptData($key)] = $secureData->decryptData($encryptedValue);
+    }
+
+    $msg_errore = "";
+
+    $titlePage = $decryptedParams[INPUT_TYPE['edit_key']['page']];
+    $parent_path_key = $decryptedParams[INPUT_TYPE['edit_key']['parent_path_key']];
+    $parent_value = $decryptedParams[INPUT_TYPE['edit_key']['parent']];
+    $tableName = $decryptedParams[INPUT_TYPE['edit_key']['tableName']];
+    $fields = json_decode(urldecode($decryptedParams[INPUT_TYPE['edit_key']['input_fields']]), true);
+    $id = $decryptedParams[INPUT_TYPE['edit_key']['id']];
 
     $subTitle = ( $id > 0 ) ? "Modifica" : "Nuovo";
 
@@ -25,6 +36,8 @@
     //nel caso di utilizzo con le azioni come insert, update, delete.
     require_once(ROOT . "app/controller/hidden_input.php");
 
+    if (file_exists(ROOT . 'app/view/components/breadcrumb/breadcrumb.php'))
+        require_once(ROOT . 'app/view/components/breadcrumb/breadcrumb.php');
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -56,29 +69,7 @@
                     <!--=====================================-->
                     <!--=         Breadcrumb Start          =-->
                     <!--=====================================-->
-                    <div class="breadcrumbs-wrap">
-                        <div class="container-fluid">
-                            <div class="row align-items-center">
-                                <div class="col-sm-4 col-12">
-                                    <div class="breadcrumbs-area">
-                                        <h1><?php echo $titlePage; ?></h1>
-                                    </div>
-                                </div>
-                                <div class="col-sm-8 col-12">
-                                    <div class="breadcrumbs-area text-sm-right">
-                                        <ul>
-                                            <li>
-                                                <a href="#"><?php echo $titlePage; ?></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><?php echo $subTitle; ?></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php echo $breadcrumb; ?>
                     <!--=====================================-->
                     <!--=         	Table Area Start        =-->
                     <!--=====================================-->
