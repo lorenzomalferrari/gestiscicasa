@@ -2,8 +2,7 @@
     $backgroundTable = "";
 
     $titlePage = "Elenco Brand";
-    const TABLE_NAME = BrandTable::TABLE_NAME;
-    const PARENT = "";
+    $tableName = BrandTable::TABLE_NAME;
 
     $parent_path_key = PATH . MENU_PATHS['brand']['path'];
 

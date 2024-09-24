@@ -22,7 +22,7 @@
                         // Parametri da criptare
                         $params = [
                             'page' => $titlePage,
-                            'parent_path_key' => $parent_path_key,
+                            'parent_path_key' => PARENT_PATH_KEY,
                             'parent' => $parent,
                             'tableName' => $tableName,
                             'input_fields' => $input_fields,
