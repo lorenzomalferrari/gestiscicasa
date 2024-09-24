@@ -407,8 +407,8 @@ class FormatterInputValidator
                         if (isset($element['type'])) {
                             $type_el = $element['type'];
                             // Controlla il tipo al primo livello
-                            if (! in_array($type_el, array_keys(INPUT_TYPE)) && ! in_array($type_el, array_keys(INPUT_TYPE['input'])))
-                                return "Errore: Tipo o sottotipo '$type_el' non definito in INPUT_TYPE.";
+                            if (! in_array($type_el, array_keys(INPUT_TYPE['elements'])) && ! in_array($type_el, array_keys(INPUT_TYPE['elements']['input'])))
+                                return "Errore: Tipo o sottotipo '$type_el' non definito in INPUT_TYPE['elements'].";
                         } else {
                             print_r("Chiave type non presente.");
                         }
@@ -453,10 +453,10 @@ class FormatterInputValidator
         foreach ($row as $field) {
             if (is_array($field) && isset($field['type'], $field['attributes'])) {
                 $type = $field['type'];
-                if (isset(INPUT_TYPE['input'][$type])) {
-                    $validAttributes = INPUT_TYPE['input'][$type]['attributes'];
-                } elseif (isset(INPUT_TYPE[$type])) {
-                    $validAttributes = INPUT_TYPE[$type]['attributes'];
+                if (isset(INPUT_TYPE['elements']['input'][$type])) {
+                    $validAttributes = INPUT_TYPE['elements']['input'][$type]['attributes'];
+                } elseif (isset(INPUT_TYPE['elements'][$type])) {
+                    $validAttributes = INPUT_TYPE['elements'][$type]['attributes'];
                 } else {
                     $errors[] = "Unknown input type: $type";
                     continue;
@@ -496,10 +496,10 @@ class FormatterInputValidator
         $attributes = $element['attributes'];
         $custom = self::addAttributes($element['attributes']);
         // Controlla il tipo al primo livello
-        if (in_array($type_el, array_keys(INPUT_TYPE))) {
-            $modal = INPUT_TYPE[$type_el]['model'];
+        if (in_array($type_el, array_keys(INPUT_TYPE['elements']))) {
+            $modal = INPUT_TYPE['elements'][$type_el]['model'];
         } else {
-            $modal = INPUT_TYPE['input'][$type_el]['model'];
+            $modal = INPUT_TYPE['elements']['input'][$type_el]['model'];
         }
 
         $modal = self::filterAndUpdateHtmlAttributes($modal, $attributes);
