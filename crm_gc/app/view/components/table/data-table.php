@@ -12,15 +12,37 @@
             </thead>
             <tbody>
                 <?php
+                    //dobbiamo criptare i parametri
+                    $crypto = new Crypto();
+                    $secureData = new SecureData($crypto);
+
                     for ($i = 0; $i < count($tableDataRecord); $i++) {
                         $id = $tableDataRecord[$i][0];
+
+                        // Parametri da criptare
+                        $params = [
+                            'page' => $titlePage,
+                            'parent_path_key' => $parent_path_key,
+                            'parent' => $parent_value,
+                            'tableName' => $tableName,
+                            'input_fields' => $input_fields,
+                            'breadcrumb_list' => $breadcrumb_list,
+                            'id' => $id,
+                            'icon' => 'bi-pencil',
+                        ];
+
+                        // Cripta i parametri
+                        $encryptedParams = [];
+                        foreach ($params as $key => $value) {
+                            $encryptedParams[$secureData->encryptData($key)] = $secureData->encryptData($value);
+                        }
+
+                        // Costruisci la query string criptata
+                        $queryString = http_build_query($encryptedParams);
+
                         echo "<tr>";
                         echo "<td><a href=\"" . PATH . "app/view/components/input/input-form.php?"
-                            . "page=" . $titlePage
-                            . "&path_key=" . $parent_path_key
-                            . "&table=" . $tableName
-                            . "&input_fields=" . $input_fields
-                            . "&id=" . $id
+                            . $queryString
                             . "\" title=\"Modifica\">"
                             . "<i class=\"icon bi bi-pencil\"></i>"
                             . "</a></td>";
