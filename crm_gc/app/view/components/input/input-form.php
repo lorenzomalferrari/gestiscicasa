@@ -17,12 +17,12 @@
     const PARENT_PATH_KEY = $decryptedParams[INPUT_TYPE['edit_key']['parent_path_key']];
     $parent_value = $decryptedParams[INPUT_TYPE['edit_key']['parent']];
     $tableName = $decryptedParams[INPUT_TYPE['edit_key']['tableName']];
-    FIELDS = json_decode(urldecode($decryptedParams[INPUT_TYPE['edit_key']['input_fields']]), true);
+    $fields = json_decode(urldecode($decryptedParams[INPUT_TYPE['edit_key']['input_fields']]), true);
     $id = $decryptedParams[INPUT_TYPE['edit_key']['id']];
 
     $subTitle = ( $id > 0 ) ? "Modifica" : "Nuovo";
 
-    FIELDS = FormatterInputValidator::validateAndFormatFields(FIELDS);
+    $fields = FormatterInputValidator::validateAndFormatFields($fields);
 
     //se id è compilato, devo richiamare il customTable.php del contesto che sto trattando
     //e aggiungere in fields la key value con i valori da DB

@@ -24,7 +24,7 @@
         ];
     }
 
-    const FIELDS = [
+    $fields = [
         "head" => [
             "title" => "Titolo Pagina"
         ],

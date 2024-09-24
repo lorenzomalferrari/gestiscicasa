@@ -7,7 +7,7 @@
             <thead>
                 <?php
                     // Converti l'array in JSON
-                    $input_fields = urlencode(json_encode(FIELDS, JSON_PRETTY_PRINT));
+                    $input_fields = urlencode(json_encode($fields, JSON_PRETTY_PRINT));
                     require(ROOT . "app/view/components/table/data/header.php"); ?>
             </thead>
             <tbody>

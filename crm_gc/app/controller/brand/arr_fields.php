@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-    const FIELDS = [
+    $fields = [
         "head" => [
             "title" => $titlePage,
         ],

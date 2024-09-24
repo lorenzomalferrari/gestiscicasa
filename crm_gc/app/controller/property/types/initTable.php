@@ -35,7 +35,7 @@
         require_once(ROOT . 'app/controller/property/types/arr_fields.php');
 
 
-    const FIELDS = [
+    $fields = [
         "head" => [
             "title" => $titlePage
         ],
