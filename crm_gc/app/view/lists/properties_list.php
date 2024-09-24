@@ -33,30 +33,7 @@
                 <!--=====================================-->
                 <!--=         Breadcrumb Start          =-->
                 <!--=====================================-->
-                <div class="breadcrumbs-wrap">
-                    <div class="container-fluid">
-                        <div class="row align-items-center">
-                            <div class="col-sm-4 col-12">
-                                <div class="breadcrumbs-area">
-                                    <h1><?php echo $titlePage; ?></h1>
-                                </div>
-                            </div>
-                            <div class="col-sm-8 col-12">
-                                <div class="breadcrumbs-area text-sm-right">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Elenco</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><?php echo $titlePage; ?></a>
-                                        </li>
-                                        <!--<li>Data Table</li>-->
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php echo $breadcrumb; ?>
                 <!--=====================================-->
                 <!--=         	Table Area Start        =-->
                 <!--=====================================-->

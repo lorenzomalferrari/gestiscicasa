@@ -23,46 +23,13 @@
         ];
     }
 
-    $fields = [
-        "head" => [
-            "title" => $titlePage,
-        ],
-        "body" => [
-            "buttons" => [
-                "cancel" => "Annulla",
-                "save" => "Salva",
-                "edit" => "Registra",
-                "delete" => "Elimina"
-            ],
-            "rows" => [
-                [
-                    [
-                        "label" => "Nome",
-                        "type" => "text",
-                        "attributes" => [
-                            "id" => "",
-                            "name" => "nome",
-                            "class" => "form-control",
-                            "placeholder" => "Inserisci il nome del Brand",
-                            "required" => "required",
-                            "maxlength" => "100"
-                        ],
-                        "col" => 12
-                    ]
-                ],
-                [
-                    [
-                        "label" => "Stato",
-                        "type" => "select",
-                        "attributes" => [
-                            "id" => "",
-                            "class" => "form-control",
-                            "name" => "country_of_origin",
-                            "required" => "required",
-                            "disabled" => "disabled"
-                        ],
-                    ],
-                ]
-            ]
-        ]
+    $breadcrumb_list = [
+        'Elenco',
+        'Brand'
     ];
+
+    if (file_exists(ROOT . 'app/view/components/breadcrumb/breadcrumb.php'))
+        require_once(ROOT . 'app/view/components/breadcrumb/breadcrumb.php');
+
+    if (file_exists(ROOT . 'app/controller/brand/arr_fields.php'))
+        require_once(ROOT . 'app/controller/brand/arr_fields.php');

@@ -2,7 +2,7 @@
     $backgroundTable = "";
 
     $tableName = PropertyTypesTable::TABLE_NAME;
-    $titlePage = "Tipo Proprietà";
+    $titlePage = "Tipi Proprietà";
 
     $parent_path_key = PATH . MENU_PATHS['property_types']['path'];
 
@@ -21,6 +21,19 @@
             $obj->getNotes(),
         ];
     }
+
+    $breadcrumb_list = [
+        'Elenco',
+        'Proprietà',
+        'Tipi'
+    ];
+
+    if (file_exists(ROOT . 'app/view/components/breadcrumb/breadcrumb.php'))
+        require_once(ROOT . 'app/view/components/breadcrumb/breadcrumb.php');
+
+    if (file_exists(ROOT . 'app/controller/property/types/arr_fields.php'))
+        require_once(ROOT . 'app/controller/property/types/arr_fields.php');
+
 
     $fields = [
         "head" => [

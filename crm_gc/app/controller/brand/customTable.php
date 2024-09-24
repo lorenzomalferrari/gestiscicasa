@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
     $backgroundTable = "";
 
-    //$titlePage = "Dettaglio Brand";
-    //$tableName = BrandTable::TABLE_NAME;
+//$titlePage = "Dettaglio Brand";
+//$tableName = BrandTable::TABLE_NAME;
 
-    //$tableDataHeader = BrandTable::getColumns();
-    //$tableDataRecord =  [];
+//$tableDataHeader = BrandTable::getColumns();
+//$tableDataRecord =  [];
 
-    /*foreach ($arrBrand as $brand) {
+/*foreach ($arrBrand as $brand) {
         $tableDataRecord[] = [
             $brand->getId(),
             $brand->genName(),

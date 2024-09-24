@@ -27,60 +27,13 @@
         ];
     }
 
-    $fields = [
-        "head" => [
-            "title" => $titlePage,
-        ],
-        "body" => [
-            "buttons" => [
-                "cancel" => "Annulla",
-                "save" => "Salva",
-                "edit" => "Registra",
-                "delete" => "Elimina"
-            ],
-            "rows" => [
-                [
-                    [
-                        "label" => "Nome",
-                        "type" => "text",
-                        "attributes" => [
-                            "id" => "",
-                            "name" => "nome",
-                            "class" => "form-control",
-                            "placeholder" => "Inserisci il tuo nome",
-                            "required" => "required",
-                            "maxlength" => "100"
-                        ],
-                        "col" => 6
-                    ],
-                    [
-                        "label" => "Cognome",
-                        "type" => "text",
-                        "attributes" => [
-                            "id" => "",
-                            "class" => "form-control",
-                            "name" => "cognome",
-                            "placeholder" => "Inserisci il tuo cognome",
-                            "required" => "required",
-                            "maxlength" => "100"
-                        ],
-                        "col" => 6
-                    ]
-                ],
-                [
-                    [
-                        "label" => "Indirizzo",
-                        "type" => "text",
-                        "attributes" => [
-                            "id" => "",
-                            "class" => "form-control",
-                            "name" => "indirizzo",
-                            "placeholder" => "Inserisci il tuo indirizzo",
-                            "required" => "required",
-                            "maxlength" => "100"
-                        ],
-                    ],
-                ]
-            ]
-        ]
+    $breadcrumb_list = [
+        'Elenco',
+        'Proprietà'
     ];
+
+    if (file_exists(ROOT . 'app/view/components/breadcrumb/breadcrumb.php'))
+        require_once(ROOT . 'app/view/components/breadcrumb/breadcrumb.php');
+
+    if (file_exists(ROOT . 'app/controller/property/arr_fields.php'))
+        require_once(ROOT . 'app/controller/property/arr_fields.php');
