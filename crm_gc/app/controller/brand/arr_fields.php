@@ -18,7 +18,7 @@
                         "type" => "text",
                         "attributes" => [
                             "id" => "",
-                            "name" => "nome",
+                            "name" => "name",
                             "class" => "form-control",
                             "placeholder" => "Inserisci il nome del Brand",
                             "required" => "required",
@@ -27,7 +27,7 @@
                         "col" => 12
                     ]
                 ],
-                [
+                /*[
                     [
                         "label" => "Stato",
                         "type" => "select",
@@ -39,7 +39,7 @@
                             "disabled" => "disabled"
                         ],
                     ],
-                ]
+                ]*/
             ]
         ]
     ];

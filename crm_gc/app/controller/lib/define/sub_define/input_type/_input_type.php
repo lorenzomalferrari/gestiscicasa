@@ -10,6 +10,7 @@
             'breadcrumb_list' => 'breadcrumb_list',
             'id' => 'id',
             'icon' => 'icon',
+            'entity' => 'entity',
         ],
         'elements' => [
             "input" => [

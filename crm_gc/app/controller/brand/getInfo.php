@@ -6,13 +6,22 @@
 
     $select = "*";
 
+    $params_select = [];
+    $where_select = "";
+
+    if (isset($id)) { //dovrei provenire da /controller/brand/customTable.php
+        $where_select = " WHERE " . BrandTable::ID . " = :id ";
+        $params_select = [
+            ':id' => $id
+        ];
+    }
+
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::BRAND )
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::BRAND ) . " AS b "
+        . " $where_select "
     ;
-
-    $params_select = [];
 
     $results = DB->selectAll($query, $params_select);
 

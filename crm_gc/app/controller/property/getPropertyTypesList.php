@@ -2,7 +2,7 @@
     require_once(ROOT . 'app/model/TableNames.php');
     require_once(ROOT . "app/model/PropertyTypes.php");
 
-    $arrObj = array();
+    $arrObj = [];
 
     $select = PropertyTypesTable::ID . ", "
         . PropertyTypesTable::NAME . ", "
@@ -29,10 +29,10 @@
     $results = DB->selectAll($query, $params_select);
 
     foreach ($results as $r) {
-        $PropertyTypes = new PropertyTypes();
-        //set
-        $PropertyTypes->setId($r[PropertyTypesTable::ID]);
-        $PropertyTypes->setDescription($r[PropertyTypesTable::NAME]);
-        $PropertyTypes->setNotes($r[PropertyTypesTable::NOTES]);
-        $arrObj[] = $PropertyTypes;
+        //$obj = new PropertyTypes();
+        ////set
+        //$obj->setId($r[PropertyTypesTable::ID]);
+        //$obj->setDescription($r[PropertyTypesTable::NAME]);
+        //$obj->setNotes($r[PropertyTypesTable::NOTES]);
+        //$arrObj[] = $obj;
     }

@@ -1,3 +1,21 @@
+<?php
+    //dobbiamo criptare i parametri
+    $crypto = new Crypto();
+    $secureData = new SecureData($crypto);
+    // Converti l'array in JSON
+    $input_fields = urlencode(json_encode($fields, JSON_PRETTY_PRINT));
+    // Parametri da criptare
+    $params = [
+        'page' => $entity,
+        'entity' => $entity,
+        'parent_path_key' => $parent_path_key,
+        'parent' => isset($parent) && $parent !== "" ? $parent : "",
+        'tableName' => $tableName,
+        'input_fields' => $input_fields,
+        'breadcrumb_list' => $breadcrumb_list,
+        'icon' => isset($icon) && $icon !== "" ? $icon : "",
+    ];
+?>
 <div class="card-body">
     <!--
     <h3 class="text-body text-center text-md-left text-22 text-bold mb-4"><?php //echo $titlePage; ?></h3>
@@ -6,37 +24,14 @@
         <table id="data-table" class="table table-bordered">
             <thead>
                 <?php
-                    // Converti l'array in JSON
-                    $input_fields = urlencode(json_encode($fields, JSON_PRETTY_PRINT));
                     require(ROOT . "app/view/components/table/data/header.php"); ?>
             </thead>
             <tbody>
                 <?php
-                    //dobbiamo criptare i parametri
-                    $crypto = new Crypto();
-                    $secureData = new SecureData($crypto);
-
                     for ($i = 0; $i < count($tableDataRecord); $i++) {
-                        $id = $tableDataRecord[$i][0];
-
-                        // Parametri da criptare
-                        $params = [
-                            'page' => $titlePage,
-                            'parent_path_key' => PARENT_PATH_KEY,
-                            'parent' => $parent,
-                            'tableName' => $tableName,
-                            'input_fields' => $input_fields,
-                            'breadcrumb_list' => $breadcrumb_list,
-                            'id' => $id,
-                            'icon' => 'bi-pencil',
-                        ];
-
+                        $params['id'] = $tableDataRecord[$i][0];
                         // Cripta i parametri
-                        $encryptedParams = [];
-                        foreach ($params as $key => $value) {
-                            $encryptedParams[$secureData->encryptData($key)] = $secureData->encryptData($value);
-                        }
-
+                        $encryptedParams = Crypto::encryptParams($params, $secureData);
                         // Costruisci la query string criptata
                         $queryString = http_build_query($encryptedParams);
 

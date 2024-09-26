@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
     require_once("../../controller/lib/libs.php");
     //Richiamare info da mostrare
-    require_once(ROOT . "app/controller/property/getPropertyTypesList.php");
+    require_once(ROOT . "app/controller/property/getInfo.php");
     //Eventuale personalizzazione
     require_once(ROOT . "app/controller/property/types/initTable.php");
 ?>

@@ -2,7 +2,7 @@
     require_once("../controller/lib/libs.php");
     $titlePage = "Home";
     //Gestione di tutte le variabili php da usare a video. Es. nominativo del profilo loggato
-    require_once(ROOT . "app/model/dashboard/getInfoForDashboard.php");
+    //require_once(ROOT . "app/model/dashboard/getInfoForDashboard.php");
     $nome_cognome = ucwords("Lorenzo Malferrari");
 ?>
 <!doctype html>

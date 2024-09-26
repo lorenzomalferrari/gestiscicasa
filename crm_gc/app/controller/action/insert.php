@@ -23,7 +23,8 @@
 
 		try {
 			// Crea un'istanza della classe relativa alla tabella
-			$instances = ClassFactory::create($data['table']);
+			//$instances = ClassFactory::create($data['table']);
+			//print_r($instances);
 
 			// Cicla su tutte le chiavi dell'array esclusa quella denominata tableName
 			foreach ($data as $key => $value) {
@@ -38,8 +39,10 @@
 			$columns_insert = concatenateWithComma($columns_arr);
 			$values_insert = concatenateWithComma($values_arr);
 
+			$table_query = getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::getEnumCaseFromName(strtoupper($data['table'])));
+
 			// Crea la query SQL per l'inserimento
-			$insert = "INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::getEnumCaseFromName(strtoupper($data['table'])))
+			$insert = "INSERT INTO " . $table_query
 				. " (" . $columns_insert . ") "
 				. " VALUES (" . $values_insert . ")";
 

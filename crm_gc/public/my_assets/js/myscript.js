@@ -175,8 +175,11 @@ function goBack(path) {
 
 
 function action(action, id = null, tableName) {
+    console.log("Azione: " + action);
+    console.log("id: " + id);
+    console.log("tableName: " + tableName);
     let url = window.location.origin + '/crm_gc/';
-
+    console.log("pre-ulr: " + url);
     // Crea FormData dal form
     const formElement = document.getElementById('dynamicForm');
     const formData = new FormData(formElement);
@@ -186,6 +189,9 @@ function action(action, id = null, tableName) {
     formData.forEach((value, key) => {
         data[key] = value;
     });
+
+    console.log("data: ");
+    console.log(data);
 
     // Costruzione dell'URL in base al valore di action
     if (action === 'insert') {
@@ -204,8 +210,9 @@ function action(action, id = null, tableName) {
     // Aggiungi tableName ai dati dell'oggetto
     //data['tableName'] = tableName;
 
-    console.log("Azione: " + action);
-    console.log("Url: " + url);
+    console.log("- Azione: " + action);
+    console.log("- Url: " + url);
+    console.log("- Data: ");
     console.log(data);
 
     // Usa fetch per inviare i dati via POST come JSON

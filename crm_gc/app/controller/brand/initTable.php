@@ -1,7 +1,8 @@
 <?php declare(strict_types=1);
     $backgroundTable = "";
 
-    $titlePage = "Elenco Brand";
+    $entity = "Brand";
+    $titlePage = "Elenco $entity";
     $tableName = BrandTable::TABLE_NAME;
 
     $parent_path_key = PATH . MENU_PATHS['brand']['path'];
@@ -25,7 +26,7 @@
 
     $breadcrumb_list = [
         'Elenco',
-        'Brand'
+        $entity
     ];
 
     if (file_exists(ROOT . 'app/view/components/breadcrumb/breadcrumb.php'))

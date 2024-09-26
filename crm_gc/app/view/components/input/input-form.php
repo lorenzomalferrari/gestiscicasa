@@ -4,21 +4,17 @@
     $crypto = new Crypto();
     $secureData = new SecureData($crypto);
 
-    $encryptedParams = $_GET;
-
-    $decryptedParams = [];
-    foreach ($encryptedParams as $key => $encryptedValue) {
-        $decryptedParams[$secureData->decryptData($key)] = $secureData->decryptData($encryptedValue);
-    }
+    $decryptedParams = Crypto::decryptParams($_GET, $secureData);
 
     $msg_errore = "";
 
     $titlePage = $decryptedParams[INPUT_TYPE['edit_key']['page']];
+    $entity = $decryptedParams[INPUT_TYPE['edit_key']['entity']];
     $parent_path_key = $decryptedParams[INPUT_TYPE['edit_key']['parent_path_key']];
     $parent_value = $decryptedParams[INPUT_TYPE['edit_key']['parent']];
     $tableName = $decryptedParams[INPUT_TYPE['edit_key']['tableName']];
     $fields = json_decode(urldecode($decryptedParams[INPUT_TYPE['edit_key']['input_fields']]), true);
-    $id = $decryptedParams[INPUT_TYPE['edit_key']['id']];
+    $id = $decryptedParams[INPUT_TYPE['edit_key']['id']] ?? null;
 
     $subTitle = ( $id > 0 ) ? "Modifica" : "Nuovo";
 
@@ -35,6 +31,11 @@
     //Ora che tutto è pronto, vanno salvati negli input hidden per essere passati tramite form
     //nel caso di utilizzo con le azioni come insert, update, delete.
     require_once(ROOT . "app/controller/hidden_input.php");
+
+    $breadcrumb_list = [
+        $subTitle,
+        $entity
+    ];
 
     if (file_exists(ROOT . 'app/view/components/breadcrumb/breadcrumb.php'))
         require_once(ROOT . 'app/view/components/breadcrumb/breadcrumb.php');

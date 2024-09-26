@@ -2,7 +2,7 @@
     require_once("../controller/lib/libs.php");
     $titlePage = "Prezzi";
     //Gestione di tutte le variabili php da usare a video
-    require_once(ROOT . "app/model/dashboard/getInfoForPricing.php");
+    //require_once(ROOT . "app/model/dashboard/getInfoForPricing.php");
 ?>
 <!doctype html>
     <html class="no-js" lang="">

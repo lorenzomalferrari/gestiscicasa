@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
     require_once('../../controller/lib/libs.php');
-
+/*
 
     //Cicla per i tipo di Profilo, al momento della stesura del codice sono:
     //- Personale
@@ -53,3 +53,4 @@
         $InfoProfileTypes->setNotes($r[PropertyTypesTable::NOTES]);
         $arrInfoProfileTypes[] = $InfoProfileTypes;
     }
+*/

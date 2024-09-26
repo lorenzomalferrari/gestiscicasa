@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
     $backgroundTable = "";
 
-    $titlePage = "Elenco Proprietà";
+    $entity = "Proprietà";
+    $titlePage = "Elenco $entity";
     $tableName = PropertyTable::TABLE_NAME;
-    const PARENT_ENTITY = "";
 
-    const PARENT_PATH_KEY = PATH . MENU_PATHS['properties']['path'];
+    $parent_path_key = PATH . MENU_PATHS['properties']['path'];
 
     $tableDataHeader = PropertyTable::getColumns();
     $tableDataRecord =  [];
@@ -30,7 +30,7 @@
 
     $breadcrumb_list = [
         'Elenco',
-        'Proprietà'
+        $entity
     ];
 
     if (file_exists(ROOT . 'app/view/components/breadcrumb/breadcrumb.php'))

@@ -367,10 +367,7 @@
 						];
 
 						// Cripta i parametri
-						$encryptedParams = [];
-						foreach ($params as $key => $value) {
-							$encryptedParams[$key] = $secureData->encryptData($value);
-						}
+						$encryptedParams = Crypto::encryptParams($params, $secureData);
 
 						// Costruisci la query string criptata
 						$queryString = http_build_query($encryptedParams);

@@ -3,10 +3,10 @@
 		// Instance variables
 		private int $id;
 		private string $name;
-		private int $country_of_origin;
-		private int $industry_sector;
-		private int $foundation_year;
-		private string $note;
+		private ?int $country_of_origin;
+		private ?int $industry_sector;
+		private ?int $foundation_year;
+		private ?string $note;
 		private string $creationDate;
 		private string $updateDate;
 
