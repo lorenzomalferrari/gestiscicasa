@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-    require_once(ROOT . "app/controller/brand/getInfo.php");
+    require_once(ROOT . "app/controller/brand/getDetailInfo.php");
 
     $backgroundTable = "";
 

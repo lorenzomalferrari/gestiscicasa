@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
     require_once("../../controller/lib/libs.php");
     //Richiamare info da mostrare
-    require_once(ROOT . "app/controller/brand/getBrandList.php");
+    require_once(ROOT . "app/controller/brand/getDetailInfo.php");
     //Eventuale personalizzazione
     require_once(ROOT . "app/controller/brand/initTable.php");
 ?>

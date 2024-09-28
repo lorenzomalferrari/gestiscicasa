@@ -173,7 +173,6 @@ function goBack(path) {
     }
 }
 
-
 function action(action, id = null, tableName) {
     console.log("Azione: " + action);
     console.log("id: " + id);
@@ -468,4 +467,9 @@ async function checkIsUse(params, value) {
         console.error('Errore nella richiesta:', error);
         return false;
     }
+}
+
+function goToDetail(id) {
+    document.detailForm.id.value = id !== null && id !== undefined ? id : '';
+    document.detailForm.submit();
 }

@@ -3,7 +3,6 @@
     require_once(ROOT . "app/model/Brand.php");
 
     $arrObj = [];
-
     $select = "*";
 
     $params_select = [];

@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-    require_once(ROOT . "app/controller/property/getInfo.php");
+    require_once(ROOT . "app/controller/property/getDetailInfo.php");
 
     $obj = $arrObj[0];
     $value_input_1 = $obj->getDescription();

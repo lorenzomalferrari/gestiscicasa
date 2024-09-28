@@ -24,10 +24,22 @@
                             "required" => "required",
                             "maxlength" => "100"
                         ],
-                        "col" => 12
+                    ],
+                    [
+                        "label" => "Anno fondazione",
+                        "type" => "number",
+                        "attributes" => [
+                            "id" => "",
+                            "name" => "foundation_year",
+                            "class" => "form-control",
+                            "min" => 1900,
+                            "max" => YEARNOW,
+                            "step" => 1,
+                        ],
+                        "col" => 2,
                     ]
                 ],
-                /*[
+                [
                     [
                         "label" => "Stato",
                         "type" => "select",
@@ -35,11 +47,29 @@
                             "id" => "",
                             "class" => "form-control",
                             "name" => "country_of_origin",
-                            "required" => "required",
-                            "disabled" => "disabled"
                         ],
                     ],
-                ]*/
+                    [
+                        "label" => "Settore Industriale",
+                        "type" => "select",
+                        "attributes" => [
+                            "id" => "",
+                            "class" => "form-control",
+                            "name" => "industry_sector",
+                        ],
+                    ],
+                ],
+                [
+                    [
+                        "label" => "Note",
+                        "type" => "textarea",
+                        "attributes" => [
+                            "id" => "",
+                            "class" => "form-control",
+                            "name" => "note",
+                        ],
+                    ],
+                ]
             ]
         ]
     ];

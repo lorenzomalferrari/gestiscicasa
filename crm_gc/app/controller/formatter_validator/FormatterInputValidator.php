@@ -490,7 +490,7 @@ class FormatterInputValidator
     public static function getInputFieldsModal($element): string
     {
         $modal = "";
-        $class = "form-control";
+        //$class = "form-control";
 
         $type_el = $element['type'];
         $attributes = $element['attributes'];

@@ -4,7 +4,10 @@
     $crypto = new Crypto();
     $secureData = new SecureData($crypto);
 
-    $decryptedParams = Crypto::decryptParams($_GET, $secureData);
+    parse_str( $_POST['params'], $params );
+    parse_str( $_POST['id'], $param_id );
+
+    $decryptedParams = Crypto::decryptParams( $params, $secureData );
 
     $msg_errore = "";
 
@@ -14,7 +17,12 @@
     $parent_value = $decryptedParams[INPUT_TYPE['edit_key']['parent']];
     $tableName = $decryptedParams[INPUT_TYPE['edit_key']['tableName']];
     $fields = json_decode(urldecode($decryptedParams[INPUT_TYPE['edit_key']['input_fields']]), true);
-    $id = $decryptedParams[INPUT_TYPE['edit_key']['id']] ?? null;
+
+    $id = null;
+    if ( !array_key_exists('', $param_id) ) {
+        $decryptedParams[INPUT_TYPE['edit_key']['id']] = Crypto::decryptParams($param_id, $secureData);
+        $id = $decryptedParams[INPUT_TYPE['edit_key']['id']][0] ?? null;
+    }
 
     $subTitle = ( $id > 0 ) ? "Modifica" : "Nuovo";
 
