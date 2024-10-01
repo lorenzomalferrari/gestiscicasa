@@ -1,5 +1,8 @@
 <?php declare(strict_types=1);
 
+    require_once( ROOT . "app/controller/_select/country.php");
+    require_once(ROOT . "app/controller/_select/industry.php");
+
     $fields = [
         "head" => [
             "title" => $titlePage,
@@ -48,6 +51,7 @@
                             "class" => "form-control",
                             "name" => "country_of_origin",
                         ],
+                        'options' => $countries_list
                     ],
                     [
                         "label" => "Settore Industriale",
@@ -57,6 +61,7 @@
                             "class" => "form-control",
                             "name" => "industry_sector",
                         ],
+                        'options' => $industry_list
                     ],
                 ],
                 [
