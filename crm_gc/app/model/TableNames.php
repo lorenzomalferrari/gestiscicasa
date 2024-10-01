@@ -41,6 +41,7 @@
         case INFOPROFILETYPES = InfoProfileTypesTable::TABLE_NAME;
         case EXPENSE = ExpenseTable::TABLE_NAME;
         case EXPENSETYPES = ExpenseTypesTable::TABLE_NAME;
+        case INDUSTRY_SECTOR = IndustrySectorTable::TABLE_NAME;
 
         // Funzione per ottenere il caso dell'enum dal valore della tabella
         private static function getEnumCaseFromValue(string $value): ?self
