@@ -407,11 +407,15 @@
                     "multiple",
                     "custom" => []
                 ],
+                'options' => [
+                    'value' => 'value',
+                    'text' => 'text',
+                ],
                 "js_functions" => [
                     "onclick",
                     "onchange"
                 ],
-                "model" => '<select id="" class="" name="" required disabled multiple onclick="" onchange=""></select>'
+                "model" => '<select id="" class="" name="" required disabled multiple onclick="" onchange=""><option>Scegli</option>{{options}}</select>'
             ],
             "button" => [
                 "submit" => [
