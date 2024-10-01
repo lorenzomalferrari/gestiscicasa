@@ -5,7 +5,7 @@
 	 */
 	class ExpenseTypesTable
 	{
-		const TABLE_NAME = 'lmgc_ExpenseTypes';
+		const TABLE_NAME = 'ExpenseTypes';
 
 		const ID = 'id';
 		const CODE = 'code';
