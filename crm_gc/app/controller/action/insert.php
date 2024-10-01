@@ -24,7 +24,6 @@
 		try {
 			// Crea un'istanza della classe relativa alla tabella
 			//$instances = ClassFactory::create($data['table']);
-			//print_r($instances);
 
 			// Cicla su tutte le chiavi dell'array esclusa quella denominata tableName
 			foreach ($data as $key => $value) {
