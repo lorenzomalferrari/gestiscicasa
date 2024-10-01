@@ -33,3 +33,4 @@
 	require_once("list/RoomsTable.php");
 	require_once("list/ExpenseTable.php");
 	require_once("list/ExpenseTypesTable.php");
+	require_once("list/IndustrySectorTable.php");
