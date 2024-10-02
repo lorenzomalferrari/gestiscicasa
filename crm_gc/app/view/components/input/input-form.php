@@ -1,6 +1,8 @@
 <?php declare(strict_types=1);
     require_once("../../../controller/lib/libs.php");
 
+    $subTitle = "Nuovo";
+
     $crypto = new Crypto();
     $secureData = new SecureData($crypto);
 
@@ -16,7 +18,7 @@
     $parent_path_key = $decryptedParams[INPUT_TYPE['edit_key']['parent_path_key']];
     $parent_value = $decryptedParams[INPUT_TYPE['edit_key']['parent']];
     $tableName = $decryptedParams[INPUT_TYPE['edit_key']['tableName']];
-    $fields = json_decode(urldecode($decryptedParams[INPUT_TYPE['edit_key']['input_fields']]), true);
+//    $fields = json_decode(urldecode($decryptedParams[INPUT_TYPE['edit_key']['input_fields']]), true);
 
     $id = null;
     if ( !array_key_exists('', $param_id) ) {
@@ -24,17 +26,15 @@
         $id = $decryptedParams[INPUT_TYPE['edit_key']['id']][0] ?? null;
     }
 
-    $subTitle = ( $id > 0 ) ? "Modifica" : "Nuovo";
+    print_r($id);
+    //se id è compilato, devo richiamare il customTable.php del contesto che sto trattando
+    //e modificare in fields la key value con i valori da DB o altre informazioni.
+    //es. aggiungere selected alla option giusta
+    $relative_path = convertTableNameToPath($tableName);
+    $url = normalizeUrl(ROOT . "app/controller/" . $relative_path . "customTable.php");
+    require_once($url);
 
     $fields = FormatterInputValidator::validateAndFormatFields($fields);
-
-    //se id è compilato, devo richiamare il customTable.php del contesto che sto trattando
-    //e aggiungere in fields la key value con i valori da DB
-    if($id > 0){
-        $relative_path = convertTableNameToPath($tableName);
-        $url = normalizeUrl(ROOT . "app/controller/" . $relative_path . "customTable.php");
-        require_once($url);
-    }
 
     //Ora che tutto è pronto, vanno salvati negli input hidden per essere passati tramite form
     //nel caso di utilizzo con le azioni come insert, update, delete.
@@ -47,6 +47,8 @@
 
     if (file_exists(ROOT . 'app/view/components/breadcrumb/breadcrumb.php'))
         require_once(ROOT . 'app/view/components/breadcrumb/breadcrumb.php');
+
+    print_r($fields);
 ?>
 <!doctype html>
 <html class="no-js" lang="">

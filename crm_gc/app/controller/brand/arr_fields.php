@@ -1,7 +1,15 @@
 <?php declare(strict_types=1);
 
-    require_once( ROOT . "app/controller/_select/country.php");
-    require_once(ROOT . "app/controller/_select/industry.php");
+    //Se ho id della entità
+    if ($id > 0) {
+        //Se ho id dello Stato
+        if ($obj->getCountryOfOrigin() > 0)
+            $countries_list = FormatterInputValidator::setSelectedOption( $countries_list, $obj->getCountryOfOrigin() );
+
+        //Se ho id del Settore Industriale
+        if ($obj->getIndustrySector() > 0)
+            $industry_list = FormatterInputValidator::setSelectedOption($industry_list, $obj->getCountryOfOrigin());
+    }
 
     $fields = [
         "head" => [
@@ -20,7 +28,7 @@
                         "label" => "Nome",
                         "type" => "text",
                         "attributes" => [
-                            "id" => "",
+                            "id" => "name",
                             "name" => "name",
                             "class" => "form-control",
                             "placeholder" => "Inserisci il nome del Brand",
@@ -32,7 +40,7 @@
                         "label" => "Anno fondazione",
                         "type" => "number",
                         "attributes" => [
-                            "id" => "",
+                            "id" => "foundation_year",
                             "name" => "foundation_year",
                             "class" => "form-control",
                             "min" => 1900,
@@ -47,7 +55,7 @@
                         "label" => "Stato",
                         "type" => "select",
                         "attributes" => [
-                            "id" => "",
+                            "id" => "country_of_origin",
                             "class" => "form-control",
                             "name" => "country_of_origin",
                         ],
@@ -57,7 +65,7 @@
                         "label" => "Settore Industriale",
                         "type" => "select",
                         "attributes" => [
-                            "id" => "",
+                            "id" => "industry_sector",
                             "class" => "form-control",
                             "name" => "industry_sector",
                         ],
@@ -69,7 +77,7 @@
                         "label" => "Note",
                         "type" => "textarea",
                         "attributes" => [
-                            "id" => "",
+                            "id" => "note",
                             "class" => "form-control",
                             "name" => "note",
                         ],
@@ -78,3 +86,8 @@
             ]
         ]
     ];
+
+    if ($id > 0) {
+        $value_input = $obj->getName();
+        $fields['body']['rows'][0][0]['attributes']['value'] = $value_input;
+    }

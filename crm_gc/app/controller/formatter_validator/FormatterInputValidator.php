@@ -490,22 +490,66 @@ class FormatterInputValidator
     public static function getInputFieldsModal($element): string
     {
         $modal = "";
-        //$class = "form-control";
 
         $type_el = $element['type'];
         $attributes = $element['attributes'];
         $custom = self::addAttributes($element['attributes']);
         // Controlla il tipo al primo livello
-        if (in_array($type_el, array_keys(INPUT_TYPE['elements']))) {
+        if (in_array($type_el, array_keys(INPUT_TYPE['elements'])))
             $modal = INPUT_TYPE['elements'][$type_el]['model'];
-        } else {
+        else {
             $modal = INPUT_TYPE['elements']['input'][$type_el]['model'];
+            $attributes['type'] = $type_el;
         }
 
         $modal = self::filterAndUpdateHtmlAttributes($modal, $attributes);
         $modal = self::addAttributesToTag($modal, $custom);
 
+        if ($type_el === 'select')
+            $modal = self::generateSelectOptions($modal, $element['options']);
+
         return $modal;
+    }
+
+    /**
+     * 
+     */
+    protected static function generateSelectOptions(string $modal, array $options): string
+    {
+        $optionsMarkup = '';
+        $config = INPUT_TYPE['elements']['select']['options'];
+
+        foreach ($options as $key => $option) {
+            $isValid = true;
+
+            foreach ($option as $id => $option_id_arr) {
+                foreach (array_keys($option_id_arr) as $option_key) {
+                    if (!in_array($option_key, $config)) {
+                        $isValid = false;
+                        break;
+                    }
+                }
+
+                // Controlla se l'array options è valido
+                if (!$isValid)
+                    die("Errore: una o più chiavi non sono valide.");
+
+                // Inizia a costruire il tag <option>
+                $optionTag = '<option';
+                $option_text = $option_id_arr[$config['text']];
+                unset($option_id_arr[$config['text']]);
+                // Cicla su tutte le chiavi di config e aggiungi gli attributi al tag <option>
+                foreach ($option_id_arr as $attr => $value)
+                    $optionTag .= " {$attr}=\"{$value}\"";
+
+                // Chiudi il tag con il testo all'interno e aggiungi la chiusura del tag
+                $optionTag .= ">{$option_text}</option>";
+                // Aggiungi al markup finale
+                $optionsMarkup .= $optionTag;
+            }
+        }
+        // Sostituisci un segnaposto nel markup del select con le opzioni generate
+        return str_replace('{{options}}', $optionsMarkup, $modal);
     }
 
     /**
@@ -527,10 +571,6 @@ class FormatterInputValidator
         $filteredAttributes = [];
 
         foreach ($attributes as $key => $value) {
-            if ($key === "type") {
-                // Salta l'attributo 'type'
-                continue;
-            }
             if (in_array($key, $existingAttributes)) {
                 // Se l'attributo esiste, aggiungilo con il nuovo valore
                 $filteredAttributes[] = $key . '="' . $value . '"';
@@ -604,4 +644,46 @@ class FormatterInputValidator
 
         return $htmlWithAttributes;
     }
+
+    /**
+     * Consente di trovare nell'array dei fields che costruiscono la pagina, le options della select
+     * che ha come id quello passato. Può restituire un array vuoto.
+     *
+     * @param array $array
+     * @param int $idToFind
+     * @return array
+     */
+    public static function findOptionsById($array, $idToFind) : array
+    {
+        $options = [];
+        foreach ($array as $element) {
+            if (isset($element['attributes']['id']) && $element['attributes']['id'] === $idToFind) {
+                // Se trovi l'ID, restituisci le options
+                $options = isset($element['options']) ? $element['options'] : null;
+            }
+        }
+        return $options;
+    }
+
+    /**
+     *
+     *
+     * @param array $options_list
+     * @param int $idToSelect
+     * @return array
+     */
+    public static function setSelectedOption(&$options_list, $idToSelect): array
+    {
+        foreach ($options_list as &$option) {
+            foreach ($option as $key => &$details) {
+                if ($details[INPUT_TYPE['elements']['select']['options']['value']] == $idToSelect)
+                    $details[INPUT_TYPE['elements']['select']['options']['selected']] = 'selected';
+                else
+                    unset($details[INPUT_TYPE['elements']['select']['options']['selected']]);
+            }
+        }
+
+        return $options_list;
+    }
+
 }

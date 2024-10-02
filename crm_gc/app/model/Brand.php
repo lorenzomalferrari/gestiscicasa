@@ -41,11 +41,11 @@
 			$this->name = $name;
 		}
 
-		public function getCountryPfOrigin() {
+		public function getCountryOfOrigin() {
 			return $this->country_of_origin;
 		}
 
-		public function setCountryPfOrigin($country_of_origin) {
+		public function setCountryOfOrigin($country_of_origin) {
 			$this->country_of_origin = $country_of_origin;
 		}
 

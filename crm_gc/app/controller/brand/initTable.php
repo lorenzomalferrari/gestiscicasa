@@ -15,7 +15,7 @@
         $tableDataRecord[] = [
             $obj->getId(),
             $obj->getName(),
-            $obj->getCountryPfOrigin(),
+            $obj->getCountryOfOrigin(),
             $obj->getIndustrySector(),
             $obj->getFoundationYear(),
             $obj->getNote(),
@@ -29,8 +29,8 @@
         $entity
     ];
 
+    //Gestisco la parte superiore a destra della tabella, con lo scopo di avere:
+    // Elento / Entità, se richiamata nel edit/new record allora gestirà similmente
+    // una struttura del genere: "Nuovo o Modifica / Brand" o "Nuovo o Modifica / Proprietà / Tipo"
     if (file_exists(ROOT . 'app/view/components/breadcrumb/breadcrumb.php'))
         require_once(ROOT . 'app/view/components/breadcrumb/breadcrumb.php');
-
-    if (file_exists(ROOT . 'app/controller/brand/arr_fields.php'))
-        require_once(ROOT . 'app/controller/brand/arr_fields.php');

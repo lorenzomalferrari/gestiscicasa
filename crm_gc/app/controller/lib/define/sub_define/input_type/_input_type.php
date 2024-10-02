@@ -410,6 +410,7 @@
                 'options' => [
                     'value' => 'value',
                     'text' => 'text',
+                    'selected' => 'selected',
                 ],
                 "js_functions" => [
                     "onclick",

@@ -31,6 +31,3 @@
 
     if (file_exists(ROOT . 'app/view/components/breadcrumb/breadcrumb.php'))
         require_once(ROOT . 'app/view/components/breadcrumb/breadcrumb.php');
-
-    if (file_exists(ROOT . 'app/controller/property/types/arr_fields.php'))
-        require_once(ROOT . 'app/controller/property/types/arr_fields.php');
