@@ -8,7 +8,6 @@
     $parent_path_key = PATH . MENU_PATHS['brand']['path'];
 
     $tableDataHeader = BrandTable::getColumns();
-    $tableDataRecord =  [];
 
     $tableDataRecord = $arrObj;
 
