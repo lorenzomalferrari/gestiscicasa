@@ -7,11 +7,9 @@
 ?>
 <!doctype html>
 <html class="no-js" lang="">
-
 <head>
     <?php require_once(ROOT . 'app/view/components/template/_head.php'); ?>
 </head>
-
 <body>
     <!-- Page Loader Start -->
     <?php
@@ -55,5 +53,4 @@
     </div>
     <?php require_once(ROOT . "app/view/components/template/_script.php"); ?>
 </body>
-
 </html>

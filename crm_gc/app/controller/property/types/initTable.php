@@ -2,8 +2,8 @@
     $backgroundTable = "";
 
     $entity = "Tipi Proprietà";
-    $tableName = PropertyTypesTable::TABLE_NAME;
     $titlePage = "Elenco $entity";
+    $tableName = PropertyTypesTable::TABLE_NAME;
 
     $parent_path_key = PATH . MENU_PATHS['property_types']['path'];
 
@@ -13,15 +13,7 @@
         PropertyTypesTable::NOTES
     ];
 
-    $tableDataRecord =  [];
-
-    foreach ($arrObj as $obj) {
-        $tableDataRecord[] = [
-            $obj->getId(),
-            $obj->getDescription(),
-            $obj->getNotes(),
-        ];
-    }
+    $tableDataRecord = $arrObj;
 
     $breadcrumb_list = [
         'Elenco',

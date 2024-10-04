@@ -1,0 +1,28 @@
+<?php declare(strict_types=1);
+
+    require_once(ROOT . 'app/model/TableNames.php');
+    require_once(ROOT . "app/model/PropertyTypes.php");
+
+    $arrObj = [];
+
+    $select = PropertyTypesTable::ID
+        . " , " . PropertyTypesTable::NAME
+        . " , " . PropertyTypesTable::NOTES;
+
+    $params_select = [];
+    $where_select = "";
+
+    if (isset($id)) { //dovrei provenire da /controller/brand/customTable.php
+        $where_select = " WHERE " . PropertyTypesTable::ID . " = :id ";
+        $params_select = [
+            ':id' => $id
+        ];
+    }
+
+    $query = "
+        SELECT $select
+        FROM  "
+        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PROPERTYTYPES);
+
+    $query .= " $where_select ";
+    $arrObj = DB->selectAll($query, $params_select);

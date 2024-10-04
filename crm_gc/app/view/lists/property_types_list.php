@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
     require_once("../../controller/lib/libs.php");
     //Richiamare info da mostrare
-    require_once(ROOT . "app/controller/property/getDetailInfo.php");
+    require_once(ROOT . "app/controller/property/types/getDetailInfo.php");
     //Eventuale personalizzazione
     require_once(ROOT . "app/controller/property/types/initTable.php");
 ?>
@@ -12,7 +12,8 @@
 </head>
 <body>
     <!-- Page Loader Start -->
-    <?php //require_once(ROOT . "app/view/components/template/_preloader.php");
+    <?php
+    //require_once(ROOT . "app/view/components/template/_preloader.php");
     ?>
     <!-- Page Loader End -->
     <a href="#main-wrapper" data-type="section-switch" class="scrollup">

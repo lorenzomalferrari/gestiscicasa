@@ -1,10 +1,13 @@
 <?php declare(strict_types=1);
-    require_once(ROOT . "app/controller/property/getDetailInfo.php");
+    if ($id > 0) {
+        $subTitle = "Modifica";
+        $backgroundTable = "";
 
-    $obj = $arrObj[0];
-    $value_input_1 = $obj->getDescription();
-    $value_input_2 = $obj->getNotes();
+        require_once(ROOT . "app/controller/property/types/getDetailInfo.php");
 
-    //Visto che ci arriviamo
-    $fields['body']['rows'][0][0]['attributes']['value'] = $value_input_1;
-    $fields['body']['rows'][1][0]['attributes']['value'] = $value_input_2;
+        $titlePage = "Dettaglio Tipo Proprietà";
+        $obj = $arrObj[0];
+    }
+
+    if (file_exists(ROOT . 'app/controller/' . $relative_path . 'arr_fields.php'))
+        require_once(ROOT . 'app/controller/' . $relative_path . 'arr_fields.php');
