@@ -505,10 +505,21 @@ class FormatterInputValidator
         $modal = self::filterAndUpdateHtmlAttributes($modal, $attributes);
         $modal = self::addAttributesToTag($modal, $custom);
 
-        if ($type_el === 'select')
+        if ( $type_el === 'select' )
             $modal = self::generateSelectOptions($modal, $element['options']);
+        else if ( $type_el === 'textarea' )
+            $modal = self::insertTextInTextarea($modal, $element['attributes']);
 
         return $modal;
+    }
+
+    protected static function insertTextInTextarea(string $modal, array $attributes): string
+    {
+        return str_replace(
+            '{{text}}',
+            isset($attributes['text']) ? $attributes['text'] : '',
+            $modal
+        );
     }
 
     /**

@@ -1,9 +1,6 @@
 <?php declare(strict_types=1);
 	require_once(ROOT . 'app/model/TableNames.php');
 
-	//print_r("Sto per stampare var SESSIONE");
-	//print_r($_SESSION);
-
 	//SE PRIMO ACCESSO ANDIAMO A CREARE QUELLA EMPTY
 	if( 1 === 3){
 		require_once(ROOT . "app/model/dashboard/createEmptyDashboard.php");

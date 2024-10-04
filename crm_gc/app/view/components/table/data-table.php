@@ -44,7 +44,7 @@
                 <?php
                 for ($i = 0; $i < count($tableDataRecord); $i++) {
                     // Cripta i parametri
-                    $encryptedId = Crypto::encryptParams([$tableDataRecord[$i][0]], $secureData);
+                    $encryptedId = Crypto::encryptParams([$tableDataRecord[$i]['id']], $secureData);
                     // Costruisci la query string criptata
                     $id = http_build_query($encryptedId);
 
@@ -54,8 +54,8 @@
                         . "title=\"Modifica\">"
                         . "<i class=\"icon bi bi-pencil\"></i>"
                         . "</a></td>";
-                    for ($j = 0; $j < count($tableDataRecord[$i]); $j++) {
-                        echo "<td>" . htmlspecialchars($tableDataRecord[$i][$j]) . "</td>";
+                    foreach ($tableDataRecord[$i] as $key => $value) {
+                        echo "<td>" . htmlspecialchars($value) . "</td>";
                     }
                     echo "</tr>";
                 }

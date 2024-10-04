@@ -7,7 +7,7 @@
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::INDUSTRY_SECTOR) . " AS i LIMIT 2";
+        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::INDUSTRY_SECTOR) . " AS i";
 
     $results = DB->selectAll( $query, [] );
 

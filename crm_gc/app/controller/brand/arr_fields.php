@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
     //Se ho id della entità
-    if ($id > 0) {
+    if (isset($id) && $id > 0) {
         //Se ho id dello Stato
-        if ($obj->getCountryOfOrigin() > 0)
-            $countries_list = FormatterInputValidator::setSelectedOption( $countries_list, $obj->getCountryOfOrigin() );
+        if ($obj[BrandTable::COUNTRY_OF_ORIGIN] > 0)
+            $countries_list = FormatterInputValidator::setSelectedOption( $countries_list, $obj[BrandTable::COUNTRY_OF_ORIGIN] );
 
         //Se ho id del Settore Industriale
-        if ($obj->getIndustrySector() > 0)
-            $industry_list = FormatterInputValidator::setSelectedOption($industry_list, $obj->getCountryOfOrigin());
+        if ($obj[BrandTable::INDUSTRY_SECTOR] > 0)
+            $industry_list = FormatterInputValidator::setSelectedOption( $industry_list, $obj[BrandTable::INDUSTRY_SECTOR] );
     }
 
     $fields = [
@@ -87,7 +87,8 @@
         ]
     ];
 
-    if ($id > 0) {
-        $value_input = $obj->getName();
-        $fields['body']['rows'][0][0]['attributes']['value'] = $value_input;
+    if (isset($id) && $id > 0) {
+        $fields['body']['rows'][0][0]['attributes']['value'] = $obj[BrandTable::NAME];
+        $fields['body']['rows'][0][1]['attributes']['value'] = $obj[BrandTable::FOUNDATION_YEAR];
+        $fields['body']['rows'][2][0]['attributes']['text'] = $obj[BrandTable::NOTE];
     }

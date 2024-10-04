@@ -56,6 +56,7 @@
 					'message' => 'Record updated successfully.',
 					'rows_affected' => $update_result
 				]);
+				$_SESSION['record_edited']['from_edit'] = true;
 			}
 
 		} catch (Exception $e) {

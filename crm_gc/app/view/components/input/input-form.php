@@ -6,8 +6,34 @@
     $crypto = new Crypto();
     $secureData = new SecureData($crypto);
 
-    parse_str( $_POST['params'], $params );
-    parse_str( $_POST['id'], $param_id );
+    //SE HO IN SESSIONE UNA KEY SPECIALE, ALLORA HO MODIFICATO UN RECORD E DEVO RICARICARLO
+    //SENNO' PROCEDIAMO COL SOLITO SISTEMA
+    if (
+        (
+            isset($_SESSION['record_edited']) &&
+            !empty($_SESSION['record_edited'])
+        )
+        &&
+        (
+            isset($_SESSION['record_edited']['from_edit']) &&
+            !empty($_SESSION['record_edited']['from_edit']) &&
+            $_SESSION['record_edited']['from_edit'] === true
+        )
+    ) {
+        $_POST['params'] = $_SESSION['record_edited']['params'];
+        $_POST['id'] = $_SESSION['record_edited']['id'];
+        unset($_SESSION['record_edited']);
+    }
+
+    if (isset($_POST['params']))
+        parse_str($_POST['params'], $params);
+
+    if (isset($_POST['id']))
+        parse_str($_POST['id'], $param_id);
+
+    $_SESSION['record_edited']['params'] = $_POST['params'];
+    $_SESSION['record_edited']['id'] = $_POST['id'];
+    $_SESSION['record_edited']['from_edit'] = false;
 
     $decryptedParams = Crypto::decryptParams( $params, $secureData );
 
@@ -26,7 +52,6 @@
         $id = $decryptedParams[INPUT_TYPE['edit_key']['id']][0] ?? null;
     }
 
-    print_r($id);
     //se id è compilato, devo richiamare il customTable.php del contesto che sto trattando
     //e modificare in fields la key value con i valori da DB o altre informazioni.
     //es. aggiungere selected alla option giusta
@@ -47,8 +72,6 @@
 
     if (file_exists(ROOT . 'app/view/components/breadcrumb/breadcrumb.php'))
         require_once(ROOT . 'app/view/components/breadcrumb/breadcrumb.php');
-
-    print_r($fields);
 ?>
 <!doctype html>
 <html class="no-js" lang="">

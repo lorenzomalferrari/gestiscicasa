@@ -7,7 +7,7 @@
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::COUNTRIES) . " AS c LIMIT 2";
+        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::COUNTRIES) . " AS c";
 
     $results = DB->selectAll( $query, [] );
 

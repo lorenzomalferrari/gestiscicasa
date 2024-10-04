@@ -10,19 +10,7 @@
     $tableDataHeader = BrandTable::getColumns();
     $tableDataRecord =  [];
 
-    foreach ($arrObj as $obj) {
-        //print_r($property);
-        $tableDataRecord[] = [
-            $obj->getId(),
-            $obj->getName(),
-            $obj->getCountryOfOrigin(),
-            $obj->getIndustrySector(),
-            $obj->getFoundationYear(),
-            $obj->getNote(),
-            $obj->getCreationDate(),
-            $obj->getUpdateDate()
-        ];
-    }
+    $tableDataRecord = $arrObj;
 
     $breadcrumb_list = [
         'Elenco',

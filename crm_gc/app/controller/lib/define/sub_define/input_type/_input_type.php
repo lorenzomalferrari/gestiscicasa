@@ -380,13 +380,13 @@
                     "id",
                     "name",
                     "class",
-                    "value",
                     "placeholder",
                     "required",
                     "readonly",
                     "disabled",
                     "maxlength",
                     "minlength",
+                    "text",
                     "custom" => []
                 ],
                 "js_functions" => [
@@ -395,7 +395,7 @@
                     "onfocus",
                     "onblur"
                 ],
-                "model" => '<textarea id="" class="" name="" placeholder="" required readonly disabled maxlength="" minlength="" onclick="" onchange="" onfocus="" onblur=""></textarea>'
+                "model" => '<textarea id="" class="" name="" placeholder="" required readonly disabled maxlength="" minlength="" onclick="" onchange="" onfocus="" onblur="">{{text}}</textarea>'
             ],
             "select" => [
                 "attributes" => [
