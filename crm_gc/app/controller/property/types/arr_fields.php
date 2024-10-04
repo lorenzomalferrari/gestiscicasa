@@ -42,3 +42,8 @@
             ]
         ]
     ];
+
+    if (isset($id) && $id > 0) {
+        $fields['body']['rows'][0][0]['attributes']['value'] = $obj[PropertyTypesTable::NAME];
+        $fields['body']['rows'][1][0]['attributes']['value'] = $obj[PropertyTypesTable::NOTES];
+    }
