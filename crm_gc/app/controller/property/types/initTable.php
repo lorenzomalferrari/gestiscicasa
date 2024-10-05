@@ -1,7 +1,8 @@
 <?php declare(strict_types=1);
     $backgroundTable = "";
 
-    $entity = "Tipi Proprietà";
+    $parent = "Proprietà";
+    $entity = "Tipi " . $parent;
     $titlePage = "Elenco $entity";
     $tableName = PropertyTypesTable::TABLE_NAME;
 
@@ -17,7 +18,7 @@
 
     $breadcrumb_list = [
         'Elenco',
-        'Proprietà',
+        $parent,
         'Tipi'
     ];
 

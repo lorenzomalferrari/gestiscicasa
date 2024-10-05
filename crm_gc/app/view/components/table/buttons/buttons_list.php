@@ -2,13 +2,13 @@
     $annulla = "<button type=\"button\" onclick=\"annulla\" class=\"btn btn-primary mr-2\">Annnulla</button>";
 
     if( !($id > 0) ) {
-        $action = "<button type=\"button\" onclick=\"action('insert', null, '$tableName')\" class=\"btn btn-primary mr-2\">Salva</button>";
+        $action = "<button type=\"button\" onclick=\"action('insert', null)\" class=\"btn btn-primary mr-2\">Salva</button>";
         $action .= $annulla;
     }
     else {
-        $action = "<button type=\"button\" onclick=\"action('update', $id, '$tableName')\" class=\"btn btn-warning mr-2\">Modifica</button>";
+        $action = "<button type=\"button\" onclick=\"action('update', $id)\" class=\"btn btn-warning mr-2\">Modifica</button>";
         $action .= $annulla;
-        $action .= "<button type=\"button\" onclick=\"action('delete', $id, '$tableName')\" class=\"btn btn-danger\">Elimina</button>";
+        $action .= "<button type=\"button\" onclick=\"action('delete', $id)\" class=\"btn btn-danger\">Elimina</button>";
     }
 ?>
 <!-- Riga per i bottoni -->

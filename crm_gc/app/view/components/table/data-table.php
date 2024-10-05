@@ -2,8 +2,6 @@
     //dobbiamo criptare i parametri
     $crypto = new Crypto();
     $secureData = new SecureData($crypto);
-    // Converti l'array in JSON
-//    $input_fields = urlencode(json_encode($fields, JSON_PRETTY_PRINT));
     // Parametri da criptare
     $params = [
         'page' => $entity,
@@ -11,7 +9,6 @@
         'parent_path_key' => $parent_path_key,
         'parent' => isset($parent) && $parent !== "" ? $parent : "",
         'tableName' => $tableName,
-//        'input_fields' => $input_fields,
         'breadcrumb_list' => $breadcrumb_list,
         'icon' => isset($icon) && $icon !== "" ? $icon : "",
     ];
@@ -37,8 +34,7 @@
         </form>
         <table id="data-table" class="table table-bordered">
             <thead>
-                <?php
-                require(ROOT . "app/view/components/table/data/header.php"); ?>
+                <?php require(ROOT . "app/view/components/table/data/header.php"); ?>
             </thead>
             <tbody>
                 <?php

@@ -160,23 +160,20 @@ function checkLogin() {
     const isLoginUsernameValid = validateLoginUsernameOrEmail();
     const isLoginPasswordValid = validatePassword();
 
-    if (isLoginUsernameValid && isLoginPasswordValid) {
+    if (isLoginUsernameValid && isLoginPasswordValid)
         document.getElementById('login_form').submit();
-    }
 }
 
 function goBack(path) {
-    if (path) {
-        window.location.href = path; // Reindirizza alla pagina specificata
-    } else {
-        window.history.back(); // Torna alla pagina precedente nella cronologia
-    }
+    if (path)
+        window.location.href = path;
+    else
+        window.history.back();
 }
 
-function action(action, id = null, tableName) {
+function action(action, id = null) {
     console.log("Azione: " + action);
     console.log("id: " + id);
-    console.log("tableName: " + tableName);
     let url = window.location.origin + '/crm_gc/';
     console.log("pre-ulr: " + url);
     // Crea FormData dal form
@@ -206,9 +203,6 @@ function action(action, id = null, tableName) {
         url += 'app/controller/action/default.php';
     }
 
-    // Aggiungi tableName ai dati dell'oggetto
-    //data['tableName'] = tableName;
-
     console.log("- Azione: " + action);
     console.log("- Url: " + url);
     console.log("- Data: ");
@@ -229,31 +223,30 @@ function action(action, id = null, tableName) {
 
             // Azione specifica per ogni file PHP
             if (action === 'delete') {
+                console.log(action);
                 // Reindirizza alla pagina "lista.php"
-                window.location.href = window.location.origin + '/crm_gc/'+ result.path;
+                //window.location.href = window.location.origin + '/crm_gc/'+ result.path;
             } else if (action === 'insert') {
                 // Ricarica la pagina attuale passando il nuovo id come parametro GET
                 const get_params =
                     'id=' + result.id +
                     '&page=' + data['page'] +
                     '&path_key=' + data['path_key'] +
-                    '&table=' + data['table'] +
+                    '&tableName=' + data['tableName'] +
+                    '&parent=' + data['parent'] +
                     '&input_fields=' + data['input_fields'];
 
                 //if (isValidUrlWithParams(get_params)){
-                    let path = window.location.pathname + '?' + get_params;
-                    window.location.href = path;
+                let path = window.location.pathname + '?' + get_params;
+                window.location.href = path;
                 //}
                 //else{
                 //    alert("Errore di formattazione: " + get_params);
                 //}
-            } else if (action === 'update') {
-                // Ricarica la pagina attuale
+            } else if (action === 'update')
                 window.location.reload();
-            } else {
-                // Azione di default, se necessaria
+            else
                 console.error('Azione non riconosciuta');
-            }
         })
         .catch(error => {
             console.error('Error:', error);
@@ -262,11 +255,10 @@ function action(action, id = null, tableName) {
 
 function validateCheckbox(checkbox) {
     // Controlla se la checkbox è stata selezionata
-    if (checkbox.checked) {
-        return { isValid: true, message: "" }; // Checkbox selezionata
-    } else {
-        return { isValid: false, message: "Devi accettare la privacy policy e i termi d'uso per procedere" }; // Checkbox non selezionata
-    }
+    if (checkbox.checked)
+        return { isValid: true, message: "" };
+    else
+        return { isValid: false, message: "Devi accettare la privacy policy e i termi d'uso per procedere" };
 }
 
 /**
@@ -295,14 +287,14 @@ function checkTextInput(id, feedbackId) {
     if (value === '') {
         feedback.textContent = 'Questo campo è obbligatorio.';
         feedback.style.color = 'red';
-        feedback.style.display = 'block'; // Mostra il feedback
+        feedback.style.display = 'block';
     } else if (!regex.test(value)) {
         feedback.textContent = 'Il campo può contenere solo lettere.';
         feedback.style.color = 'red';
-        feedback.style.display = 'block'; // Mostra il feedback
+        feedback.style.display = 'block';
     } else {
         feedback.textContent = '';
-        feedback.style.display = 'none'; // Nascondi il feedback
+        feedback.style.display = 'none';
     }
 }
 
@@ -318,7 +310,7 @@ function checkBirthDate() {
     if (!value) {
         feedback.textContent = 'Questo campo è obbligatorio.';
         feedback.style.color = 'red';
-        feedback.style.display = 'block'; // Mostra il feedback
+        feedback.style.display = 'block';
     } else {
         const today = new Date();
         const selectedDate = new Date(value);
@@ -329,14 +321,14 @@ function checkBirthDate() {
         if (selectedDate > today) {
             feedback.textContent = 'La data di nascita non può essere nel futuro.';
             feedback.style.color = 'red';
-            feedback.style.display = 'block'; // Mostra il feedback
+            feedback.style.display = 'block';
         } else if (selectedDate > minDate) {
             feedback.textContent = `Devi avere almeno ${minAge} anni.`;
             feedback.style.color = 'red';
-            feedback.style.display = 'block'; // Mostra il feedback
+            feedback.style.display = 'block';
         } else {
             feedback.textContent = '';
-            feedback.style.display = 'none'; // Nascondi il feedback
+            feedback.style.display = 'none';
         }
     }
 }

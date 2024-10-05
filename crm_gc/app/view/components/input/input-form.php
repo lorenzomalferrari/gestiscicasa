@@ -36,16 +36,17 @@
     $_SESSION['record_edited']['from_edit'] = false;
 
     $decryptedParams = Crypto::decryptParams( $params, $secureData );
+    print_r($decryptedParams);
 
     $msg_errore = "";
 
     $titlePage = $decryptedParams[INPUT_TYPE['edit_key']['page']];
     $entity = $decryptedParams[INPUT_TYPE['edit_key']['entity']];
     $parent_path_key = $decryptedParams[INPUT_TYPE['edit_key']['parent_path_key']];
-    $parent_value = $decryptedParams[INPUT_TYPE['edit_key']['parent']];
+    $parent = $decryptedParams[INPUT_TYPE['edit_key']['parent']];
     $tableName = $decryptedParams[INPUT_TYPE['edit_key']['tableName']];
-//    $fields = json_decode(urldecode($decryptedParams[INPUT_TYPE['edit_key']['input_fields']]), true);
-
+//$breadcrumb_list = $decryptedParams[INPUT_TYPE['edit_key']['breadcrumb_list']];
+print_r("------- " . $parent . " --------");
     $id = null;
     if ( !array_key_exists('', $param_id) ) {
         $decryptedParams[INPUT_TYPE['edit_key']['id']] = Crypto::decryptParams($param_id, $secureData);
@@ -69,6 +70,13 @@
         $subTitle,
         $entity
     ];
+
+    if ( isset($parent) && strlen($parent) > 0 )
+        $breadcrumb_list = [
+            $subTitle,
+            $parent,
+            'Tipo'
+        ];
 
     if (file_exists(ROOT . 'app/view/components/breadcrumb/breadcrumb.php'))
         require_once(ROOT . 'app/view/components/breadcrumb/breadcrumb.php');

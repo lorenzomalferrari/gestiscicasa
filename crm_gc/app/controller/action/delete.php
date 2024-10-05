@@ -12,13 +12,20 @@
 	}
 
 	// Rimuovo le chiavi get che portano le infor per ricaricare pagina post lavorazione
-	unset($data['page'], $data['path_key'], $data['input_fields']);
+	unset(
+		$data['page'],
+		$data['entity'],
+		$data['parent_path_key'],
+		$data['parent'],
+		$data['path_key'],
+		$data['input_fields']
+	);
 
 	// Verifica che i dati necessari siano presenti
-	if (isset($data['table'], $data['id'])) {
+	if (isset($data['tableName'], $data['id'])) {
 
 		//percorso di ritorno se la cancellazione avviene correttamente
-		$path = MENU_PATHS[convertTableNameToKey($data['table'])]['path'];
+		$path = MENU_PATHS[convertTableNameToKey($data['tableName'])]['path'];
 
 		$params_delete = [
 			':id' => $data['id']
@@ -26,7 +33,7 @@
 
 		try {
 			// Costruzione della query di eliminazione
-			$delete_query = "DELETE FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::getEnumCaseFromName(strtoupper($data['table'])))
+			$delete_query = "DELETE FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::getEnumCaseFromName(strtoupper($data['tableName'])))
 				. " WHERE id = :id";
 
 			// Esecuzione della query di eliminazione

@@ -5,6 +5,15 @@
 	// Ricevi i dati JSON inviati in POST
 	$data = json_decode(file_get_contents('php://input'), true);
 
+	// Cripto i dati prima di passarli
+	$crypto = new Crypto();
+	$secureData = new SecureData($crypto);
+
+	$encryptedParams = Crypto::encryptParams($data, $secureData);
+	$params = http_build_query($encryptedParams);
+
+	$_SESSION['record_edited']['params'] = $params;
+
 	// Verifica se i dati JSON sono validi
 	if (json_last_error() !== JSON_ERROR_NONE) {
 		echo json_encode(['success' => false, 'message' => 'Invalid JSON data.']);
@@ -12,10 +21,17 @@
 	}
 
 	// Rimuovo le chiavi get che portano le infor per ricaricare pagina post lavorazione
-	unset($data['page'], $data['path_key'], $data['input_fields']);
+	unset(
+		$data['page'],
+		$data['entity'],
+		$data['parent_path_key'],
+		$data['parent'],
+		$data['path_key'],
+		$data['input_fields']
+	);
 
 	// Verifica che i dati necessari siano presenti
-	if (isset($data['table'])) {
+	if (isset($data['tableName'])) {
 		$params_insert = [];
 		$columns_arr = [];
 		$values_arr = [];
@@ -23,11 +39,11 @@
 
 		try {
 			// Crea un'istanza della classe relativa alla tabella
-			//$instances = ClassFactory::create($data['table']);
+			//$instances = ClassFactory::create($data['tableName']);
 
 			// Cicla su tutte le chiavi dell'array esclusa quella denominata tableName
 			foreach ($data as $key => $value) {
-				if ($key !== 'table') {
+				if ($key !== 'tableName') {
 					$columns_arr[] = $key;
 					$values_arr[] = ":" . $key;
 					$params_insert[":" . $key] = $value;
@@ -38,7 +54,7 @@
 			$columns_insert = concatenateWithComma($columns_arr);
 			$values_insert = concatenateWithComma($values_arr);
 
-			$table_query = getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::getEnumCaseFromName(strtoupper($data['table'])));
+			$table_query = getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::getEnumCaseFromName(strtoupper($data['tableName'])));
 
 			// Crea la query SQL per l'inserimento
 			$insert = "INSERT INTO " . $table_query
@@ -47,6 +63,12 @@
 
 			// Esegui la query di inserimento
 			$new_id = DB->insert($insert, $params_insert);
+
+			$encryptedId = Crypto::encryptParams([$new_id], $secureData);
+			$id = http_build_query($encryptedId);
+
+			$_SESSION['record_edited']['id'] = $id;
+			$_SESSION['record_edited']['from_edit'] = true;
 
 			// Restituisci il risultato dell'inserimento
 			echo json_encode(['success' => true, 'id' => $new_id, 'message' => 'Data inserted successfully.']);
