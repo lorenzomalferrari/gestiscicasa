@@ -1,0 +1,286 @@
+<div class="ag-docs-elem missing 	  ">
+	<div class="ag-docs-sheet"></div>
+	<div class="ag-docs-title">
+		PRODUCT OVERSIGHT GOVERNANCE (POG)
+												di GRISANTI GIANLUCA
+									<div class="docs-action-cont">
+															<a href="?do=download&amp;tpl=2682487&amp;anagrafica=342857&amp;servizio=141742" title="scarica template"><span class="fa fa-download"></span></a>								</div>
+		<div class="docs-help">
+					</div>
+			</div>
+
+	<div class="ag-docs-link">
+		
+								<div class="small">
+									
+
+	<input type="hidden" id="dophp_widgets_hiddenfield_6703b81e8be84" name="data[doc__t526_a342857_tipo]" value="">
+
+									
+
+	<div id="dophp_widgets_asyncfilefield_6703b81e8be92_display" class="do-display-contents">
+				<div id="dophp_widgets_asyncfilefield_6703b81e8be92_group" class="row">
+			
+												<label id="dophp_widgets_asyncfilefield_6703b81e8be92_label" for="dophp_widgets_asyncfilefield_6703b81e8be92" class="form-group col-sm-4 col-form-label ">File</label>
+									
+		<div id="dophp_widgets_asyncfilefield_6703b81e8be92_col" class="form-group inputcol col-sm-8 ">
+			
+									<div class="input-group">
+																		<input id="dophp_widgets_asyncfilefield_6703b81e8be92_txt" type="text" class="form-control">
+					<input id="dophp_widgets_asyncfilefield_6703b81e8be92_hid" name="data[doc__t526_a342857_file]" type="hidden" class="ag-asyncupl-hid-fld" value="">
+					<span class="input-group-btn">
+						<button id="dophp_widgets_asyncfilefield_6703b81e8be92_btn" type="button" class="btn btn-secondary ag-calender-button">
+							Seleziona
+						</button>
+						<div id="abortAjax_dophp_widgets_asyncfilefield_6703b81e8be92" class="btn btn-secondary ag-calender-button" style="display: none;">X</div>
+					</span>
+											
+			
+				<input id="dophp_widgets_asyncfilefield_6703b81e8be92" class="form-control " data-hardvalue="" data-vstatus="-1" data-type="asyncFile" data-form="dophp_widgets_form_6703b81e8948b" data-valurl="?do=servizi.mutuo.mod.documenti&amp;id=141742" data-name="doc__t526_a342857_file" data-namespace="[&quot;data&quot;]" type="file" style="display:none;">			
+			
+				
+															</div><!-- Input group end -->
+																<script>
+						// Async file upload
+						$('#dophp_widgets_asyncfilefield_6703b81e8be92_btn').click(function() {
+							$('#dophp_widgets_asyncfilefield_6703b81e8be92').click();
+						});
+						// Custom events for upload result
+						$('#dophp_widgets_asyncfilefield_6703b81e8be92').bind('upload-error', function(event, errorMessage) {
+							$(".ag-upl-feedback.itm_dophp_widgets_asyncfilefield_6703b81e8be92.ag-upl-error").css("display","block");
+							if(errorMessage){
+								$(".ag-upl-feedback.itm_dophp_widgets_asyncfilefield_6703b81e8be92.ag-upl-error .ag-upl-feedback-txt").text(errorMessage);
+							}
+						});
+						$('#dophp_widgets_asyncfilefield_6703b81e8be92').bind('upload-success', function(event) {
+							$(".ag-upl-feedback.itm_dophp_widgets_asyncfilefield_6703b81e8be92.ag-upl-success").css("display","block");
+						});
+						$('#dophp_widgets_asyncfilefield_6703b81e8be92').change(function() {
+
+							// check if upload input is inside a sheetList_form_section
+							// and get linked doc ID
+							var sheetID=0;
+							var formSectCont=$(this).parents(".ag-sheetlist-frm-sect");
+							if(formSectCont.length==1){
+								var formID=$(formSectCont).attr("data-frmid");
+								if(parseInt(formID)>0){
+									sheetID=formID;
+								}
+							}
+
+
+							$('#dophp_widgets_asyncfilefield_6703b81e8be92_txt').val( $(this).val() );
+
+							$(".ag-prog-itm_dophp_widgets_asyncfilefield_6703b81e8be92").css("display","flex");
+							var currForm = $(this).parents("form");
+							$(currForm).find(".do-btntype-submit").prop("disabled",true);
+							$(".do-btntype-submit").prop("disabled",true);
+
+							var agForm_dophp_widgets_asyncfilefield_6703b81e8be92 = new FormData();
+							agForm_dophp_widgets_asyncfilefield_6703b81e8be92.append("file_dophp_widgets_asyncfilefield_6703b81e8be92", $('#dophp_widgets_asyncfilefield_6703b81e8be92')[0].files[0]);
+
+							var startTime = new Date();
+							startTime = ( startTime.getTime() / 1000 );
+
+							jqXHR = $.ajax({
+								type:"POST",
+								contentType: false,
+								cache: false,
+								processData:false,
+								data: agForm_dophp_widgets_asyncfilefield_6703b81e8be92,
+								url: '?do=fileUpload',
+								xhr: function(){
+									$("#abortAjax_dophp_widgets_asyncfilefield_6703b81e8be92").show();
+									var currHXR= $.ajaxSettings.xhr();
+									if(currHXR.upload){
+										currHXR.upload.addEventListener("progress",function(e){
+											if(e.lengthComputable){
+
+												// show progress bar
+												$(".ag-progress-line_dophp_widgets_asyncfilefield_6703b81e8be92").css("display","block");
+												$(".ag-upl-feedback.itm_dophp_widgets_asyncfilefield_6703b81e8be92").css("display","none");
+
+												var nowTime = new Date();
+												nowTime = ( nowTime.getTime() / 1000 );
+												var elapsedTime = nowTime - startTime;
+												var secondsBeforeETACalc = 3;
+
+												// if given time is elapsed show ETA info
+												if( elapsedTime > secondsBeforeETACalc){
+
+													// show ETA info
+													$(".progress-ETA").css("display","block");
+
+													var slices = (e.total / e.loaded);
+													var totalTime = slices * elapsedTime;
+													var ETA = totalTime - elapsedTime;
+
+													var timeUnit= 60;
+													var missingMinutes = parseInt(ETA) / timeUnit;
+													var missingSeconds = parseInt(ETA) % timeUnit;
+
+													if(parseInt(missingMinutes)> 59){
+														var ETAString = "Più di un'ora al termine";
+														$(".progress-ETA-itm_dophp_widgets_asyncfilefield_6703b81e8be92").html(ETAString);
+													}
+													else{
+														if(parseInt(missingSeconds)>0){
+
+															var ETAString = "Circa ";
+															if(parseInt(missingMinutes)>0){
+																if(parseInt(missingMinutes)>1){
+																	ETAString += parseInt(missingMinutes)+" minuti e ";
+																}
+																else{
+																	ETAString += parseInt(missingMinutes)+" minuto e ";
+																}
+															}
+															if(parseInt(missingSeconds)>0){
+																if(parseInt(missingSeconds)>1){
+																	ETAString += parseInt(missingSeconds)+" secondi";
+																}
+																else{
+																	ETAString += parseInt(missingSeconds)+" secondo";
+																}
+															}
+															ETAString +=" al termine";
+
+															$(".progress-ETA-itm_dophp_widgets_asyncfilefield_6703b81e8be92").html(ETAString);
+														}
+													}
+												}
+
+												var perc= parseInt((e.loaded / e.total) * 100);
+												$(".ag-progress_dophp_widgets_asyncfilefield_6703b81e8be92").css("width",perc+"%");
+												$(".ag-progress_dophp_widgets_asyncfilefield_6703b81e8be92").text(perc+"%");
+
+												// if current upload field is linked to doc_sheet object,
+												// updates the doc_sheet upload_progress_bar
+												if(sheetID){
+													$(".doc-tpl-link[data-docid="+sheetID+"] .ag-sheetlist-itm-upl").css("width",perc+"%");
+												}
+											}
+										},false);
+									}
+									return currHXR;
+								},
+								success: function(data){
+									console.log('File upload success', data);
+									$("#abortAjax_dophp_widgets_asyncfilefield_6703b81e8be92").hide();
+									let myfile = data.files['file_'+"dophp_widgets_asyncfilefield_6703b81e8be92"];
+
+									if( ! myfile ) {
+										setTimeout(function(){
+											$('#dophp_widgets_asyncfilefield_6703b81e8be92').trigger('upload-error', ["Errore sconosciuto durante il caricamento"]);
+										}, 700);
+									} else {
+										if( myfile.success ) {
+											$('#dophp_widgets_asyncfilefield_6703b81e8be92_hid').val(myfile.id);
+										} else {
+											let message = myfile.message;
+											//TODO
+										}
+
+										setTimeout(function(){
+											// enable save button after file upload
+											$(currForm)
+												.find(".do-btntype-submit")
+												.prop("disabled",false);
+											$(".do-btntype-submit").prop("disabled",false);
+											//$(".progress-ETA").html("Terminato");
+
+											// hide the progress bar and ETA text
+											$(".progress-ETA").css("display","none");
+											$(".ag-progress-line_dophp_widgets_asyncfilefield_6703b81e8be92").css("display","none");
+
+											// show feedback response row
+											var res=data["files"]["file_dophp_widgets_asyncfilefield_6703b81e8be92"];
+											if(typeof(res["success"])!="undefined"){
+												if(res["success"]==true){
+													$('#dophp_widgets_asyncfilefield_6703b81e8be92').trigger('upload-success');
+												}
+												else if(res["success"]==false){
+													$('#dophp_widgets_asyncfilefield_6703b81e8be92').trigger('upload-error', [res["message"]]);
+												}
+											}
+										},700);
+									}
+								},
+								error: function(jqXHR, textStatus, errorThrown){
+									setTimeout(function(){
+										let httpCode = jqXHR.status;
+										$('#dophp_widgets_asyncfilefield_6703b81e8be92').trigger('upload-error', ['Codice di errore HTTP ' + httpCode]);
+									},700);
+								},
+								complete: function(jqXHR, textStatus){
+									// enable save button after file upload
+									$(currForm)
+										.find(".do-btntype-submit")
+										.prop("disabled",false);
+
+									// hide the progress bar and ETA text
+									$(".progress-ETA").css("display","none");
+									$(".ag-progress-line_dophp_widgets_asyncfilefield_6703b81e8be92").css("display","none");
+								}
+							});
+
+						});
+						$( document ).ready(function() {
+							$("#abortAjax_dophp_widgets_asyncfilefield_6703b81e8be92").hide();
+							$("#abortAjax_dophp_widgets_asyncfilefield_6703b81e8be92").click(function() {
+								if( ! window.confirm('Sei sicuro di voler interrompere il caricamento?') )
+									return;
+								jqXHR.abort();
+								$(this).parents("form").find(".do-btntype-submit").prop("disabled",false);
+								$(".do-btntype-submit").prop("disabled",false);
+								$(".progress-ETA").css("display","none");
+								$(".ag-progress-line_dophp_widgets_asyncfilefield_6703b81e8be92").css("display","none");
+								$('#dophp_widgets_asyncfilefield_6703b81e8be92_txt').val('');
+								$("#abortAjax_dophp_widgets_asyncfilefield_6703b81e8be92").hide();
+							});
+						});
+					</script>
+												<script>
+											$("#dophp_widgets_asyncfilefield_6703b81e8be92").formhandle("dophp_widgets_form_6703b81e8948b");
+									</script>
+				<div id="dophp_widgets_asyncfilefield_6703b81e8be92_feedback" class="form-control-feedback " style="display: none;"></div>
+			
+		</div>
+			</div>
+				<div class="form-group row ag-progress-line_dophp_widgets_asyncfilefield_6703b81e8be92">
+
+			<div class="offset-sm-2 col-sm-10">
+				<div class="progress ag-progress ag-prog-itm_dophp_widgets_asyncfilefield_6703b81e8be92">
+					<div class="progress-bar ag-progress_dophp_widgets_asyncfilefield_6703b81e8be92" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="offset-sm-2 col-sm-10">
+				<div class="progress-ETA progress-ETA-itm_dophp_widgets_asyncfilefield_6703b81e8be92"></div>
+				<div class="ag-upl-feedback ag-upl-success itm_dophp_widgets_asyncfilefield_6703b81e8be92">
+					<span class="ag-upl-feedback-icn fa fa-thumbs-o-up"></span> File caricato correttamente
+				</div>
+				<div class="ag-upl-feedback ag-upl-error itm_dophp_widgets_asyncfilefield_6703b81e8be92">
+					<span class="ag-upl-feedback-icn fa fa-exclamation-circle"></span> Errore:
+					<div class="ag-upl-feedback-txt"></div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+									
+
+	<input type="hidden" id="dophp_widgets_hiddenfield_6703b81e8beaa" name="data[doc__t526_a342857_nascondi_ufficio]" value="">
+
+									
+
+	<input type="hidden" id="dophp_widgets_hiddenfield_6703b81e8beb9" name="data[doc__t526_a342857_nascondi_anagrafica]" value="">
+
+							</div>
+		
+			</div>
+
+			<div class="ag-clb"></div>
+	
+</div>
