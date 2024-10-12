@@ -12,7 +12,7 @@
     $params_select = array();
     $where_select = "";
 
-    if (isset($id)) { //dovrei provenire da /controller/property/types/customTable.php
+    if (isset($id)) { //dovrei provenire da /controller/entities/property/types/customTable.php
         $where_select = " WHERE " . ExpenseTypesTable::ID . " = :id ";
         $params_select = [
             ':id' => $id

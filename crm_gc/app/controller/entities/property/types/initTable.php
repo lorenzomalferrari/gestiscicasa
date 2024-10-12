@@ -22,5 +22,4 @@
         'Tipi'
     ];
 
-    if (file_exists(ROOT . 'app/view/components/breadcrumb/breadcrumb.php'))
-        require_once(ROOT . 'app/view/components/breadcrumb/breadcrumb.php');
+    require_once(VIEW_PATH . 'components/breadcrumb/breadcrumb.php');

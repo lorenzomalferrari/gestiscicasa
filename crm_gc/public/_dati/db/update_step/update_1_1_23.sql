@@ -17,8 +17,6 @@ VALUES (1, 1,  '', 'titolo');
 INSERT INTO lmgc_InfoProfileTypes (idlmgc_ProfileTypes, plan,description, notes)
 VALUES (1, 1,  '$0.00', 'titolo');
 
------
-
 INSERT INTO lmgc_InfoProfileTypes (idlmgc_ProfileTypes, plan,description, notes)
 VALUES (1, 2,   'LIV. 1', 'titolo');
 
@@ -27,8 +25,6 @@ VALUES (1, 2,   '', 'titolo');
 
 INSERT INTO lmgc_InfoProfileTypes (idlmgc_ProfileTypes, plan,description, notes)
 VALUES (1, 2,   '$9.99', 'titolo');
-
------
 
 INSERT INTO lmgc_InfoProfileTypes (idlmgc_ProfileTypes, plan,description, notes)
 VALUES (1, 3,   'LIV. 2', 'titolo');
@@ -39,8 +35,6 @@ VALUES (1, 3,   '', 'titolo');
 INSERT INTO lmgc_InfoProfileTypes (idlmgc_ProfileTypes, plan,description, notes)
 VALUES (1, 3,   '$19.99', 'titolo');
 
------------------------------
-
 INSERT INTO lmgc_InfoProfileTypes (idlmgc_ProfileTypes, plan,description, notes)
 VALUES (2, 1,  'PICCOLA', 'titolo');
 
@@ -50,8 +44,6 @@ VALUES (2, 1,  '', 'titolo');
 INSERT INTO lmgc_InfoProfileTypes (idlmgc_ProfileTypes, plan,description, notes)
 VALUES (2, 1,  '$49.99', 'titolo');
 
------
-
 INSERT INTO lmgc_InfoProfileTypes (idlmgc_ProfileTypes, plan,description, notes)
 VALUES (2, 2,  'MEDIA', 'titolo');
 
@@ -60,8 +52,6 @@ VALUES (2, 2,  '', 'titolo');
 
 INSERT INTO lmgc_InfoProfileTypes (idlmgc_ProfileTypes, plan,description, notes)
 VALUES (2, 2,  '$69.99', 'titolo');
-
------
 
 INSERT INTO lmgc_InfoProfileTypes (idlmgc_ProfileTypes, plan,description, notes)
 VALUES (2, 3,  'GRANDE', 'titolo');

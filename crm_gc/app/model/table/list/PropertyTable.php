@@ -9,12 +9,11 @@
 
 		const ID = 'id';
 		const NAME = 'name';
-		const DESCRIPTION = 'description';
 		const PRICE = 'price';
 		const ADDRESS = 'address';
 		const ID_CITY = 'IdCity';
 		const ID_STATE = 'IdState';
-		const ID_PropertyTypes = 'IdPropertyTypes';
+		const ID_PROPERTY_TYPES = 'IdPropertyTypes';
 		const ACTIVE = 'active';
 		const NOTES = 'notes';
 		const CREATION_DATE = 'creationDate';
@@ -30,12 +29,11 @@
 			return [
 				self::ID,
 				self::NAME,
-				self::DESCRIPTION,
 				self::PRICE,
 				self::ADDRESS,
 				self::ID_CITY,
 				self::ID_STATE,
-				self::ID_PropertyTypes,
+				self::ID_PROPERTY_TYPES,
 				self::ACTIVE,
 				self::NOTES,
 				self::CREATION_DATE,

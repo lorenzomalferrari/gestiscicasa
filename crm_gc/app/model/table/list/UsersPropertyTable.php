@@ -7,9 +7,9 @@
 	{
 		const TABLE_NAME = 'UsersProperties';
 
-		const ID_PERSON = 'idPerson';
-		const ID_PROPERTY = 'idProperty';
-		const ID_ROLE = 'idRole';
+		const ID_PERSON = 'person_id';
+		const ID_PROPERTY = 'property_id';
+		const ID_ROLE = 'role_id';
 
 		/**
 		 * Get the list of columns for the UsersProperties table.

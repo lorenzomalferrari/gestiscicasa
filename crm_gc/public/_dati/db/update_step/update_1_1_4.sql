@@ -18,13 +18,13 @@ CREATE TABLE IF NOT EXISTS lmgc_Rooms (
 ALTER TABLE lmgc_Rooms
 ADD CONSTRAINT FK_Rooms_UsageDestinations FOREIGN KEY (idUsageDestination) REFERENCES lmgc_UsageDestinations(id),
 ADD CONSTRAINT FK_Rooms_Colors FOREIGN KEY (idColor) REFERENCES lmgc_Colors(id),
-ADD CONSTRAINT FK_Rooms_Properties FOREIGN KEY (idProperty) REFERENCES lmgc_Property(id),
+ADD CONSTRAINT FK_Rooms_Properties FOREIGN KEY (idProperty) REFERENCES lmgc_Properties(id),
 ADD CONSTRAINT FK_Rooms_RoomTypess FOREIGN KEY (idRoomTypes) REFERENCES lmgc_RoomTypess(id);
 
 ALTER TABLE lmgc_Rooms
 ADD CONSTRAINT FK_Rooms_UsageDestinations FOREIGN KEY (idUsageDestination) REFERENCES lmgc_UsageDestinations(id),
 ADD CONSTRAINT FK_Rooms_Colors FOREIGN KEY (idColor) REFERENCES lmgc_Colors(id),
-ADD CONSTRAINT FK_Rooms_Properties FOREIGN KEY (idProperty) REFERENCES lmgc_Property(id),
+ADD CONSTRAINT FK_Rooms_Properties FOREIGN KEY (idProperty) REFERENCES lmgc_Properties(id),
 ADD CONSTRAINT FK_Rooms_RoomTypess FOREIGN KEY (idRoomTypes) REFERENCES lmgc_RoomTypess(id);
 
 -- Inserimento della stanza "Soggiorno"

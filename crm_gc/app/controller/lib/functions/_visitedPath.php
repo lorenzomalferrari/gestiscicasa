@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
     /**
      * Aggiunge o aggiorna il numero di visite sulla path interrogata.
      * Alcune path non vengono salvate nel conteggio

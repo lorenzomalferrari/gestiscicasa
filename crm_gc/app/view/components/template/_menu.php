@@ -107,8 +107,9 @@
                         <span class="dsy-menu-link-text">Brand</span>
                     </a>
                 </li>
+                <!--
                 <li class="dsy-menu-item">
-                    <a href="<?php echo PATH . "app/view/lists/users_list.php" ?>" class="dsy-menu-link">
+                    <a href="<?php //echo PATH . "app/view/lists/users_list.php" ?>" class="dsy-menu-link">
                         <span class="dsy-menu-link-icon">
                             <i class="flaticon-null-3"></i>
                         </span>
@@ -116,13 +117,14 @@
                     </a>
                 </li>
                 <li class="dsy-menu-item">
-                    <a href="<?php echo PATH . "app/view/lists/nazionalities_list.php" ?>" class="dsy-menu-link">
+                    <a href="<?php //echo PATH . "app/view/lists/nazionalities_list.php" ?>" class="dsy-menu-link">
                         <span class="dsy-menu-link-icon">
                             <i class="flaticon-null-3"></i>
                         </span>
                         <span class="dsy-menu-link-text">Nazioni</span>
                     </a>
                 </li>
+                -->
                 <!--
                 <li class="dsy-menu-item">
                     <a href="file-manager.php" class="dsy-menu-link">

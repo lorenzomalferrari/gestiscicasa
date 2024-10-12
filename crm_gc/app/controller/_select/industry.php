@@ -2,7 +2,8 @@
     require_once(ROOT . 'app/model/TableNames.php');
     require_once(ROOT . "app/model/IndustrySector.php");
 
-    $select = "id, name ";
+    $select = IndustrySectorTable::ID . " , " .
+        IndustrySectorTable::NAME;
 
     $query = "
         SELECT $select
@@ -14,8 +15,8 @@
     foreach ($results as $r) {
         $industry_list[] = [
             $r['id'] => [
-                INPUT_TYPE['elements']['select']['options']['value'] => $r['id'],
-                INPUT_TYPE['elements']['select']['options']['text'] => $r['name']
+                INPUT_TYPE['elements']['select']['options']['value'] => $r[IndustrySectorTable::ID],
+                INPUT_TYPE['elements']['select']['options']['text'] => $r[IndustrySectorTable::NAME]
             ]
         ];
     }

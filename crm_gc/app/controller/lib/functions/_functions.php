@@ -193,17 +193,19 @@
 		return implode(', ', $items);
 	}
 
-	/**
-	 * Converte il nome di una tabella in un percorso stringa.
-	 *
-	 * Questa funzione riceve il nome di una tabella, lo converte in minuscolo, e lo formatta
-	 * in un percorso che sostituisce gli underscore con le barre e aggiunge "/types/" alla fine
-	 * se il nome della tabella contiene "Types" o "Type". La parte prima di "Types" viene anche
-	 * trattata per rimuovere eventuali underscore e formattare correttamente il percorso.
-	 *
-	 * @param string $tableName Il nome della tabella da convertire.
-	 * @return string Il percorso formattato.
-	 */
+/**
+ * Converte il nome di una tabella in un percorso stringa.
+ *
+ * Questa funzione riceve il nome di una tabella, lo converte in minuscolo, e lo formatta
+ * in un percorso che sostituisce gli underscore con le barre e aggiunge "/types/" alla fine
+ * se il nome della tabella contiene "Types" o "Type". La parte prima di "Types" viene anche
+ * trattata per rimuovere eventuali underscore e formattare correttamente il percorso.
+ *
+ * N.B. Questa funzione è stata sostituita da getPathFromTable
+ *
+ * @param string $tableName Il nome della tabella da convertire.
+ * @return string Il percorso formattato.
+ */
 	function convertTableNameToPath(string $tableName): string
 	{
 		// Converti il nome della tabella in minuscolo
@@ -222,6 +224,34 @@
 
 		// Restituisci il risultato
 		return $path;
+	}
+
+	/**
+	 * Undocumented function
+	 *
+	 * @param string $tableName
+	 * @return string
+	 */
+	function getPathFromTable(string $tableName): string
+	{
+		//recupero usando il nome della tabella come chiave nell'array
+		return getValueFromArrayByKey(strtolower($tableName), ENTITIES_LIST);
+	}
+
+	/**
+	 * Undocumented function
+	 *
+	 * @param [type] $key
+	 * @param [type] $array
+	 * @return string|null
+	 */
+	function getValueFromArrayByKey($key, $array): string|null
+	{
+		if (array_key_exists($key, $array)) {
+			return $array[$key];
+		} else {
+			return null;
+		}
 	}
 
 	/**

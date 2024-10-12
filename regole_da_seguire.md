@@ -11,6 +11,7 @@ Ogni tabella deve avere:
 - se serve colonna codice, scriverla code e renderla univoca e dargli la lunghezza massima a 2 o 3 caratteri (se non per diverse necessità)
 - la descrizione della tabella sarà sempre in colonna "name";
 - aggiungere sempre colonna "note". Non deve avere la "s" -> "notes"
+- chiave esterna sempre nome_tabella_id
 - due colonne date. Una per indicare l'inserimento e una per indicare l'aggiornamento.
 Verranno chiamate sempre creationDate e updateDate. Ci sarà una CI che controllerà che ogni create table abbia queste due colonne
 

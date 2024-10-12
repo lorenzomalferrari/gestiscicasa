@@ -4,6 +4,7 @@
     {
         public static function getPrefixedName(string $prefisso, string $tableName): string
         {
+            print_r("getPrefixedName - ".$prefisso . " - " . $tableName);
             return $prefisso . $tableName;
         }
     }
@@ -76,6 +77,9 @@
 
     function getNomeTabella(string $prefisso, EnumTableNames $nomeT): string
     {
+
+        print_r("getNomeTabella - " . " ----- " . $nomeT->value);
+        print_r($nomeT);
         return TableNames::getPrefixedName($prefisso, $nomeT->value);
     }
 ?>

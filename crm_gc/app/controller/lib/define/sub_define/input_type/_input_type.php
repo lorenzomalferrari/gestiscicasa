@@ -321,6 +321,7 @@
                         "class",
                         "value",
                         "required",
+                        "checked",
                         "readonly",
                         "disabled",
                         "custom" => []
@@ -329,7 +330,7 @@
                         "onclick",
                         "onchange"
                     ],
-                    "model" => '<input type="checkbox" id="" class="" name="" value="" required readonly disabled onclick="" onchange="">'
+                    "model" => '<input type="checkbox" id="" class="" name="" value="" checked required readonly disabled onclick="" onchange="">'
                 ],
                 "radio" => [
                     "attributes" => [

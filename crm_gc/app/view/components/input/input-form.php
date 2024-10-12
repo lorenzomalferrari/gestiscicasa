@@ -36,7 +36,6 @@
     $_SESSION['record_edited']['from_edit'] = false;
 
     $decryptedParams = Crypto::decryptParams( $params, $secureData );
-    print_r($decryptedParams);
 
     $msg_errore = "";
 
@@ -45,8 +44,8 @@
     $parent_path_key = $decryptedParams[INPUT_TYPE['edit_key']['parent_path_key']];
     $parent = $decryptedParams[INPUT_TYPE['edit_key']['parent']];
     $tableName = $decryptedParams[INPUT_TYPE['edit_key']['tableName']];
-//$breadcrumb_list = $decryptedParams[INPUT_TYPE['edit_key']['breadcrumb_list']];
-print_r("------- " . $parent . " --------");
+    //$breadcrumb_list = $decryptedParams[INPUT_TYPE['edit_key']['breadcrumb_list']];
+
     $id = null;
     if ( !array_key_exists('', $param_id) ) {
         $decryptedParams[INPUT_TYPE['edit_key']['id']] = Crypto::decryptParams($param_id, $secureData);
@@ -56,15 +55,16 @@ print_r("------- " . $parent . " --------");
     //se id è compilato, devo richiamare il customTable.php del contesto che sto trattando
     //e modificare in fields la key value con i valori da DB o altre informazioni.
     //es. aggiungere selected alla option giusta
-    $relative_path = convertTableNameToPath($tableName);
-    $url = normalizeUrl(ROOT . "app/controller/" . $relative_path . "customTable.php");
+    $relative_path = getPathFromTable($tableName);
+    $url = normalizeUrl(ENTITY_FOLDER . $relative_path . "customTable.php");
+
     require_once($url);
 
     $fields = FormatterInputValidator::validateAndFormatFields($fields);
 
     //Ora che tutto è pronto, vanno salvati negli input hidden per essere passati tramite form
     //nel caso di utilizzo con le azioni come insert, update, delete.
-    require_once(ROOT . "app/controller/hidden_input.php");
+    require_once(CONTROLLER_FOLDER . "hidden_input.php");
 
     $breadcrumb_list = [
         $subTitle,
@@ -78,18 +78,17 @@ print_r("------- " . $parent . " --------");
             'Tipo'
         ];
 
-    if (file_exists(ROOT . 'app/view/components/breadcrumb/breadcrumb.php'))
-        require_once(ROOT . 'app/view/components/breadcrumb/breadcrumb.php');
+    require_once(VIEW_PATH . 'components/breadcrumb/breadcrumb.php');
 ?>
 <!doctype html>
 <html class="no-js" lang="">
     <head>
-        <?php require_once(ROOT . "app/view/components/template/_head.php"); ?>
+        <?php require_once(VIEW_PATH . "components/template/_head.php"); ?>
     </head>
     <body>
         <!-- Page Loader Start -->
         <?php
-            //require_once(ROOT . "app/view/components/template/_preloader.php");
+            //require_once(VIEW_PATH . "components/template/_preloader.php");
         ?>
         <!-- Page Loader End -->
         <a href="#main-wrapper" data-type="section-switch" class="scrollup">
@@ -101,10 +100,10 @@ print_r("------- " . $parent . " --------");
                 <div class="dsy-page-content vertical-menu">
                     <header class="header">
                         <!-- Inizio menù laterale -->
-                        <?php require_once(ROOT . "app/view/components/template/_menu.php"); ?>
+                        <?php require_once(VIEW_PATH ."components/template/_menu.php"); ?>
                         <!-- Fine menù laterale -->
                         <!-- Inizio intestazione -->
-                        <?php require_once(ROOT . "app/view/components/template/_navbar.php"); ?>
+                        <?php require_once(VIEW_PATH ."components/template/_navbar.php"); ?>
                         <!-- Fine intestazione -->
                     </header>
 
@@ -117,16 +116,16 @@ print_r("------- " . $parent . " --------");
                     <!--=====================================-->
                     <div class="container-fluid">
                         <div class="card component-table">
-                            <?php include_once(ROOT . "app/view/components/table/input-table.php"); ?>
+                            <?php include_once(VIEW_PATH . "components/table/input-table.php"); ?>
                         </div>
                     </div>
                     <!--=====================================-->
                     <!--=       	Footer Start     		=-->
                     <!--=====================================-->
-                    <?php require_once(ROOT . "app/view/components/template/_footer.php"); ?>
+                    <?php require_once(VIEW_PATH . "components/template/_footer.php"); ?>
                 </div>
             </div>
         </div>
-        <?php require_once(ROOT . "app/view/components/template/_script.php"); ?>
+        <?php require_once(VIEW_PATH . "components/template/_script.php"); ?>
     </body>
 </html>

@@ -29,7 +29,7 @@
 			'tablePrefix' => 'lmgc_',
 			'server' => [
 				'locale' => [
-					'version' => '1.1.34',
+					'version' => '1.1.38',
 					'host' => '81.31.158.38',
 					'port' => '3306',
 					'username' => 'uij8aoin_gestiscicasa',
@@ -37,7 +37,7 @@
 					'database' => 'uij8aoin_gestiscicasa',
 				],
 				'test' => [
-					'version' => '1.1.34',
+					'version' => '1.1.38',
 					'host' => '81.31.158.38',
 					'port' => '3306',
 					'username' => 'uij8aoin_gestiscicasa',
@@ -45,7 +45,7 @@
 					'database' => 'uij8aoin_gestiscicasa',
 				],
 				'produzione' => [
-					'version' => '1.1.34',
+					'version' => '1.1.38',
 					'host' => '127.0.0.1',
 					'port' => '3306',
 					'username' => 'uij8aoin_gestiscicasa',
@@ -219,6 +219,11 @@
 	 * definizioni relative al tempo come giorno, mese, anno, time()
 	 */
 	require_once('sub_define/time/_time.php');
+
+	/**
+	 * definizione base delle path, da poter usare poi in modo strutturato nel resto
+	 */
+	require_once('sub_define/folder_path/init.php');
 
 	/**
 	 * Percorsi da escludere dal salvataggio delle path visitate in DB

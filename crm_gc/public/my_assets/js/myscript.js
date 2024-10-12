@@ -223,9 +223,8 @@ function action(action, id = null) {
 
             // Azione specifica per ogni file PHP
             if (action === 'delete') {
-                console.log(action);
                 // Reindirizza alla pagina "lista.php"
-                //window.location.href = window.location.origin + '/crm_gc/'+ result.path;
+                window.location.href = window.location.origin + '/crm_gc/'+ result.path;
             } else if (action === 'insert') {
                 // Ricarica la pagina attuale passando il nuovo id come parametro GET
                 const get_params =

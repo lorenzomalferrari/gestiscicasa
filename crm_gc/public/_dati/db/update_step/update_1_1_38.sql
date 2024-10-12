@@ -1,0 +1,14 @@
+CREATE TABLE lmgc_UsersProperties (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    person_id INT NOT NULL,
+    property_id INT NOT NULL,
+    role_id INT NOT NULL,
+    createDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updateDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_person_id FOREIGN KEY (person_id) REFERENCES lmgc_People(id) ON DELETE CASCADE,
+
+    CONSTRAINT fk_property_id FOREIGN KEY (property_id) REFERENCES lmgc_Properties(id) ON DELETE CASCADE,
+
+    CONSTRAINT fk_role_id FOREIGN KEY (role_id) REFERENCES lmgc_Roles(id) ON DELETE CASCADE
+);

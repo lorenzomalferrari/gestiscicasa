@@ -3,9 +3,9 @@
 declare(strict_types=1);
 require_once("../../../controller/lib/libs.php");
 //Richiamare info da mostrare
-require_once(ROOT . "app/controller/brand/getBrandList.php");
+require_once(ROOT . "app/controller/entities/brand/getBrandList.php");
 //Eventuale personalizzazione
-//require_once(ROOT . "app/controller/brand/initTable.php");
+//require_once(ROOT . "app/controller/entities/brand/initTable.php");
 ?>
 <!doctype html>
 <html class="no-js" lang="">

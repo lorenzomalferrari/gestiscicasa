@@ -2,7 +2,8 @@
     require_once(ROOT . 'app/model/TableNames.php');
     require_once(ROOT . "app/model/Country.php");
 
-    $select = "id, name ";
+    $select = CountriesTable::ID . " , " .
+        CountriesTable::NAME;
 
     $query = "
         SELECT $select
