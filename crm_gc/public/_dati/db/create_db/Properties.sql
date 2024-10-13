@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS lmgc_Properties (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price FLOAT NULL,
+    address VARCHAR(255) NULL,
+    city_id INT NULL,
+    country_id INT NULL,
+    property_types_id INT NULL,
+    active BOOLEAN NOT NULL,
+    notes TEXT,
+    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
