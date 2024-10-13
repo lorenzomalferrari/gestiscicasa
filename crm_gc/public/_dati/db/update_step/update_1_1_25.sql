@@ -14,8 +14,8 @@ CREATE TABLE IF NOT EXISTS lmgc_Continents (
     num_countries INT,
     description TEXT,
     notes TEXT,
-    date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    date_modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 INSERT INTO lmgc_Continents (name, code, iso_3166_1, m49_code, geoname_id, surface_area, population, num_countries, description, notes) VALUES

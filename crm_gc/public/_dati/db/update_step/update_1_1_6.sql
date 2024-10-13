@@ -3,14 +3,11 @@ CREATE TABLE IF NOT EXISTS lmgc_Category (
     name VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
     notes TEXT,
-    creationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updateDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    IdColor INT,
-    CONSTRAINT fk_Category_Color FOREIGN KEY (IdColor) REFERENCES lmgc_Colors(id)/*,
-    CONSTRAINT chk_name_length CHECK (CHAR_LENGTH(name) <= 255),
-    CONSTRAINT chk_description_length CHECK (CHAR_LENGTH(description) <= 65535),
-    CONSTRAINT chk_notes_length CHECK (CHAR_LENGTH(notes) <= 65535)*/
+    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    color_id INT,
+    CONSTRAINT fk_Category_Color FOREIGN KEY (IdColor) REFERENCES lmgc_Colors(id)
 );
 
-INSERT INTO Category (name, description, notes, creationDate, updateDate, IdColor)
+INSERT INTO Category (name, description, notes, creation_date, update_date, IdColor)
 VALUES ('Elettronica', 'Prodotti elettronici', 'Categoria principale per prodotti elettronici', NOW(), NOW(), 1);

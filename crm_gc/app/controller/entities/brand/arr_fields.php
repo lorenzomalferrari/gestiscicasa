@@ -55,9 +55,9 @@
                         "label" => "Stato",
                         "type" => "select",
                         "attributes" => [
-                            "id" => "country_of_origin",
+                            "id" => "country_of_origin_id",
                             "class" => "form-control",
-                            "name" => "country_of_origin",
+                            "name" => "country_of_origin_id",
                         ],
                         'options' => $countries_list
                     ],
@@ -65,9 +65,9 @@
                         "label" => "Settore Industriale",
                         "type" => "select",
                         "attributes" => [
-                            "id" => "industry_sector",
+                            "id" => "industry_sector_id",
                             "class" => "form-control",
-                            "name" => "industry_sector",
+                            "name" => "industry_sector_id",
                         ],
                         'options' => $industry_list
                     ],

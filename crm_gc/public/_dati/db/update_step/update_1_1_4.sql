@@ -2,96 +2,96 @@ CREATE TABLE IF NOT EXISTS lmgc_Rooms (
     id INT AUTO_INCREMENT PRIMARY KEY,
     number INT,
     name VARCHAR(255) NOT NULL,
-    idUsageDestination INT,
-    creationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updateDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    note TEXT,
-    idColor INT,
-    idProperty INT,
-    idRoomTypes INT,
-    FOREIGN KEY (idUsageDestination) REFERENCES lmgc_UsageDestinations(id),
-    FOREIGN KEY (idColor) REFERENCES lmgc_Colors(id),
-    FOREIGN KEY (idProperty) REFERENCES lmgc_Properties(id),
-    FOREIGN KEY (idRoomTypes) REFERENCES lmgc_RoomTypess(id)
+    usage_destination_id INT,
+    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    notes TEXT,
+    color_id INT,
+    property_id INT,
+    room_types_id INT,
+    FOREIGN KEY (usage_destination_id) REFERENCES lmgc_UsageDestinations(id),
+    FOREIGN KEY (color_id) REFERENCES lmgc_Colors(id),
+    FOREIGN KEY (property_id) REFERENCES lmgc_Properties(id),
+    FOREIGN KEY (room_types_id) REFERENCES lmgc_RoomTypess(id)
 );
 
 ALTER TABLE lmgc_Rooms
-ADD CONSTRAINT FK_Rooms_UsageDestinations FOREIGN KEY (idUsageDestination) REFERENCES lmgc_UsageDestinations(id),
-ADD CONSTRAINT FK_Rooms_Colors FOREIGN KEY (idColor) REFERENCES lmgc_Colors(id),
-ADD CONSTRAINT FK_Rooms_Properties FOREIGN KEY (idProperty) REFERENCES lmgc_Properties(id),
-ADD CONSTRAINT FK_Rooms_RoomTypess FOREIGN KEY (idRoomTypes) REFERENCES lmgc_RoomTypess(id);
+ADD CONSTRAINT FK_Rooms_UsageDestinations FOREIGN KEY (usage_destination_id) REFERENCES lmgc_UsageDestinations(id),
+ADD CONSTRAINT FK_Rooms_Colors FOREIGN KEY (color_id) REFERENCES lmgc_Colors(id),
+ADD CONSTRAINT FK_Rooms_Properties FOREIGN KEY (property_id) REFERENCES lmgc_Properties(id),
+ADD CONSTRAINT FK_Rooms_RoomTypess FOREIGN KEY (room_types_id) REFERENCES lmgc_RoomTypess(id);
 
 ALTER TABLE lmgc_Rooms
-ADD CONSTRAINT FK_Rooms_UsageDestinations FOREIGN KEY (idUsageDestination) REFERENCES lmgc_UsageDestinations(id),
-ADD CONSTRAINT FK_Rooms_Colors FOREIGN KEY (idColor) REFERENCES lmgc_Colors(id),
-ADD CONSTRAINT FK_Rooms_Properties FOREIGN KEY (idProperty) REFERENCES lmgc_Properties(id),
-ADD CONSTRAINT FK_Rooms_RoomTypess FOREIGN KEY (idRoomTypes) REFERENCES lmgc_RoomTypess(id);
+ADD CONSTRAINT FK_Rooms_UsageDestinations FOREIGN KEY (usage_destination_id) REFERENCES lmgc_UsageDestinations(id),
+ADD CONSTRAINT FK_Rooms_Colors FOREIGN KEY (color_id) REFERENCES lmgc_Colors(id),
+ADD CONSTRAINT FK_Rooms_Properties FOREIGN KEY (property_id) REFERENCES lmgc_Properties(id),
+ADD CONSTRAINT FK_Rooms_RoomTypess FOREIGN KEY (room_types_id) REFERENCES lmgc_RoomTypess(id);
 
 -- Inserimento della stanza "Soggiorno"
-INSERT INTO lmgc_Rooms (number, name, idUsageDestination, note, idColor, idProperty, idRoomTypes)
+INSERT INTO lmgc_Rooms (number, name, usage_destination_id, notes, color_id, property_id, room_types_id)
 SELECT * FROM (SELECT 1, 'Soggiorno', 1, 'Descrizione del soggiorno', 1, 1, 1) AS tmp
 WHERE NOT EXISTS (
     SELECT * FROM lmgc_Rooms WHERE name = 'Soggiorno'
 ) LIMIT 1;
 
 -- Inserimento della stanza "Ingresso"
-INSERT INTO lmgc_Rooms (number, name, idUsageDestination, note, idColor, idProperty, idRoomTypes)
+INSERT INTO lmgc_Rooms (number, name, usage_destination_id, notes, color_id, property_id, room_types_id)
 SELECT * FROM (SELECT 2, 'Ingresso', 1, 'Descrizione di ingresso', 1, 1, 1) AS tmp
 WHERE NOT EXISTS (
     SELECT * FROM lmgc_Rooms WHERE name = 'Ingresso'
 ) LIMIT 1;
 
 -- Inserimento della stanza "Cucina"
-INSERT INTO lmgc_Rooms (number, name, idUsageDestination, note, idColor, idProperty, idRoomTypes)
+INSERT INTO lmgc_Rooms (number, name, usage_destination_id, notes, color_id, property_id, room_types_id)
 SELECT * FROM (SELECT 3, 'Cucina', 1, 'Descrizione della cucina', 1, 1, 1) AS tmp
 WHERE NOT EXISTS (
     SELECT * FROM lmgc_Rooms WHERE name = 'Cucina'
 ) LIMIT 1;
 
 -- Inserimento della stanza "Camera da letto"
-INSERT INTO lmgc_Rooms (number, name, idUsageDestination, note, idColor, idProperty, idRoomTypes)
+INSERT INTO lmgc_Rooms (number, name, usage_destination_id, notes, color_id, property_id, room_types_id)
 SELECT * FROM (SELECT 4, 'Camera da letto', 1, 'Descrizione della camera da letto', 1, 1, 1) AS tmp
 WHERE NOT EXISTS (
     SELECT * FROM lmgc_Rooms WHERE name = 'Camera da letto'
 ) LIMIT 1;
 
 -- Inserimento della stanza "Giardino"
-INSERT INTO lmgc_Rooms (number, name, idUsageDestination, note, idColor, idProperty, idRoomTypes)
+INSERT INTO lmgc_Rooms (number, name, usage_destination_id, notes, color_id, property_id, room_types_id)
 SELECT * FROM (SELECT 5, 'Giardino', 1, 'Descrizione del giardino', 1, 1, 1) AS tmp
 WHERE NOT EXISTS (
     SELECT * FROM lmgc_Rooms WHERE name = 'Giardino'
 ) LIMIT 1;
 
 -- Inserimento della stanza "Sgabuzzino"
-INSERT INTO lmgc_Rooms (number, name, idUsageDestination, note, idColor, idProperty, idRoomTypes)
+INSERT INTO lmgc_Rooms (number, name, usage_destination_id, notes, color_id, property_id, room_types_id)
 SELECT * FROM (SELECT 6, 'Sgabuzzino', 1, 'Descrizione dello sgabuzzino', 1, 1, 1) AS tmp
 WHERE NOT EXISTS (
     SELECT * FROM lmgc_Rooms WHERE name = 'Sgabuzzino'
 ) LIMIT 1;
 
 -- Inserimento della stanza "Garage"
-INSERT INTO lmgc_Rooms (number, name, idUsageDestination, note, idColor, idProperty, idRoomTypes)
+INSERT INTO lmgc_Rooms (number, name, usage_destination_id, notes, color_id, property_id, room_types_id)
 SELECT * FROM (SELECT 7, 'Garage', 1, 'Descrizione del garage', 1, 1, 1) AS tmp
 WHERE NOT EXISTS (
     SELECT * FROM lmgc_Rooms WHERE name = 'Garage'
 ) LIMIT 1;
 
 -- Inserimento della stanza "Cantina"
-INSERT INTO lmgc_Rooms (number, name, idUsageDestination, note, idColor, idProperty, idRoomTypes)
+INSERT INTO lmgc_Rooms (number, name, usage_destination_id, notes, color_id, property_id, room_types_id)
 SELECT * FROM (SELECT 8, 'Cantina', 1, 'Descrizione della cantina', 1, 1, 1) AS tmp
 WHERE NOT EXISTS (
     SELECT * FROM lmgc_Rooms WHERE name = 'Cantina'
 ) LIMIT 1;
 
 -- Inserimento della stanza "Terrazza"
-INSERT INTO lmgc_Rooms (number, name, idUsageDestination, note, idColor, idProperty, idRoomTypes)
+INSERT INTO lmgc_Rooms (number, name, usage_destination_id, notes, color_id, property_id, room_types_id)
 SELECT * FROM (SELECT 9, 'Terrazza', 1, 'Descrizione della terrazza', 1, 1, 1) AS tmp
 WHERE NOT EXISTS (
     SELECT * FROM lmgc_Rooms WHERE name = 'Terrazza'
 ) LIMIT 1;
 
 -- Inserimento della stanza "Altro"
-INSERT INTO lmgc_Rooms (number, name, idUsageDestination, note, idColor, idProperty, idRoomTypes)
+INSERT INTO lmgc_Rooms (number, name, usage_destination_id, notes, color_id, property_id, room_types_id)
 SELECT * FROM (SELECT 10, 'Altro', 1, 'Descrizione di un altro tipo di stanza', 1, 1, 1) AS tmp
 WHERE NOT EXISTS (
     SELECT * FROM lmgc_Rooms WHERE name = 'Altro'

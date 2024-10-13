@@ -1,7 +1,8 @@
-SET FOREIGN_KEY_CHECKS = 0;
+/*SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS lmgc_Colors;
 SET FOREIGN_KEY_CHECKS = 1;
-
+*/
+/*
 CREATE TABLE lmgc_Colors (
     RAL VARCHAR(10) PRIMARY KEY,
     RGB VARCHAR(15),
@@ -15,7 +16,8 @@ CREATE TABLE lmgc_Colors (
     Italiano VARCHAR(50),
     Olandese VARCHAR(50)
 );
-
+*/
+/*
 INSERT INTO lmgc_Colors (RAL, RGB, HEX, CMYK, LRV, Inglese, Tedesco, Francese, Spagnolo, Italiano, Olandese) VALUES
 ('RAL 1000', '205-186-136', '#CDBA88', '0-9-34-20', 51.79, 'Beige verde', 'Grünbeige', 'Beige verde', 'Beige verdoso', 'Beige verdastro', 'Groenbeige'),
 ('RAL 1001', '208-176-132', '#D0B084', '0-15-37-18', 48.09, 'Beige', 'Beige', 'Beige', 'Beige', 'Beige', 'Beige'),
@@ -214,3 +216,4 @@ INSERT INTO lmgc_Colors (RAL, RGB, HEX, CMYK, LRV, Inglese, Tedesco, Francese, S
 ('RAL 9016', '255-255-255', '#FFFFFF', '0-0-0-0', 100.00, 'Bianco', 'Verkehrsweiß', 'Blanc', 'Blanco', 'Bianco', 'Wit'),
 ('RAL 9017', '0-0-0', '#000000', '0-0-0-100', 0.00, 'Nero', 'Schwarz', 'Noir', 'Negro', 'Nero', 'Zwart'),
 ('RAL 9018', '255-255-255', '#FFFFFF', '0-0-0-0', 100.00, 'Bianco', 'Reinweiß', 'Blanc', 'Blanco', 'Bianco', 'Wit');
+*/

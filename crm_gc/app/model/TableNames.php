@@ -4,7 +4,7 @@
     {
         public static function getPrefixedName(string $prefisso, string $tableName): string
         {
-            print_r("getPrefixedName - ".$prefisso . " - " . $tableName);
+            print_r("<br><br><br>getPrefixedName - ".$prefisso . " - " . $tableName);
             return $prefisso . $tableName;
         }
     }
@@ -24,7 +24,7 @@
         case PEOPLE = PersonTable::TABLE_NAME;
         case PERSON_PROPERTY_ROLES = PersonPropertyRolesTable::TABLE_NAME;
         case PRODUCT = ProductTable::TABLE_NAME;
-        case PROPERTY = PropertyTable::TABLE_NAME;
+        case PROPERTIES = PropertyTable::TABLE_NAME;
         case PROPERTYTYPES = PropertyTypesTable::TABLE_NAME;
         case ROLE = RolesTable::TABLE_NAME;
         case ROOM = RoomsTable::TABLE_NAME;
@@ -78,7 +78,7 @@
     function getNomeTabella(string $prefisso, EnumTableNames $nomeT): string
     {
 
-        print_r("getNomeTabella - " . " ----- " . $nomeT->value);
+        print_r("<br><br><br>getNomeTabella - " . " ----- " . $nomeT->value);
         print_r($nomeT);
         return TableNames::getPrefixedName($prefisso, $nomeT->value);
     }

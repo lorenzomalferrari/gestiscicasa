@@ -15,8 +15,8 @@
 		const GENDER_DE = 'gender_de';
 		const GENDER_PT = 'gender_pt';
 		const NOTE = 'note';
-		const CREATED_AT = 'created_at';
-		const UPDATED_AT = 'updated_at';
+		const CREATED_AT = 'creation_date';
+		const UPDATED_AT = 'update_date';
 
 		/**
 		 * Get the list of columns for the Genders table.

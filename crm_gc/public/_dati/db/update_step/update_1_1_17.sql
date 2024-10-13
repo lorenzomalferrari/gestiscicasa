@@ -1,5 +1,5 @@
 -- Tecnologia
-INSERT INTO lmgc_Brand (name, country_of_origin, industry_sector, foundation_year, note) VALUES
+INSERT INTO lmgc_Brand (name, country_of_origin_id, industry_sector_id, foundation_year, notes) VALUES
 ('Apple', 1, 1, 1976, 'Tecnologia e elettronica di consumo'),
 ('Microsoft', 2, 1, 1975, 'Software e hardware'),
 ('Google', 3, 1, 1998, 'Motore di ricerca e servizi online'),
@@ -22,7 +22,7 @@ INSERT INTO lmgc_Brand (name, country_of_origin, industry_sector, foundation_yea
 ('Qualcomm', 20, 1, 1985, 'Semiconduttori e telecomunicazioni');
 
 -- Abbigliamento
-INSERT INTO lmgc_Brand (name, country_of_origin, industry_sector, foundation_year, note) VALUES
+INSERT INTO lmgc_Brand (name, country_of_origin_id, industry_sector_id, foundation_year, notes) VALUES
 ('Nike', 21, 2, 1964, 'Abbigliamento sportivo e calzature'),
 ('Adidas', 22, 2, 1949, 'Abbigliamento sportivo e calzature'),
 ('Puma', 23, 2, 1948, 'Abbigliamento sportivo e calzature'),
@@ -45,7 +45,7 @@ INSERT INTO lmgc_Brand (name, country_of_origin, industry_sector, foundation_yea
 ('Dolce & Gabbana', 40, 2, 1985, 'Moda di lusso');
 
 -- Prodotti per la casa
-INSERT INTO lmgc_Brand (name, country_of_origin, industry_sector, foundation_year, note) VALUES
+INSERT INTO lmgc_Brand (name, country_of_origin_id, industry_sector_id, foundation_year, notes) VALUES
 ('Philips', 41, 3, 1891, 'Elettronica e elettrodomestici'),
 ('Bosch', 42, 3, 1886, 'Elettrodomestici e tecnologia'),
 ('Whirlpool', 43, 3, 1911, 'Elettrodomestici e prodotti per la casa'),
@@ -67,7 +67,7 @@ INSERT INTO lmgc_Brand (name, country_of_origin, industry_sector, foundation_yea
 ('Nespresso', 59, 3, 1986, 'Macchine da caffè e capsule');
 
 -- Cibi venduti in Italia
-INSERT INTO lmgc_Brand (name, country_of_origin, industry_sector, foundation_year, note) VALUES
+INSERT INTO lmgc_Brand (name, country_of_origin_id, industry_sector_id, foundation_year, notes) VALUES
 ('Barilla', 60, 4, 1877, 'Prodotti alimentari e pasta'),
 ('Lavazza', 61, 4, 1895, 'Caffè e prodotti per la colazione'),
 ('Ferrero', 62, 1946, 4, 1946, 'Dolci e cioccolato'),
@@ -90,7 +90,7 @@ INSERT INTO lmgc_Brand (name, country_of_origin, industry_sector, foundation_yea
 ('VitaNera', 79, 4, 2001, 'Prodotti da forno e snack');
 
 -- Altri
-INSERT INTO lmgc_Brand (name, country_of_origin, industry_sector, foundation_year, note) VALUES
+INSERT INTO lmgc_Brand (name, country_of_origin_id, industry_sector_id, foundation_year, notes) VALUES
 ('Nestlé', 80, 4, 1867, 'Alimenti e bevande'),
 ('Kellogg\'s', 81, 4, 1906, 'Cereali e snack'),
 ('Unilever', 82, 4, 1930, 'Alimenti e prodotti per la casa'),

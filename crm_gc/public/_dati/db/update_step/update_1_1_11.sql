@@ -17,8 +17,8 @@ CREATE TABLE IF NOT EXISTS lmgc_Continents (
     name_german VARCHAR(100) UNIQUE,
     name_spanish VARCHAR(100) UNIQUE,
     name_portuguese VARCHAR(100) UNIQUE,
-    date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    date_modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 INSERT INTO lmgc_Continents (name, code, surface_area, population, num_countries, description, notes, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
@@ -47,8 +47,8 @@ CREATE TABLE IF NOT EXISTS lmgc_Countries (
     name_german VARCHAR(100) UNIQUE,
     name_spanish VARCHAR(100) UNIQUE,
     name_portuguese VARCHAR(100) UNIQUE,
-    date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    date_modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (continent_id) REFERENCES lmgc_Continents(id)
 );
 

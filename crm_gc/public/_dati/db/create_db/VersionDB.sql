@@ -1,12 +1,12 @@
 CREATE TABLE IF NOT EXISTS lmgc_VersionDB (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    versione VARCHAR(20) NOT NULL,
-    nome_vers_estesa VARCHAR(100),
-    note TEXT,
-    data_creazione TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    data_aggiornamento TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    UNIQUE KEY unique_versione_nome_vers_estesa (versione, nome_vers_estesa)
+    version VARCHAR(20) NOT NULL,
+    extended_version_name VARCHAR(100),
+    notes TEXT,
+    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UNIQUE KEY unique_version_extended_version_name (version, extended_version_name)
 );
 
-INSERT INTO lmgc_VersionDB (versione, nome_vers_estesa, note)
-VALUES ('0.0.1', '0.0.1','base di partenza');
+INSERT INTO lmgc_VersionDB (version, extended_version_name, notes)
+VALUES ('0.0.1', '0.0.1', 'base of initial version');

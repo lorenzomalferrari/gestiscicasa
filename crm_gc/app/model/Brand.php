@@ -3,8 +3,8 @@
 		// Instance variables
 		private int $id;
 		private string $name;
-		private ?int $country_of_origin;
-		private ?int $industry_sector;
+		private ?int $country_of_origin_id;
+		private ?int $industry_sector_id;
 		private ?int $foundation_year;
 		private ?string $note;
 		private string $creationDate;
@@ -13,11 +13,11 @@
 		/**
 		 * Costruttore della classe Brand
 		 */
-		public function __construct(int $id, string $name, int $country_of_origin=null, int $industry_sector=null, int $foundation_year=null, string $note=null, string $creationDate=null, string $updateDate=null) {
+		public function __construct(int $id, string $name, int $country_of_origin_id=null, int $industry_sector_id=null, int $foundation_year=null, string $note=null, string $creationDate=null, string $updateDate=null) {
 			$this->id = $id;
 			$this->name = $name;
-			$this->country_of_origin = $country_of_origin;
-			$this->industry_sector = $industry_sector;
+			$this->country_of_origin_id = $country_of_origin_id;
+			$this->industry_sector_id = $industry_sector_id;
 			$this->foundation_year = $foundation_year;
 			$this->note = $note;
 			$this->creationDate = $creationDate;
@@ -42,19 +42,19 @@
 		}
 
 		public function getCountryOfOrigin() {
-			return $this->country_of_origin;
+			return $this->country_of_origin_id;
 		}
 
-		public function setCountryOfOrigin($country_of_origin) {
-			$this->country_of_origin = $country_of_origin;
+		public function setCountryOfOrigin($country_of_origin_id) {
+			$this->country_of_origin_id = $country_of_origin_id;
 		}
 
 		public function getIndustrySector() {
-			return $this->industry_sector;
+			return $this->industry_sector_id;
 		}
 
-		public function setIndustrySector($industry_sector) {
-			$this->industry_sector = $industry_sector;
+		public function setIndustrySector($industry_sector_id) {
+			$this->industry_sector_id = $industry_sector_id;
 		}
 
 		public function getFoundationYear() {
@@ -86,8 +86,8 @@
 			return
 				"ID: " . $this->id .
 				", Name: " . $this->name .
-				", Country of Origin: " . $this->country_of_origin .
-				", Industry Sector: " . $this->industry_sector .
+				", Country of Origin: " . $this->country_of_origin_id .
+				", Industry Sector: " . $this->industry_sector_id .
 				", Foundation Year: " . $this->foundation_year .
 				", Note: " . $this->note .
 				", Creation Date: " . $this->creationDate .

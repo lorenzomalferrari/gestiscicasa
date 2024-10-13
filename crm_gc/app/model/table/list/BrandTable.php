@@ -9,8 +9,8 @@
 
 		const ID = 'id';
 		const NAME = 'name';
-		const COUNTRY_OF_ORIGIN = 'country_of_origin';
-		const INDUSTRY_SECTOR = 'industry_sector';
+		const COUNTRY_OF_ORIGIN = 'country_of_origin_id';
+		const INDUSTRY_SECTOR = 'industry_sector_id';
 		const FOUNDATION_YEAR = 'foundation_year';
 		const NOTE = 'note';
 		const CREATION_DATE = 'creationDate';

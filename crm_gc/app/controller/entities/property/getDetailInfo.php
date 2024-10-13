@@ -32,7 +32,7 @@
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PROPERTY ) . " AS p ";
+        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PROPERTIES ) . " AS p ";
 
     if (!isset($id)) {
         $query .= " LEFT JOIN ". getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::USERSPROPERTY) . " AS up "

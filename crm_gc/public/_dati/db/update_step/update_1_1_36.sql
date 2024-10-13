@@ -1,17 +1,17 @@
 -- Creazione della tabella lmgc_RoomTypes
 CREATE TABLE IF NOT EXISTS lmgc_RoomTypes (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    codice CHAR(2) NOT NULL UNIQUE,
-    nome VARCHAR(255) NOT NULL,
-    colore CHAR(7) NULL UNIQUE,
-    note TEXT,
-    createDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updateDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    code CHAR(2) NOT NULL UNIQUE,
+    name VARCHAR(255) NOT NULL,
+    /*colore CHAR(7) NULL UNIQUE,*/
+    notes TEXT,
+    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CONSTRAINT chk_colore CHECK (colore REGEXP '^#[0-9A-Fa-f]{6}$')
 );
 
 -- Inserimento dei dati nella tabella lmgc_RoomTypes
-INSERT INTO lmgc_RoomTypes (codice, nome, note) VALUES
+INSERT INTO lmgc_RoomTypes (code, name, notes) VALUES
 ('CA','Camera',NULL),
 ('SA','Sala',NULL),
 ('CU','Cucina',NULL),
@@ -31,13 +31,13 @@ CREATE TABLE IF NOT EXISTS lmgc_Rooms (
     id INT AUTO_INCREMENT PRIMARY KEY,
     property_id INT NOT NULL,
     room_type_id INT NOT NULL,
-    nome VARCHAR(255) NOT NULL,
-    codice CHAR(2) NOT NULL UNIQUE,
+    name VARCHAR(255) NOT NULL,
+    code CHAR(2) NOT NULL UNIQUE,
     area DECIMAL(10, 2),
-    colore CHAR(7) NULL UNIQUE,
+    /*colore CHAR(7) NULL UNIQUE,*/
     notes TEXT,
-    createDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updateDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (property_id) REFERENCES lmgc_Properties(id),
     FOREIGN KEY (room_type_id) REFERENCES lmgc_RoomTypes(id)
 );

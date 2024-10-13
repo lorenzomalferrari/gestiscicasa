@@ -1,5 +1,5 @@
 DELETE FROM lmgc_Brand;
-
+/*
 CREATE TABLE IF NOT EXISTS lmgc_Nationalities (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -8,15 +8,16 @@ CREATE TABLE IF NOT EXISTS lmgc_Nationalities (
     name_spanish VARCHAR(255) NOT NULL,
     name_german VARCHAR(255) NOT NULL,
     name_portuguese VARCHAR(255) NOT NULL,
-    note TEXT,
+    notes TEXT,
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 ALTER TABLE lmgc_People
 ADD CONSTRAINT fk_nationality FOREIGN KEY (nationality) REFERENCES lmgc_Nationalities(id);
-
-INSERT INTO lmgc_Nationalities (name, name_italian, name_french, name_spanish, name_german, name_portuguese, note) VALUES
+*/
+/*
+INSERT INTO lmgc_Nationalities (name, name_italian, name_french, name_spanish, name_german, name_portuguese, notes) VALUES
 ('Afghan', 'Afghano', 'Afghan', 'Afgano', 'Afghane', 'Afegão', 'Nota su Afghan'),
 ('Albanian', 'Albanese', 'Albanais', 'Albanés', 'Albanisch', 'Albanês', 'Nota su Albanian'),
 ('Algerian', 'Algerino', 'Algérien', 'Argelino', 'Algerisch', 'Argelino', 'Nota su Algerian'),
@@ -195,3 +196,4 @@ INSERT INTO lmgc_Nationalities (name, name_italian, name_french, name_spanish, n
 ('Yemeni', 'Yemenita', 'Yéménite', 'Yemení', 'Jemenitisch', 'Yemenita', 'Nota su Yemeni'),
 ('Zambian', 'Zambiano', 'Zambien', 'Zambiano', 'Sambiano', 'Zambiano', 'Nota su Zambian'),
 ('Zimbabwean', 'Zimbabwano', 'Zimbabwéen', 'Zimbabuense', 'Simbabweisch', 'Zimbabueano', 'Nota su Zimbabwean');
+*/

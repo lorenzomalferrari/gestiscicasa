@@ -4,13 +4,11 @@ CREATE TABLE IF NOT EXISTS lmgc_Products (
     description TEXT,
     price FLOAT NOT NULL,
     barcode VARCHAR(255) NOT NULL,
-    IdBrand INT NOT NULL,
-    IdCategory INT NOT NULL,
-    note TEXT,
-    creationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updateDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    CONSTRAINT fk_brand FOREIGN KEY (IdBrand) REFERENCES lmgc_Brand(id),
-    CONSTRAINT fk_category FOREIGN KEY (IdCategory) REFERENCES lmgc_Category(id)/*,
-    CONSTRAINT chk_price CHECK (price >= 0),
-    CONSTRAINT chk_dates CHECK (creationDate <= updateDate)*/
+    brand_id INT NOT NULL,
+    category_id INT NOT NULL,
+    notes TEXT,
+    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    CONSTRAINT fk_brand FOREIGN KEY (brand_id) REFERENCES lmgc_Brand(id),
+    CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES lmgc_Category(id)
 );

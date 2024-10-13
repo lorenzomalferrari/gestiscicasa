@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS lmgc_Colors;
+/*DROP TABLE IF EXISTS lmgc_Colors;
 
 DELIMITER //
 
@@ -36,3 +36,4 @@ DELIMITER ;
 CALL RenameAndChangeColumnType();
 
 DROP PROCEDURE IF EXISTS RenameAndChangeColumnType;
+*/

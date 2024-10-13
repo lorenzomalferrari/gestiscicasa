@@ -1,3 +1,4 @@
+/*
 DROP TABLE IF EXISTS lmgc_Genders;
 
 CREATE TABLE lmgc_Genders (
@@ -8,9 +9,9 @@ CREATE TABLE lmgc_Genders (
     gender_es VARCHAR(50),           -- Spagnolo
     gender_de VARCHAR(50),           -- Tedesco
     gender_pt VARCHAR(50),           -- Portoghese
-    note VARCHAR(255) NULL,          -- Note opzionali, può essere NULL
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,         -- Data creazione
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  -- Data modifica
+    notes VARCHAR(255) NULL,         -- Note opzionali, può essere NULL
+    creation_date DATETIME DEFAULT CURRENT_TIMESTAMP,         -- Data creazione
+    update_date DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  -- Data modifica
 );
 
 -- Inserimento per "Maschio"
@@ -27,3 +28,4 @@ VALUES
 INSERT INTO lmgc_Genders (gender_it, gender_en, gender_fr, gender_es, gender_de, gender_pt)
 VALUES
 ('Altro', 'Other', 'Autre', 'Otro', 'Andere', 'Outro');
+*/
