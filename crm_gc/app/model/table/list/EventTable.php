@@ -11,7 +11,7 @@
 		const ACTION = 'action';
 		const NOTES = 'notes';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateDate';
+		const UPDATE_DATE = 'update_date';
 
 		/**
 		 * Get the list of columns for the Events table.

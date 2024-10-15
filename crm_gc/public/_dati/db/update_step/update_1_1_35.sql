@@ -1,4 +1,4 @@
-CREATE TABLE lmgc_ExpenseTypes (
+CREATE TABLE lm_ExpenseTypes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     code VARCHAR(2) NOT NULL UNIQUE,
     name VARCHAR(100) NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE lmgc_ExpenseTypes (
     CONSTRAINT chk_expense_types_colore CHECK (colore REGEXP '^#[0-9A-Fa-f]{6}$')*/
 );
 
-INSERT INTO lmgc_ExpenseTypes (code, name, description) VALUES
+INSERT INTO lm_ExpenseTypes (code, name, description) VALUES
 ('AF', 'Affitto', 'Spesa per l\'affitto degli immobili'),
 ('MA', 'Manutenzione', 'Spesa per la manutenzione ordinaria e straordinaria'),
 ('PU', 'Pulizie', 'Spese per la pulizia degli spazi'),
@@ -32,7 +32,7 @@ INSERT INTO lmgc_ExpenseTypes (code, name, description) VALUES
 ('CB', 'Commissioni bancarie', 'Spese per commissioni bancarie e di transazione');
 
 
-CREATE TABLE lmgc_Expense (
+CREATE TABLE lm_Expense (
     id INT AUTO_INCREMENT PRIMARY KEY,
     expense_type_id INT NOT NULL, -- Riferimento al tipo di spesa
     amount DECIMAL(10, 2) NOT NULL, -- Importo della spesa
@@ -41,7 +41,7 @@ CREATE TABLE lmgc_Expense (
     property_id INT,
     colore CHAR(7) NULL, -- Colore esadecimale associato alla spesa (es. "#FF5733")
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Data di creazione
-    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- Data di aggiornamento
-    CONSTRAINT chk_expenses_colore CHECK (colore REGEXP '^#[0-9A-Fa-f]{6}$'), -- Controllo sul colore
-    CONSTRAINT fk_expense_type FOREIGN KEY (expense_type_id) REFERENCES lmgc_ExpenseTypes(id)
+    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,/* -- Data di aggiornamento
+    CONSTRAINT chk_expenses_colore CHECK (colore REGEXP '^#[0-9A-Fa-f]{6}$'), -- Controllo sul colore*/
+    CONSTRAINT fk_expense_type FOREIGN KEY (expense_type_id) REFERENCES lm_ExpenseTypes(id)
 );

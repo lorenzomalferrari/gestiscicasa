@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 	/**
-	 * Classe che rappresenta un record della tabella lmgc_People e la Persona che utilizza il gestionale.
+	 * Classe che rappresenta un record della tabella lm_People e la Persona che utilizza il gestionale.
 	 */
 	trait Person
 	{
@@ -151,7 +151,7 @@
 			return $this->creationDate;
 		}
 
-		// Getter e setter per 'updateDate'
+		// Getter e setter per 'update_date'
 		public function getPersonUpdateDate(): string
 		{
 			return $this->updateDate;

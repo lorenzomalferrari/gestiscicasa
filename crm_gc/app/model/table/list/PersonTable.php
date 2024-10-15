@@ -16,11 +16,11 @@
 		const STATE = 'state';
 		const NATIONALITY = 'nationality';
 		const DESCRIPTION = 'description';
-		const ID_USER = 'idUser';
+		const ID_USER = 'user_id';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateDate';
+		const UPDATE_DATE = 'update_date';
 		const EMAIL = 'email';
-		const ID_GENDER = 'idGender';
+		const ID_GENDER = 'gender_id';
 
 		/**
 		 * Get the list of columns for the People table.

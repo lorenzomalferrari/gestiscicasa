@@ -8,11 +8,11 @@
 		const TABLE_NAME = 'VersionDB';
 
 		const ID = 'id';
-		const VERSIONE = 'versione';
-		const NOME_VERS_ESTESA = 'nome_vers_estesa';
-		const NOTE = 'note';
-		const DATA_CREAZIONE = 'data_creazione';
-		const DATA_AGGIORNAMENTO = 'data_aggiornamento';
+		const VERSIONE = 'version';
+		const NOME_VERS_ESTESA = 'extended_version_name';
+		const NOTE = 'notes';
+		const DATA_CREAZIONE = 'creation_date';
+		const DATA_AGGIORNAMENTO = 'update_date';
 
 		/**
 		 * Get the list of columns for the VersionDB table.

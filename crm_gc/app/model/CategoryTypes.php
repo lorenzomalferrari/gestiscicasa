@@ -3,7 +3,7 @@
 	/**
 	 * Class CategoryType
 	 *
-	 * This class represents a record from the lmgc_CategoryTypes table.
+	 * This class represents a record from the lm_CategoryTypes table.
 	 */
 	class CategoryTypes
 	{

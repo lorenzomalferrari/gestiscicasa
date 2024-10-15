@@ -14,7 +14,7 @@
 		const FOUNDATION_YEAR = 'foundation_year';
 		const NOTE = 'note';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateDate';
+		const UPDATE_DATE = 'update_date';
 
 		/**
 		 * Get the list of columns for the Brand table.

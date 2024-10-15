@@ -1,17 +1,17 @@
--- Creazione della tabella lmgc_RoomTypes
-CREATE TABLE IF NOT EXISTS lmgc_RoomTypes (
+-- Creazione della tabella lm_RoomTypes
+CREATE TABLE IF NOT EXISTS lm_RoomTypes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     code CHAR(2) NOT NULL UNIQUE,
     name VARCHAR(255) NOT NULL,
     /*colore CHAR(7) NULL UNIQUE,*/
     notes TEXT,
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    CONSTRAINT chk_colore CHECK (colore REGEXP '^#[0-9A-Fa-f]{6}$')
+    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP/*,
+    CONSTRAINT chk_colore CHECK (colore REGEXP '^#[0-9A-Fa-f]{6}$')*/
 );
 
--- Inserimento dei dati nella tabella lmgc_RoomTypes
-INSERT INTO lmgc_RoomTypes (code, name, notes) VALUES
+-- Inserimento dei dati nella tabella lm_RoomTypes
+INSERT INTO lm_RoomTypes (code, name, notes) VALUES
 ('CA','Camera',NULL),
 ('SA','Sala',NULL),
 ('CU','Cucina',NULL),
@@ -26,8 +26,8 @@ INSERT INTO lmgc_RoomTypes (code, name, notes) VALUES
 ('ZE','Zona edificabile',NULL),
 ('ST','Stanza','stanza generica');
 
--- Creazione della tabella lmgc_Rooms
-CREATE TABLE IF NOT EXISTS lmgc_Rooms (
+-- Creazione della tabella lm_Rooms
+CREATE TABLE IF NOT EXISTS lm_Rooms (
     id INT AUTO_INCREMENT PRIMARY KEY,
     property_id INT NOT NULL,
     room_type_id INT NOT NULL,
@@ -38,6 +38,6 @@ CREATE TABLE IF NOT EXISTS lmgc_Rooms (
     notes TEXT,
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (property_id) REFERENCES lmgc_Properties(id),
-    FOREIGN KEY (room_type_id) REFERENCES lmgc_RoomTypes(id)
+    FOREIGN KEY (property_id) REFERENCES lm_Properties(id),
+    FOREIGN KEY (room_type_id) REFERENCES lm_RoomTypes(id)
 );

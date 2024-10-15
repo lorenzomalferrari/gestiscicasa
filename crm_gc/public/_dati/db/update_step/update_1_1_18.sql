@@ -1,6 +1,6 @@
-/*DELETE FROM lmgc_Nationalities;
+/*DELETE FROM lm_Nationalities;
 
-INSERT INTO lmgc_Nationalities (name, name_italian, name_french, name_spanish, name_german, name_portuguese, notes, continent_id) VALUES
+INSERT INTO lm_Nationalities (name, name_italian, name_french, name_spanish, name_german, name_portuguese, notes, continent_id) VALUES
 ('Algerian', 'Algerino', 'Algérien', 'Argelino', 'Algerisch', 'Argelino', 'Nationality of Algeria', 1),
 ('Angolan', 'Angolano', 'Angolais', 'Angoleño', 'Angolanisch', 'Angolano', 'Nationality of Angola', 1),
 ('Beninese', 'Beninese', 'Béninois', 'Beninés', 'Beninisch', 'Beninense', 'Nationality of Benin', 1),
@@ -54,10 +54,10 @@ INSERT INTO lmgc_Nationalities (name, name_italian, name_french, name_spanish, n
 ('Zambian', 'Zambiano', 'Zambien', 'Zambiano', 'Sambisch', 'Zambiano', 'Nationality of Zambia', 1),
 ('Zimbabwean', 'Zimbabwese', 'Zimbabwéen', 'Zimbabuense', 'Simbabweisch', 'Zimbabuense', 'Nationality of Zimbabwe', 1);
 
-INSERT INTO lmgc_Nationalities (name, name_italian, name_french, name_spanish, name_german, name_portuguese, notes, continent_id) VALUES
+INSERT INTO lm_Nationalities (name, name_italian, name_french, name_spanish, name_german, name_portuguese, notes, continent_id) VALUES
 ('Antarctic', 'Antartico', 'Antarctique', 'Antártico', 'Antarktisch', 'Antártico', 'Refers to the continent of Antarctica', 2);
 
-INSERT INTO lmgc_Nationalities (name, name_italian, name_french, name_spanish, name_german, name_portuguese, notes, continent_id) VALUES
+INSERT INTO lm_Nationalities (name, name_italian, name_french, name_spanish, name_german, name_portuguese, notes, continent_id) VALUES
 ('Afghan', 'Afghano', 'Afghan', 'Afgano', 'Afghanisch', 'Afgão', 'Nationality of Afghanistan', 3),
 ('Armenian', 'Armeno', 'Arménien', 'Armenio', 'Armenisch', 'Armênio', 'Nationality of Armenia', 3),
 ('Azerbaijani', 'Azerbaigiano', 'Azerbaïdjanais', 'Azerbaiyano', 'Aserbaidschanisch', 'Azerbaijano', 'Nationality of Azerbaijan', 3),
@@ -102,7 +102,7 @@ INSERT INTO lmgc_Nationalities (name, name_italian, name_french, name_spanish, n
 ('Uzbek', 'Uzbeko', 'Ouzbek', 'Uzbeco', 'Usbekisch', 'Uzbeque', 'Nationality of Uzbekistan', 3),
 ('Vietnamese', 'Vietnamita', 'Vietnamien', 'Vietnamita', 'Vietnamesisch', 'Vietnamita', 'Nationality of Vietnam', 3);
 
-INSERT INTO lmgc_Nationalities (name, name_italian, name_french, name_spanish, name_german, name_portuguese, notes, continent_id) VALUES
+INSERT INTO lm_Nationalities (name, name_italian, name_french, name_spanish, name_german, name_portuguese, notes, continent_id) VALUES
 ('Albanian', 'Albanese', 'Albanais', 'Albanés', 'Albanisch', 'Albanês', 'Nationality of Albania', 4),
 ('Andorran', 'Andorrano', 'Andorran', 'Andorrano', 'Andorranisch', 'Andorrano', 'Nationality of Andorra', 4),
 ('Austrian', 'Austriaco', 'Autrichien', 'Austriaco', 'Österreichisch', 'Austriaco', 'Nationality of Austria', 4),

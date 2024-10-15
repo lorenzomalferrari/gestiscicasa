@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS lmgc_Genders (
+CREATE TABLE IF NOT EXISTS lm_Genders (
     id INT AUTO_INCREMENT PRIMARY KEY,
     gender VARCHAR(50) NOT NULL UNIQUE,
     notes VARCHAR(255),
@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS lmgc_Genders (
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-INSERT INTO lmgc_Genders (gender) VALUES
+INSERT INTO lm_Genders (gender) VALUES
 ('Maschio'),
 ('Femmina'),
 ('Altro');

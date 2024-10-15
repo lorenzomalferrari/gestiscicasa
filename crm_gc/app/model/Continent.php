@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class representing a continent in the `lmgc_Continents` table.
+ * Class representing a continent in the `lm_Continents` table.
  *
  * Questa classe include metodi per ottenere e impostare i dati del continente
  * e per interagire con un database. I metodi per le operazioni sul database

@@ -3,7 +3,7 @@
     /**
      * Class ExpensesTable
      *
-     * Represents the `lmgc_Expenses` table in the database.
+     * Represents the `lm_Expenses` table in the database.
      */
     class Expense
     {

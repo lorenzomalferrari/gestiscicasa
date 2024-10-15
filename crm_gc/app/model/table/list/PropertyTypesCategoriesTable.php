@@ -12,8 +12,8 @@
 		const ID = 'id';
 		const CATEGORY = 'category';
 		const NOTES = 'notes';
-		const CREATE_DATE = 'createDate';
-		const UPDATE_DATE = 'updateDate';
+		const CREATE_DATE = 'create_date';
+		const UPDATE_DATE = 'update_date';
 
 		/**
 		 * Get the list of columns for the PropertyTypesCategories table.

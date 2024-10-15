@@ -1,6 +1,6 @@
 /*-- OCEANIA
 
-INSERT INTO lmgc_Capitals (name, country_id, population, latitude, longitude, description) VALUES
+INSERT INTO lm_Capitals (name, country_id, population, latitude, longitude, description) VALUES
 ('Canberra', 163, 25600000, -35.2809, 149.1300, 'La capitale dell\'Australia, situata nel Territorio della Capitale Australiana.'),
 ('Suva', 164, 900000, -18.1416, 178.4419, 'La capitale delle Figi, situata sulla costa sud-orientale dell\'isola di Viti Levu.'),
 ('Tarawa', 165, 120000, 1.3281, 173.0270, 'La capitale di Kiribati, situata sull\'atollo di Tarawa.'),

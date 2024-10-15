@@ -1,6 +1,6 @@
 /*-- SUD AMERICA
 
-INSERT INTO lmgc_Capitals (name, country_id, population, latitude, longitude, description) VALUES
+INSERT INTO lm_Capitals (name, country_id, population, latitude, longitude, description) VALUES
 ('Buenos Aires', 175, 45195777, -34.6037, -58.3816, 'La capitale dell\'Argentina, nota per la sua architettura e il tango.'),
 ('Sucre', 176, 11400000, -19.0328, -65.2618, 'Una delle due capitali della Bolivia, sede della Corte Suprema di Giustizia.'),
 ('La Paz', 176, 11400000, -16.5000, -68.1193, 'L\'altra capitale della Bolivia, sede del governo.'),

@@ -1,8 +1,8 @@
-DROP TABLE IF EXISTS lmgc_Cities;
-DROP TABLE IF EXISTS lmgc_Countries;
-DROP TABLE IF EXISTS lmgc_Continents;
+DROP TABLE IF EXISTS lm_Cities;
+DROP TABLE IF EXISTS lm_Countries;
+DROP TABLE IF EXISTS lm_Continents;
 
-CREATE TABLE IF NOT EXISTS lmgc_Continents (
+CREATE TABLE IF NOT EXISTS lm_Continents (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE,
     code VARCHAR(10) NOT NULL UNIQUE,
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS lmgc_Continents (
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-INSERT INTO lmgc_Continents (name, code, surface_area, population, num_countries, description, notes, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
+INSERT INTO lm_Continents (name, code, surface_area, population, num_countries, description, notes, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
 ('Africa', 'AF', 30370000.00, 1340598000, 54, 'Secondo continente per superficie e popolazione.', 'Note su Africa', 'Africa', 'Africa', 'Afrique', 'Afrika', 'África', 'África'),
 ('Antarctica', 'AN', 14000000.00, 1106, 0, 'Continent primarily covered by ice.', 'Note su Antarctica', 'Antartide', 'Antarctica', 'Antarctique', 'Antarktis', 'Antártida', 'Antártica'),
 ('Asia', 'AS', 44579000.00, 4641054775, 49, 'Largest continent by both area and population.', 'Note su Asia', 'Asia', 'Asia', 'Asie', 'Asien', 'Asia', 'Ásia'),
@@ -30,7 +30,7 @@ INSERT INTO lmgc_Continents (name, code, surface_area, population, num_countries
 ('Oceania', 'OC', 8600000.00, 43111704, 14, 'Includes Australia, New Zealand, and many Pacific islands.', 'Note su Oceania', 'Oceania', 'Oceania', 'Océanie', 'Ozeanien', 'Oceanía', 'Oceania'),
 ('South America', 'SA', 17840000.00, 430759766, 12, 'Known for the Amazon rainforest and Andes mountains.', 'Note su South America', 'America del Sud', 'South America', 'Amérique du Sud', 'Südamerika', 'América del Sur', 'América do Sul');
 
-CREATE TABLE IF NOT EXISTS lmgc_Countries (
+CREATE TABLE IF NOT EXISTS lm_Countries (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     continent_id INT NOT NULL,
@@ -49,10 +49,10 @@ CREATE TABLE IF NOT EXISTS lmgc_Countries (
     name_portuguese VARCHAR(100) UNIQUE,
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (continent_id) REFERENCES lmgc_Continents(id)
+    FOREIGN KEY (continent_id) REFERENCES lm_Continents(id)
 );
 
-INSERT INTO lmgc_Countries (name, continent_id, description, notes, iso_alpha_2, iso_alpha_3, iso_numeric, image_path, suspended, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
+INSERT INTO lm_Countries (name, continent_id, description, notes, iso_alpha_2, iso_alpha_3, iso_numeric, image_path, suspended, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
 ('Algeria', 1, 'Stato dell\'Africa settentrionale.', 'Note su Algeria', 'DZ', 'DZA', '012', 'path/to/algeria.png', FALSE, 'Algeria', 'Algeria', 'Algérie', 'Algerien', 'Argelia', 'Argélia'),
 ('Angola', 1, 'Stato dell\'Africa centrale.', 'Note su Angola', 'AO', 'AGO', '024', 'path/to/angola.png', FALSE, 'Angola', 'Angola', 'Angola', 'Angola', 'Angola', 'Angola'),
 ('Benin', 1, 'Stato dell\'Africa occidentale.', 'Note su Benin', 'BJ', 'BEN', '204', 'path/to/benin.png', FALSE, 'Benin', 'Benin', 'Bénin', 'Benin', 'Benín', 'Benim'),
@@ -107,10 +107,10 @@ INSERT INTO lmgc_Countries (name, continent_id, description, notes, iso_alpha_2,
 ('Zambia', 1, 'Stato dell\'Africa orientale.', 'Note su Zambia', 'ZM', 'ZMB', '894', 'path/to/zambia.png', FALSE, 'Zambia', 'Zambia', 'Zambie', 'Sambia', 'Zambia', 'Zâmbia'),
 ('Zimbabwe', 1, 'Stato dell\'Africa australe.', 'Note su Zimbabwe', 'ZW', 'ZWE', '716', 'path/to/zimbabwe.png', FALSE, 'Zimbabwe', 'Zimbabwe', 'Zimbabwe', 'Simbabwe', 'Zimbabue', 'Zimbábue');
 
-INSERT INTO lmgc_Countries (name, continent_id, description, notes, iso_alpha_2, iso_alpha_3, iso_numeric, image_path, suspended, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
+INSERT INTO lm_Countries (name, continent_id, description, notes, iso_alpha_2, iso_alpha_3, iso_numeric, image_path, suspended, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
 ('Antarctica', 2, 'Continent primarily covered by ice.', 'No sovereign states in Antarctica.', 'AQ', 'ATA', '010', 'path/to/antarctica.png', FALSE, 'Antartide', 'Antarctica', 'Antarctique', 'Antarktis', 'Antártida', 'Antártica');
 
-INSERT INTO lmgc_Countries (name, continent_id, description, notes, iso_alpha_2, iso_alpha_3, iso_numeric, image_path, suspended, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
+INSERT INTO lm_Countries (name, continent_id, description, notes, iso_alpha_2, iso_alpha_3, iso_numeric, image_path, suspended, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
 ('Afghanistan', 3, 'Stato dell\'Asia meridionale.', 'Note su Afghanistan', 'AF', 'AFG', '004', 'path/to/afghanistan.png', FALSE, 'Afghanistan', 'Afghanistan', 'Afghanistan', 'Afghanistan', 'Afganistán', 'Afeganistão'),
 ('Armenia', 3, 'Stato dell\'Asia occidentale.', 'Note su Armenia', 'AM', 'ARM', '051', 'path/to/armenia.png', FALSE, 'Armenia', 'Armenia', 'Arménie', 'Armenien', 'Armenia', 'Arménia'),
 ('Azerbaijan', 3, 'Stato dell\'Asia occidentale.', 'Note su Azerbaijan', 'AZ', 'AZE', '031', 'path/to/azerbaijan.png', FALSE, 'Azerbaigian', 'Azerbaijan', 'Azerbaïdjan', 'Aserbaidschan', 'Azerbaiyán', 'Azerbaijão'),
@@ -159,7 +159,7 @@ INSERT INTO lmgc_Countries (name, continent_id, description, notes, iso_alpha_2,
 ('Uzbekistan', 3, 'Stato dell\'Asia centrale.', 'Note su Uzbekistan', 'UZ', 'UZB', '860', 'path/to/uzbekistan.png', FALSE, 'Uzbekistan', 'Uzbekistan', 'Ouzbékistan', 'Usbekistan', 'Uzbekistán', 'Uzbequistão'),
 ('Yemen', 3, 'Stato dell\'Asia sud-occidentale.', 'Note su Yemen', 'YE', 'YEM', '887', 'path/to/yemen.png', FALSE, 'Yemen', 'Yemen', 'Yémen', 'Jemen', 'Yemen', 'Iémen');
 
-INSERT INTO lmgc_Countries (name, continent_id, description, notes, iso_alpha_2, iso_alpha_3, iso_numeric, image_path, suspended, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
+INSERT INTO lm_Countries (name, continent_id, description, notes, iso_alpha_2, iso_alpha_3, iso_numeric, image_path, suspended, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
 ('Albania', 4, 'Stato dei Balcani.', 'Note su Albania', 'AL', 'ALB', '008', 'path/to/albania.png', FALSE, 'Albania', 'Albania', 'Albanie', 'Albanien', 'Albania', 'Albânia'),
 ('Andorra', 4, 'Principato situato tra Francia e Spagna.', 'Note su Andorra', 'AD', 'AND', '020', 'path/to/andorra.png', FALSE, 'Andorra', 'Andorra', 'Andorre', 'Andorra', 'Andorra', 'Andorra'),
 ('Austria', 4, 'Stato dell\'Europa centrale.', 'Note su Austria', 'AT', 'AUT', '040', 'path/to/austria.png', FALSE, 'Austria', 'Austria', 'Autriche', 'Österreich', 'Austria', 'Áustria'),
@@ -208,7 +208,7 @@ INSERT INTO lmgc_Countries (name, continent_id, description, notes, iso_alpha_2,
 ('United Kingdom', 4, 'Stato dell\'Europa occidentale.', 'Note su United Kingdom', 'GB', 'GBR', '826', 'path/to/united_kingdom.png', FALSE, 'Regno Unito', 'United Kingdom', 'Royaume-Uni', 'Vereinigtes Königreich', 'Reino Unido', 'Reino Unido'),
 ('Vatican City', 4, 'Stato situato all\'interno di Roma.', 'Note su Vatican City', 'VA', 'VAT', '336', 'path/to/vatican_city.png', FALSE, 'Città del Vaticano', 'Vatican City', 'Vatican', 'Vatikanstadt', 'Ciudad del Vaticano', 'Cidade do Vaticano');
 
-INSERT INTO lmgc_Countries (name, continent_id, description, notes, iso_alpha_2, iso_alpha_3, iso_numeric, image_path, suspended, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
+INSERT INTO lm_Countries (name, continent_id, description, notes, iso_alpha_2, iso_alpha_3, iso_numeric, image_path, suspended, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
 ('Australia', 5, 'Stato dell\'Oceania.', 'Note su Australia', 'AU', 'AUS', '036', 'path/to/australia.png', FALSE, 'Australia', 'Australia', 'Australie', 'Australien', 'Australia', 'Austrália'),
 ('Fiji', 5, 'Stato dell\'Oceania.', 'Note su Fiji', 'FJ', 'FJI', '242', 'path/to/fiji.png', FALSE, 'Figi', 'Fiji', 'Fidji', 'Fidschi', 'Fiyi', 'Fiji'),
 ('Kiribati', 5, 'Stato dell\'Oceania.', 'Note su Kiribati', 'KI', 'KIR', '296', 'path/to/kiribati.png', FALSE, 'Kiribati', 'Kiribati', 'Kiribati', 'Kiribati', 'Kiribati', 'Kiribati'),

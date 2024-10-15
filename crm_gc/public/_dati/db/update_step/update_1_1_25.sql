@@ -1,8 +1,8 @@
-DROP TABLE IF EXISTS lmgc_Cities;
-DROP TABLE IF EXISTS lmgc_Countries;
-DROP TABLE IF EXISTS lmgc_Continents;
+DROP TABLE IF EXISTS lm_Cities;
+DROP TABLE IF EXISTS lm_Countries;
+DROP TABLE IF EXISTS lm_Continents;
 
-CREATE TABLE IF NOT EXISTS lmgc_Continents (
+CREATE TABLE IF NOT EXISTS lm_Continents (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE,
     code VARCHAR(3) NOT NULL UNIQUE,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS lmgc_Continents (
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-INSERT INTO lmgc_Continents (name, code, iso_3166_1, m49_code, geoname_id, surface_area, population, num_countries, description, notes) VALUES
+INSERT INTO lm_Continents (name, code, iso_3166_1, m49_code, geoname_id, surface_area, population, num_countries, description, notes) VALUES
 ('Africa', 'AF', 'AF', 002, 6255146, 30370000.00, 1400000000, 54, 'Il secondo continente più grande per superficie e popolazione. Include il deserto del Sahara e una vasta biodiversità.', 'Culla dell\'umanità con antiche civiltà come quella egizia.'),
 ('Antarctica', 'AN', 'AQ', 010, 6255152, 14000000.00, 0, 0, 'Il continente più freddo, secco e ventoso. Privo di popolazione permanente, ospita solo ricercatori.', 'Governato da trattati internazionali per scopi scientifici e pacifici.'),
 ('Asia', 'AS', 'AS', 142, 6255147, 44580000.00, 4700000000, 49, 'Il continente più grande e popolato. Culla di antiche civiltà e religioni.', 'Include la catena montuosa dell\'Himalaya e grandi deserti.'),

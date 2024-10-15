@@ -13,8 +13,8 @@
 		const NAME = 'name';
 		const CATEGORY_ID = 'category_id';
 		const NOTES = 'notes';
-		const CREATE_DATE = 'createDate';
-		const UPDATE_DATE = 'updateDate';
+		const CREATE_DATE = 'create_date';
+		const UPDATE_DATE = 'update_date';
 
 		/**
 		 * Get the list of columns for the PropertyTypes table.

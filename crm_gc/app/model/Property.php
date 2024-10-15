@@ -141,7 +141,7 @@
 			return $this->creationDate;
 		}
 
-		// Getter and setter methods for 'updateDate'
+		// Getter and setter methods for 'update_date'
 		public function getupdateDate(): string {
 			return $this->updateDate;
 		}

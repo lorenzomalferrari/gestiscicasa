@@ -1,6 +1,6 @@
 /*-- NORD AMERICA
 
-INSERT INTO lmgc_Capitals (name, country_id, population, latitude, longitude, description) VALUES
+INSERT INTO lm_Capitals (name, country_id, population, latitude, longitude, description) VALUES
 ('Saint John\'s', 140, 98000, 17.1172, -61.8450, 'La capitale di Antigua e Barbuda, situata sull\'isola di Antigua.'),
 ('Nassau', 141, 400516, 25.0343, -77.3963, 'La capitale delle Bahamas, situata sull\'isola di New Providence.'),
 ('Bridgetown', 142, 285000, 13.0974, -59.5432, 'La capitale di Barbados, un importante porto e centro commerciale.'),

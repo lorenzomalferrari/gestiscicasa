@@ -3,14 +3,14 @@
     /**
      * Class CategoryTypeTable
      *
-     * This class represents the structure of the lmgc_CategoryTypes table.
+     * This class represents the structure of the lm_CategoryTypes table.
      */
     class CategoryTypeTable
     {
         /**
          * The name of the table.
          */
-        public const TABLE_NAME = 'lmgc_CategoryTypes';
+        public const TABLE_NAME = 'lm_CategoryTypes';
 
         /**
          * The columns of the table.
@@ -19,8 +19,8 @@
         public const COLUMN_CODE = 'code';
         public const COLUMN_NAME = 'name';
         public const COLUMN_NOTE = 'note';
-        public const COLUMN_CREATE_DATE = 'createDate';
-        public const COLUMN_UPDATE_DATE = 'updateDate';
+        public const COLUMN_CREATE_DATE = 'create_date';
+        public const COLUMN_UPDATE_DATE = 'update_date';
 
         /**
          * Get the list of columns in the table.

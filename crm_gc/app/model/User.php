@@ -77,7 +77,7 @@
             return $this->creationDate;
         }
 
-        // Getter per 'updateDate'
+        // Getter per 'update_date'
         public function getUserUpdateDate(): string
         {
             return $this->updateDate;

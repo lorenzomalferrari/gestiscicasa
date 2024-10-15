@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS lmgc_Cities (
+CREATE TABLE IF NOT EXISTS lm_Cities (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL UNIQUE,
     code VARCHAR(10) UNIQUE,
@@ -16,11 +16,11 @@ CREATE TABLE IF NOT EXISTS lmgc_Cities (
     name_german VARCHAR(255) UNIQUE,
     name_spanish VARCHAR(255) UNIQUE,
     name_portuguese VARCHAR(255) UNIQUE,
-    FOREIGN KEY (country_id) REFERENCES lmgc_Countries(id)
+    FOREIGN KEY (country_id) REFERENCES lm_Countries(id)
 );
 
 -- Africa
-INSERT INTO lmgc_Cities (name, code, description, notes, country_id, latitude, longitude, population, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
+INSERT INTO lm_Cities (name, code, description, notes, country_id, latitude, longitude, population, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
 ('Abuja', 'ABJ', 'Capitale della Nigeria.', 'Note su Abuja', 1, 9.0579, 7.49508, 3600000, 'Abuja', 'Abuja', 'Abuja', 'Abuja', 'Abuja', 'Abuja'),
 ('Accra', 'ACC', 'Capitale del Ghana.', 'Note su Accra', 2, 5.6037, -0.1870, 2270000, 'Accra', 'Accra', 'Accra', 'Accra', 'Accra', 'Accra'),
 ('Algiers', 'ALG', 'Capitale dell\'Algeria.', 'Note su Algiers', 3, 36.737232, 3.086472, 1977665, 'Algeri', 'Algiers', 'Alger', 'Algier', 'Argel', 'Argel'),
@@ -70,7 +70,7 @@ INSERT INTO lmgc_Cities (name, code, description, notes, country_id, latitude, l
 ('Windhoek', 'WDH', 'Capitale della Namibia.', 'Note su Windhoek', 47, -22.5597, 17.0832, 431000, 'Windhoek', 'Windhoek', 'Windhoek', 'Windhoek', 'Windhoek', 'Windhoek');
 
 -- Asia
-INSERT INTO lmgc_Cities (name, code, description, notes, country_id, latitude, longitude, population, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
+INSERT INTO lm_Cities (name, code, description, notes, country_id, latitude, longitude, population, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
 ('Abu Dhabi', 'ADH', 'Capitale degli Emirati Arabi Uniti.', 'Note su Abu Dhabi', 1, 24.4539, 54.3773, 1250000, 'Abu Dhabi', 'Abu Dhabi', 'Abou Dabi', 'Abu Dhabi', 'Abu Dabi', 'Abu Dhabi'),
 ('Amman', 'AMM', 'Capitale della Giordania.', 'Note su Amman', 2, 31.9454, 35.9284, 1250000, 'Amman', 'Amman', 'Amman', 'Amman', 'Amán', 'Amã'),
 ('Ankara', 'ANK', 'Capitale della Turchia.', 'Note su Ankara', 3, 39.9334, 32.8597, 5500000, 'Ankara', 'Ankara', 'Ankara', 'Ankara', 'Ankara', 'Ancara'),
@@ -105,7 +105,7 @@ INSERT INTO lmgc_Cities (name, code, description, notes, country_id, latitude, l
 ('Yerevan', 'YEV', 'Capitale dell\'Armenia.', 'Note su Yerevan', 32, 40.1792, 44.4991, 1100000, 'Yerevan', 'Yerevan', 'Erevan', 'Jerewan', 'Ereván', 'Erevan');
 
 -- Europe
-INSERT INTO lmgc_Cities (name, code, description, notes, country_id, latitude, longitude, population, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
+INSERT INTO lm_Cities (name, code, description, notes, country_id, latitude, longitude, population, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
 ('Amsterdam', 'AMS', 'Capitale dei Paesi Bassi.', 'Note su Amsterdam', 1, 52.3676, 4.9041, 821752, 'Amsterdam', 'Amsterdam', 'Amsterdam', 'Amsterdam', 'Ámsterdam', 'Amsterdão'),
 ('Andorra la Vella', 'AND', 'Capitale di Andorra.', 'Note su Andorra la Vella', 2, 42.5078, 1.5211, 22000, 'Andorra la Vella', 'Andorra la Vella', 'Andorre-la-Vieille', 'Andorra la Vella', 'Andorra la Vieja', 'Andorra la Vella'),
 ('Athens', 'ATH', 'Capitale della Grecia.', 'Note su Athens', 3, 37.9838, 23.7275, 664046, 'Atene', 'Athens', 'Athènes', 'Athen', 'Atenas', 'Atenas'),
@@ -143,7 +143,7 @@ INSERT INTO lmgc_Cities (name, code, description, notes, country_id, latitude, l
 ('Zagreb', 'ZAG', 'Capitale della Croazia.', 'Note su Zagreb', 35, 45.8150, 15.9819, 810000, 'Zagabria', 'Zagreb', 'Zagreb', 'Zagreb', 'Zagreb', 'Zagreb');
 
 -- North America
-INSERT INTO lmgc_Cities (name, code, description, notes, country_id, latitude, longitude, population, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
+INSERT INTO lm_Cities (name, code, description, notes, country_id, latitude, longitude, population, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
 ('Antigua', 'ANT', 'Capitale di Antigua e Barbuda.', 'Note su Antigua', 1, 17.1167, -61.8500, 24000, 'Antigua', 'Antigua', 'Antigua', 'Antigua', 'Antigua', 'Antígua'),
 ('Bridgetown', 'BRI', 'Capitale di Barbados.', 'Note su Bridgetown', 2, 13.1050, -59.6319, 110000, 'Bridgetown', 'Bridgetown', 'Bridgetown', 'Bridgetown', 'Bridgetown', 'Bridgetown'),
 ('Castries', 'CAS', 'Capitale di Santa Lucia.', 'Note su Castries', 3, 14.0101, -60.9780, 20000, 'Castries', 'Castries', 'Castries', 'Castries', 'Castries', 'Castries'),
@@ -160,7 +160,7 @@ INSERT INTO lmgc_Cities (name, code, description, notes, country_id, latitude, l
 ('Washington, D.C.', 'WDC', 'Capitale degli Stati Uniti d\'America.', 'Note su Washington, D.C.', 14, 38.8951, -77.0369, 705749, 'Washington', 'Washington, D.C.', 'Washington', 'Washington', 'Washington', 'Washington, D.C.');
 
 -- Oceania
-INSERT INTO lmgc_Cities (name, code, description, notes, country_id, latitude, longitude, population, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
+INSERT INTO lm_Cities (name, code, description, notes, country_id, latitude, longitude, population, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
 ('Canberra', 'CAN', 'Capitale dell\'Australia.', 'Note su Canberra', 1, -35.2809, 149.1300, 430000, 'Canberra', 'Canberra', 'Canberra', 'Canberra', 'Canberra', 'Canberra'),
 ('Honiara', 'HON', 'Capitale delle Isole Salomone.', 'Note su Honiara', 2, -9.4333, 159.9667, 84000, 'Honiara', 'Honiara', 'Honiara', 'Honiara', 'Honiara', 'Honiara'),
 ('Port Moresby', 'POR', 'Capitale della Papua Nuova Guinea.', 'Note su Port Moresby', 3, -9.4438, 147.1784, 350000, 'Port Moresby', 'Port Moresby', 'Port Moresby', 'Port Moresby', 'Port Moresby', 'Port Moresby'),
@@ -168,7 +168,7 @@ INSERT INTO lmgc_Cities (name, code, description, notes, country_id, latitude, l
 ('Wellington', 'WEL', 'Capitale della Nuova Zelanda.', 'Note su Wellington', 5, -41.2865, 174.7762, 215000, 'Wellington', 'Wellington', 'Wellington', 'Wellington', 'Wellington', 'Wellington');
 
 -- South America
-INSERT INTO lmgc_Cities (name, code, description, notes, country_id, latitude, longitude, population, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
+INSERT INTO lm_Cities (name, code, description, notes, country_id, latitude, longitude, population, name_italian, name_english, name_french, name_german, name_spanish, name_portuguese) VALUES
 ('Asunción', 'ASU', 'Capitale del Paraguay.', 'Note su Asunción', 1, -25.2637, -57.5759, 540000, 'Asunción', 'Asunción', 'Asunción', 'Asunción', 'Asunción', 'Asunción'),
 ('Bogotá', 'BOG', 'Capitale della Colombia.', 'Note su Bogotá', 2, 4.6100, -74.0827, 7870000, 'Bogotá', 'Bogotá', 'Bogotá', 'Bogotá', 'Bogotá', 'Bogotá'),
 ('Brasilia', 'BSB', 'Capitale del Brasile.', 'Note su Brasilia', 3, -15.7801, -47.9292, 3110000, 'Brasilia', 'Brasilia', 'Brasilia', 'Brasília', 'Brasilia', 'Brasília'),
@@ -191,8 +191,8 @@ INSERT INTO lmgc_Cities (name, code, description, notes, country_id, latitude, l
 ('Sucre', 'SUC', 'Capitale costituzionale della Bolivia.', 'Note su Sucre', 20, -19.0333, -65.2628, 300000, 'Sucre', 'Sucre', 'Sucre', 'Sucre', 'Sucre', 'Sucre'),
 ('La Paz', 'LPZ', 'Capitale amministrativa della Bolivia.', 'Note su La Paz', 21, -16.5000, -68.1193, 790000, 'La Paz', 'La Paz', 'La Paz', 'La Paz', 'La Paz', 'La Paz');
 
-ALTER TABLE lmgc_Cities
+ALTER TABLE lm_Cities
 ADD COLUMN is_capital BOOLEAN DEFAULT FALSE;
 
-UPDATE lmgc_Cities
+UPDATE lm_Cities
 SET is_capital = TRUE

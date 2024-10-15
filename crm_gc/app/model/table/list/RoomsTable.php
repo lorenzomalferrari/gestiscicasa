@@ -12,7 +12,7 @@
 		const NAME = 'name';
 		const ID_USAGE_DESTINATION = 'idUsageDestination';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateDate';
+		const UPDATE_DATE = 'update_date';
 		const NOTE = 'note';
 		const ID_COLOR = 'idColor';
 		const ID_PROPERTY = 'idProperty';

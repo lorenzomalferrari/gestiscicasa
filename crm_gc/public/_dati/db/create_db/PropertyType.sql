@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS lmgc_PropertyTypes (
+CREATE TABLE IF NOT EXISTS lm_PropertyTypes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     notes TEXT,

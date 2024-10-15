@@ -12,8 +12,8 @@
 		const DESCRIPTION = 'description';
 		const NOTES = 'notes';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateDate';
-		const ID_COLOR = 'IdColor';
+		const UPDATE_DATE = 'update_date';
+		const ID_COLOR = 'color_id';
 
 		/**
 		 * Get the list of columns for the Categories table.

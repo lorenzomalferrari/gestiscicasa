@@ -9,7 +9,7 @@
 
 		const ID = 'id';
 		const PATH = 'path';
-		const ID_USER = 'idUser';
+		const ID_USER = 'user_id';
 		const COUNT = 'count';
 
 		/**

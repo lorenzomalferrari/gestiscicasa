@@ -12,7 +12,7 @@
 		const PASSWORD = 'password';
 		const TOKEN = 'TOKEN';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateDate';
+		const UPDATE_DATE = 'update_date';
 		const IS_ACTIVE = 'isActive';
 
 		/**

@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'lmgc_Expense' table.
+	 * Class representing the 'lm_Expense' table.
 	 */
 	class ExpenseTable
 	{
@@ -14,11 +14,11 @@
 		const NOTE = 'note';
 		const PROPERTY_ID = 'property_id';
 		const COLORE = 'colore';
-		const CREATE_DATE = 'createDate';
-		const UPDATE_DATE = 'updateDate';
+		const CREATE_DATE = 'create_date';
+		const UPDATE_DATE = 'update_date';
 
 		/**
-		 * Get the list of columns for the lmgc_Expense table.
+		 * Get the list of columns for the lm_Expense table.
 		 *
 		 * @return array List of column names
 		 */

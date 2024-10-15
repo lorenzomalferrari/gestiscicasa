@@ -11,7 +11,7 @@
 		const NAME = 'name';
 		const CONTINENT_ID = 'continent_id';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateDate';
+		const UPDATE_DATE = 'update_date';
 
 		/**
 		 * Get the list of columns for the Countries table.

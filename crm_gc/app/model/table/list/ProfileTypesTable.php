@@ -9,7 +9,7 @@ class ProfileTypesTable
 	const DESCRIPTION = 'description';
 	const NOTES = 'notes';
 	const CREATION_DATE = 'creationDate';
-	const UPDATE_DATE = 'updateDate';
+	const UPDATE_DATE = 'update_date';
 
 	/**
 	 * Get the list of columns for the ProfileTypes table.

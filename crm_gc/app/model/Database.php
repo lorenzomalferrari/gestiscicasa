@@ -288,7 +288,7 @@
 		}
 
 		/**
-		 * Inserisce la nuova versione a DB nella tabella dedicata lmgc_VersionDB
+		 * Inserisce la nuova versione a DB nella tabella dedicata lm_VersionDB
 		 */
 		public function insertDatabaseVersion($version): void
 		{

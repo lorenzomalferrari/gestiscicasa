@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'lmgc_ExpenseTypes' table.
+	 * Class representing the 'lm_ExpenseTypes' table.
 	 */
 	class IndustrySectorTable
 	{
@@ -10,10 +10,10 @@
 		const ID = 'id';
 		const NAME = 'name';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateDate';
+		const UPDATE_DATE = 'update_date';
 
 		/**
-		 * Get the list of columns for the lmgc_ExpenseTypes table.
+		 * Get the list of columns for the lm_ExpenseTypes table.
 		 *
 		 * @return array List of column names
 		 */

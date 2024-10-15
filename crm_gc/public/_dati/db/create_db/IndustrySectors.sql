@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS lmgc_IndustrySectors (
+CREATE TABLE IF NOT EXISTS lm_IndustrySectors (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     notes VARCHAR(255),
@@ -6,14 +6,14 @@ CREATE TABLE IF NOT EXISTS lmgc_IndustrySectors (
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-ALTER TABLE lmgc_IndustrySectors
+ALTER TABLE lm_IndustrySectors
 ADD COLUMN name_en VARCHAR(255) NULL,  -- Inglese
 ADD COLUMN name_it VARCHAR(255) NULL,  -- Italiano
 ADD COLUMN name_fr VARCHAR(255) NULL,  -- Francese
 ADD COLUMN name_es VARCHAR(255) NULL,  -- Spagnolo
 ADD COLUMN name_de VARCHAR(255) NULL;  -- Tedesco
 
-INSERT INTO lmgc_IndustrySectors (name, name_en, name_it, name_fr, name_es, name_de) VALUES
+INSERT INTO lm_IndustrySectors (name, name_en, name_it, name_fr, name_es, name_de) VALUES
 ('Home Appliances', 'Home Appliances', 'Elettrodomestici', 'Appareils ménagers', 'Electrodomésticos', 'Haushaltsgeräte'),
 ('Furniture', 'Furniture', 'Mobili', 'Meubles', 'Muebles', 'Möbel'),
 ('Garden Tools', 'Garden Tools', 'Attrezzi da Giardino', 'Outils de jardin', 'Herramientas de jardín', 'Gartengeräte'),

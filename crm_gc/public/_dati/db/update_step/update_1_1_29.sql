@@ -1,7 +1,7 @@
 /*
 -- EUROPA
 
-INSERT INTO lmgc_Capitals (name, country_id, population, latitude, longitude, description) VALUES
+INSERT INTO lm_Capitals (name, country_id, population, latitude, longitude, description) VALUES
 ('Tirana', 95, 418495, 41.3275, 19.8189, 'La capitale e la città più grande dell\'Albania.'),
 ('Andorra la Vella', 96, 22630, 42.5078, 1.5211, 'La capitale di Andorra, situata nei Pirenei.'),
 ('Yerevan', 97, 1155168, 40.1772, 44.5036, 'La capitale e la città più grande dell\'Armenia.'),

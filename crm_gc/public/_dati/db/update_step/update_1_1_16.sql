@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS lmgc_PaymentFrequencies (
+CREATE TABLE IF NOT EXISTS lm_PaymentFrequencies (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS lmgc_PaymentFrequencies (
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-INSERT INTO lmgc_PaymentFrequencies
+INSERT INTO lm_PaymentFrequencies
     (name, description)
 VALUES
     ('Giornaliero', 'Pagamento ogni giorno'),
@@ -22,7 +22,7 @@ VALUES
     ('Quinquennale', 'Pagamento ogni cinque anni'),
     ('Decennale', 'Pagamento ogni dieci anni');
 
-CREATE TABLE IF NOT EXISTS lmgc_SubscriptionTypes (
+CREATE TABLE IF NOT EXISTS lm_SubscriptionTypes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
@@ -32,11 +32,11 @@ CREATE TABLE IF NOT EXISTS lmgc_SubscriptionTypes (
     brand_id INT,
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Data e ora di creazione
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- Data e ora dell'ultimo aggiornamento
-    FOREIGN KEY (payment_frequency_id) REFERENCES lmgc_PaymentFrequencies(id), -- Chiave esterna per la frequenza di pagamento
-    FOREIGN KEY (brand_id) REFERENCES lmgc_Brand(id) -- Chiave esterna per il marchio
+    FOREIGN KEY (payment_frequency_id) REFERENCES lm_PaymentFrequencies(id), -- Chiave esterna per la frequenza di pagamento
+    FOREIGN KEY (brand_id) REFERENCES lm_Brand(id) -- Chiave esterna per il marchio
 );
 
-CREATE TABLE IF NOT EXISTS lmgc_SubscriptionStatuses (
+CREATE TABLE IF NOT EXISTS lm_SubscriptionStatuses (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     description TEXT,
@@ -44,31 +44,31 @@ CREATE TABLE IF NOT EXISTS lmgc_SubscriptionStatuses (
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-INSERT INTO lmgc_SubscriptionStatuses (name, description)
+INSERT INTO lm_SubscriptionStatuses (name, description)
 SELECT * FROM (SELECT
     'Attivo', 'L\'abbonamento è attualmente attivo e valido.'
 ) AS tmp
 WHERE NOT EXISTS (
-    SELECT 1 FROM lmgc_SubscriptionStatuses WHERE name = 'Attivo'
+    SELECT 1 FROM lm_SubscriptionStatuses WHERE name = 'Attivo'
 ) LIMIT 1;
 
-INSERT INTO lmgc_SubscriptionStatuses (name, description)
+INSERT INTO lm_SubscriptionStatuses (name, description)
 SELECT * FROM (SELECT
     'Scaduto', 'L\'abbonamento è scaduto e non è più valido.'
 ) AS tmp
 WHERE NOT EXISTS (
-    SELECT 1 FROM lmgc_SubscriptionStatuses WHERE name = 'Scaduto'
+    SELECT 1 FROM lm_SubscriptionStatuses WHERE name = 'Scaduto'
 ) LIMIT 1;
 
-INSERT INTO lmgc_SubscriptionStatuses (name, description)
+INSERT INTO lm_SubscriptionStatuses (name, description)
 SELECT * FROM (SELECT
     'Sospeso', 'L\'abbonamento è attualmente sospeso e può essere riattivato.'
 ) AS tmp
 WHERE NOT EXISTS (
-    SELECT 1 FROM lmgc_SubscriptionStatuses WHERE name = 'Sospeso'
+    SELECT 1 FROM lm_SubscriptionStatuses WHERE name = 'Sospeso'
 ) LIMIT 1;
 
-CREATE TABLE IF NOT EXISTS lmgc_Subscriptions (
+CREATE TABLE IF NOT EXISTS lm_Subscriptions (
     id INT AUTO_INCREMENT PRIMARY KEY,
     person_id INT NOT NULL,
     subscription_type_id INT NOT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS lmgc_Subscriptions (
     status_id INT NOT NULL,
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (person_id) REFERENCES lmgc_People(id),
-    FOREIGN KEY (subscription_type_id) REFERENCES lmgc_SubscriptionTypes(id),
-    FOREIGN KEY (status_id) REFERENCES lmgc_SubscriptionStatuses(id)
+    FOREIGN KEY (person_id) REFERENCES lm_People(id),
+    FOREIGN KEY (subscription_type_id) REFERENCES lm_SubscriptionTypes(id),
+    FOREIGN KEY (status_id) REFERENCES lm_SubscriptionStatuses(id)
 );

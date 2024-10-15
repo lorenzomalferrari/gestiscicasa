@@ -1,2 +1,2 @@
-ALTER TABLE lmgc_People
+ALTER TABLE lm_People
 ADD COLUMN gender_id INT NULL;

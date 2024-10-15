@@ -3,7 +3,7 @@
 	/**
 	 * Classe LmgcRoomType
 	 *
-	 * Rappresenta un tipo di stanza nella tabella lmgc_RoomTypes.
+	 * Rappresenta un tipo di stanza nella tabella lm_RoomTypes.
 	 *
 	 * @package YourPackageName
 	 */

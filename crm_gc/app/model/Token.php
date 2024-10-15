@@ -10,7 +10,7 @@
         /**
          * Costruttore della classe Token.
          *
-         * @param string $prefix La stringa prefisso (es. 'lmgc_').
+         * @param string $prefix La stringa prefisso (es. 'lm_').
          * @param string $key La chiave segreta.
          */
         public function __construct(string $prefix, string $key)
@@ -127,7 +127,7 @@
         /**
          * Costruttore della classe TokenSession.
          *
-         * @param string $prefix La stringa prefisso (es. 'lmgc_').
+         * @param string $prefix La stringa prefisso (es. 'lm_').
          * @param string $key La chiave segreta.
          * @param string $crmVersion La versione del CRM.
          * @param string $author L'autore del token.
@@ -191,7 +191,7 @@ class TokenDb extends Token
     /**
      * Costruttore della classe TokenDb.
      *
-     * @param string $prefix La stringa prefisso (es. 'lmgc_').
+     * @param string $prefix La stringa prefisso (es. 'lm_').
      * @param string $key La chiave segreta.
      * @param string $dbVersion La versione del database.
      * @param string $dbName Il nome del database.
@@ -245,7 +245,7 @@ class TokenDb extends Token
 
 /*
 // Esempio di utilizzo
-$prefix = 'lmgc_';
+$prefix = 'lm_';
 $key = 'vqP7WjUJCe58^tS!9YPd2TzL#HfG6@bM';
 
 $tokenClass = new Token($prefix, $key);

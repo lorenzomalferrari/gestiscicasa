@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS lmgc_Colors (
+CREATE TABLE IF NOT EXISTS lm_Colors (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     hex VARCHAR(7) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS lmgc_Colors (
 DELIMITER $$
 
 CREATE TRIGGER validate_color_codes
-BEFORE INSERT ON lmgc_Colors
+BEFORE INSERT ON lm_Colors
 FOR EACH ROW
 BEGIN
     -- Validazione del formato HEX

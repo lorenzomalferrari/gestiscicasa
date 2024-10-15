@@ -1,7 +1,7 @@
-DELETE FROM lmgc_PropertyTypes;
+DELETE FROM lm_PropertyTypes;
 
 -- Tabella delle categorie dei tipi di proprietà
-CREATE TABLE IF NOT EXISTS lmgc_PropertyTypesCategories (
+CREATE TABLE IF NOT EXISTS lm_PropertyTypesCategories (
     id INT PRIMARY KEY AUTO_INCREMENT,
     category VARCHAR(50) NOT NULL,
     notes TEXT,
@@ -10,17 +10,17 @@ CREATE TABLE IF NOT EXISTS lmgc_PropertyTypesCategories (
 );
 
 -- Tabella dei tipi di proprietà
-CREATE TABLE IF NOT EXISTS lmgc_PropertyTypes (
+CREATE TABLE IF NOT EXISTS lm_PropertyTypes (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     category_id INT,
     notes TEXT,
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (category_id) REFERENCES lmgc_PropertyTypesCategories(id) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (category_id) REFERENCES lm_PropertyTypesCategories(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-INSERT INTO lmgc_PropertyTypesCategories (category) VALUES
+INSERT INTO lm_PropertyTypesCategories (category) VALUES
     ('residential'),
     ('commercial'),
     ('industrial'),
@@ -28,7 +28,7 @@ INSERT INTO lmgc_PropertyTypesCategories (category) VALUES
     ('tourist'),
     ('land');
 
-INSERT INTO lmgc_PropertyTypes (name, category_id, notes)
+INSERT INTO lm_PropertyTypes (name, category_id, notes)
 VALUES
     ('apartment', 1, NULL),
     ('villa', 1, NULL),

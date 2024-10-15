@@ -90,12 +90,12 @@ class FileManager
     }
 
     /**
-     * Crea il file giornaliero `lmgc_day_{today}` nella directory corrente.
+     * Crea il file giornaliero `lm_day_{today}` nella directory corrente.
      */
     protected function createDailyFile(): void
     {
         $today = date('Ymd');
-        $fileName = "lmgc_day_$today" . $this->fileExtension;
+        $fileName = CONFIG['db']['tablePrefix'] . "day_$today" . $this->fileExtension;
         $this->createFile($this->baseDir . $fileName);
     }
 
@@ -108,13 +108,13 @@ class FileManager
         $weekStart = (clone $today)->modify('last saturday -6 days');
         $weekEnd = (clone $today)->modify('last saturday');
         
-        $weekFolderName = 'lmgc_week_' . $weekStart->format('Ymd') . '_to_' . $weekEnd->format('Ymd');
+        $weekFolderName = 'lm_week_' . $weekStart->format('Ymd') . '_to_' . $weekEnd->format('Ymd');
         $weekFolderPath = $this->baseDir . $weekFolderName;
         $this->createDirectory($weekFolderPath);
 
         for ($i = 0; $i < 7; $i++) {
             $day = (clone $weekStart)->modify("+$i days")->format('Ymd');
-            $this->createFile("$weekFolderPath/lmgc_day_$day" . $this->fileExtension);
+            $this->createFile("$weekFolderPath/lm_day_$day" . $this->fileExtension);
         }
     }
 
@@ -131,12 +131,12 @@ class FileManager
             $today = new \DateTime();
             $lastMonth = (clone $today)->modify('first day of last month');
 
-            $monthFolderName = 'lmgc_month_' . $lastMonth->format('Ym');
+            $monthFolderName = 'lm_month_' . $lastMonth->format('Ym');
             $monthFolderPath = $this->baseDir . $monthFolderName;
             $this->createDirectory($monthFolderPath);
 
             // Trova tutte le cartelle settimanali del mese precedente e comprimile nel formato scelto
-            $weekFolders = glob($this->baseDir . 'lmgc_week_' . $lastMonth->format('Ym') . '*');
+            $weekFolders = glob($this->baseDir . 'lm_week_' . $lastMonth->format('Ym') . '*');
             foreach ($weekFolders as $folder) {
                 $zipFile = $this->zipDir . basename($folder) . $this->compressionType;
                 if (!file_exists($zipFile)) {
@@ -162,14 +162,14 @@ class FileManager
             $year = $today->format('Y');
             $semester = (int)$today->format('n') <= 6 ? '01' : '02';
 
-            $semesterFolderName = "lmgc_semester_{$year}_{$semester}";
+            $semesterFolderName = CONFIG['db']['tablePrefix'] . "semester_{$year}_{$semester}";
             $semesterFolderPath = $this->baseDir . $semesterFolderName;
             $this->createDirectory($semesterFolderPath);
 
             $months = $semester === '01' ? range(1, 6) : range(7, 12);
             foreach ($months as $month) {
                 $monthString = $year . str_pad($month, 2, '0', STR_PAD_LEFT);
-                $monthFolders = glob($this->baseDir . "lmgc_month_$monthString*");
+                $monthFolders = glob($this->baseDir . CONFIG['db']['tablePrefix'] . "month_$monthString*");
                 foreach ($monthFolders as $folder) {
                     $zipFile = $this->zipDir . basename($folder) . $this->compressionType;
                     if (!file_exists($zipFile)) {
@@ -195,11 +195,11 @@ class FileManager
             $today = new \DateTime();
             $lastYear = $today->modify('-1 year')->format('Y');
 
-            $yearFolderName = "lmgc_year_$lastYear";
+            $yearFolderName = CONFIG['db']['tablePrefix'] . "year_$lastYear";
             $yearFolderPath = $this->baseDir . $yearFolderName;
             $this->createDirectory($yearFolderPath);
 
-            $semesterFolders = glob($this->baseDir . "lmgc_semester_{$lastYear}_*");
+            $semesterFolders = glob($this->baseDir . CONFIG['db']['tablePrefix'] . "semester_{$lastYear}_*");
             foreach ($semesterFolders as $folder) {
                 $zipFile = $this->zipDir . basename($folder) . $this->compressionType;
                 if (!file_exists($zipFile)) {

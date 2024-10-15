@@ -12,7 +12,7 @@
 		const DESCRIPTION = 'description';
 		const NOTES = 'notes';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateDate';
+		const UPDATE_DATE = 'update_date';
 		const CODE = 'code';
 		const COLOR_ID = 'colorId';
 

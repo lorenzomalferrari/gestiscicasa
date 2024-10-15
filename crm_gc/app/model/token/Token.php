@@ -12,7 +12,7 @@
         /**
          * Costruttore della classe Token.
          *
-         * @param string $token Il token di partenza lmgc_1e2wfvdfyku65yt4efbntmyj
+         * @param string $token Il token di partenza lm_1e2wfvdfyku65yt4efbntmyj
          */
  /*       public function __construct(string $token)
         {

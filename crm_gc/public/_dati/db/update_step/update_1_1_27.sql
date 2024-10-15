@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS lmgc_Cities (
+CREATE TABLE IF NOT EXISTS lm_Cities (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     code VARCHAR(10) UNIQUE, -- Codice della città, ad esempio il codice IATA
@@ -10,13 +10,13 @@ CREATE TABLE IF NOT EXISTS lmgc_Cities (
     longitude DECIMAL(9, 6),
     population BIGINT,
     isCapital BOOLEAN DEFAULT FALSE, -- Indica se la città è la capitale
-    FOREIGN KEY (country_id) REFERENCES lmgc_Countries(id)
+    FOREIGN KEY (country_id) REFERENCES lm_Countries(id)
 );
 /*
 -- AFRICA
 
 -- Inserimento capitali africane
-INSERT INTO lmgc_Cities (name, code, notes, country_id, latitude, longitude, population, isCapital) VALUES
+INSERT INTO lm_Cities (name, code, notes, country_id, latitude, longitude, population, isCapital) VALUES
 -- Algeria
 ('Algeri', 'ALG', 'Capitale dell\'Algeria', 1, 36.737232, 3.086472, 1977668, TRUE),
 -- Angola

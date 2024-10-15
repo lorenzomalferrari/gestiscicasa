@@ -3,7 +3,7 @@
     /**
      * Class Nationality
      *
-     * Rappresenta una riga della tabella `lmgc_Nationalities`. Contiene metodi per ottenere e impostare i valori delle
+     * Rappresenta una riga della tabella `lm_Nationalities`. Contiene metodi per ottenere e impostare i valori delle
      * proprietà e per visualizzare l'oggetto come stringa.
      */
     class Nationality

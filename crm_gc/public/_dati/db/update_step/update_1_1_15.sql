@@ -1,6 +1,6 @@
-DELETE FROM lmgc_Brand;
+DELETE FROM lm_Brand;
 /*
-CREATE TABLE IF NOT EXISTS lmgc_Nationalities (
+CREATE TABLE IF NOT EXISTS lm_Nationalities (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     name_italian VARCHAR(255) NOT NULL,
@@ -13,11 +13,11 @@ CREATE TABLE IF NOT EXISTS lmgc_Nationalities (
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-ALTER TABLE lmgc_People
-ADD CONSTRAINT fk_nationality FOREIGN KEY (nationality) REFERENCES lmgc_Nationalities(id);
+ALTER TABLE lm_People
+ADD CONSTRAINT fk_nationality FOREIGN KEY (nationality) REFERENCES lm_Nationalities(id);
 */
 /*
-INSERT INTO lmgc_Nationalities (name, name_italian, name_french, name_spanish, name_german, name_portuguese, notes) VALUES
+INSERT INTO lm_Nationalities (name, name_italian, name_french, name_spanish, name_german, name_portuguese, notes) VALUES
 ('Afghan', 'Afghano', 'Afghan', 'Afgano', 'Afghane', 'Afegão', 'Nota su Afghan'),
 ('Albanian', 'Albanese', 'Albanais', 'Albanés', 'Albanisch', 'Albanês', 'Nota su Albanian'),
 ('Algerian', 'Algerino', 'Algérien', 'Argelino', 'Algerisch', 'Argelino', 'Nota su Algerian'),

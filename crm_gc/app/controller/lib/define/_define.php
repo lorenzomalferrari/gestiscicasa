@@ -22,14 +22,14 @@
 			'autore' => 'Lorenzo Malferrari',
 			'telefono' => '+39 3519325656',
 			'azienda' => 'LM Servizi e Consulenze IT',
-			'version' => '1.1.7',
+			'version' => '1.2.0',
 			'main_path' => 'crm_gc'
 		],
 		'db' => [
-			'tablePrefix' => 'lmgc_',
+			'tablePrefix' => 'lm_',
 			'server' => [
 				'locale' => [
-					'version' => '1.1.38',
+					'version' => '1.1.38'/*2.0..1*/,
 					'host' => '81.31.158.38',
 					'port' => '3306',
 					'username' => 'uij8aoin_gestiscicasa',
@@ -37,7 +37,7 @@
 					'database' => 'uij8aoin_gestiscicasa',
 				],
 				'test' => [
-					'version' => '1.1.38',
+					'version' =>'1.1.38'/*2.0..1*/,
 					'host' => '81.31.158.38',
 					'port' => '3306',
 					'username' => 'uij8aoin_gestiscicasa',
@@ -45,7 +45,7 @@
 					'database' => 'uij8aoin_gestiscicasa',
 				],
 				'produzione' => [
-					'version' => '1.1.38',
+					'version' =>'1.1.38'/*2.0..1*/,
 					'host' => '127.0.0.1',
 					'port' => '3306',
 					'username' => 'uij8aoin_gestiscicasa',
@@ -213,7 +213,7 @@
 		'CRYPTO_KEY',
 		CONFIG['db']['tablePrefix'] .
 			CONFIG['securityConfig']['key']
-	); //es. lmgc_1e2wfvdfyku65yt4efbntmyj
+	); //es. lm_1e2wfvdfyku65yt4efbntmyj
 	*/
 	/**
 	 * definizioni relative al tempo come giorno, mese, anno, time()

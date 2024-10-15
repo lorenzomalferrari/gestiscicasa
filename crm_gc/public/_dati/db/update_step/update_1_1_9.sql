@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS lmgc_Products (
+CREATE TABLE IF NOT EXISTS lm_Products (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
@@ -9,6 +9,6 @@ CREATE TABLE IF NOT EXISTS lmgc_Products (
     notes TEXT,
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    CONSTRAINT fk_brand FOREIGN KEY (brand_id) REFERENCES lmgc_Brand(id),
-    CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES lmgc_Category(id)
+    CONSTRAINT fk_brand FOREIGN KEY (brand_id) REFERENCES lm_Brand(id),
+    CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES lm_Category(id)
 );

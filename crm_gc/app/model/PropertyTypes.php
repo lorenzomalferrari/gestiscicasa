@@ -3,7 +3,7 @@
     /**
      * Class PropertyTypes
      *
-     * This class represents the entity of the table 'lmgc_PropertyTypes'.
+     * This class represents the entity of the table 'lm_PropertyTypes'.
      */
     class PropertyTypes
     {

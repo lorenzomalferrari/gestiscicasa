@@ -39,8 +39,6 @@
          */
         public static function getProfile(int $userId): Profile
         {
-            //self::init();
-
             $query = "SELECT
                     p.id as personId,
                     p.name,
@@ -60,15 +58,15 @@
                 FROM
                     " . EnumTableNames::USERS . " u
                 INNER JOIN
-                    " . EnumTableNames::PEOPLE . " p ON u.id = p.idUser
+                    " . EnumTableNames::PEOPLE . " p " .
+                    " ON u.id = p." . PersonTable::ID_USER . "
                 WHERE
                     u.id = :userId";
 
             $profileData = DB->select($query, ['userId' => $userId]);
 
-            if (empty($profileData)) {
+            if (empty($profileData))
                 throw new Exception("Profile not found");
-            }
 
             return self::createFromDatabaseResult($profileData);
         }

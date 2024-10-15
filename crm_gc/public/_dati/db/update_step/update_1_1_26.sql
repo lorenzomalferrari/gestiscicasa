@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS lmgc_Countries (
+CREATE TABLE IF NOT EXISTS lm_Countries (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE,
     code VARCHAR(3) NOT NULL UNIQUE, -- ISO 3166-1 alfa-2 o alfa-3
@@ -13,19 +13,19 @@ CREATE TABLE IF NOT EXISTS lmgc_Countries (
     description TEXT, -- Descrizione del paese
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    CONSTRAINT fk_continent FOREIGN KEY (continent_id) REFERENCES lmgc_Continents(id) ON DELETE SET NULL,
-    CONSTRAINT fk_currency FOREIGN KEY (currency_id) REFERENCES lmgc_Currencies(id) ON DELETE SET NULL
+    CONSTRAINT fk_continent FOREIGN KEY (continent_id) REFERENCES lm_Continents(id) ON DELETE SET NULL,
+    CONSTRAINT fk_currency FOREIGN KEY (currency_id) REFERENCES lm_Currencies(id) ON DELETE SET NULL
 );
 
-CREATE TABLE IF NOT EXISTS lmgc_CountriesLanguages (
+CREATE TABLE IF NOT EXISTS lm_CountriesLanguages (
     country_id INT,
     language_id INT,
     PRIMARY KEY (country_id, language_id),
-    CONSTRAINT fk_country FOREIGN KEY (country_id) REFERENCES lmgc_Countries(id) ON DELETE CASCADE,
-    CONSTRAINT fk_language FOREIGN KEY (language_id) REFERENCES lmgc_Languages(id) ON DELETE CASCADE
+    CONSTRAINT fk_country FOREIGN KEY (country_id) REFERENCES lm_Countries(id) ON DELETE CASCADE,
+    CONSTRAINT fk_language FOREIGN KEY (language_id) REFERENCES lm_Languages(id) ON DELETE CASCADE
 );
 /*
-INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
+INSERT INTO lm_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
 ('Algeria', 'DZ', 'DZ', 'DZA', 12, 2589581, 1, 2381741.00, 40400000, 1, 'Il paese più grande dell\'Africa per superficie.'),
 ('Angola', 'AO', 'AO', 'AGO', 24, 3351879, 1, 1246700.00, 25868000, 2, 'Conosciuto per le sue risorse minerarie.'),
 ('Benin', 'BJ', 'BJ', 'BEN', 204, 2394726, 1, 11295.00, 10653654, 3, 'Famoso per il suo patrimonio culturale.'),
@@ -78,7 +78,7 @@ INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geonam
 ('Zimbabwe', 'ZW', 'ZW', 'ZWE', 716, 878675, 1, 390757.00, 15330000, 50, 'Famosa per le sue riserve naturali e i parchi.');
 
 
-INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
+INSERT INTO lm_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
 ('Afghanistan', 'AF', 'AF', 'AFG', 4, 1149361, 3, 652230.00, 38300000, 1, 'Conosciuto per la sua storia complessa e le montagne.'),
 ('Armenia', 'AM', 'AM', 'ARM', 51, 174982, 3, 29743.00, 2963243, 2, 'Un paese con una lunga storia culturale e religiosa.'),
 ('Azerbaijan', 'AZ', 'AZ', 'AZE', 31, 587940, 3, 86600.00, 9720000, 3, 'Conosciuto per il suo ricco patrimonio culturale.'),
@@ -125,7 +125,7 @@ INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geonam
 ('Yemen', 'YE', 'YE', 'YEM', 887, 695666, 3, 527968.00, 29700000, 44, 'Conosciuto per la sua storia antica e le risorse naturali.');
 
 
-INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
+INSERT INTO lm_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
 ('Albania', 'AL', 'AL', 'ALB', 8, 783754, 4, 28748.00, 2877797, 1, 'Conosciuta per i suoi paesaggi montuosi e la storia.'),
 ('Andorra', 'AD', 'AD', 'AND', 20, 3041565, 4, 468.00, 78014, 2, 'Un piccolo principato nei Pirenei.'),
 ('Armenia', 'AM', 'AM', 'ARM', 51, 174982, 4, 29743.00, 2963243, 3, 'Famoso per la sua storia e cultura antica.'),
@@ -172,7 +172,7 @@ INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geonam
 ('Ucraina', 'UA', 'UA', 'UKR', 804, 690437, 4, 603550.00, 43900000, 44, 'Famosa per la sua storia e le sue città storiche.'),
 ('Vaticano', 'VA', 'VA', 'VAT', 336, 298832, 4, 0.49, 800, 45, 'Il più piccolo stato indipendente al mondo.');
 
-INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
+INSERT INTO lm_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
 ('Antigua e Barbuda', 'AG', 'AG', 'ATG', 28, 3578096, 5, 442.00, 98000, 1, 'Un piccolo arcipelago nei Caraibi.'),
 ('Bahamas', 'BS', 'BS', 'BHS', 44, 3572391, 5, 13943.00, 400516, 2, 'Famoso per le sue spiagge e isole.'),
 ('Barbados', 'BB', 'BB', 'BRB', 52, 3374084, 5, 430.00, 285000, 3, 'Conosciuto per le sue spiagge e cultura.'),
@@ -197,7 +197,7 @@ INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geonam
 ('Trinidad e Tobago', 'TT', 'TT', 'TTO', 780, 3576902, 5, 5128.00, 1400000, 22, 'Famoso per la sua musica e cultura.'),
 ('USA', 'US', 'US', 'USA', 840, 6252001, 5, 9372610.00, 331000000, 23, 'Il paese più potente del mondo con una grande diversità.');
 
-INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
+INSERT INTO lm_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
 ('Australia', 'AU', 'AU', 'AUS', 36, 2077456, 6, 7692024.00, 25600000, 1, 'Il paese più grande dell’Oceania, famoso per la sua fauna unica.'),
 ('Figi', 'FJ', 'FJ', 'FJI', 242, 2208478, 6, 18274.00, 900000, 2, 'Conosciuto per le sue isole e paesaggi naturali.'),
 ('Kiribati', 'KI', 'KI', 'KIR', 296, 4032142, 6, 811.00, 120000, 3, 'Un paese con isole sparse nel Pacifico centrale.'),
@@ -211,7 +211,7 @@ INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geonam
 ('Tuvalu', 'TV', 'TV', 'TUV', 798, 2110295, 6, 26.00, 12000, 11, 'Un paese insulare con una bassa elevazione.'),
 ('Vanuatu', 'VU', 'VU', 'VUT', 548, 2135506, 6, 12200.00, 300000, 12, 'Famoso per le sue isole e la cultura melanesiana.');
 
-INSERT INTO lmgc_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
+INSERT INTO lm_Countries (name, code, iso_3166_1, iso_3166_2, m49_code, geoname_id, continent_id, surface_area, population, currency_id, description) VALUES
 ('Argentina', 'AR', 'AR', 'ARG', 032, 3865483, 7, 2780400.00, 45195777, 1, 'Conosciuta per la sua cultura del tango e paesaggi variegati.'),
 ('Bolivia', 'BO', 'BO', 'BOL', 068, 3923057, 7, 1098580.00, 11400000, 2, 'Famosa per le sue risorse minerarie e la cultura indigena.'),
 ('Brasile', 'BR', 'BR', 'BRA', 076, 3469034, 7, 8515767.00, 213993000, 3, 'Il più grande paese del Sud America, noto per la Foresta Amazzonica e il carnevale di Rio.'),

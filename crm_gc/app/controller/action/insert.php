@@ -54,11 +54,6 @@
 			$columns_insert = concatenateWithComma($columns_arr);
 			$values_insert = concatenateWithComma($values_arr);
 
-			print_r("<br><br><br><br><br><br>Sono insert.php -> " . $data['tableName'] . "<br><br><br><br>");
-			print_r("----- ");
-			print_r(EnumTableNames::getEnumCaseFromName(strtoupper($data['tableName'])));
-			print_r(" -----");
-
 			$table_query = getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::getEnumCaseFromName(strtoupper($data['tableName'])));
 
 			// Crea la query SQL per l'inserimento

@@ -7,13 +7,17 @@ Vedere file: https://miro.com/welcomeonboard/aWVDWHcxRDdsclpWQ0V5ckZzeFcwaE05ZTE
 ## Regole
 
 Ogni tabella deve avere:
-- colonna "id". Sarà autoincrementale e non nulla
-- se serve colonna codice, scriverla code e renderla univoca e dargli la lunghezza massima a 2 o 3 caratteri (se non per diverse necessità)
-- la descrizione della tabella sarà sempre in colonna "name";
-- aggiungere sempre colonna "note". Non deve avere la "s" -> "notes"
-- chiave esterna sempre nome_tabella_id
-- due colonne date. Una per indicare l'inserimento e una per indicare l'aggiornamento.
-Verranno chiamate sempre creationDate e updateDate. Ci sarà una CI che controllerà che ogni create table abbia queste due colonne
+- Colonna "id". Sarà autoincrementale e non sarà nulla
+- Se serve colonna codice, scriverla code e renderla univoca e dargli la lunghezza massima a 2 o 3 caratteri (se non per diverse necessità)
+- Descrizione della tabella sarà sempre in colonna "name", nel colonna aggiuntiva description per maggiori info (da non scambiare con le note);
+- Aggiungere sempre colonna "notes".
+- Le tabelle devono iniziare per lm_, seguito da una maiuscola e deve essere l'unico underscore presente;
+- Le colonne non devono avere maiuscole ma underscore;
+- Ogni tabella deve avere
+- Chiave esterna sempre nome_tabella_id
+- Due colonne date. Una per indicare l'inserimento e una per indicare l'aggiornamento. Verranno chiamate sempre create_date e update_date.
+
+Ci saranno dei controlli CI per ogni voce indicata nell'elenco precedente;
 
 
 # CODICE PHP
@@ -37,4 +41,4 @@ Verranno chiamate sempre creationDate e updateDate. Ci sarà una CI che controll
 
 # CODICE PYTHON
 
-- Vedere progetti separati che saranno presenti nel CRM come sottomoduli, comunque regola generale è quella di rispettare Python 3, ci sarà CI che controllerà questo standard
+- Vedere progetti separati che saranno presenti nel CRM come sottomoduli, comunque regola generale è quella di rispettare Python 3, ci sarà CI che controllerà questo standard.

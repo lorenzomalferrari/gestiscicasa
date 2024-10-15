@@ -105,7 +105,7 @@
 			foreach ($files as $file) {
 			//print_r("- " . $file);
 				$version = $this->getVersionFromFilename($file);
-			//print_r(" - versione del file: " . $version);
+			//print_r(" - version del file: " . $version);
 			//print_r(" ---- " . version_compare($version, $this->targetVersion, '>'));
 				if (version_compare($version, $this->targetVersion, '>')) {
 					break;

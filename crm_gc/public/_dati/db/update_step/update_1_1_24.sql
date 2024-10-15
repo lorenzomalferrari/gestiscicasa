@@ -1,4 +1,4 @@
-/*DROP TABLE IF EXISTS lmgc_Colors;
+/*DROP TABLE IF EXISTS lm_Colors;
 
 DELIMITER //
 

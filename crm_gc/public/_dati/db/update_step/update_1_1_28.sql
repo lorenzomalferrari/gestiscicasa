@@ -2,7 +2,7 @@
 -- ASIA
 
 -- Inserimento capitali asiatiche
-INSERT INTO lmgc_Cities (name, code, notes, country_id, latitude, longitude, population, isCapital) VALUES
+INSERT INTO lm_Cities (name, code, notes, country_id, latitude, longitude, population, isCapital) VALUES
 -- Afghanistan
 ('Kabul', 'KAB', 'Capitale dell\'Afghanistan', 51, 34.5553, 69.2075, 4360000, TRUE),
 -- Armenia

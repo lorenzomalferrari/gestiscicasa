@@ -1,4 +1,4 @@
-CREATE TABLE lmgc_Languages (
+CREATE TABLE lm_Languages (
     id INT AUTO_INCREMENT PRIMARY KEY,
     code_2 CHAR(2) NOT NULL UNIQUE,
     code_3 CHAR(3) NOT NULL UNIQUE,
@@ -15,7 +15,7 @@ CREATE TABLE lmgc_Languages (
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-INSERT INTO lmgc_Languages (code_2, code_3, code_639_3, name, native_name, rtl, region, iso_3166_alpha2, iso_3166_alpha3, currency_code) VALUES
+INSERT INTO lm_Languages (code_2, code_3, code_639_3, name, native_name, rtl, region, iso_3166_alpha2, iso_3166_alpha3, currency_code) VALUES
 ('en', 'eng', 'eng', 'English', 'English', FALSE, 'Worldwide', 'US', 'USA', 'USD'),
 ('zh', 'zho', 'zho', 'Chinese', '中文', FALSE, 'Asia', 'CN', 'CHN', 'CNY'),
 ('hi', 'hin', 'hin', 'Hindi', 'हिन्दी', FALSE, 'Asia', 'IN', 'IND', 'INR'),
@@ -37,7 +37,7 @@ INSERT INTO lmgc_Languages (code_2, code_3, code_639_3, name, native_name, rtl, 
 ('uk', 'ukr', 'ukr', 'Ukrainian', 'Українська', FALSE, 'Europe', 'UA', 'UKR', 'UAH'),
 ('ms', 'msa', 'msa', 'Malay', 'Bahasa Melayu', FALSE, 'Asia', 'MY', 'MYS', 'MYR');
 
-CREATE TABLE lmgc_SupportedLanguages (
+CREATE TABLE lm_SupportedLanguages (
     id INT AUTO_INCREMENT PRIMARY KEY,
     language_id INT NOT NULL,
     name VARCHAR(255) NOT NULL,
@@ -45,17 +45,17 @@ CREATE TABLE lmgc_SupportedLanguages (
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     notes TEXT,
     isActive BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (language_id) REFERENCES lmgc_Languages(id) ON DELETE CASCADE
+    FOREIGN KEY (language_id) REFERENCES lm_Languages(id) ON DELETE CASCADE
 );
 
-INSERT INTO lmgc_SupportedLanguages (language_id, name, isActive, notes) VALUES
+INSERT INTO lm_SupportedLanguages (language_id, name, isActive, notes) VALUES
 (1, 'English', TRUE, 'Lingua di defualt'),
 (2, 'Italian', TRUE, 'Lingua accettata'),
 (3, 'French', FALSE, 'Attualmente lingua non supportata'),
 (4, 'German', FALSE, 'Attualmente lingua non supportata'),
 (5, 'Portuguese', FALSE, 'Attualmente lingua non supportata');
 
-CREATE TABLE lmgc_Translations (
+CREATE TABLE lm_Translations (
     id INT AUTO_INCREMENT PRIMARY KEY,
     language_id INT NOT NULL,
     `key` VARCHAR(255) NOT NULL,
@@ -63,6 +63,6 @@ CREATE TABLE lmgc_Translations (
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     notes TEXT,
-    FOREIGN KEY (language_id) REFERENCES lmgc_SupportedLanguages(id) ON DELETE CASCADE,
+    FOREIGN KEY (language_id) REFERENCES lm_SupportedLanguages(id) ON DELETE CASCADE,
     UNIQUE (language_id, `key`)
 );

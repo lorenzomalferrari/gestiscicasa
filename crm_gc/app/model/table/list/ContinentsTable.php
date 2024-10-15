@@ -13,7 +13,7 @@
 		const AREA_KM2 = 'area_km2';
 		const DESCRIPTION = 'description';
 		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'updateDate';
+		const UPDATE_DATE = 'update_date';
 
 		/**
 		 * Get the list of columns for the Continents table.

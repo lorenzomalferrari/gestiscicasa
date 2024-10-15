@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS lmgc_PathVisitated (
+CREATE TABLE IF NOT EXISTS lm_PathVisitated (
     id INT AUTO_INCREMENT PRIMARY KEY,
     path VARCHAR(255) NOT NULL,
     user_id INT NOT NULL,
