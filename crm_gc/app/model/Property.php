@@ -119,7 +119,7 @@
 		}
 
 		// Getter and setter methods for 'active'
-		public function isActive(): bool {
+		public function is_active(): bool {
 			return $this->active;
 		}
 

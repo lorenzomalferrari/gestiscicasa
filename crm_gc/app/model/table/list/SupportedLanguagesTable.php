@@ -12,10 +12,10 @@
 		const ID = 'id';
 		const LANGUAGE_ID = 'language_id';
 		const NAME = 'name';
-		const CREATION_DATE = 'creation_date';
+		const create_date = 'create_date';
 		const UPDATE_DATE = 'update_date';
 		const NOTES = 'notes';
-		const IS_ACTIVE = 'isActive';
+		const IS_ACTIVE = 'is_active';
 
 		/**
 		 * Get the list of columns for the supported_languages table.
@@ -28,7 +28,7 @@
 				self::ID,
 				self::LANGUAGE_ID,
 				self::NAME,
-				self::CREATION_DATE,
+				self::create_date,
 				self::UPDATE_DATE,
 				self::NOTES,
 				self::IS_ACTIVE

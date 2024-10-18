@@ -1,18 +1,14 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'UsageDestinations' table.
+	 * Class representing the 'UsageDestinations' table, extending BaseTable.
 	 */
-	class UsageDestinationsTable
+	class UsageDestinationsTable extends BaseTable
 	{
 		const TABLE_NAME = 'UsageDestinations';
 
-		const ID = 'id';
 		const NAME = 'name';
 		const DESCRIPTION = 'description';
-		const NOTES = 'notes';
-		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'update_date';
 		const CODE = 'code';
 		const COLOR_ID = 'colorId';
 
@@ -23,15 +19,12 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			// Unisce le colonne comuni ereditate da BaseTable con quelle specifiche di UsageDestinationsTable
+			return array_merge(parent::getCommonColumns(), [
 				self::NAME,
 				self::DESCRIPTION,
-				self::NOTES,
-				self::CREATION_DATE,
-				self::UPDATE_DATE,
 				self::CODE,
-				self::COLOR_ID
-			];
+				self::COLOR_ID,
+			]);
 		}
 	}

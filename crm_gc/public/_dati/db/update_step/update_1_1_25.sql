@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS lm_Continents (
     num_countries INT,
     description TEXT,
     notes TEXT,
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 

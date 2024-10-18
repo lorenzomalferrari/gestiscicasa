@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS lm_RoomTypes (
     name VARCHAR(255) NOT NULL,
     /*colore CHAR(7) NULL UNIQUE,*/
     notes TEXT,
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP/*,
     CONSTRAINT chk_colore CHECK (colore REGEXP '^#[0-9A-Fa-f]{6}$')*/
 );
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS lm_Rooms (
     area DECIMAL(10, 2),
     /*colore CHAR(7) NULL UNIQUE,*/
     notes TEXT,
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (property_id) REFERENCES lm_Properties(id),
     FOREIGN KEY (room_type_id) REFERENCES lm_RoomTypes(id)

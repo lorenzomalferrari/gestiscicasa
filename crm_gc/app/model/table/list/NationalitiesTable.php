@@ -14,8 +14,8 @@
 		const NAME_SPANISH = 'name_spanish';
 		const NAME_GERMAN = 'name_german';
 		const NAME_PORTUGUESE = 'name_portuguese';
-		const NOTE = 'notes';
-		const CREATION_DATE = 'creation_date';
+		const NOTES = 'notes';
+		const create_date = 'create_date';
 		const UPDATE_DATE = 'update_date';
 
 		/**
@@ -33,8 +33,8 @@
 				self::NAME_SPANISH,
 				self::NAME_GERMAN,
 				self::NAME_PORTUGUESE,
-				self::NOTE,
-				self::CREATION_DATE,
+				self::NOTES,
+				self::create_date,
 				self::UPDATE_DATE
 			];
 		}

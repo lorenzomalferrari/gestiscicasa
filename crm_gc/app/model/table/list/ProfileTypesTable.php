@@ -8,7 +8,7 @@ class ProfileTypesTable
 	const CODE = 'code';
 	const DESCRIPTION = 'description';
 	const NOTES = 'notes';
-	const CREATION_DATE = 'creationDate';
+	const create_date = 'creationDate';
 	const UPDATE_DATE = 'update_date';
 
 	/**
@@ -23,7 +23,7 @@ class ProfileTypesTable
 			self::CODE,
 			self::DESCRIPTION,
 			self::NOTES,
-			self::CREATION_DATE,
+			self::create_date,
 			self::UPDATE_DATE
 		];
 	}

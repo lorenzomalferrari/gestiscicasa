@@ -54,12 +54,12 @@
                     u.username,
                     u.password,
                     u.token,
-                    u.isActive
+                    u.is_active
                 FROM
                     " . EnumTableNames::USERS . " u
                 INNER JOIN
                     " . EnumTableNames::PEOPLE . " p " .
-                    " ON u.id = p." . PersonTable::ID_USER . "
+                    " ON u.id = p." . PersonTable::USER_ID . "
                 WHERE
                     u.id = :userId";
 
@@ -96,7 +96,7 @@
             $profile->setUsername($profileData['username']);
             $profile->setPassword($profileData['password']);
             $profile->setToken($profileData['token']);
-            $profile->setIsActive($profileData['isActive']);
+            $profile->setIsActive($profileData['is_active']);
             // Return Info
             return $profile;
         }
@@ -105,7 +105,7 @@
         {
             return [
                 'id_person' => $this->getPersonId(),
-                'id_user' => $this->getUserId()
+                'USER_ID' => $this->getUserId()
             ];
         }
     }

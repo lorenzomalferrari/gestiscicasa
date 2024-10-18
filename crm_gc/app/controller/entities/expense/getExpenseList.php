@@ -22,7 +22,7 @@
             $r[ExpenseTable::EXPENSE_TYPE_ID],
             $r[ExpenseTable::AMOUNT],
             $r[ExpenseTable::EXPENSE_DATE],
-            $r[ExpenseTable::NOTE],
+            $r[ExpenseTable::NOTES],
             $r[ExpenseTable::PROPERTY_ID],
             $r[ExpenseTable::COLORE],
         );

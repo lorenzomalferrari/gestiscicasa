@@ -21,7 +21,7 @@
 		const ISO_3166_ALPHA3 = 'iso_3166_alpha3';
 		const CURRENCY_CODE = 'currency_code';
 		const NOTES = 'notes';
-		const CREATION_DATE = 'creation_date';
+		const create_date = 'create_date';
 		const UPDATE_DATE = 'update_date';
 
 		/**
@@ -44,7 +44,7 @@
 				self::ISO_3166_ALPHA3,
 				self::CURRENCY_CODE,
 				self::NOTES,
-				self::CREATION_DATE,
+				self::create_date,
 				self::UPDATE_DATE
 			];
 		}

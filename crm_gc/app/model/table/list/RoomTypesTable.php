@@ -1,33 +1,25 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'RoomTypess' table.
+	 * Class representing the 'RoomTypes' table, extending BaseTable.
 	 */
-	class RoomTypesTable
+	class RoomTypesTable extends BaseTable
 	{
-		const TABLE_NAME = 'RoomTypess';
+		const TABLE_NAME = 'RoomTypes'; // Corretto 'RoomTypess' in 'RoomTypes'
 
-		const ID = 'id';
 		const NAME = 'name';
 		const DESCRIPTION = 'description';
-		const NOTE = 'note';
-		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'update_date';
 
 		/**
-		 * Get the list of columns for the RoomTypess table.
+		 * Get the list of columns for the RoomTypes table.
 		 *
 		 * @return array List of column names
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			return array_merge(parent::getCommonColumns(), [
 				self::NAME,
 				self::DESCRIPTION,
-				self::NOTE,
-				self::CREATION_DATE,
-				self::UPDATE_DATE
-			];
+			]);
 		}
 	}

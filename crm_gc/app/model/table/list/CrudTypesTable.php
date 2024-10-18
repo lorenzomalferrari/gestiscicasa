@@ -1,19 +1,15 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'CrudTypess' table.
+	 * Class representing the 'CrudTypess' table, extending BaseTable.
 	 */
-	class CrudTypesTable
+	class CrudTypesTable extends BaseTable
 	{
 		const TABLE_NAME = 'CrudTypess';
 
-		const ID = 'id';
 		const NAME = 'nome';
 		const ACTION = 'azione';
 		const VALUE = 'valore';
-		const CREATION_DATE = 'data_creazione';
-		const UPDATE_DATE = 'data_aggiornamento';
-		const NOTE = 'notes';
 
 		/**
 		 * Get the list of columns for the CrudTypess table.
@@ -22,14 +18,10 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			return array_merge(parent::getCommonColumns(), [
 				self::NAME,
 				self::ACTION,
 				self::VALUE,
-				self::CREATION_DATE,
-				self::UPDATE_DATE,
-				self::NOTE
-			];
+			]);
 		}
 	}

@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS lm_Countries (
     population BIGINT, -- Popolazione del paese
     currency_id INT, -- Chiave esterna che si riferisce alla tabella delle valute
     description TEXT, -- Descrizione del paese
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CONSTRAINT fk_continent FOREIGN KEY (continent_id) REFERENCES lm_Continents(id) ON DELETE SET NULL,
     CONSTRAINT fk_currency FOREIGN KEY (currency_id) REFERENCES lm_Currencies(id) ON DELETE SET NULL

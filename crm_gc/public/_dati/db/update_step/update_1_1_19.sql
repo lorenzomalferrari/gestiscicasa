@@ -10,7 +10,7 @@ CREATE TABLE lm_Genders (
     gender_de VARCHAR(50),           -- Tedesco
     gender_pt VARCHAR(50),           -- Portoghese
     notes VARCHAR(255) NULL,         -- Note opzionali, può essere NULL
-    creation_date DATETIME DEFAULT CURRENT_TIMESTAMP,         -- Data creazione
+    create_date DATETIME DEFAULT CURRENT_TIMESTAMP,         -- Data creazione
     update_date DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  -- Data modifica
 );
 

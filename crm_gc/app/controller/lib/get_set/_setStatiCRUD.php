@@ -17,8 +17,8 @@
             $row['nome'],
             $row['azione'],
             $row['valore'],
-            $row['data_creazione'],
-            $row['data_aggiornamento'],
+            $row['create_date'],
+            $row['update_date'],
             $row['notes']
         );
     }

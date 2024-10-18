@@ -24,7 +24,7 @@
             $r[UsersTable::USERNAME],
             $r[UsersTable::PASSWORD],
             $r[UsersTable::TOKEN],
-            $r[UsersTable::CREATION_DATE],
+            $r[UsersTable::create_date],
             $r[UsersTable::UPDATE_DATE],
             $r[UsersTable::IS_ACTIVE],
         );*/

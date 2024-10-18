@@ -51,7 +51,7 @@
 		public function writeUserLog()
 		{
 			// Verifica se l'utente è attivo
-			//if (!$this->isActive) {
+			//if (!$this->is_active) {
 			//    $this->logUserError("Utente non attivo");
 			//}
 

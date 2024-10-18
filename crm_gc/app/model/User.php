@@ -10,7 +10,7 @@
         private string $username;
         private string $password;
         private ?string $token; // Aggiunta del token, può essere nullo
-        private bool $isActive; // Aggiunta di isActive
+        private bool $is_active; // Aggiunta di is_active
         private string $creationDate;
         private string $updateDate;
 
@@ -60,15 +60,15 @@
             $this->token = $token;
         }
 
-        // Getter e setter per 'isActive'
+        // Getter e setter per 'is_active'
         public function getIsActive(): bool
         {
-            return $this->isActive;
+            return $this->is_active;
         }
 
-        public function setIsActive(bool $isActive): void
+        public function setIsActive(bool $is_active): void
         {
-            $this->isActive = $isActive;
+            $this->is_active = $is_active;
         }
 
         // Getter per 'creationDate'

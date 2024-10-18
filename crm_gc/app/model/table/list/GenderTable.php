@@ -1,17 +1,13 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'Genders' table.
+	 * Class representing the 'Genders' table, extending BaseTable.
 	 */
-	class GenderTable
+	class GenderTable extends BaseTable
 	{
 		const TABLE_NAME = 'Genders';
 
-		const ID = 'id';
 		const GENDER = 'gender';
-		const NOTES = 'notes';
-		const CREATED_AT = 'creation_date';
-		const UPDATED_AT = 'update_date';
 
 		/**
 		 * Get the list of columns for the Genders table.
@@ -20,12 +16,8 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			return array_merge(parent::getCommonColumns(), [
 				self::GENDER,
-				self::NOTES,
-				self::CREATED_AT,
-				self::UPDATED_AT
-			];
+			]);
 		}
 	}

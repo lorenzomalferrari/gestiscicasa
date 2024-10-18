@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS lm_PaymentFrequencies (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS lm_SubscriptionTypes (
     price DECIMAL(10, 2) NOT NULL,
     payment_frequency_id INT,
     brand_id INT,
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Data e ora di creazione
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Data e ora di creazione
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- Data e ora dell'ultimo aggiornamento
     FOREIGN KEY (payment_frequency_id) REFERENCES lm_PaymentFrequencies(id), -- Chiave esterna per la frequenza di pagamento
     FOREIGN KEY (brand_id) REFERENCES lm_Brand(id) -- Chiave esterna per il marchio
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS lm_SubscriptionStatuses (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     description TEXT,
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS lm_Subscriptions (
     start_date DATE NOT NULL,
     end_date DATE,
     status_id INT NOT NULL,
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (person_id) REFERENCES lm_People(id),
     FOREIGN KEY (subscription_type_id) REFERENCES lm_SubscriptionTypes(id),

@@ -1,19 +1,16 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'Users' table.
+	 * Class representing the 'Users' table, extending BaseTable.
 	 */
-	class UsersTable
+	class UsersTable extends BaseTable
 	{
 		const TABLE_NAME = 'Users';
 
-		const ID = 'id';
 		const USERNAME = 'username';
 		const PASSWORD = 'password';
-		const TOKEN = 'TOKEN';
-		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'update_date';
-		const IS_ACTIVE = 'isActive';
+		const TOKEN = 'token';
+		const IS_ACTIVE = 'is_active';
 
 		/**
 		 * Get the list of columns for the Users table.
@@ -22,14 +19,12 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			// Unisci le colonne comuni ereditate da BaseTable con quelle specifiche della UsersTable
+			return array_merge(parent::getCommonColumns(), [
 				self::USERNAME,
 				self::PASSWORD,
 				self::TOKEN,
-				self::CREATION_DATE,
-				self::UPDATE_DATE,
 				self::IS_ACTIVE
-			];
+			]);
 		}
 	}

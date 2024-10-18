@@ -1,17 +1,15 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'PersonPropertyRoles' table.
+	 * Class representing the 'PersonPropertyRoles' table, extending BaseTable.
 	 */
-	class PersonPropertyRolesTable
+	class PersonPropertyRolesTable extends BaseTable
 	{
 		const TABLE_NAME = 'PersonPropertyRoles';
 
-		const PERSON_ID = 'personId';
-		const PROPERTY_ID = 'propertyId';
-		const ROLE_ID = 'roleId';
-		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'update_date';
+		const PERSON_ID = 'person_id';
+		const PROPERTY_ID = 'property_id';
+		const ROLE_ID = 'role_id';
 
 		/**
 		 * Get the list of columns for the PersonPropertyRoles table.
@@ -20,12 +18,10 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::PEOPLE_ID,
+			return array_merge(parent::getCommonColumns(), [
+				self::PERSON_ID,
 				self::PROPERTY_ID,
 				self::ROLE_ID,
-				self::CREATION_DATE,
-				self::UPDATE_DATE
-			];
+			]);
 		}
 	}

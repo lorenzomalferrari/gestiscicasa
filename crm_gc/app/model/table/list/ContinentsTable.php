@@ -1,19 +1,16 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'Continents' table.
+	 * Class representing the 'Continents' table, extending BaseTable.
 	 */
-	class ContinentsTable
+	class ContinentsTable extends BaseTable
 	{
 		const TABLE_NAME = 'Continents';
 
-		const ID = 'id';
 		const NAME = 'name';
 		const POPULATION = 'population';
 		const AREA_KM2 = 'area_km2';
 		const DESCRIPTION = 'description';
-		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'update_date';
 
 		/**
 		 * Get the list of columns for the Continents table.
@@ -22,14 +19,12 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			// Unisce le colonne comuni ereditate da BaseTable con quelle specifiche di ContinentsTable
+			return array_merge(parent::getCommonColumns(), [
 				self::NAME,
 				self::POPULATION,
 				self::AREA_KM2,
-				self::DESCRIPTION,
-				self::CREATION_DATE,
-				self::UPDATE_DATE
-			];
+				self::DESCRIPTION
+			]);
 		}
 	}

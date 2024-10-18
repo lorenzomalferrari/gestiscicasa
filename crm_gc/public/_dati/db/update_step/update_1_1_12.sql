@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS lm_Cities (
     code VARCHAR(10) UNIQUE,
     description TEXT,
     notes TEXT,
-    creation_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    create_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     modification_date DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     country_id INT,
     latitude DECIMAL(9, 6),

@@ -31,7 +31,7 @@
         $select =
             "SELECT " . PathVisitatedTable::COUNT
             . " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PATHVISITATED)
-            . " WHERE " . PathVisitatedTable::PATH . " = :path AND " . PathVisitatedTable::ID_USER . " = :idUser ";
+            . " WHERE " . PathVisitatedTable::PATH . " = :path AND " . PathVisitatedTable::USER_ID . " = :idUser ";
 
         $params = array(
             ':path' => $callerFile,
@@ -45,13 +45,13 @@
             $update =
                 "UPDATE " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PATHVISITATED)
                 . " SET " . PathVisitatedTable::COUNT . " = " . PathVisitatedTable::COUNT . " + 1"
-                . " WHERE " . PathVisitatedTable::PATH . " = :path AND " . PathVisitatedTable::ID_USER . " = :idUser ";
+                . " WHERE " . PathVisitatedTable::PATH . " = :path AND " . PathVisitatedTable::USER_ID . " = :idUser ";
             DB->update($update, $params);
         } else {
             // Se non esiste, inserisci una nuova riga
             $insert =
                 "INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PATHVISITATED)
-                . " (" . PathVisitatedTable::PATH . " , " . PathVisitatedTable::COUNT . " , " . PathVisitatedTable::ID_USER . ")"
+                . " (" . PathVisitatedTable::PATH . " , " . PathVisitatedTable::COUNT . " , " . PathVisitatedTable::USER_ID . ")"
                 . " VALUES (:path, 1, :idUser)";
             DB->insert($insert, $params);
         }

@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS lm_Products (
     brand_id INT NOT NULL,
     category_id INT NOT NULL,
     notes TEXT,
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CONSTRAINT fk_brand FOREIGN KEY (brand_id) REFERENCES lm_Brand(id),
     CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES lm_Category(id)

@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS lm_Brand (
     industry_sector_id INT,
     foundation_year INT,
     notes TEXT,
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (country_of_origin_id) REFERENCES lm_Countries(id),
     FOREIGN KEY (industry_sector_id) REFERENCES lm_IndustrySectors(id)

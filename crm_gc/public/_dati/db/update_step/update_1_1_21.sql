@@ -11,7 +11,7 @@ CREATE TABLE lm_Languages (
     iso_3166_alpha3 CHAR(3),
     currency_code CHAR(3),
     notes TEXT,
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
@@ -41,14 +41,14 @@ CREATE TABLE lm_SupportedLanguages (
     id INT AUTO_INCREMENT PRIMARY KEY,
     language_id INT NOT NULL,
     name VARCHAR(255) NOT NULL,
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     notes TEXT,
-    isActive BOOLEAN DEFAULT FALSE,
+    is_active BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (language_id) REFERENCES lm_Languages(id) ON DELETE CASCADE
 );
 
-INSERT INTO lm_SupportedLanguages (language_id, name, isActive, notes) VALUES
+INSERT INTO lm_SupportedLanguages (language_id, name, is_active, notes) VALUES
 (1, 'English', TRUE, 'Lingua di defualt'),
 (2, 'Italian', TRUE, 'Lingua accettata'),
 (3, 'French', FALSE, 'Attualmente lingua non supportata'),
@@ -60,7 +60,7 @@ CREATE TABLE lm_Translations (
     language_id INT NOT NULL,
     `key` VARCHAR(255) NOT NULL,
     value TEXT NOT NULL,
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     notes TEXT,
     FOREIGN KEY (language_id) REFERENCES lm_SupportedLanguages(id) ON DELETE CASCADE,

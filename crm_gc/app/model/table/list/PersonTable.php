@@ -1,13 +1,12 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'People' table.
+	 * Class representing the 'People' table, extending BaseTable.
 	 */
-	class PersonTable
+	class PersonTable extends BaseTable
 	{
 		const TABLE_NAME = 'People';
 
-		const ID = 'id';
 		const NAME = 'name';
 		const SURNAME = 'surname';
 		const AGE = 'age';
@@ -16,11 +15,9 @@
 		const STATE = 'state';
 		const NATIONALITY = 'nationality';
 		const DESCRIPTION = 'description';
-		const ID_USER = 'user_id';
-		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'update_date';
+		const USER_ID = 'user_id';
 		const EMAIL = 'email';
-		const ID_GENDER = 'gender_id';
+		const GENDER_ID = 'gender_id';
 
 		/**
 		 * Get the list of columns for the People table.
@@ -29,8 +26,7 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			return array_merge(parent::getCommonColumns(), [
 				self::NAME,
 				self::SURNAME,
 				self::AGE,
@@ -39,11 +35,9 @@
 				self::STATE,
 				self::NATIONALITY,
 				self::DESCRIPTION,
-				self::ID_USER,
-				self::CREATION_DATE,
-				self::UPDATE_DATE,
+				self::USER_ID,
 				self::EMAIL,
-				self::ID_GENDER
-			];
+				self::GENDER_ID
+			]);
 		}
 	}

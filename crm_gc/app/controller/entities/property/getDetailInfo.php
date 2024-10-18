@@ -45,7 +45,7 @@
                         . " ON pt." . PropertyTypesTable::ID . " = p." . PropertyTable::ID
                 . " LEFT JOIN "
                         . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::USERS) . " AS u "
-                        . " ON u." . UsersTable::ID . " = pe." . PersonTable::ID_USER;
+                        . " ON u." . UsersTable::ID . " = pe." . PersonTable::USER_ID;
     }
 
     $query .= " $where_select ";

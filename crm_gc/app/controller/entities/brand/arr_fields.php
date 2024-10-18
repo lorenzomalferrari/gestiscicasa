@@ -90,5 +90,5 @@
     if (isset($id) && $id > 0) {
         $fields['body']['rows'][0][0]['attributes']['value'] = $obj[BrandTable::NAME];
         $fields['body']['rows'][0][1]['attributes']['value'] = $obj[BrandTable::FOUNDATION_YEAR];
-        $fields['body']['rows'][2][0]['attributes']['text'] = $obj[BrandTable::NOTE];
+        $fields['body']['rows'][2][0]['attributes']['text'] = $obj[BrandTable::NOTES];
     }

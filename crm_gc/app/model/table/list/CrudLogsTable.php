@@ -1,13 +1,12 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'CrudLogs' table.
+	 * Class representing the 'CrudLogs' table, extending BaseTable.
 	 */
-	class CrudLogsTable
+	class CrudLogsTable extends BaseTable
 	{
 		const TABLE_NAME = 'CrudLogs';
 
-		const ID = 'id';
 		const TIMESTAMP = 'timestamp';
 		const MESSAGE = 'message';
 		const ACTION = 'action';
@@ -22,14 +21,14 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			// Unisce le colonne comuni ereditate da BaseTable con quelle specifiche di CrudLogsTable
+			return array_merge(parent::getCommonColumns(), [
 				self::TIMESTAMP,
 				self::MESSAGE,
 				self::ACTION,
 				self::BEFORE_STATE,
 				self::AFTER_STATE,
 				self::USER_ID
-			];
+			]);
 		}
 	}

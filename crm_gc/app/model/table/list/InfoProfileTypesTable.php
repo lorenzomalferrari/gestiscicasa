@@ -14,7 +14,7 @@
 		const IDPROFILETYPES = 'idProfileTypes';
 		const DESCRIPTION = 'description';
 		const NOTES = 'notes';
-		const CREATION_DATE = 'creation_date';
+		const create_date = 'create_date';
 		const UPDATE_DATE = 'update_date';
 
 		/**
@@ -30,7 +30,7 @@
 				self::IDPROFILETYPES,
 				self::DESCRIPTION,
 				self::NOTES,
-				self::CREATION_DATE,
+				self::create_date,
 				self::UPDATE_DATE
 			];
 		}

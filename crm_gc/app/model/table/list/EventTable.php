@@ -1,17 +1,13 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'Events' table.
+	 * Class representing the 'Events' table, extending BaseTable.
 	 */
-	class EventTable
+	class EventTable extends BaseTable
 	{
 		const TABLE_NAME = 'Events';
 
-		const ID = 'id';
 		const ACTION = 'action';
-		const NOTES = 'notes';
-		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'update_date';
 
 		/**
 		 * Get the list of columns for the Events table.
@@ -20,12 +16,8 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			return array_merge(parent::getCommonColumns(), [
 				self::ACTION,
-				self::NOTES,
-				self::CREATION_DATE,
-				self::UPDATE_DATE
-			];
+			]);
 		}
 	}

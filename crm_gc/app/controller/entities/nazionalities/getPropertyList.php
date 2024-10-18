@@ -23,8 +23,8 @@
             $r[NationalitiesTable::NAME_SPANISH],
             $r[NationalitiesTable::NAME_GERMAN],
             $r[NationalitiesTable::NAME_PORTUGUESE],
-            $r[NationalitiesTable::NOTE],
-            $r[NationalitiesTable::CREATION_DATE],
+            $r[NationalitiesTable::NOTES],
+            $r[NationalitiesTable::create_date],
             $r[NationalitiesTable::UPDATE_DATE]
         );
     }

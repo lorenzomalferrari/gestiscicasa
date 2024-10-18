@@ -13,7 +13,7 @@
 		const LANGUAGE_ID = 'language_id';
 		const KEY = 'key';
 		const VALUE = 'value';
-		const CREATED_AT = 'creation_date';
+		const CREATED_AT = 'create_date';
 		const UPDATED_AT = 'update_date';
 		const NOTES = 'notes';
 

@@ -4,7 +4,7 @@
         ':idUser' => $_SESSION[CONFIG['session']['keys']['IDUSER']],
     );
 
-    $where = " WHERE " . PathVisitatedTable::ID_USER . " = :idUser ";
+    $where = " WHERE " . PathVisitatedTable::USER_ID . " = :idUser ";
 
     $select =
         "SELECT " . PathVisitatedTable::PATH

@@ -8,7 +8,7 @@
 		$query = "SELECT * FROM "
 					. getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::USERS) . " u "
 					. " LEFT JOIN " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PEOPLE) . " p "
-					. " 	on p." . PersonTable::ID_USER . " = u.id "
+					. " 	on p." . PersonTable::USER_ID . " = u.id "
 					. " WHERE
 							(
 									u." . UsersTable::USERNAME . " = :username

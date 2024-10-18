@@ -1,22 +1,18 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'Rooms' table.
+	 * Class representing the 'Rooms' table, extending BaseTable.
 	 */
-	class RoomsTable
+	class RoomsTable extends BaseTable
 	{
 		const TABLE_NAME = 'Rooms';
 
-		const ID = 'id';
 		const NUMBER = 'number';
 		const NAME = 'name';
-		const ID_USAGE_DESTINATION = 'idUsageDestination';
-		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'update_date';
-		const NOTE = 'notes';
-		const ID_COLOR = 'idColor';
-		const ID_PROPERTY = 'idProperty';
-		const ID_ROOM_TYPE = 'idRoomTypes';
+		const USAGE_DESTINATION_ID = 'usage_destination_id';
+		const COLOR_ID = 'color_id';
+		const PROPERTY_ID = 'property_id';
+		const ROOM_TYPE_ID = 'room_type_id';
 
 		/**
 		 * Get the list of columns for the Rooms table.
@@ -25,17 +21,14 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			// Unisce le colonne comuni ereditate da BaseTable con quelle specifiche di RoomsTable
+			return array_merge(parent::getCommonColumns(), [
 				self::NUMBER,
 				self::NAME,
-				self::ID_USAGE_DESTINATION,
-				self::CREATION_DATE,
-				self::UPDATE_DATE,
-				self::NOTE,
-				self::ID_COLOR,
-				self::ID_PROPERTY,
-				self::ID_ROOM_TYPE
-			];
+				self::USAGE_DESTINATION_ID,
+				self::COLOR_ID,
+				self::PROPERTY_ID,
+				self::ROOM_TYPE_ID,
+			]);
 		}
 	}

@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS lm_Rooms (
     number INT,
     name VARCHAR(255) NOT NULL,
     usage_destination_id INT,
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     notes TEXT,
     color_id INT,

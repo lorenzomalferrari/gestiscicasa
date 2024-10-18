@@ -29,7 +29,7 @@
 			public static function initialize($languageCode) {
 				$params_where = [
 					':code' => $languageCode,
-					':isActive' => "TRUE",
+					':is_active' => "TRUE",
 				];
 
 				$select = "
@@ -44,7 +44,7 @@
 					WHERE
 							l." . LanguagesTable::CODE_2 . " = :code
 						AND
-							sl." . SupportedLanguagesTable::IS_ACTIVE . " = :isActive
+							sl." . SupportedLanguagesTable::IS_ACTIVE . " = :is_active
 				";
 
 				$row = DB->select($select, $params_where);
@@ -83,7 +83,7 @@
 					SELECT sl.id
 					FROM supported_languages sl
 					JOIN languages l ON sl.language_id = l.id
-					WHERE l.code_2 = ? AND sl.isActive = TRUE
+					WHERE l.code_2 = ? AND sl.is_active = TRUE
 				");
 				$stmt->execute([$languageCode]);
 				$languageId = $stmt->fetchColumn();

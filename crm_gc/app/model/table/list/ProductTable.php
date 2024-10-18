@@ -1,22 +1,18 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'Products' table.
+	 * Class representing the 'Products' table, extending BaseTable.
 	 */
-	class ProductTable
+	class ProductTable extends BaseTable
 	{
 		const TABLE_NAME = 'Products';
 
-		const ID = 'id';
 		const NAME = 'name';
 		const DESCRIPTION = 'description';
 		const PRICE = 'price';
 		const BARCODE = 'barcode';
-		const ID_BRAND = 'IdBrand';
-		const ID_CATEGORY = 'IdCategory';
-		const NOTE = 'notes';
-		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'update_date';
+		const BRAND_ID = 'brand_id';
+		const CATEGORY_ID = 'category_id';
 
 		/**
 		 * Get the list of columns for the Products table.
@@ -25,17 +21,13 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			return array_merge(parent::getCommonColumns(), [
 				self::NAME,
 				self::DESCRIPTION,
 				self::PRICE,
 				self::BARCODE,
-				self::ID_BRAND,
-				self::ID_CATEGORY,
-				self::NOTE,
-				self::CREATION_DATE,
-				self::UPDATE_DATE
-			];
+				self::BRAND_ID,
+				self::CATEGORY_ID,
+			]);
 		}
 	}

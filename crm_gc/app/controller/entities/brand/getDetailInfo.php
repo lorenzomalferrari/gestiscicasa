@@ -14,8 +14,8 @@
         . " , b." . BrandTable::NAME
         . $_select
         . " , b." . BrandTable::FOUNDATION_YEAR
-        . " , b." . BrandTable::NOTE
-        . " , b." . BrandTable::CREATION_DATE
+        . " , b." . BrandTable::NOTES
+        . " , b." . BrandTable::create_date
         . " , b." . BrandTable::UPDATE_DATE;
 
     $params_select = [];

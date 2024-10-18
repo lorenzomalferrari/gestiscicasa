@@ -1,23 +1,19 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'Properties' table.
+	 * Class representing the 'Properties' table, extending BaseTable.
 	 */
-	class PropertyTable
+	class PropertyTable extends BaseTable
 	{
 		const TABLE_NAME = 'Properties';
 
-		const ID = 'id';
 		const NAME = 'name';
 		const PRICE = 'price';
 		const ADDRESS = 'address';
-		const ID_CITY = 'IdCity';
-		const ID_STATE = 'IdState';
-		const ID_PROPERTY_TYPES = 'IdPropertyTypes';
+		const CITY_ID = 'city_id';
+		const STATE_ID = 'state_id';
+		const PROPERTY_TYPE_ID = 'property_type_id';
 		const ACTIVE = 'active';
-		const NOTES = 'notes';
-		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'update_date';
 
 		/**
 		 * Get the list of columns for the Properties table.
@@ -26,18 +22,15 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			// Unisce le colonne comuni ereditate da BaseTable con quelle specifiche di PropertyTable
+			return array_merge(parent::getCommonColumns(), [
 				self::NAME,
 				self::PRICE,
 				self::ADDRESS,
-				self::ID_CITY,
-				self::ID_STATE,
-				self::ID_PROPERTY_TYPES,
+				self::CITY_ID,
+				self::STATE_ID,
+				self::PROPERTY_TYPE_ID,
 				self::ACTIVE,
-				self::NOTES,
-				self::CREATION_DATE,
-				self::UPDATE_DATE
-			];
+			]);
 		}
 	}

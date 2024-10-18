@@ -1,29 +1,24 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'lm_ExpenseTypes' table.
+	 * Class representing the 'IndustrySectors' table, extending BaseTable.
 	 */
-	class IndustrySectorTable
+	class IndustrySectorTable extends BaseTable
 	{
 		const TABLE_NAME = 'IndustrySectors';
 
-		const ID = 'id';
 		const NAME = 'name';
-		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'update_date';
 
 		/**
-		 * Get the list of columns for the lm_ExpenseTypes table.
+		 * Get the list of columns for the IndustrySector table.
 		 *
 		 * @return array List of column names
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			// Unisce le colonne comuni ereditate da BaseTable con quelle specifiche di IndustrySectorTable
+			return array_merge(parent::getCommonColumns(), [
 				self::NAME,
-				self::CREATION_DATE,
-				self::UPDATE_DATE
-			];
+			]);
 		}
 	}

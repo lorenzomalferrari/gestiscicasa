@@ -1,19 +1,15 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'Categories' table.
+	 * Class representing the 'Categories' table, extending BaseTable.
 	 */
-	class CategoryTable
+	class CategoryTable extends BaseTable
 	{
 		const TABLE_NAME = 'Categories';
 
-		const ID = 'id';
 		const NAME = 'name';
 		const DESCRIPTION = 'description';
-		const NOTES = 'notes';
-		const CREATION_DATE = 'creationDate';
-		const UPDATE_DATE = 'update_date';
-		const ID_COLOR = 'color_id';
+		const COLOR_ID = 'color_id';
 
 		/**
 		 * Get the list of columns for the Categories table.
@@ -22,14 +18,10 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			return array_merge(parent::getCommonColumns(), [
 				self::NAME,
 				self::DESCRIPTION,
-				self::NOTES,
-				self::CREATION_DATE,
-				self::UPDATE_DATE,
-				self::ID_COLOR
-			];
+				self::COLOR_ID
+			]);
 		}
 	}

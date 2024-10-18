@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS lm_Cities (
     name VARCHAR(255) NOT NULL,
     code VARCHAR(10) UNIQUE, -- Codice della città, ad esempio il codice IATA
     notes TEXT,
-    creation_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    create_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     modification_date DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     country_id INT,
     latitude DECIMAL(9, 6),

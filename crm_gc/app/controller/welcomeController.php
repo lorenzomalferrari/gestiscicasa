@@ -26,8 +26,8 @@
                         . PersonTable::NAME . ", "
                         . PersonTable::SURNAME . ", "
                         . PersonTable::EMAIL . ", "
-                        . PersonTable::ID_USER. ", "
-                        . PersonTable::ID_GENDER. " , "
+                        . PersonTable::USER_ID. ", "
+                        . PersonTable::GENDER_ID. " , "
                         . PersonTable::BIRTHDATE
                     . ") "
                     . " VALUES (:nome, :cognome, :email, :idUser, :idGender, :data_nascita)";
@@ -37,13 +37,13 @@
         //per portare la persona alla dashboard,
         //devo avere id dalla tabella Persona e idUtente attivo e senza token
 
-        //aggiorno portando isActive a true
+        //aggiorno portando is_active a true
         $update_where = array(
             ':id' => $idUser,
-            ':isActive' => 1
+            ':is_active' => 1
         );
         $update_user = "UPDATE " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::USERS)
-                    . " SET " . UsersTable::IS_ACTIVE . " = :isActive"
+                    . " SET " . UsersTable::IS_ACTIVE . " = :is_active"
                     . " WHERE " . UsersTable::ID . " = :id";
 
         $update_id = DB->update($update_user, $update_where);
@@ -51,7 +51,7 @@
         $params_user = array(
             ':id' => $idUser,
             ':token' => 'IS NULL',
-            ':isActive' => 1,
+            ':is_active' => 1,
         );
 
         $select_user = "SELECT COUNT(*) FROM "
@@ -59,7 +59,7 @@
                     . " WHERE "
                         . UsersTable::ID . " = :id AND "
                         . UsersTable::TOKEN . " = :token AND "
-                        . UsersTable::IS_ACTIVE . " = :isActive";
+                        . UsersTable::IS_ACTIVE . " = :is_active";
 
         $count_user = DB->selectAll($select_user, $params_user);
 

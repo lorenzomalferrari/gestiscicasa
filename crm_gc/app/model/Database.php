@@ -303,7 +303,7 @@
 
 				$insert =
 					"INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::VERSIONDB)
-					. " (" . VersionDBTable::VERSIONE. " , " . VersionDBTable::NOME_VERS_ESTESA . " , " . VersionDBTable::NOTE . ")"
+					. " (" . VersionDBTable::VERSIONE. " , " . VersionDBTable::NOME_VERS_ESTESA . " , " . VersionDBTable::NOTES . ")"
 					." VALUES (:v, :v_e, :n)";
 				DB->insert($insert, $params);
 
@@ -453,14 +453,14 @@
 		 * Un Super Admin è definito come uno sviluppatore del CRM con privilegi speciali.
 		 * La verifica viene eseguita cercando il ruolo dell'utente nella tabella degli utenti.
 		 *
-		 * @param int $id_user L'ID dell'utente da verificare.
+		 * @param int $USER_ID L'ID dell'utente da verificare.
 		 * @return bool Restituisce true se l'utente è un Super Admin, altrimenti false.
 		 */
-		public function isAdmin($id_user): bool
+		public function isAdmin($USER_ID): bool
 		{
 			$isAdmin = false;
 			$params_select = [
-				':id' => $id_user
+				':id' => $USER_ID
 			];
 
 			//DA implementare col fatto che bisogna recuperare il ruolo dell'utente e DEVE essere un SUPER ADMIN, ovvero solo gli SVILUPPATORI del CRM

@@ -4,7 +4,7 @@ CREATE TABLE lm_ExpenseTypes (
     name VARCHAR(100) NOT NULL,
     notes TEXT,
     /*colore CHAR(7) NULL,*/
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Data di creazione
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Data di creazione
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP/*,
     CONSTRAINT chk_expense_types_colore CHECK (colore REGEXP '^#[0-9A-Fa-f]{6}$')*/
 );
@@ -40,7 +40,7 @@ CREATE TABLE lm_Expense (
     notes TEXT, -- Annotazioni aggiuntive
     property_id INT,
     colore CHAR(7) NULL, -- Colore esadecimale associato alla spesa (es. "#FF5733")
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Data di creazione
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Data di creazione
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,/* -- Data di aggiornamento
     CONSTRAINT chk_expenses_colore CHECK (colore REGEXP '^#[0-9A-Fa-f]{6}$'), -- Controllo sul colore*/
     CONSTRAINT fk_expense_type FOREIGN KEY (expense_type_id) REFERENCES lm_ExpenseTypes(id)

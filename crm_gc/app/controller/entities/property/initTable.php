@@ -21,7 +21,7 @@
             $obj->getIdCity(),
             $obj->getIdState(),
             $obj->getIdPropertyTypes(),
-            $obj->isActive(),
+            $obj->is_active(),
             $obj->getNotes(),
             $obj->getCreationDate(),
             $obj->getupdateDate(),

@@ -9,7 +9,7 @@
 
 		const ID = 'id';
 		const PATH = 'path';
-		const ID_USER = 'user_id';
+		const USER_ID = 'user_id';
 		const COUNT = 'count';
 
 		/**
@@ -22,7 +22,7 @@
 			return [
 				self::ID,
 				self::PATH,
-				self::ID_USER,
+				self::USER_ID,
 				self::COUNT
 			];
 		}

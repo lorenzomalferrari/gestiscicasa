@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS lm_VersionDB (
     version VARCHAR(20) NOT NULL,
     extended_version_name VARCHAR(100),
     notes TEXT,
-    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     UNIQUE KEY unique_version_extended_version_name (version, extended_version_name)
 );
