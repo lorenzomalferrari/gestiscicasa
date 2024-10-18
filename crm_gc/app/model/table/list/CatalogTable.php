@@ -10,8 +10,8 @@
 		const ID = 'id';
 		const NAME = 'name';
 		const DESCRIPTION = 'description';
-		const NOTE = 'note';
-		const CREATION_DATE = 'creationDate';
+		const NOTE = 'notes';
+		const CREATE_DATE = 'create_date';
 		const UPDATE_DATE = 'update_date';
 
 		/**
@@ -26,7 +26,7 @@
 				self::NAME,
 				self::DESCRIPTION,
 				self::NOTE,
-				self::CREATION_DATE,
+				self::CREATE_DATE,
 				self::UPDATE_DATE
 			];
 		}

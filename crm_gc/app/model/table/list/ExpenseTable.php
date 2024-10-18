@@ -11,7 +11,7 @@
 		const EXPENSE_TYPE_ID = 'expense_type_id';
 		const AMOUNT = 'amount';
 		const EXPENSE_DATE = 'expense_date';
-		const NOTE = 'note';
+		const NOTE = 'notes';
 		const PROPERTY_ID = 'property_id';
 		const COLORE = 'colore';
 		const CREATE_DATE = 'create_date';

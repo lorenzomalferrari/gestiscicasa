@@ -82,8 +82,9 @@
                         </li>
                     </ul>
                 </li>
+                <!--s
                 <li class="dsy-menu-item sidebar-nav-item">
-                    <a href="<?php echo PATH . "app/view/lists/rooms_list.php" ?>" class="dsy-menu-link">
+                    <a href="<?php //echo PATH . "app/view/lists/rooms_list.php" ?>" class="dsy-menu-link">
                         <span class="dsy-menu-link-icon">
                             <i class="flaticon-null-4"></i>
                         </span>
@@ -92,13 +93,14 @@
                     </a>
                     <ul class="dsy-sub-group sub-group-menu">
                         <li class="dsy-nav-item">
-                            <a href="<?php echo PATH . "app/view/lists/rooms_list.php" ?>" class="dsy-menu-link">Elenco</a>
+                            <a href="<?php //echo PATH . "app/view/lists/rooms_list.php" ?>" class="dsy-menu-link">Elenco</a>
                         </li>
                         <li class="dsy-nav-item">
-                            <a href="<?php echo PATH . "app/view/lists/rooms_type_list.php" ?>" class="dsy-menu-link">Tipi</a>
+                            <a href="<?php //echo PATH . "app/view/lists/rooms_type_list.php" ?>" class="dsy-menu-link">Tipi</a>
                         </li>
                     </ul>
                 </li>
+                -->
                 <li class="dsy-menu-item">
                     <a href="<?php echo PATH . "app/view/lists/brand_list.php" ?>" class="dsy-menu-link">
                         <span class="dsy-menu-link-icon">

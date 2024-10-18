@@ -19,7 +19,7 @@
             $row['valore'],
             $row['data_creazione'],
             $row['data_aggiornamento'],
-            $row['note']
+            $row['notes']
         );
     }
 ?>

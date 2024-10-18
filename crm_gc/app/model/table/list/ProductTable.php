@@ -14,7 +14,7 @@
 		const BARCODE = 'barcode';
 		const ID_BRAND = 'IdBrand';
 		const ID_CATEGORY = 'IdCategory';
-		const NOTE = 'note';
+		const NOTE = 'notes';
 		const CREATION_DATE = 'creationDate';
 		const UPDATE_DATE = 'update_date';
 

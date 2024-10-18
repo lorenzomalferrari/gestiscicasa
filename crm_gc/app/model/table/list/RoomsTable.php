@@ -13,7 +13,7 @@
 		const ID_USAGE_DESTINATION = 'idUsageDestination';
 		const CREATION_DATE = 'creationDate';
 		const UPDATE_DATE = 'update_date';
-		const NOTE = 'note';
+		const NOTE = 'notes';
 		const ID_COLOR = 'idColor';
 		const ID_PROPERTY = 'idProperty';
 		const ID_ROOM_TYPE = 'idRoomTypes';

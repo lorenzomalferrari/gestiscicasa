@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
     header('Content-Type: application/json');
-    require_once('../lib/libs.php');
+    require_once('../../lib/libs.php');
 
     // Decodifica il JSON in un array associativo
     $data = json_decode(file_get_contents('php://input'), true);

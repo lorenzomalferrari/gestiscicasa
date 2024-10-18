@@ -382,10 +382,10 @@ async function checkConfirmUser() {
     console.log("checkConfirmUser");
     const idUser = document.getElementById("IDUSER").value;
     console.log("idUser" + idUser);
-    console.log(window.location.origin + '/crm_gc/app/controller/users/checkUserStatus.php');
+    console.log(window.location.origin + '/crm_gc/app/controller/entities/users/checkUserStatus.php');
 
     try {
-        const response = await fetch(window.location.origin + '/crm_gc/app/controller/users/checkUserStatus.php', {
+        const response = await fetch(window.location.origin + '/crm_gc/app/controller/entities/users/checkUserStatus.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'  // Imposta l'intestazione per JSON

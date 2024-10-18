@@ -18,7 +18,7 @@
         public const COLUMN_ID = 'id';
         public const COLUMN_CODE = 'code';
         public const COLUMN_NAME = 'name';
-        public const COLUMN_NOTE = 'note';
+        public const COLUMN_NOTE = 'notes';
         public const COLUMN_CREATE_DATE = 'create_date';
         public const COLUMN_UPDATE_DATE = 'update_date';
 

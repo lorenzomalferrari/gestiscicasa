@@ -14,7 +14,7 @@
 		const NAME_SPANISH = 'name_spanish';
 		const NAME_GERMAN = 'name_german';
 		const NAME_PORTUGUESE = 'name_portuguese';
-		const NOTE = 'note';
+		const NOTE = 'notes';
 		const CREATION_DATE = 'creation_date';
 		const UPDATE_DATE = 'update_date';
 

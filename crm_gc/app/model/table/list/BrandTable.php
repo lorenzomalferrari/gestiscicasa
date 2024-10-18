@@ -12,7 +12,7 @@
 		const COUNTRY_OF_ORIGIN = 'country_of_origin_id';
 		const INDUSTRY_SECTOR = 'industry_sector_id';
 		const FOUNDATION_YEAR = 'foundation_year';
-		const NOTE = 'note';
+		const NOTE = 'notes';
 		const CREATION_DATE = 'creationDate';
 		const UPDATE_DATE = 'update_date';
 

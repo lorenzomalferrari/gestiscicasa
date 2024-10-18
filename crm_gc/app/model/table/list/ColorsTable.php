@@ -13,7 +13,7 @@
 		const RGB_CODE = 'rgbCode';
 		const RGBA_CODE = 'rgbaCode';
 		const HSL_CODE = 'hslCode';
-		const NOTE = 'note';
+		const NOTE = 'notes';
 
 		/**
 		 * Get the list of columns for the Colors table.

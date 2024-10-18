@@ -10,16 +10,16 @@
 		private int $id;
 		private string $name;
 		private string $description;
-		private string $note;
+		private string $notes;
 		private string $creationDate;
 		private string $updateDate;
 
 		// Constructor
-		public function __construct(int $id, string $name, string $description, string $note, string $creationDate, string $updateDate) {
+		public function __construct(int $id, string $name, string $description, string $notes, string $creationDate, string $updateDate) {
 			$this->id = $id;
 			$this->name = $name;
 			$this->description = $description;
-			$this->note = $note;
+			$this->notes = $notes;
 			$this->creationDate = $creationDate;
 			$this->updateDate = $updateDate;
 		}
@@ -51,13 +51,13 @@
 			$this->description = $description;
 		}
 
-		// Getter and setter methods for 'note'
-		public function getNote(): string {
-			return $this->note;
+		// Getter and setter methods for 'notes'
+		public function getNotes(): string {
+			return $this->notes;
 		}
 
-		public function setNote(string $note): void {
-			$this->note = $note;
+		public function setNotes(string $notes): void {
+			$this->notes = $notes;
 		}
 
 		// Getter and setter methods for 'creationDate'
@@ -76,7 +76,7 @@
 				"Catalog ID: " . $this->id .
 				", Name: " . $this->name .
 				", Description: " . $this->description .
-				", Note: " . $this->note .
+				", Notes: " . $this->notes .
 				", Creation Date: " . $this->creationDate .
 				", Update Date: " . $this->updateDate;
 		}

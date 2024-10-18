@@ -13,7 +13,7 @@
 		const VALUE = 'valore';
 		const CREATION_DATE = 'data_creazione';
 		const UPDATE_DATE = 'data_aggiornamento';
-		const NOTE = 'note';
+		const NOTE = 'notes';
 
 		/**
 		 * Get the list of columns for the CrudTypess table.
