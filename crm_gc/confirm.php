@@ -24,7 +24,7 @@
     $query = "SELECT $params_select FROM "
         . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::USERS) . " u "
         . " LEFT JOIN " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PEOPLE) . " p "
-        . " on p." . PersonTable::ID_USER . " = u." . UsersTable::ID . " "
+        . " on p." . PersonTable::USER_ID . " = u." . UsersTable::ID . " "
         . " WHERE "
         . "         u." . UsersTable::TOKEN . " = :token
                         AND
