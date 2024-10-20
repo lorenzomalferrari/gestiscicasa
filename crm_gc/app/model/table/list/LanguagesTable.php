@@ -3,13 +3,12 @@
 	/**
 	 * Class LanguagesTable
 	 *
-	 * Represents the structure and columns of the languages table.
+	 * Represents the structure and columns of the languages table, extending BaseTable.
 	 */
-	class LanguagesTable
+	class LanguagesTable extends BaseTable
 	{
 		const TABLE_NAME = 'languages';
 
-		const ID = 'id';
 		const CODE_2 = 'code_2';
 		const CODE_3 = 'code_3';
 		const CODE_639_3 = 'code_639_3';
@@ -20,9 +19,6 @@
 		const ISO_3166_ALPHA2 = 'iso_3166_alpha2';
 		const ISO_3166_ALPHA3 = 'iso_3166_alpha3';
 		const CURRENCY_CODE = 'currency_code';
-		const NOTES = 'notes';
-		const create_date = 'create_date';
-		const UPDATE_DATE = 'update_date';
 
 		/**
 		 * Get the list of columns for the languages table.
@@ -31,8 +27,7 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			return array_merge(parent::getCommonColumns(), [
 				self::CODE_2,
 				self::CODE_3,
 				self::CODE_639_3,
@@ -42,10 +37,7 @@
 				self::REGION,
 				self::ISO_3166_ALPHA2,
 				self::ISO_3166_ALPHA3,
-				self::CURRENCY_CODE,
-				self::NOTES,
-				self::create_date,
-				self::UPDATE_DATE
-			];
+				self::CURRENCY_CODE
+			]);
 		}
 	}

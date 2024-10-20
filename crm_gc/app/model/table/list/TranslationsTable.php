@@ -3,19 +3,15 @@
 	/**
 	 * Class TranslationsTable
 	 *
-	 * Represents the structure and columns of the translations table.
+	 * Represents the structure and columns of the translations table, extending BaseTable.
 	 */
-	class TranslationsTable
+	class TranslationsTable extends BaseTable
 	{
 		const TABLE_NAME = 'translations';
 
-		const ID = 'id';
 		const LANGUAGE_ID = 'language_id';
 		const KEY = 'key';
 		const VALUE = 'value';
-		const CREATED_AT = 'create_date';
-		const UPDATED_AT = 'update_date';
-		const NOTES = 'notes';
 
 		/**
 		 * Get the list of columns for the translations table.
@@ -24,14 +20,10 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			return array_merge(parent::getCommonColumns(), [
 				self::LANGUAGE_ID,
 				self::KEY,
-				self::VALUE,
-				self::CREATED_AT,
-				self::UPDATED_AT,
-				self::NOTES
-			];
+				self::VALUE
+			]);
 		}
 	}

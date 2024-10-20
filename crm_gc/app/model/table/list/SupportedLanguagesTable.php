@@ -3,18 +3,14 @@
 	/**
 	 * Class SupportedLanguagesTable
 	 *
-	 * Represents the structure and columns of the supported_languages table.
+	 * Represents the structure and columns of the supported_languages table, extending BaseTable.
 	 */
-	class SupportedLanguagesTable
+	class SupportedLanguagesTable extends BaseTable
 	{
 		const TABLE_NAME = 'supported_languages';
 
-		const ID = 'id';
 		const LANGUAGE_ID = 'language_id';
 		const NAME = 'name';
-		const create_date = 'create_date';
-		const UPDATE_DATE = 'update_date';
-		const NOTES = 'notes';
 		const IS_ACTIVE = 'is_active';
 
 		/**
@@ -24,14 +20,10 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			return array_merge(parent::getCommonColumns(), [
 				self::LANGUAGE_ID,
 				self::NAME,
-				self::create_date,
-				self::UPDATE_DATE,
-				self::NOTES,
 				self::IS_ACTIVE
-			];
+			]);
 		}
 	}

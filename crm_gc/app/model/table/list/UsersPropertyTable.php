@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'UsersProperties' table.
+	 * Class representing the 'UsersProperties' table, extending BaseTable.
 	 */
-	class UsersPropertyTable
+	class UsersPropertyTable extends BaseTable
 	{
 		const TABLE_NAME = 'UsersProperties';
 
@@ -18,10 +18,11 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
+			// Unisce le colonne comuni ereditate da BaseTable con quelle specifiche di UsersPropertyTable
+			return array_merge(parent::getCommonColumns(), [
 				self::ID_PERSON,
 				self::ID_PROPERTY,
 				self::ID_ROLE
-			];
+			]);
 		}
 	}

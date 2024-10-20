@@ -5,15 +5,11 @@
 	 *
 	 * This class defines the structure of the table 'PropertyTypesCategories' with constants for columns.
 	 */
-	class PropertyTypesCategoriesTable
+	class PropertyTypesCategoriesTable extends BaseTable
 	{
 		const TABLE_NAME = 'PropertyTypesCategories';
 
-		const ID = 'id';
 		const CATEGORY = 'category';
-		const NOTES = 'notes';
-		const CREATE_DATE = 'create_date';
-		const UPDATE_DATE = 'update_date';
 
 		/**
 		 * Get the list of columns for the PropertyTypesCategories table.
@@ -22,12 +18,8 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
-				self::CATEGORY,
-				self::NOTES,
-				self::CREATE_DATE,
-				self::UPDATE_DATE
-			];
+			return array_merge(parent::getCommonColumns(), [
+				self::CATEGORY
+			]);
 		}
 	}

@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'PathVisitated' table.
+	 * Class representing the 'PathVisitated' table, extending BaseTable.
 	 */
-	class PathVisitatedTable
+	class PathVisitatedTable extends BaseTable
 	{
 		const TABLE_NAME = 'PathVisitated';
 
@@ -19,11 +19,12 @@
 		 */
 		public static function getColumns(): array
 		{
-			return [
+			// Unisce le colonne comuni ereditate da BaseTable con quelle specifiche di PathVisitatedTable
+			return array_merge(parent::getCommonColumns(), [
 				self::ID,
 				self::PATH,
 				self::USER_ID,
 				self::COUNT
-			];
+			]);
 		}
 	}

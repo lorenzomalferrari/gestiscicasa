@@ -1,39 +1,32 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'lm_Expense' table.
+	 * Class representing the 'Expenses' table, extending BaseTable.
 	 */
-	class ExpenseTable
+	class ExpenseTable extends BaseTable
 	{
 		const TABLE_NAME = 'Expenses';
 
-		const ID = 'id';
 		const EXPENSE_TYPE_ID = 'expense_type_id';
 		const AMOUNT = 'amount';
 		const EXPENSE_DATE = 'expense_date';
-		const NOTES = 'notes';
 		const PROPERTY_ID = 'property_id';
 		const COLORE = 'colore';
-		const CREATE_DATE = 'create_date';
-		const UPDATE_DATE = 'update_date';
 
 		/**
-		 * Get the list of columns for the lm_Expense table.
+		 * Get the list of columns for the Expenses table.
 		 *
 		 * @return array List of column names
 		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
+			// Unisce le colonne comuni ereditate da BaseTable con quelle specifiche di ExpenseTable
+			return array_merge(parent::getCommonColumns(), [
 				self::EXPENSE_TYPE_ID,
 				self::AMOUNT,
 				self::EXPENSE_DATE,
-				self::NOTES,
 				self::PROPERTY_ID,
 				self::COLORE,
-				self::CREATE_DATE,
-				self::UPDATE_DATE
-			];
+			]);
 		}
 	}
