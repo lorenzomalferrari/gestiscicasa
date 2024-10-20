@@ -15,7 +15,7 @@
         . $_select
         . " , b." . BrandTable::FOUNDATION_YEAR
         . " , b." . BrandTable::NOTES
-        . " , b." . BrandTable::create_date
+        . " , b." . BrandTable::CREATE_DATE
         . " , b." . BrandTable::UPDATE_DATE;
 
     $params_select = [];
@@ -29,9 +29,10 @@
     }
 
     $query = "
-        SELECT $select
+        SELECT
+            $select
         FROM  "
-        . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::BRAND ) . " AS b ";
+            . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::BRAND ) . " AS b ";
 
     if ( !isset($id) ) {
         $query .= " LEFT JOIN " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::COUNTRIES) . " AS c "
