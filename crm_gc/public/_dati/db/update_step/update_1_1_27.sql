@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS lm_Cities (
     latitude DECIMAL(9, 6),
     longitude DECIMAL(9, 6),
     population BIGINT,
-    isCapital BOOLEAN DEFAULT FALSE, -- Indica se la città è la capitale
+    is_capital BOOLEAN DEFAULT FALSE, -- Indica se la città è la capitale
     FOREIGN KEY (country_id) REFERENCES lm_Countries(id)
 );
 /*

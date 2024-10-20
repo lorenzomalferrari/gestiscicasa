@@ -9,3 +9,7 @@ CREATE TABLE lm_UsersProperties (
     CONSTRAINT fk_property_id FOREIGN KEY (property_id) REFERENCES lm_Properties(id) ON DELETE CASCADE,
     CONSTRAINT fk_role_id FOREIGN KEY (role_id) REFERENCES lm_Roles(id) ON DELETE CASCADE
 );
+
+DROP TABLE IF EXISTS lm_Cities;
+DROP TABLE IF EXISTS lm_Countries;
+DROP TABLE IF EXISTS lm_Continents;

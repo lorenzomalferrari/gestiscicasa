@@ -15,9 +15,8 @@
 	}
 
 	// Verifica che i dati siano stati inviati correttamente
-	if (!isset($data['context']) || !isset($data['username']) || !isset($data['password']) || !isset($data['json'])) {
+	if (!isset($data['context']) || !isset($data['username']) || !isset($data['password']) || !isset($data['json']))
 		die(json_encode(['status' => 'error', 'message' => JSonValidator::ERROR_MISSING_DATA, 'post' => var_dump($data) ]));
-	}
 
 	// Verifica le credenziali
 	$username = $data['username'];
@@ -28,25 +27,22 @@
 	foreach (CONFIG['api'] as $profilo => $creds) {
 		if ($creds['username'] === $username && $creds['password'] === $password) {
 			$auth = $creds['auth'];
-			break; // Esci dal ciclo una volta trovata la corrispondenza
+			break;
 		}
 	}
 
-	if ($auth === null) {
+	if ($auth === null)
 		die(json_encode(['status' => 'error', 'message' => JSonValidator::ERROR_API_CRED]));
-	}
 
 	// Convalida il JSON
-	$jsonParams = $data['json'];
-	if (!is_array($jsonParams)) {
+	if (!is_array($data['json']))
 		die(json_encode(['status' => 'error', 'message' => JSonValidator::ERROR_INVALID_JSON]));
-	}
 
 	// Seleziona la classe da eseguire in base al contesto
 	$context = $data['context'];
 
 	// Chiama la funzione per gestire la richiesta
-	$response = handleRequest($context, $auth, $jsonParams);
+	$response = handleRequest($context, $auth, $data['json']);
 
 	// Restituisce il risultato come JSON
 	echo json_encode($response);

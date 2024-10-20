@@ -8,9 +8,9 @@ CREATE TABLE IF NOT EXISTS lm_PhoneType (
 
 -- Inserimento di record di esempio
 INSERT INTO lm_PhoneType (type) VALUES
-('Mobile'),
-('Home'),
-('Work');
+('Cellulare'),
+('Casa'),
+('Lavoro');
 
 CREATE TABLE IF NOT EXISTS lm_Phone (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -32,9 +32,8 @@ CREATE TABLE IF NOT EXISTS lm_AddressType (
 
 -- Inserimento di record di esempio
 INSERT INTO lm_AddressType (type) VALUES
-('Home'),
-('Work'),
-('Billing');
+('Casa'),
+('Lavoro');
 
 CREATE TABLE IF NOT EXISTS lm_Address (
     id INT AUTO_INCREMENT PRIMARY KEY,

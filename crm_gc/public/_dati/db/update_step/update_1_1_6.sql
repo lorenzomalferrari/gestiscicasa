@@ -4,10 +4,5 @@ CREATE TABLE IF NOT EXISTS lm_Category (
     description TEXT NULL,
     notes TEXT,
     create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP/*,
-    color_id INT,
-    CONSTRAINT fk_Category_Color FOREIGN KEY (color_id) REFERENCES lm_Colors(id)*/
+    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-
-INSERT INTO Category (name, description, notes, create_date, update_date)
-VALUES ('Elettronica', 'Prodotti elettronici', 'Categoria principale per prodotti elettronici', NOW(), NOW());

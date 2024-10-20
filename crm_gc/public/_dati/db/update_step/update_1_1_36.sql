@@ -3,11 +3,9 @@ CREATE TABLE IF NOT EXISTS lm_RoomTypes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     code CHAR(2) NOT NULL UNIQUE,
     name VARCHAR(255) NOT NULL,
-    /*colore CHAR(7) NULL UNIQUE,*/
     notes TEXT,
     create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP/*,
-    CONSTRAINT chk_colore CHECK (colore REGEXP '^#[0-9A-Fa-f]{6}$')*/
+    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 -- Inserimento dei dati nella tabella lm_RoomTypes
@@ -24,7 +22,7 @@ INSERT INTO lm_RoomTypes (code, name, notes) VALUES
 ('PA','Parcheggio',NULL),
 ('AG','Area agricola',NULL),
 ('ZE','Zona edificabile',NULL),
-('ST','Stanza','stanza generica');
+('ST','Stanza','STANZA GENERICA');
 
 -- Creazione della tabella lm_Rooms
 CREATE TABLE IF NOT EXISTS lm_Rooms (
@@ -34,7 +32,6 @@ CREATE TABLE IF NOT EXISTS lm_Rooms (
     name VARCHAR(255) NOT NULL,
     code CHAR(2) NOT NULL UNIQUE,
     area DECIMAL(10, 2),
-    /*colore CHAR(7) NULL UNIQUE,*/
     notes TEXT,
     create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

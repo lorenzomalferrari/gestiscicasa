@@ -8,9 +8,9 @@ CREATE TABLE IF NOT EXISTS lm_Countries (
     geoname_id INT NOT NULL UNIQUE, -- ID GeoNames
     continent_id INT, -- Chiave esterna che si riferisce al continente
     surface_area DECIMAL(15, 2), -- Superficie del paese in km²
-    population BIGINT, -- Popolazione del paese
-    currency_id INT, -- Chiave esterna che si riferisce alla tabella delle valute
-    description TEXT, -- Descrizione del paese
+    population BIGINT,
+    currency_id INT,
+    description TEXT,
     create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CONSTRAINT fk_continent FOREIGN KEY (continent_id) REFERENCES lm_Continents(id) ON DELETE SET NULL,
