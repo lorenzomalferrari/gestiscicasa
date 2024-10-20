@@ -346,11 +346,9 @@
 		public function checkDatabaseVersion(): void
 		{
 			try {
-				// Inizia la transazione
 				DB->beginTransaction();
 
 				$dbVersion = DB->getDatabaseVersion();
-				//print_r("dbVersion: " . $dbVersion);
 
 				if (!empty($dbVersion)) {
 					$expectedVersion = CONFIG['db']['server'][getEnvironmentKey()]['version'];
@@ -379,9 +377,9 @@
 						// Passo alla prossima pagina
 						redirectPath($url);
 					}
-				} else {
-					throw new CustomException("Impossibile recuperare la versione del database.");
 				}
+				else
+					throw new CustomException("Impossibile recuperare la versione del database.");
 
 			} catch (PDOException | CustomException $e) {
 				// Annulla la transazione in caso di errore
@@ -440,7 +438,6 @@
 				$this->commit();
 				return $stmt->rowCount();
 			} catch (PDOException $e) {
-				//print_r($query);
 				$this->rollBack();
 				throw new CustomException("Errore durante l'esecuzione della query exec", CustomException::PDO_EXCEPTION, $e);
 			}

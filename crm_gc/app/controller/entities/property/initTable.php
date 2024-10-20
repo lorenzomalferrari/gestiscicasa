@@ -10,8 +10,7 @@
     $tableDataHeader = PropertyTable::getColumns();
     $tableDataRecord =  [];
 
-    foreach ($arrObj as $bj) {
-        //print_r($property);
+    foreach ($arrObj as $bj)
         $tableDataRecord[] = [
             $obj->getId(),
             $obj->getName(),
@@ -26,7 +25,6 @@
             $obj->getCreationDate(),
             $obj->getupdateDate(),
         ];
-    }
 
     $breadcrumb_list = [
         'Elenco',

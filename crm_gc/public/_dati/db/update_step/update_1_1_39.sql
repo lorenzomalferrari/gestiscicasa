@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS lm_Cities;
+DROP TABLE IF EXISTS lm_Countries;
+DROP TABLE IF EXISTS lm_Continents;

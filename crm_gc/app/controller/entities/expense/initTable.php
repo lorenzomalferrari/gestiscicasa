@@ -7,13 +7,11 @@
     $tableDataHeader = ExpenseTable::getColumns();
     $tableDataRecord =  [];
 
-    foreach ($arrObj as $obj) {
-        //print_r($property);
+    foreach ($arrObj as $obj)
         $tableDataRecord[] = [
             $obj->getId(),
             $obj->getName(),
         ];
-    }
 
     $fields = [
         "head" => [

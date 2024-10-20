@@ -52,8 +52,6 @@
 				$exceptionMessage = 'No previous exception';
 			}
 
-			print_r("getMessage(): " . $exceptionMessage);
-			print_r("get_class(): " . $exceptionClass);
 			$this->fileName = PathAndFilesLog::PATH_ERROR_ERROR;
 			$this->dateTime = "[" . date('Y-m-d H:i:s') . "] ";
 
@@ -176,10 +174,8 @@
 					break;
 			}
 
-			// Assicurati di chiamare il costruttore della classe base
 			parent::__construct($message, $code, $previous);
 
-			// Scrivi l'errore nel file di log
 			$this->data = $this->dateTime . ": " . json_encode($this->customMessage, JSON_PRETTY_PRINT) . PHP_EOL;
 			//FileManager::writeToFile($this->fileName, $this->data, true);
 		}

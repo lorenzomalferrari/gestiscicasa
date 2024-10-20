@@ -59,7 +59,6 @@
 		private function executeSqlFile(string $file): void
 		{
 			$sql = file_get_contents($file);
-			//print_r($sql);
 			DB->exec($sql);
 		}
 
@@ -76,7 +75,6 @@
 		{
 			// Get all SQL files in the directory
 			$files = glob($directory . '/*.sql');
-			//print_r("files: " . $files);
 
 			// Sort the files using the compareUpdateFiles function
 			usort($files, function ($a, $b) {
@@ -85,10 +83,8 @@
 
 			// Formatta la versione corrente senza underscore finale
 			$currentVersionFormatted = str_replace('.', '_', $currentVersion);
-		//print_r("currentVersionFormatted: " . $currentVersionFormatted);
 			// Estrai la parte numerica della versione corrente
 			$currentNumericVersion = self::extractNumericVersion($currentVersionFormatted);
-		//print_r("currentNumericVersion: " . $currentNumericVersion);
 
 			// Filtra i file per mantenere solo quelli con versioni successive
 			$files = array_filter($files, function ($file) use ($currentNumericVersion) {
@@ -99,18 +95,14 @@
 				$fileNumericVersion = self::extractNumericVersion($versionPart);
 				return $fileNumericVersion > $currentNumericVersion;
 			});
-			//var_dump($files);
 
 			// Execute each SQL file until the target version is reached
 			foreach ($files as $file) {
-			//print_r("- " . $file);
+
 				$version = $this->getVersionFromFilename($file);
-			//print_r(" - version del file: " . $version);
-			//print_r(" ---- " . version_compare($version, $this->targetVersion, '>'));
-				if (version_compare($version, $this->targetVersion, '>')) {
+				if (version_compare($version, $this->targetVersion, '>'))
 					break;
-				}
-			//print_r(" ____ ");
+
 				$this->executeSqlFile($file);
 				DB->insertDatabaseVersion($version);
 			}

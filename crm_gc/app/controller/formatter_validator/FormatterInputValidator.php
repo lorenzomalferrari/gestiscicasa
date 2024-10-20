@@ -415,21 +415,20 @@ class FormatterInputValidator
 
                         // Controllo js_function
                         if (isset($element['js_functions'])) {
-                            foreach ($element['js_functions'] as $event => &$js_function) {
+                            foreach ($element['js_functions'] as $event => &$js_function)
                                 $element['js_functions'][$event] = self::verify_semicolons($js_function);
-                            }
                         }
                     }
                 }
 
                 $errors = self::validateFieldsInAttributes($row);
-                print_r($errors);
+
                 if (! empty($errors))
                     echo "Errors found:\n" . implode("\n", $errors);
             }
-        } else {
-            return "Errore: la chiave 'rows' non esiste.";
         }
+        else
+            return "Errore: la chiave 'rows' non esiste.";
         return $fields;
     }
 
@@ -453,11 +452,11 @@ class FormatterInputValidator
         foreach ($row as $field) {
             if (is_array($field) && isset($field['type'], $field['attributes'])) {
                 $type = $field['type'];
-                if (isset(INPUT_TYPE['elements']['input'][$type])) {
+                if (isset(INPUT_TYPE['elements']['input'][$type]))
                     $validAttributes = INPUT_TYPE['elements']['input'][$type]['attributes'];
-                } elseif (isset(INPUT_TYPE['elements'][$type])) {
+                elseif (isset(INPUT_TYPE['elements'][$type]))
                     $validAttributes = INPUT_TYPE['elements'][$type]['attributes'];
-                } else {
+                else {
                     $errors[] = "Unknown input type: $type";
                     continue;
                 }
@@ -475,14 +474,12 @@ class FormatterInputValidator
     {
         $invalidAttributes = [];
         foreach ($attributes as $key => $value) {
-            if (!in_array($key, $validAttributes)) {
+            if (!in_array($key, $validAttributes))
                 $invalidAttributes[] = $key;
-            }
         }
 
-        if (!empty($invalidAttributes)) {
+        if (!empty($invalidAttributes))
             return "Invalid attributes for type $type: " . implode(", ", $invalidAttributes);
-        }
 
         return null;
     }
@@ -582,10 +579,8 @@ class FormatterInputValidator
         $filteredAttributes = [];
 
         foreach ($attributes as $key => $value) {
-            if (in_array($key, $existingAttributes)) {
-                // Se l'attributo esiste, aggiungilo con il nuovo valore
+            if (in_array($key, $existingAttributes))
                 $filteredAttributes[] = $key . '="' . $value . '"';
-            }
         }
 
         // Costruisci una stringa di attributi filtrati
@@ -641,14 +636,12 @@ class FormatterInputValidator
         $position = strpos($html, ' ');
 
         // Se non ci sono spazi, il tag è chiuso direttamente, quindi non ci sono attributi esistenti
-        if ($position === false) {
+        if ($position === false)
             $position = strpos($html, '>');
-        }
 
         // Se il tag è un tag auto-chiudente o non ha spazi, si aggiungono gli attributi subito dopo il nome del tag
-        if ($position === false) {
+        if ($position === false)
             return $html;
-        }
 
         // Inserisci gli attributi prima della chiusura del tag
         $htmlWithAttributes = substr($html, 0, $position) . ' ' . $attributes . substr($html, $position);
@@ -668,10 +661,8 @@ class FormatterInputValidator
     {
         $options = [];
         foreach ($array as $element) {
-            if (isset($element['attributes']['id']) && $element['attributes']['id'] === $idToFind) {
-                // Se trovi l'ID, restituisci le options
+            if (isset($element['attributes']['id']) && $element['attributes']['id'] === $idToFind)
                 $options = isset($element['options']) ? $element['options'] : null;
-            }
         }
         return $options;
     }
