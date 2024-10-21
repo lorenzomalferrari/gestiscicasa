@@ -421,6 +421,7 @@
 		 */
 		public function exec($query, $params = array())
 		{
+			print_r($query);
 			try {
 				$this->beginTransaction();
 				$stmt = $this->conn->prepare($query);

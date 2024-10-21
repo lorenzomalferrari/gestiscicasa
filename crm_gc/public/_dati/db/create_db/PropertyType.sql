@@ -4,10 +4,10 @@ CREATE TABLE IF NOT EXISTS lm_PropertyTypes (
     notes TEXT,
     create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    inserted_by_system BIT DEFAULT b'0'
+    by_system BIT DEFAULT b'0'
 );
 
-INSERT INTO lm_PropertyTypes (name, notes, inserted_by_system) VALUES
+INSERT INTO lm_PropertyTypes (name, notes, by_system) VALUES
 ('Edificio', 'Tipo di proprietà: Edificio', b'1'),
 ('Appartamento', 'Tipo di proprietà: Appartamento', b'1'),
 ('Ufficio', 'Tipo di proprietà: Ufficio', b'1'),

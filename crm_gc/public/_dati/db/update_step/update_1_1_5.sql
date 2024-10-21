@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS lm_Brand (
     notes TEXT,
     create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    inserted_by_system BIT DEFAULT b'0',
+    by_system BIT DEFAULT b'0',
     FOREIGN KEY (country_of_origin_id) REFERENCES lm_Countries(id),
     FOREIGN KEY (industry_sector_id) REFERENCES lm_IndustrySectors(id)
 );

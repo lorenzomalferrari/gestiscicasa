@@ -13,7 +13,6 @@
         case BRAND = BrandTable::TABLE_NAME;
         case CATALOG = CatalogTable::TABLE_NAME;
         case CATEGORY = CategoryTable::TABLE_NAME;
-        case COLOR = ColorsTable::TABLE_NAME;
         case CONTINENTS = ContinentsTable::TABLE_NAME;
         case COUNTRIES = CountriesTable::TABLE_NAME;
         case CRUDLOGS = CrudLogsTable::TABLE_NAME;

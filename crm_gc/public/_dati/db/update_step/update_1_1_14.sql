@@ -1,41 +1,44 @@
-CREATE TABLE IF NOT EXISTS lm_PhoneType (
+CREATE TABLE IF NOT EXISTS lm_PhoneTypes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     type VARCHAR(50) NOT NULL UNIQUE,
+    by_system BIT DEFAULT b'0',
     notes TEXT,
     create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 -- Inserimento di record di esempio
-INSERT INTO lm_PhoneType (type) VALUES
-('Cellulare'),
-('Casa'),
-('Lavoro');
+INSERT INTO lm_PhoneTypes ( type, by_system ) VALUES
+('Cellulare',1),
+('Casa',1),
+('Ufficio',1),
+('Fax',1);
 
-CREATE TABLE IF NOT EXISTS lm_Phone (
+CREATE TABLE IF NOT EXISTS lm_Phones (
     id INT AUTO_INCREMENT PRIMARY KEY,
     phone_number VARCHAR(20) NOT NULL,
     type_id INT NOT NULL,
     notes TEXT,
     create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-    FOREIGN KEY (type_id) REFERENCES lm_PhoneType(id)
+    FOREIGN KEY (type_id) REFERENCES lm_PhoneTypes(id)
 );
 
-CREATE TABLE IF NOT EXISTS lm_AddressType (
+CREATE TABLE IF NOT EXISTS lm_AddressTypes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     type VARCHAR(50) NOT NULL UNIQUE,
+    by_system BIT DEFAULT b'0',
     notes TEXT,
     create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 -- Inserimento di record di esempio
-INSERT INTO lm_AddressType (type) VALUES
-('Casa'),
-('Lavoro');
+INSERT INTO lm_AddressTypes ( type, by_system ) VALUES
+('Casa',1),
+('Ufficio',1);
 
-CREATE TABLE IF NOT EXISTS lm_Address (
+CREATE TABLE IF NOT EXISTS lm_Addresses (
     id INT AUTO_INCREMENT PRIMARY KEY,
     address_line1 VARCHAR(255) NOT NULL,
     address_line2 VARCHAR(255) NULL,
@@ -47,7 +50,7 @@ CREATE TABLE IF NOT EXISTS lm_Address (
     notes TEXT,
     create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-    FOREIGN KEY (type_id) REFERENCES lm_AddressType(id)
+    FOREIGN KEY (type_id) REFERENCES lm_AddressTypes(id)
 );
 
 CREATE TABLE IF NOT EXISTS lm_PeopleAddress (
@@ -58,7 +61,7 @@ CREATE TABLE IF NOT EXISTS lm_PeopleAddress (
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     PRIMARY KEY (person_id, address_id),
     FOREIGN KEY (person_id) REFERENCES lm_People(id),
-    FOREIGN KEY (address_id) REFERENCES lm_Address(id)
+    FOREIGN KEY (address_id) REFERENCES lm_Addresses(id)
 );
 
 CREATE TABLE IF NOT EXISTS lm_PeoplePhone (
@@ -69,5 +72,5 @@ CREATE TABLE IF NOT EXISTS lm_PeoplePhone (
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     PRIMARY KEY (person_id, phone_id),
     FOREIGN KEY (person_id) REFERENCES lm_People(id),
-    FOREIGN KEY (phone_id) REFERENCES lm_Phone(id)
+    FOREIGN KEY (phone_id) REFERENCES lm_Phones(id)
 );
