@@ -11,6 +11,8 @@
     enum EnumTableNames: string
     {
         //A
+        case ADDRESS_TYPE = AddressTypesTable::TABLE_NAME;
+        case ADDRESSES = AddressesTable::TABLE_NAME;
         //B
         case BLOCKED_IP_ADDRESSES = BlockedIpAddressesTable::TABLE_NAME;
         case BRAND = BrandTable::TABLE_NAME;
@@ -25,17 +27,22 @@
         //D
         //E
         case EVENTS = EventsTable::TABLE_NAME;
+        case EXPENSE = ExpenseTable::TABLE_NAME;
+        case EXPENSETYPES = ExpenseTypesTable::TABLE_NAME;
         //F
         //G
         case GENDERS = GendersTable::TABLE_NAME;
         //H
         //I
         case INDUSTRY_SECTORS = IndustrySectorsTable::TABLE_NAME;
+        case INFOPROFILETYPES = InfoProfileTypesTable::TABLE_NAME;
         //J
         //K
         //L
+        case LANGUAGES = LanguagesTable::TABLE_NAME;
         //M
         //N
+        case NATIONALITIES = NationalitiesTable::TABLE_NAME;
         //O
         //P
         case PEOPLE = PeopleTable::TABLE_NAME;
@@ -45,58 +52,59 @@
         case PATHVISITATED = PathVisitatedTable::TABLE_NAME;
         case PRODUCTS = ProductsTable::TABLE_NAME;
         case PEOPLE_PROPERTY_ROLES = PeoplePropertyRolesTable::TABLE_NAME;
-        
+        case PHONE_TYPES = PhoneTypesTable::TABLE_NAME;
+        case PHONES = PhonesTable::TABLE_NAME;
+        case PEOPLE_ADDRESS = PeopleAddressTable::TABLE_NAME;
+        case PEOPLE_PHONE = PeoplePhoneTable::TABLE_NAME;
+        case PROFILETYPES = ProfileTypesTable::TABLE_NAME;
         //Q
         //R
         case ROLES = RolesTable::TABLE_NAME;
         case ROOM_TYPES = RoomTypesTable::TABLE_NAME;
         case ROOMS = RoomsTable::TABLE_NAME;
         //S
+        case SUPPORTEDLANGUAGE = SupportedLanguagesTable::TABLE_NAME;
         //T
+        case TABLES_COLUMNS_VISITED = TablesColumnsVisitedTable::TABLE_NAME;
+        case TRANSLATION = TranslationsTable::TABLE_NAME;
         //U
         case USER_ROLES = UserRolesTable::TABLE_NAME;
         case USERS = UsersTable::TABLE_NAME;
         case USAGEDESTINATIONS = UsageDestinationsTable::TABLE_NAME;
+        case USERSPROPERTY = UsersPropertyTable::TABLE_NAME;
         //V
         case VERSIONDB = VersionDBTable::TABLE_NAME;
-        case VISITED_COLUMNS = VisitedColumnsTable::TABLE_NAME;
         //W
         //X
         //Y
         //Z
 
-        
-        
-        
-        
-        case USERSPROPERTY = UsersPropertyTable::TABLE_NAME;
-        case NATIONALITIES = NationalitiesTable::TABLE_NAME;
-        case PROFILETYPES = ProfileTypesTable::TABLE_NAME;
-        case LANGUAGES = LanguagesTable::TABLE_NAME;
-        case SUPPORTEDLANGUAGE = SupportedLanguagesTable::TABLE_NAME;
-        case TRANSLATION = TranslationsTable::TABLE_NAME;
-        case INFOPROFILETYPES = InfoProfileTypesTable::TABLE_NAME;
-        case EXPENSE = ExpenseTable::TABLE_NAME;
-        case EXPENSETYPES = ExpenseTypesTable::TABLE_NAME;
-
-        // Funzione per ottenere il caso dell'enum dal valore della tabella
+        /**
+         * Retrieves the enum case that matches the given value.
+         *
+         * @param string $value The value to search for within the enum cases.
+         * @return self|null The matching enum case, or null if no match is found.
+         */
         private static function getEnumCaseFromValue(string $value): ?self
         {
-            foreach (self::cases() as $case) {
-                if ($case->value === $value)
-                    return $case;
-            }
-            return null;
+            return array_filter(
+                self::cases(),
+                fn($case) => $case->value === $value
+            )[0] ?? null;
         }
 
-        // Funzione pubblica per ottenere il valore della tabella dal nome
+        /**
+         * Gets the table name (value) corresponding to the provided key (enum case name).
+         *
+         * @param string $key The enum case name to look for.
+         * @return string|null The corresponding table name (value) or null if no match is found.
+         */
         public static function getTableName(string $key): ?string
         {
-            foreach (self::cases() as $case) {
-                if ($case->name === $key)
-                    return $case->value;
-            }
-            return null;
+            return array_filter(
+                self::cases(),
+                fn($case) => $case->name === $key
+            )[0]->value ?? null;
         }
 
         // Funzione pubblica per ottenere il caso dell'enum dal nome della tabella
