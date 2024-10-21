@@ -4,7 +4,7 @@
     require_once(ROOT . "app/model/Brand.php");
 
     $_select =  " , c. " . CountriesTable::NAME . " as c_name"
-        . " , i." . IndustrySectorTable::NAME . " as is_name";
+        . " , i." . IndustrySectorsTable::NAME . " as is_name";
 
     if (isset($id) && $id > 0)
         $_select =  " , b." . BrandTable::COUNTRY_OF_ORIGIN
@@ -37,8 +37,8 @@
     if ( !isset($id) ) {
         $query .= " LEFT JOIN " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::COUNTRIES) . " AS c "
                         . " ON c." . CountriesTable::ID . " = b." . BrandTable::COUNTRY_OF_ORIGIN
-                . " LEFT JOIN " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::INDUSTRY_SECTOR) . " AS i "
-                        . " ON i." . IndustrySectorTable::ID . " = b." . BrandTable::INDUSTRY_SECTOR;
+                . " LEFT JOIN " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::INDUSTRY_SECTORS) . " AS i "
+                        . " ON i." . IndustrySectorsTable::ID . " = b." . BrandTable::INDUSTRY_SECTOR;
     }
 
     $query .= " $where_select ";

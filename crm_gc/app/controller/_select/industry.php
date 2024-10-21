@@ -2,21 +2,21 @@
     require_once(ROOT . 'app/model/TableNames.php');
     require_once(ROOT . "app/model/IndustrySector.php");
 
-    $select = IndustrySectorTable::ID . " , " .
-        IndustrySectorTable::NAME;
+    $select = IndustrySectorsTable::ID . " , " .
+            IndustrySectorsTable::NAME;
 
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::INDUSTRY_SECTOR) . " AS i";
+        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::INDUSTRY_SECTORS) . " AS i";
 
     $results = DB->selectAll( $query, [] );
 
     foreach ($results as $r) {
         $industry_list[] = [
             $r['id'] => [
-                INPUT_TYPE['elements']['select']['options']['value'] => $r[IndustrySectorTable::ID],
-                INPUT_TYPE['elements']['select']['options']['text'] => $r[IndustrySectorTable::NAME]
+                INPUT_TYPE['elements']['select']['options']['value'] => $r[IndustrySectorsTable::ID],
+                INPUT_TYPE['elements']['select']['options']['text'] => $r[IndustrySectorsTable::NAME]
             ]
         ];
     }

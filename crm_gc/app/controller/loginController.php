@@ -8,12 +8,12 @@
 		$query = "SELECT * FROM "
 					. getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::USERS) . " u "
 					. " LEFT JOIN " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PEOPLE) . " p "
-					. " 	on p." . PersonTable::USER_ID . " = u.id "
+					. " 	on p." . PeopleTable::USER_ID . " = u.id "
 					. " WHERE
 							(
 									u." . UsersTable::USERNAME . " = :username
 								OR
-									p." . PersonTable::EMAIL . " = :username
+									p." . PeopleTable::EMAIL . " = :username
 							)
 							AND
 								u." . UsersTable::TOKEN . " IS NULL

@@ -18,13 +18,13 @@
         ':token' => $token
     );
 
-    $params_select = "u." . UsersTable::ID . " as idUtente, u." . UsersTable::USERNAME . ", u." . UsersTable::PASSWORD . ", p." . PersonTable::EMAIL . ", u." . UsersTable::TOKEN;
+    $params_select = "u." . UsersTable::ID . " as idUtente, u." . UsersTable::USERNAME . ", u." . UsersTable::PASSWORD . ", p." . PeopleTable::EMAIL . ", u." . UsersTable::TOKEN;
 
     //Controllo prima che token non esista
     $query = "SELECT $params_select FROM "
         . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::USERS) . " u "
         . " LEFT JOIN " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PEOPLE) . " p "
-        . " on p." . PersonTable::USER_ID . " = u." . UsersTable::ID . " "
+        . " on p." . PeopleTable::USER_ID . " = u." . UsersTable::ID . " "
         . " WHERE "
         . "         u." . UsersTable::TOKEN . " = :token
                         AND

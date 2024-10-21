@@ -8,7 +8,7 @@
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PROPERTYTYPES) . " AS pt";
+        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PROPERTY_TYPES) . " AS pt";
 
     $results = DB->selectAll($query, []);
 

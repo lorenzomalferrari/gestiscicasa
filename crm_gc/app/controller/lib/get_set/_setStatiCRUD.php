@@ -8,7 +8,7 @@
     // Preparazione della query
     $params = array();
     //Controllo prima che Utente non esista già
-    $query = "SELECT * FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::CRUDTYPES);
+    $query = "SELECT * FROM " . getNomeTabella( CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::CRUD_TYPES);
     $rows = DB->selectAll($query, $params);
 
     foreach ($rows as $row) {

@@ -3,11 +3,11 @@
 
     $entity = "Proprietà";
     $titlePage = "Elenco $entity";
-    $tableName = PropertyTable::TABLE_NAME;
+    $tableName = PropertiesTable::TABLE_NAME;
 
     $parent_path_key = PATH . MENU_PATHS['properties']['path'];
 
-    $tableDataHeader = PropertyTable::getColumns();
+    $tableDataHeader = PropertiesTable::getColumns();
     $tableDataRecord =  [];
 
     foreach ($arrObj as $bj)

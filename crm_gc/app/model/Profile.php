@@ -59,7 +59,7 @@
                     " . EnumTableNames::USERS . " u
                 INNER JOIN
                     " . EnumTableNames::PEOPLE . " p " .
-                    " ON u.id = p." . PersonTable::USER_ID . "
+                    " ON u.id = p." . PeopleTable::USER_ID . "
                 WHERE
                     u.id = :userId";
 

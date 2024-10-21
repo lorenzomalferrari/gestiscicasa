@@ -303,7 +303,7 @@
 
 				$insert =
 					"INSERT INTO " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::VERSIONDB)
-					. " (" . VersionDBTable::VERSIONE. " , " . VersionDBTable::NOME_VERS_ESTESA . " , " . VersionDBTable::NOTES . ")"
+					. " (" . VersionDBTable::VERSION. " , " . VersionDBTable::EXTENDED_VERS_NAME . " , " . VersionDBTable::NOTES . ")"
 					." VALUES (:v, :v_e, :n)";
 				DB->insert($insert, $params);
 
@@ -325,14 +325,14 @@
 			$vers = null;
 
 			// Query per recuperare la versione del database
-			$query = "SELECT " . VersionDBTable::VERSIONE
+			$query = "SELECT " . VersionDBTable::VERSION
 				. " FROM " . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::VERSIONDB)
 				. " ORDER BY " . VersionDBTable::ID . " DESC LIMIT 1";
 
 			$result = $this->select($query);
 
 			if (!empty($result))
-				$vers = $result[VersionDBTable::VERSIONE];
+				$vers = $result[VersionDBTable::VERSION];
 
 			return $vers;
 		}

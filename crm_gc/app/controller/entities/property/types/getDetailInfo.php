@@ -19,7 +19,7 @@
     $query = "
         SELECT $select
         FROM  "
-        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PROPERTYTYPES);
+        . getNomeTabella(CONFIG_ISTANCE->get('TABLEPREFIX'), EnumTableNames::PROPERTY_TYPES);
 
     $query .= " $where_select ";
     $arrObj = DB->selectAll($query, $params_select);
