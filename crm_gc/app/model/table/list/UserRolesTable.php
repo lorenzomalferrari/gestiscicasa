@@ -3,7 +3,7 @@
 	/**
 	 * Class representing the 'UserRolesTable' table.
 	 */
-	class UserRolesTableTable extends BaseTable
+	class UserRolesTable extends BaseTable
 	{
 		const TABLE_NAME = 'UserRolesTable';
 

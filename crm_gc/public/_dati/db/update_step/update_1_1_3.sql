@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS lm_VisitedColumnsTable (
+CREATE TABLE IF NOT EXISTS TablesColumnsVisited (
     id INT AUTO_INCREMENT PRIMARY KEY,
     column_name VARCHAR(255) NOT NULL,
     table_name VARCHAR(255) NOT NULL,
