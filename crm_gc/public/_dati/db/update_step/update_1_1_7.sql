@@ -3,5 +3,8 @@ CREATE TABLE IF NOT EXISTS lm_PathVisitated (
     path VARCHAR(255) NOT NULL,
     user_id INT NOT NULL,
     count INT NOT NULL,
+    notes TEXT,
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     UNIQUE (user_id, path)
 );

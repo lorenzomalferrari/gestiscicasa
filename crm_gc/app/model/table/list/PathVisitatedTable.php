@@ -7,7 +7,6 @@
 	{
 		const TABLE_NAME = 'PathVisitated';
 
-		const ID = 'id';
 		const PATH = 'path';
 		const USER_ID = 'user_id';
 		const COUNT = 'count';
@@ -21,7 +20,6 @@
 		{
 			// Unisce le colonne comuni ereditate da BaseTable con quelle specifiche di PathVisitatedTable
 			return array_merge(parent::getCommonColumns(), [
-				self::ID,
 				self::PATH,
 				self::USER_ID,
 				self::COUNT

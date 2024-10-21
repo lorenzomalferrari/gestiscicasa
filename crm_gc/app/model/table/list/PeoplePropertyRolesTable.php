@@ -1,18 +1,18 @@
 <?php declare(strict_types=1);
 
 	/**
-	 * Class representing the 'PersonPropertyRoles' table, extending BaseTable.
+	 * Class representing the 'PeoplePropertyRoles' table, extending BaseTable.
 	 */
-	class PersonPropertyRolesTable extends BaseTable
+	class PeoplePropertyRolesTable extends BaseTable
 	{
-		const TABLE_NAME = 'PersonPropertyRoles';
+		const TABLE_NAME = 'PeoplePropertyRoles';
 
 		const PERSON_ID = 'person_id';
 		const PROPERTY_ID = 'property_id';
 		const ROLE_ID = 'role_id';
 
 		/**
-		 * Get the list of columns for the PersonPropertyRoles table.
+		 * Get the list of columns for the PeoplePropertyRoles table.
 		 *
 		 * @return array List of column names
 		 */

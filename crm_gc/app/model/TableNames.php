@@ -13,12 +13,15 @@
         //A
         //B
         case BLOCKED_IP_ADDRESSES = BlockedIpAddressesTable::TABLE_NAME;
+        case BRAND = BrandTable::TABLE_NAME;
         //C
         case CATALOGS = CatalogsTable::TABLE_NAME;
         case CONTINENTS = ContinentsTable::TABLE_NAME;
         case CRUD_TYPES = CrudTypesTable::TABLE_NAME;
-        case COUNTRIES = CountriesTable::TABLE_NAME;
-        
+        case COUNTRIES = CountriesTable::TABLE_NAME; //DA CONTROLLARE NUOVAMENTE
+        case CATEGORIES = CategoriesTable::TABLE_NAME;
+        case CRUDLOGS = CrudLogsTable::TABLE_NAME;
+        //case CITIES = CitiesTable::TABLE_NAME; //DA CONTROLLARE NUOVAMENTE
         //D
         //E
         case EVENTS = EventsTable::TABLE_NAME;
@@ -39,10 +42,15 @@
         case PROPERTIES = PropertiesTable::TABLE_NAME;
         case PROPERTY_TYPES = PropertyTypesTable::TABLE_NAME;
         case PEOPLE_PROPERTY = PeoplePropertyTable::TABLE_NAME;
+        case PATHVISITATED = PathVisitatedTable::TABLE_NAME;
+        case PRODUCTS = ProductsTable::TABLE_NAME;
+        case PEOPLE_PROPERTY_ROLES = PeoplePropertyRolesTable::TABLE_NAME;
+        
         //Q
         //R
         case ROLES = RolesTable::TABLE_NAME;
         case ROOM_TYPES = RoomTypesTable::TABLE_NAME;
+        case ROOMS = RoomsTable::TABLE_NAME;
         //S
         //T
         //U
@@ -57,14 +65,11 @@
         //Y
         //Z
 
-        case BRAND = BrandTable::TABLE_NAME;
-        case CATEGORY = CategoryTable::TABLE_NAME;
-        case CRUDLOGS = CrudLogsTable::TABLE_NAME;
-        case PERSON_PROPERTY_ROLES = PersonPropertyRolesTable::TABLE_NAME;
-        case PRODUCT = ProductTable::TABLE_NAME;
-        case ROOM = RoomsTable::TABLE_NAME;
+        
+        
+        
+        
         case USERSPROPERTY = UsersPropertyTable::TABLE_NAME;
-        case PATHVISITATED = PathVisitatedTable::TABLE_NAME;
         case NATIONALITIES = NationalitiesTable::TABLE_NAME;
         case PROFILETYPES = ProfileTypesTable::TABLE_NAME;
         case LANGUAGES = LanguagesTable::TABLE_NAME;

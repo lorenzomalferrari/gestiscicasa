@@ -3,7 +3,7 @@
 	/**
 	 * Class representing the 'Products' table, extending BaseTable.
 	 */
-	class ProductTable extends BaseTable
+	class ProductsTable extends BaseTable
 	{
 		const TABLE_NAME = 'Products';
 
