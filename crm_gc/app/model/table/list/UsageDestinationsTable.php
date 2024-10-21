@@ -7,10 +7,9 @@
 	{
 		const TABLE_NAME = 'UsageDestinations';
 
+		const CODE = 'code';
 		const NAME = 'name';
 		const DESCRIPTION = 'description';
-		const CODE = 'code';
-		const COLOR_ID = 'colorId';
 
 		/**
 		 * Get the list of columns for the UsageDestinations table.
@@ -23,8 +22,7 @@
 			return array_merge(parent::getCommonColumns(), [
 				self::NAME,
 				self::DESCRIPTION,
-				self::CODE,
-				self::COLOR_ID,
+				self::CODE
 			]);
 		}
 	}

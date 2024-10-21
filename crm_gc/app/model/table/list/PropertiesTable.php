@@ -3,7 +3,7 @@
 	/**
 	 * Class representing the 'Properties' table, extending BaseTable.
 	 */
-	class PropertyTable extends BaseTable
+	class PropertiesTable extends BaseTable
 	{
 		const TABLE_NAME = 'Properties';
 
@@ -11,7 +11,7 @@
 		const PRICE = 'price';
 		const ADDRESS = 'address';
 		const CITY_ID = 'city_id';
-		const STATE_ID = 'state_id';
+		const COUNTRY_ID = 'country_id';
 		const PROPERTY_TYPE_ID = 'property_type_id';
 		const ACTIVE = 'active';
 
@@ -28,7 +28,7 @@
 				self::PRICE,
 				self::ADDRESS,
 				self::CITY_ID,
-				self::STATE_ID,
+				self::COUNTRY_ID,
 				self::PROPERTY_TYPE_ID,
 				self::ACTIVE,
 			]);

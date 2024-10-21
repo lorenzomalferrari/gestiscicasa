@@ -2,11 +2,12 @@ CREATE TABLE IF NOT EXISTS lm_Genders (
     id INT AUTO_INCREMENT PRIMARY KEY,
     gender VARCHAR(50) NOT NULL UNIQUE,
     notes VARCHAR(255),
+    by_system BIT DEFAULT 0,
     create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-INSERT INTO lm_Genders (gender) VALUES
-('Maschio'),
-('Femmina'),
-('Altro');
+INSERT INTO lm_Genders ( gender, by_system ) VALUES
+('Maschio',1),
+('Femmina',1),
+('Altro',1);

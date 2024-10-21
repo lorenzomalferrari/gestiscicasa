@@ -5,10 +5,11 @@
 	 */
 	class RoomTypesTable extends BaseTable
 	{
-		const TABLE_NAME = 'RoomTypes'; // Corretto 'RoomTypess' in 'RoomTypes'
+		const TABLE_NAME = 'RoomTypes';
 
 		const NAME = 'name';
 		const DESCRIPTION = 'description';
+		const BY_SYSTEM = 'by_system';
 
 		/**
 		 * Get the list of columns for the RoomTypes table.
@@ -20,6 +21,7 @@
 			return array_merge(parent::getCommonColumns(), [
 				self::NAME,
 				self::DESCRIPTION,
+				self::BY_SYSTEM
 			]);
 		}
 	}

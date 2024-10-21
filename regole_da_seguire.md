@@ -16,6 +16,7 @@ Ogni tabella deve avere:
 - Ogni tabella deve avere
 - Chiave esterna sempre nome_tabella_id
 - Due colonne date. Una per indicare l'inserimento e una per indicare l'aggiornamento. Verranno chiamate sempre create_date e update_date.
+- Se la tabella mostra voci di sistema aggiungere colonna "by_system" e settarla a bit e default 0. Gli insert di sistema metteranno il bit a 1
 
 Ci saranno dei controlli CI per ogni voce indicata nell'elenco precedente;
 

@@ -3,14 +3,14 @@
 	/**
 	 * Class representing the 'IndustrySectors' table, extending BaseTable.
 	 */
-	class IndustrySectorTable extends BaseTable
+	class IndustrySectorsTable extends BaseTable
 	{
 		const TABLE_NAME = 'IndustrySectors';
 
 		const NAME = 'name';
 
 		/**
-		 * Get the list of columns for the IndustrySector table.
+		 * Get the list of columns for the IndustrySectors table.
 		 *
 		 * @return array List of column names
 		 */

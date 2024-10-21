@@ -5,11 +5,13 @@
 	 */
 	class CrudTypesTable extends BaseTable
 	{
-		const TABLE_NAME = 'CrudTypess';
+		const TABLE_NAME = 'CrudTypes';
 
-		const NAME = 'nome';
-		const ACTION = 'azione';
-		const VALUE = 'valore';
+		const CODE = 'code';
+		const NAME = 'name';
+		const ACTION = 'action';
+		const VALUE = 'value';
+		const BY_SYSTEM = 'by_system';
 
 		/**
 		 * Get the list of columns for the CrudTypess table.
@@ -19,9 +21,11 @@
 		public static function getColumns(): array
 		{
 			return array_merge(parent::getCommonColumns(), [
+				self::CODE,
 				self::NAME,
 				self::ACTION,
 				self::VALUE,
+				self::BY_SYSTEM
 			]);
 		}
 	}

@@ -6,6 +6,5 @@ CREATE TABLE IF NOT EXISTS lm_UsageDestinations (
     notes TEXT,
     create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    color_id INT,
     FOREIGN KEY (color_id) REFERENCES lm_Colors(id)
 );

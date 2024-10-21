@@ -10,7 +10,6 @@
 		const NAME = 'name';
 		const POPULATION = 'population';
 		const AREA_KM2 = 'area_km2';
-		const DESCRIPTION = 'description';
 
 		/**
 		 * Get the list of columns for the Continents table.
@@ -24,7 +23,6 @@
 				self::NAME,
 				self::POPULATION,
 				self::AREA_KM2,
-				self::DESCRIPTION
 			]);
 		}
 	}

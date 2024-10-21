@@ -1,3 +1,5 @@
+DELETE FROM lm_PeoplePropertyRoles;
+
 CREATE TABLE IF NOT EXISTS lm_PeoplePropertyRoles (
     person_id INT NOT NULL,
     property_id INT NOT NULL,

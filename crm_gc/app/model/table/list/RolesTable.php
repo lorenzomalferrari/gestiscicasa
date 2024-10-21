@@ -3,23 +3,18 @@
 	/**
 	 * Class representing the 'Roles' table.
 	 */
-	class RolesTable
+	class RolesTable extends BaseTable
 	{
 		const TABLE_NAME = 'Roles';
 
-		const ID = 'id';
-		const ROLE_NAME = 'roleName';
+		const NAME = 'name';
+		const BY_SYSTEM = 'by_system';
 
-		/**
-		 * Get the list of columns for the Roles table.
-		 *
-		 * @return array List of column names
-		 */
 		public static function getColumns(): array
 		{
-			return [
-				self::ID,
-				self::ROLE_NAME
-			];
+			return array_merge(parent::getCommonColumns(), [
+				self::NAME,
+				self::BY_SYSTEM
+			]);
 		}
 	}

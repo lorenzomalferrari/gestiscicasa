@@ -3,7 +3,7 @@
 	/**
 	 * Class representing the 'Events' table, extending BaseTable.
 	 */
-	class EventTable extends BaseTable
+	class EventsTable extends BaseTable
 	{
 		const TABLE_NAME = 'Events';
 

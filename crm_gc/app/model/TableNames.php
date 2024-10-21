@@ -10,27 +10,60 @@
 
     enum EnumTableNames: string
     {
-        case BRAND = BrandTable::TABLE_NAME;
-        case CATALOG = CatalogTable::TABLE_NAME;
-        case CATEGORY = CategoryTable::TABLE_NAME;
+        //A
+        //B
+        case BLOCKED_IP_ADDRESSES = BlockedIpAddressesTable::TABLE_NAME;
+        //C
+        case CATALOGS = CatalogsTable::TABLE_NAME;
         case CONTINENTS = ContinentsTable::TABLE_NAME;
+        case CRUD_TYPES = CrudTypesTable::TABLE_NAME;
         case COUNTRIES = CountriesTable::TABLE_NAME;
+        
+        //D
+        //E
+        case EVENTS = EventsTable::TABLE_NAME;
+        //F
+        //G
+        case GENDERS = GendersTable::TABLE_NAME;
+        //H
+        //I
+        case INDUSTRY_SECTORS = IndustrySectorsTable::TABLE_NAME;
+        //J
+        //K
+        //L
+        //M
+        //N
+        //O
+        //P
+        case PEOPLE = PeopleTable::TABLE_NAME;
+        case PROPERTIES = PropertiesTable::TABLE_NAME;
+        case PROPERTY_TYPES = PropertyTypesTable::TABLE_NAME;
+        case PEOPLE_PROPERTY = PeoplePropertyTable::TABLE_NAME;
+        //Q
+        //R
+        case ROLES = RolesTable::TABLE_NAME;
+        case ROOM_TYPES = RoomTypesTable::TABLE_NAME;
+        //S
+        //T
+        //U
+        case USER_ROLES = UserRolesTable::TABLE_NAME;
+        case USERS = UsersTable::TABLE_NAME;
+        case USAGEDESTINATIONS = UsageDestinationsTable::TABLE_NAME;
+        //V
+        case VERSIONDB = VersionDBTable::TABLE_NAME;
+        case VISITED_COLUMNS = VisitedColumnsTable::TABLE_NAME;
+        //W
+        //X
+        //Y
+        //Z
+
+        case BRAND = BrandTable::TABLE_NAME;
+        case CATEGORY = CategoryTable::TABLE_NAME;
         case CRUDLOGS = CrudLogsTable::TABLE_NAME;
-        case CRUDTYPES = CrudTypesTable::TABLE_NAME;
-        case EVENT = EventTable::TABLE_NAME;
-        case GENDER = GenderTable::TABLE_NAME;
-        case PEOPLE = PersonTable::TABLE_NAME;
         case PERSON_PROPERTY_ROLES = PersonPropertyRolesTable::TABLE_NAME;
         case PRODUCT = ProductTable::TABLE_NAME;
-        case PROPERTIES = PropertyTable::TABLE_NAME;
-        case PROPERTYTYPES = PropertyTypesTable::TABLE_NAME;
-        case ROLE = RolesTable::TABLE_NAME;
         case ROOM = RoomsTable::TABLE_NAME;
-        case ROOMTYPES = RoomTypesTable::TABLE_NAME;
-        case USAGEDESTINATIONS = UsageDestinationsTable::TABLE_NAME;
-        case USERS = UsersTable::TABLE_NAME;
         case USERSPROPERTY = UsersPropertyTable::TABLE_NAME;
-        case VERSIONDB = VersionDBTable::TABLE_NAME;
         case PATHVISITATED = PathVisitatedTable::TABLE_NAME;
         case NATIONALITIES = NationalitiesTable::TABLE_NAME;
         case PROFILETYPES = ProfileTypesTable::TABLE_NAME;
@@ -40,7 +73,6 @@
         case INFOPROFILETYPES = InfoProfileTypesTable::TABLE_NAME;
         case EXPENSE = ExpenseTable::TABLE_NAME;
         case EXPENSETYPES = ExpenseTypesTable::TABLE_NAME;
-        case INDUSTRY_SECTOR = IndustrySectorTable::TABLE_NAME;
 
         // Funzione per ottenere il caso dell'enum dal valore della tabella
         private static function getEnumCaseFromValue(string $value): ?self
